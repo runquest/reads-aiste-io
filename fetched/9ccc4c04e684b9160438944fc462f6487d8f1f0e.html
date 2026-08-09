@@ -1,0 +1,1781 @@
+<!-- source: https://leadershipintech.com/links/22789/027d9985-d4c5-48a7-af59-5152efd9c8a4/email -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call. | Ido Green</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://greenido.dev/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/ryu/js/html5.js?m=1364149541i" type="text/javascript"></script>
+<![endif]-->
+
+<title>The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call. &#8211; Ido Green</title>
+<meta name='robots' content='max-image-preview:large' />
+<meta name="google-site-verification" content="KRWLoZjWm34UhmEGbD-U9DXFfTPnMM8AYR5RGl7uFqw" />
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.parentNode.removeChild( dom_node ); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[ i ].parentNode.removeChild( dom_nodes[ i ] );
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '/remote-login.php?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+					+ '//' + window.location.hostname
+					+ '&postid=12997'
+					+ '&is_singular=1';
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly9ncmVlbmlkby5kZXY%3D"
+		+ "&wpcomid=8823334"
+		+ "&time=" + Math.floor( Date.now() / 1000 );
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel='dns-prefetch' href='//fonts-api.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Ido Green &raquo; Feed" href="https://greenido.dev/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Ido Green &raquo; Comments Feed" href="https://greenido.dev/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Ido Green &raquo; The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call. Comments Feed" href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-2-1' href='/_static/??-eJxtjEsKgDAMBS9kjbqwuBDPUtog9o9J8fpaEQSRBw8GhoEjC50iY2QIRWRf1i0SWOSstHsYQkr1TPFIsKNXjEbkRPyhVhM18J/0m8M3fFPVlzD3UnbTtWG0J2CTNNk=&cssminify=yes' type='text/css' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/common.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/group/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/separator/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/heading/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/paragraph/style.min.css */
+</style>
+<style id="wp-block-library-inline-css-extra">
+.has-text-align-justify {
+	text-align:justify;
+}
+.has-text-align-justify{text-align:justify;}
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+.wp-block-button__link{background-color:#32373c;border-radius:9999px;box-shadow:none;color:#fff;font-size:1.125em;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-file__button{background:#32373c;color:#fff}.wp-block-accordion-heading{margin:0}.wp-block-accordion-heading__toggle{background-color:inherit!important;color:inherit!important}.wp-block-accordion-heading__toggle:not(:focus-visible){outline:none}.wp-block-accordion-heading__toggle:focus,.wp-block-accordion-heading__toggle:hover{background-color:inherit!important;border:none;box-shadow:none;color:inherit;padding:var(--wp--preset--spacing--20,1em) 0;text-decoration:none}.wp-block-accordion-heading__toggle:focus-visible{outline:auto;outline-offset:0}.wp-block-tab:not(.has-text-color){color:inherit!important}.wp-block-tab:not(.has-background){background-color:inherit!important}.wp-block-tab:focus,.wp-block-tab:hover{text-decoration:none}.wp-block-tab:focus-visible{outline:auto;outline-offset:0}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.7.1/build/styles/block-library/classic.min.css */
+</style>
+
+<style id="coblocks-inline-format-inline-css">
+.uppercase{text-transform:uppercase}
+/*# sourceURL=coblocks-inline-format-inline-css */
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-12-1' href='/_static/??-eJx9jUsOwjAMRC+EY6UgCAvEWZrEKoG4jWq3hduTLvisurFG1nszuBQIQ6/UK5Y8dakXDIPPQ3gINsY6Y0ESl0ww0mwOGJPolwDRVyYTRHb4V8QT/LpGqn8ura4EU0wtZeKKbWlLih1p1eWTQem5rZQ6A96XkUSgXk4Tg97qlqzelS/26KzbN835dH8DjlpbIA==&cssminify=yes' type='text/css' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--bricolage-grotesque: 'Bricolage Grotesque', sans-serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--dm-serif-display: 'DM Serif Display', serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--fahkwang: Fahkwang, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fjalla-one: 'Fjalla One', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--gabarito: Gabarito, system-ui;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--ibarra-real-nova: 'Ibarra Real Nova', serif;--wp--preset--font-family--instrument-serif: 'Instrument Serif', serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--noto-sans-mono: 'Noto Sans Mono', sans-serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--pt-serif: 'PT Serif', serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--rufina: Rufina, serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--syne: Syne, sans-serif;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--urbanist: Urbanist, sans-serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-bricolage-grotesque-font-family{font-family: var(--wp--preset--font-family--bricolage-grotesque) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-dm-serif-display-font-family{font-family: var(--wp--preset--font-family--dm-serif-display) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-fahkwang-font-family{font-family: var(--wp--preset--font-family--fahkwang) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fjalla-one-font-family{font-family: var(--wp--preset--font-family--fjalla-one) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-gabarito-font-family{font-family: var(--wp--preset--font-family--gabarito) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-ibarra-real-nova-font-family{font-family: var(--wp--preset--font-family--ibarra-real-nova) !important;}.has-instrument-serif-font-family{font-family: var(--wp--preset--font-family--instrument-serif) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-noto-sans-mono-font-family{font-family: var(--wp--preset--font-family--noto-sans-mono) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-pt-serif-font-family{font-family: var(--wp--preset--font-family--pt-serif) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-rufina-font-family{font-family: var(--wp--preset--font-family--rufina) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-syne-font-family{font-family: var(--wp--preset--font-family--syne) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-urbanist-font-family{font-family: var(--wp--preset--font-family--urbanist) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-14-1' href='/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/moon/jetpack_vendor/automattic/jetpack-mu-wpcom/src/build/verbum-comments/verbum-comments.css?m=1785895867i&cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='verbum-gutenberg-css-css' href='https://widgets.wp.com/verbum-block-editor/block-editor.css?ver=1771405207' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-16-1' href='/_static/??/wp-content/mu-plugins/jetpack-plugin/moon/_inc/genericons/genericons/genericons.css,/wp-content/themes/pub/ryu/style.css?m=1771606380j&cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='ryu-lato-css' href='https://fonts-api.wp.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&#038;subset=latin,latin-ext' media='all' />
+<link rel='stylesheet' id='ryu-playfair-display-css' href='https://fonts-api.wp.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic&#038;subset=latin,latin-ext' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-20-1' href='/_static/??-eJzTLy/QTc7PK0nNK9HPLdUtyClNz8wr1i9KTcrJTwcy0/WTi5G5ekCujj52Temp+bo5+cmJJZn5eSgc3bScxMwikFb7XFtDE1NLExMLc0OTLACohS2q&cssminify=yes' type='text/css' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='print-css-21-1' href='/wp-content/mu-plugins/global-print/global-print.css?m=1465851035i&cssminify=yes' type='text/css' media='print' />
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+/*# sourceURL=jetpack-global-styles-frontend-style-inline-css */
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-24-1' href='/_static/??-eJyNjcEKAjEMRH/ImhVlqwfxU6TbhrZrmhTTIv69u+JFvHgZ5sHwBh7VeOGG3KB0U6nHzAoztur87cNQRNYInVBBk7tjcCE83zVz3HrVDfxvumb2MPVMAVR8dmRIougX/DhbwrK8pwNEksnROriU884e9+PJDnaYXxwFS20=&cssminify=yes' type='text/css' media='all' />
+<script id="jetpack_related-posts-js-extra">
+var related_posts_js_options = {"post_heading":"h4"};
+//# sourceURL=jetpack_related-posts-js-extra
+</script>
+<script id="wpcom-actionbar-placeholder-js-extra">
+var actionbardata = {"siteID":"8823334","postID":"12997","siteURL":"https://greenido.dev","xhrURL":"https://greenido.dev/wp-admin/admin-ajax.php","nonce":"72239ec256","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https://s0.wp.com/wp-content/js/wpcom-proxy-request.js?m=1513050504i&amp;ver=20211021","shortlink":"https://wp.me/pB1lQ-3nD","i18n":{"followedText":"New posts from this site will now appear in your \u003Ca href=\"https://wordpress.com/reader\"\u003EReader\u003C/a\u003E","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","shortLinkCopied":"Shortlink copied to clipboard."}};
+//# sourceURL=wpcom-actionbar-placeholder-js-extra
+</script>
+<script id="jetpack-mu-wpcom-settings-js-before">
+var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"https://s1.wp.com/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/moon/jetpack_vendor/automattic/jetpack-mu-wpcom/src/build/"};
+//# sourceURL=jetpack-mu-wpcom-settings-js-before
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/_static/??-eJx1jcEOwiAQRH/I7dYm6Mn4KabCpgFhQVhS+/digkk9eJpM5uUNrgl0ZCEWDBWSr4vlgo4kzfrRO4YYGW+WNd6r9QYz+VnIQIpFym8bguXBlQPuxK4xXiDl+Nq+W5P5aqh8RveslLcee8FfCIJdcjvt8DVcjmelxvE0Tcq9AV2gTlk='></script>
+<script id="rlt-proxy-js-after">
+	rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+//# sourceURL=rlt-proxy-js-after
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://greenido.wordpress.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/" />
+<link rel='shortlink' href='https://wp.me/pB1lQ-3nD' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fgreenido.dev%2F2026%2F07%2F10%2Fthe-cheapest-way-into-your-business-isnt-malware-its-a-phone-call%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fgreenido.dev%2F2026%2F07%2F10%2Fthe-cheapest-way-into-your-business-isnt-malware-its-a-phone-call%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call." />
+<meta property="og:url" content="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/" />
+<meta property="og:description" content="Learn the top cybersecurity risks facing SMBs in 2026, from ransomware and BEC to identity attacks and browser-based compromise, with practical priorities for action." />
+<meta property="article:published_time" content="2026-07-10T14:07:00+00:00" />
+<meta property="article:modified_time" content="2026-07-09T17:31:42+00:00" />
+<meta property="og:site_name" content="Ido Green" />
+<meta property="og:image" content="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png" />
+<meta property="og:image:width" content="696" />
+<meta property="og:image:height" content="696" />
+<meta property="og:image:alt" content="Stone and wood arched doorway with glowing digital overlay showing a garden path and plants" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+<meta name="twitter:text:title" content="The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call." />
+<meta name="twitter:image" content="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=640" />
+<meta name="twitter:image:alt" content="Stone and wood arched doorway with glowing digital overlay showing a garden path and plants" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel='openid.server' href='https://greenido.dev/?openidserver=1' />
+<link rel='openid.delegate' href='https://greenido.dev/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://greenido.dev/osd.xml" title="Ido Green" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="theme-color" content="#f9f9f9" />
+<meta property="fediverse:creator" name="fediverse:creator" content="greenido.dev@greenido.dev" />
+<meta name="description" content="Learn the top cybersecurity risks facing SMBs in 2026, from ransomware and BEC to identity attacks and browser-based compromise, with practical priorities for action." />
+	<style type="text/css">
+			.site-title a,
+		.site-description {
+			color: #0b0e49;
+		}
+		</style>
+	<style id="custom-background-css">
+body.custom-background { background-color: #f9f9f9; }
+</style>
+
+<link rel="alternate" title="ActivityPub (JSON)" type="application/activity+json" href="https://greenido.dev/?p=12997" />
+<link rel="icon" href="https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=32" sizes="32x32" />
+<link rel="icon" href="https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=192" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=180" />
+<meta name="msapplication-TileImage" content="https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=270" />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-5' href='/wp-content/mu-plugins/jetpack-plugin/moon/modules/widgets/top-posts/style.css?m=1753284714i&cssminify=yes' type='text/css' media='all' />
+<style id="jetpack-block-subscriptions-inline-css">
+.is-style-compact .is-not-subscriber :is(.wp-block-button__link,.wp-block-jetpack-subscriptions__button){border-end-start-radius:0!important;border-start-start-radius:0!important;margin-inline-start:0!important}.is-style-compact .is-not-subscriber .components-text-control__input,.is-style-compact .is-not-subscriber p#subscribe-email input[type=email]{border-end-end-radius:0!important;border-start-end-radius:0!important}.is-style-compact:not(.wp-block-jetpack-subscriptions__use-newline) .components-text-control__input{border-inline-end-width:0!important}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form-container{display:flex;flex-direction:column}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline:not(.wp-block-jetpack-subscriptions__use-newline) .is-not-subscriber .wp-block-jetpack-subscriptions__form-elements{align-items:flex-start;display:flex}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline:not(.wp-block-jetpack-subscriptions__use-newline) p#subscribe-submit{display:flex;justify-content:center}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__textfield .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email],.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__textfield .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]{box-sizing:border-box;cursor:pointer;line-height:1.3;min-width:auto!important;white-space:nowrap!important}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled{color:currentColor;opacity:.5}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form button{border-color:#0000;border-style:solid}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__textfield,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-email,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__textfield,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-email{background:#0000;flex-grow:1}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__textfield .components-base-control__field,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__textfield .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form .wp-block-jetpack-subscriptions__textfield input[type=email],.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-email .components-base-control__field,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-email .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-email input[type=email],.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__textfield .components-base-control__field,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__textfield .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form .wp-block-jetpack-subscriptions__textfield input[type=email],.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-email .components-base-control__field,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-email .components-text-control__input,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-email input[type=email]{height:auto;margin:0;width:100%}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-email,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form p#subscribe-submit,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-email,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form p#subscribe-submit{line-height:0;margin:0;padding:0}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline.wp-block-jetpack-subscriptions__show-subs .wp-block-jetpack-subscriptions__subscount{font-size:16px;margin:8px 0;text-align:end}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline.wp-block-jetpack-subscriptions__use-newline .wp-block-jetpack-subscriptions__form-elements{display:block}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline.wp-block-jetpack-subscriptions__use-newline .wp-block-jetpack-subscriptions__button,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline.wp-block-jetpack-subscriptions__use-newline button{display:inline-block;max-width:100%}.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline.wp-block-jetpack-subscriptions__use-newline .wp-block-jetpack-subscriptions__subscount{text-align:start}#subscribe-submit.is-link{text-align:center;width:auto!important}#subscribe-submit.is-link a{margin-left:0!important;margin-top:0!important;width:auto!important}@keyframes jetpack-memberships_button__spinner-animation{to{transform:rotate(1turn)}}.jetpack-memberships-spinner{display:none;height:1em;margin:0 0 0 5px;width:1em}.jetpack-memberships-spinner svg{height:100%;margin-bottom:-2px;width:100%}.jetpack-memberships-spinner-rotating{animation:jetpack-memberships_button__spinner-animation .75s linear infinite;transform-origin:center}.is-loading .jetpack-memberships-spinner{display:inline-block}body.jetpack-memberships-modal-open{overflow:hidden}dialog.jetpack-memberships-modal{opacity:1}dialog.jetpack-memberships-modal,dialog.jetpack-memberships-modal iframe{background:#0000;border:0;bottom:0;box-shadow:none;height:100%;left:0;margin:0;padding:0;position:fixed;right:0;top:0;width:100%}dialog.jetpack-memberships-modal::backdrop{background-color:#000;opacity:.7;transition:opacity .2s ease-out}dialog.jetpack-memberships-modal.is-loading,dialog.jetpack-memberships-modal.is-loading::backdrop{opacity:0}
+/*# sourceURL=/wp-content/mu-plugins/jetpack-plugin/moon/_inc/blocks/subscriptions/view.css?minify=false */
+</style>
+<style id="core-block-supports-inline-css">
+.wp-container-core-group-is-layout-558d648c > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:480px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-558d648c > .alignwide{max-width:480px;}.wp-container-core-group-is-layout-558d648c .alignfull{max-width:none;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+
+<body class="wp-singular post-template-default single single-post postid-12997 single-format-standard custom-background wp-theme-pubryu customizer-styles-applied widgets-hidden jetpack-reblog-enabled">
+
+
+<div id="page" class="hfeed site">
+		<div id="widgets-wrapper" class="toppanel hide">
+		<div id="secondary" role="complementary" class="wrap clear four">
+		<div id="top-sidebar-one" class="widget-area" role="complementary">
+		<aside id="text-4" class="widget widget_text">			<div class="textwidget"><p>My Book<br />
+<a href="http://www.amazon.com/gp/product/1449322131/ref=as_li_ss_tl?ie=UTF8&amp;tag=mybuwa-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1449322131">Web Workers: Multithreaded Programs in JavaScript<br />
+<img src="https://greenido.files.wordpress.com/2012/06/screen-shot-2012-06-01-at-9-51-36-am.png?w=120" /><br />
+</a><br />
+<img src="http://www.assoc-amazon.com/e/ir?t=mybuwa-20&amp;l=as2&amp;o=1&amp;a=1449322131" width="1" height="1" border="0" alt="" style="border:none !important;margin:0!important;" /></p>
+<ul>
+<li><a href="http://ido-green.appspot.com/">Ido's Projects</a></li>
+<ul>
+</div>
+		</aside><aside id="twitter-3" class="widget widget_twitter"><h1 class="widget-title"><a href='http://twitter.com/greenido'>Twitter Updates</a></h1><a class="twitter-timeline" data-height="600" data-dnt="true" href="https://twitter.com/greenido">Tweets by greenido</a></aside>	</div><!-- #first .widget-area -->
+	
+		<div id="top-sidebar-two" class="widget-area" role="complementary">
+		<aside id="text-2" class="widget widget_text"><h1 class="widget-title">Subscribe</h1>			<div class="textwidget"><h3><a href="http://feedburner.google.com/fb/a/mailverify?uri=wordpress/iFnB&amp;loc=en_US">Subscribe and get the next post by Email</a></h3>
+Yes! All the opinions expressed here are my own, and no other party necessarily agrees with them</div>
+		</aside><aside id="follow_button_widget-3" class="widget widget_follow_button_widget">
+		<a class="wordpress-follow-button" href="https://greenido.dev" data-blog="8823334" data-lang="en" >Follow Ido Green on WordPress.com</a>
+		<script type="text/javascript">(function(d){ window.wpcomPlatform = {"titles":{"timelines":"Embeddable Timelines","followButton":"Follow Button","wpEmbeds":"WordPress Embeds"}}; var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');p.type = 'text/javascript';p.async = true;p.src = '//widgets.wp.com/platform.js';f.parentNode.insertBefore(p,f);}(document));</script>
+
+		</aside><aside id="text-3" class="widget widget_text"><h1 class="widget-title">Le Ha&#8217;aim!</h1>			<div class="textwidget"><img src="https://i0.wp.com/farm4.static.flickr.com/3071/3032824762_2b33115eea_m.jpg" alt="always travel and do not forget to drink something" style="padding:10px;">
+
+<p align="justify">
+(!) Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the BSD License. </p>
+</div>
+		</aside>	</div><!-- #second .widget-area -->
+	
+		<div id="top-sidebar-three" class="widget-area" role="complementary">
+		<aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Top Posts</h1><ul><li><a href="https://greenido.dev/2026/08/03/grc-platforms-vs-managed-compliance-understanding-the-gaps/" class="bump-view" data-bump-view="tp">GRC Platforms vs. Managed Compliance: Understanding the Gaps</a></li><li><a href="https://greenido.dev/2014/08/04/youtube-analytics-dashboard-with-apps-script/" class="bump-view" data-bump-view="tp">YouTube Analytics Dashboard With Apps Script</a></li><li><a href="https://greenido.dev/2025/11/24/protect-your-digital-life-3-key-security-habits/" class="bump-view" data-bump-view="tp">Protect Your Digital Life: 3 Key Security Habits</a></li><li><a href="https://greenido.dev/2014/10/05/web-fundamental-update/" class="bump-view" data-bump-view="tp">Web Fundamental Update</a></li><li><a href="https://greenido.dev/2011/06/21/html5-on-mobile/" class="bump-view" data-bump-view="tp">HTML5 On Mobile</a></li></ul></aside><aside id="categories-2" class="widget widget_categories"><h1 class="widget-title">Categories</h1>
+			<ul>
+					<li class="cat-item cat-item-14067"><a href="https://greenido.dev/category/ai/">AI</a> (34)
+</li>
+	<li class="cat-item cat-item-641922"><a href="https://greenido.dev/category/android/">Android</a> (8)
+</li>
+	<li class="cat-item cat-item-104422"><a href="https://greenido.dev/category/bots/">bots</a> (36)
+</li>
+	<li class="cat-item cat-item-179"><a href="https://greenido.dev/category/business/">Business</a> (223)
+</li>
+	<li class="cat-item cat-item-15497753"><a href="https://greenido.dev/category/chrome-2/">Chrome</a> (227)
+</li>
+	<li class="cat-item cat-item-69816"><a href="https://greenido.dev/category/cloud/">cloud</a> (42)
+</li>
+	<li class="cat-item cat-item-5324"><a href="https://greenido.dev/category/crypto/">Crypto</a> (3)
+</li>
+	<li class="cat-item cat-item-148"><a href="https://greenido.dev/category/design/">Design</a> (9)
+</li>
+	<li class="cat-item cat-item-45065"><a href="https://greenido.dev/category/good-food/">good food</a> (4)
+</li>
+	<li class="cat-item cat-item-56789635"><a href="https://greenido.dev/category/webdev/html5-webdev/">HTML5</a> (123)
+</li>
+	<li class="cat-item cat-item-457"><a href="https://greenido.dev/category/webdev/javascript/">JavaScript</a> (145)
+</li>
+	<li class="cat-item cat-item-124"><a href="https://greenido.dev/category/life/">life</a> (157)
+</li>
+	<li class="cat-item cat-item-120"><a href="https://greenido.dev/category/webdev/mobile/">mobile</a> (33)
+</li>
+	<li class="cat-item cat-item-458"><a href="https://greenido.dev/category/webdev/php/">php</a> (11)
+</li>
+	<li class="cat-item cat-item-825"><a href="https://greenido.dev/category/sport/">Sport</a> (47)
+</li>
+	<li class="cat-item cat-item-12"><a href="https://greenido.dev/category/testing/">testing</a> (3)
+</li>
+	<li class="cat-item cat-item-200"><a href="https://greenido.dev/category/travel/">travel</a> (7)
+</li>
+	<li class="cat-item cat-item-820"><a href="https://greenido.dev/category/webdev/">webdev</a> (229)
+</li>
+			</ul>
+
+			</aside><aside id="text-6" class="widget widget_text">			<div class="textwidget"><img src="https://ga-beacon.appspot.com/UA-65622529-1/greenido.wordpress.com/main?pixel">
+</div>
+		</aside>	</div><!-- #third .widget-area -->
+	
+		<div id="top-sidebar-four" class="widget-area" role="complementary">
+		<aside id="pages-3" class="widget widget_pages"><h1 class="widget-title">Pages</h1>
+			<ul>
+				<li class="page_item page-item-2 page_item_has_children"><a href="https://greenido.dev/about/">About</a>
+<ul class='children'>
+	<li class="page_item page-item-2236"><a href="https://greenido.dev/about/mountain-bike-and-mtbo-events/">Mountain Bike 2012</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1645"><a href="https://greenido.dev/chrome/">Chrome Videos From 2011-2012</a></li>
+<li class="page_item page-item-11742"><a href="https://greenido.dev/ultimate-guide-to-gravel-and-road-cycling-adventures/">Cycling Adventures</a></li>
+<li class="page_item page-item-11713"><a href="https://greenido.dev/how-to-tune-your-breville-espresso-like-a-pro-%e2%98%95%ef%b8%8f/">Espresso ☕️</a></li>
+<li class="page_item page-item-9985"><a href="https://greenido.dev/point-of-views-and-thoughts-to-remember/">Point of views &amp; Art from 2011</a></li>
+<li class="page_item page-item-11236"><a href="https://greenido.dev/privacy-policy/">Privacy Policy</a></li>
+			</ul>
+
+			</aside><aside id="archives-3" class="widget widget_archive"><h1 class="widget-title">Archives</h1>		<label class="screen-reader-text" for="archives-dropdown-3">Archives</label>
+		<select id="archives-dropdown-3" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value='https://greenido.dev/2026/08/'> August 2026 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2026/07/'> July 2026 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2026/06/'> June 2026 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2026/05/'> May 2026 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2026/04/'> April 2026 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2026/03/'> March 2026 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2026/02/'> February 2026 &nbsp;(8)</option>
+	<option value='https://greenido.dev/2026/01/'> January 2026 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2025/12/'> December 2025 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2025/11/'> November 2025 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2025/10/'> October 2025 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2025/09/'> September 2025 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2025/08/'> August 2025 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2025/07/'> July 2025 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2025/06/'> June 2025 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2025/05/'> May 2025 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2025/03/'> March 2025 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2025/02/'> February 2025 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2025/01/'> January 2025 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2024/11/'> November 2024 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2024/10/'> October 2024 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2024/09/'> September 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/08/'> August 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/06/'> June 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/05/'> May 2024 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2024/04/'> April 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/03/'> March 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/02/'> February 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2024/01/'> January 2024 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2023/09/'> September 2023 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2023/08/'> August 2023 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2023/07/'> July 2023 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2023/06/'> June 2023 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2023/05/'> May 2023 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2023/04/'> April 2023 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2023/03/'> March 2023 &nbsp;(8)</option>
+	<option value='https://greenido.dev/2023/02/'> February 2023 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2023/01/'> January 2023 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2022/12/'> December 2022 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2022/11/'> November 2022 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2022/09/'> September 2022 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2022/05/'> May 2022 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2022/04/'> April 2022 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2022/03/'> March 2022 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2022/01/'> January 2022 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2021/12/'> December 2021 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2021/05/'> May 2021 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2021/04/'> April 2021 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2020/12/'> December 2020 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2020/10/'> October 2020 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2020/04/'> April 2020 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2020/03/'> March 2020 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2020/02/'> February 2020 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2020/01/'> January 2020 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2019/12/'> December 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/11/'> November 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/10/'> October 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/08/'> August 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/07/'> July 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/06/'> June 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/05/'> May 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/04/'> April 2019 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2019/03/'> March 2019 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2019/01/'> January 2019 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2018/12/'> December 2018 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2018/10/'> October 2018 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2018/08/'> August 2018 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2018/07/'> July 2018 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2018/06/'> June 2018 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2018/05/'> May 2018 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2018/04/'> April 2018 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2018/03/'> March 2018 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2018/02/'> February 2018 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2018/01/'> January 2018 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2017/12/'> December 2017 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2017/11/'> November 2017 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2017/10/'> October 2017 &nbsp;(8)</option>
+	<option value='https://greenido.dev/2017/09/'> September 2017 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2017/08/'> August 2017 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2017/07/'> July 2017 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2017/06/'> June 2017 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2017/05/'> May 2017 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2017/04/'> April 2017 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2017/03/'> March 2017 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2017/02/'> February 2017 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2017/01/'> January 2017 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2016/12/'> December 2016 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2016/11/'> November 2016 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2016/10/'> October 2016 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2016/09/'> September 2016 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2016/08/'> August 2016 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2016/07/'> July 2016 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2016/06/'> June 2016 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2016/04/'> April 2016 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2016/03/'> March 2016 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2016/02/'> February 2016 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2016/01/'> January 2016 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2015/12/'> December 2015 &nbsp;(8)</option>
+	<option value='https://greenido.dev/2015/11/'> November 2015 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2015/10/'> October 2015 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2015/09/'> September 2015 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2015/08/'> August 2015 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2015/07/'> July 2015 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2015/06/'> June 2015 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2015/05/'> May 2015 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2015/04/'> April 2015 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2015/03/'> March 2015 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2015/02/'> February 2015 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2015/01/'> January 2015 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2014/12/'> December 2014 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2014/11/'> November 2014 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2014/10/'> October 2014 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2014/09/'> September 2014 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2014/08/'> August 2014 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2014/07/'> July 2014 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2014/06/'> June 2014 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2014/05/'> May 2014 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2014/04/'> April 2014 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2014/03/'> March 2014 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2014/02/'> February 2014 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2013/12/'> December 2013 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2013/11/'> November 2013 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2013/10/'> October 2013 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2013/09/'> September 2013 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2013/08/'> August 2013 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2013/07/'> July 2013 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2013/06/'> June 2013 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2013/05/'> May 2013 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2013/04/'> April 2013 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2013/03/'> March 2013 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2013/02/'> February 2013 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2013/01/'> January 2013 &nbsp;(8)</option>
+	<option value='https://greenido.dev/2012/12/'> December 2012 &nbsp;(11)</option>
+	<option value='https://greenido.dev/2012/11/'> November 2012 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2012/10/'> October 2012 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2012/09/'> September 2012 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2012/08/'> August 2012 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2012/07/'> July 2012 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2012/06/'> June 2012 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2012/05/'> May 2012 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2012/04/'> April 2012 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2012/03/'> March 2012 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2012/02/'> February 2012 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2012/01/'> January 2012 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2011/12/'> December 2011 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2011/11/'> November 2011 &nbsp;(13)</option>
+	<option value='https://greenido.dev/2011/10/'> October 2011 &nbsp;(18)</option>
+	<option value='https://greenido.dev/2011/09/'> September 2011 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2011/08/'> August 2011 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2011/07/'> July 2011 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2011/06/'> June 2011 &nbsp;(10)</option>
+	<option value='https://greenido.dev/2011/05/'> May 2011 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2011/04/'> April 2011 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2011/03/'> March 2011 &nbsp;(9)</option>
+	<option value='https://greenido.dev/2011/02/'> February 2011 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2011/01/'> January 2011 &nbsp;(10)</option>
+	<option value='https://greenido.dev/2010/12/'> December 2010 &nbsp;(11)</option>
+	<option value='https://greenido.dev/2010/11/'> November 2010 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2010/10/'> October 2010 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2010/09/'> September 2010 &nbsp;(1)</option>
+	<option value='https://greenido.dev/2010/08/'> August 2010 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2010/07/'> July 2010 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2010/05/'> May 2010 &nbsp;(3)</option>
+	<option value='https://greenido.dev/2010/04/'> April 2010 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2010/03/'> March 2010 &nbsp;(7)</option>
+	<option value='https://greenido.dev/2010/02/'> February 2010 &nbsp;(6)</option>
+	<option value='https://greenido.dev/2010/01/'> January 2010 &nbsp;(4)</option>
+	<option value='https://greenido.dev/2009/12/'> December 2009 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2009/11/'> November 2009 &nbsp;(5)</option>
+	<option value='https://greenido.dev/2009/10/'> October 2009 &nbsp;(2)</option>
+	<option value='https://greenido.dev/2009/09/'> September 2009 &nbsp;(10)</option>
+	<option value='https://greenido.dev/2009/08/'> August 2009 &nbsp;(8)</option>
+
+		</select>
+
+			<script>
+( ( dropdownId ) => {
+	const dropdown = document.getElementById( dropdownId );
+	function onSelectChange() {
+		setTimeout( () => {
+			if ( 'escape' === dropdown.dataset.lastkey ) {
+				return;
+			}
+			if ( dropdown.value ) {
+				document.location.href = dropdown.value;
+			}
+		}, 250 );
+	}
+	function onKeyUp( event ) {
+		if ( 'Escape' === event.key ) {
+			dropdown.dataset.lastkey = 'escape';
+		} else {
+			delete dropdown.dataset.lastkey;
+		}
+	}
+	function onClick() {
+		delete dropdown.dataset.lastkey;
+	}
+	dropdown.addEventListener( 'keyup', onKeyUp );
+	dropdown.addEventListener( 'click', onClick );
+	dropdown.addEventListener( 'change', onSelectChange );
+})( "archives-dropdown-3" );
+
+//# sourceURL=WP_Widget_Archives%3A%3Awidget
+</script>
+</aside>	</div><!-- #four .widget-area -->
+	</div><!-- #secondary -->	</div>
+	
+		<div id="social-links-wrapper" class="toppanel hide">
+		<ul class="social-links clear">
+			
+						<li class="twitter-link">
+				<a href="http://twitter.com/greenido" class="theme-genericon" title="Twitter" target="_blank">
+					<span class="screen-reader-text">Twitter</span>
+				</a>
+			</li>
+			
+			
+			
+			
+						<li class="linkedin-link">
+				<a href="http://www.linkedin.com/in/greenido/" class="theme-genericon" title="LinkedIn" target="_blank">
+					<span class="screen-reader-text">LinkedIn</span>
+				</a>
+			</li>
+			
+			
+			
+						<li class="github-link">
+				<a href="http://github.com/greenido" class="theme-genericon" title="GitHub" target="_blank">
+					<span class="screen-reader-text">GitHub</span>
+				</a>
+			</li>
+			
+			
+			
+			
+					</ul>
+	</div>
+	
+	<div id="search-wrapper" class="toppanel hide">
+		
+<form method="get" id="searchform" class="searchform" action="https://greenido.dev/" role="search">
+	<label for="s" class="screen-reader-text">Search</label>
+	<input type="search" class="field" name="s" value="" id="s" placeholder="Search &hellip;" />
+	<input type="submit" class="submit" id="searchsubmit" value="Search" />
+</form>	</div>
+
+	<div id="triggers-wrapper">
+		<ul class="triggers clear">
+						<li class="widgets-trigger">
+				<a href="#" class="theme-genericon" title="Widgets">
+					<span class="screen-reader-text">Widgets</span>
+				</a>
+			</li>
+			
+						<li class="social-links-trigger">
+				<a href="#" class="theme-genericon" title="Connect">
+					<span class="screen-reader-text">Connect</span>
+				</a>
+			</li>
+			
+			<li class="search-trigger">
+				<a href="#" class="theme-genericon" title="Search">
+					<span class="screen-reader-text">Search</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="wrap">
+			
+							<a class="site-logo"  href="https://greenido.dev/" title="Ido Green" rel="home">
+					<img src="https://secure.gravatar.com/avatar/c0fcb723a5fb44cc2de43c676f22ae8a/?s=120&#038;d=retro" width="120" height="120" alt="" class="no-grav header-image" />
+				</a>
+			
+			<hgroup>
+				<h1 class="site-title"><a href="https://greenido.dev/" title="Ido Green" rel="home">Ido Green</a></h1>
+				<h2 class="site-description">Thoughts To Remember</h2>
+			</hgroup>
+		</div><!-- .wrap -->
+
+					<nav id="site-navigation" class="navigation-main clear" role="navigation">
+				<h1 class="menu-toggle">Menu</h1>
+				<div class="screen-reader-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+				<div class="wrap"><ul id="menu-main" class="menu"><li id="menu-item-11768" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11768"><a href="https://greenido.dev/ultimate-guide-to-gravel-and-road-cycling-adventures/">Cycling Adventures</a></li>
+<li id="menu-item-11769" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11769"><a href="https://greenido.dev/how-to-tune-your-breville-espresso-like-a-pro-%e2%98%95%ef%b8%8f/">Espresso ☕️</a></li>
+<li id="menu-item-11774" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-11774"><a href="https://greenido.dev/about/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-11775" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11775"><a href="https://greenido.dev/about/mountain-bike-and-mtbo-events/">Mountain Bike 2012</a></li>
+	<li id="menu-item-11771" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11771"><a href="https://greenido.dev/point-of-views-and-thoughts-to-remember/">Point of views &amp; Art from 2011</a></li>
+	<li id="menu-item-11772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11772"><a href="https://greenido.dev/chrome/">Chrome Videos From 2011-2012</a></li>
+	<li id="menu-item-11770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11770"><a href="https://greenido.dev/privacy-policy/">Privacy Policy</a></li>
+</ul>
+</li>
+</ul></div>			</nav><!-- #site-navigation -->
+			</header><!-- #masthead -->
+
+	<div id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+		
+			
+<article id="post-12997" class="clear post-12997 post type-post status-publish format-standard has-post-thumbnail hentry category-business tag-ai tag-cybersecurity tag-risk tag-smb tag-smb-security-best-practices tag-technology">
+	<div class="entry-wrap wrap clear">
+									<img width="1024" height="1024" src="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=1024" class="attachment-ryu-featured-thumbnail size-ryu-featured-thumbnail wp-post-image" alt="Stone and wood arched doorway with glowing digital overlay showing a garden path and plants" decoding="async" srcset="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png 1024w, https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=150 150w, https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=300 300w, https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=768 768w" sizes="(max-width: 1024px) 100vw, 1024px" data-attachment-id="13003" data-permalink="https://greenido.dev/ido-green-6a4fd9fe02061/" data-orig-file="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png" data-orig-size="1024,1024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;,&quot;alt&quot;:&quot;&quot;}" data-image-title="Digital portal to a serene garden" data-image-description="&lt;p&gt;This image depicts a rustic stone and wooden arched doorway with lush rose bushes and potted plants surrounding it. The doorway has a glowing digital overlay resembling a computer browser window, creating an effect of stepping into a virtual garden. Beyond the doorway, a sunlit stone path leads through flowering bushes and trees, bathed in warm natural light. The combination of traditional architectural elements with digital interface imagery evokes a seamless blend of nature and technology, symbolizing a gateway to a peaceful, inviting space.&lt;/p&gt;
+" data-image-caption="&lt;p&gt;A glowing doorway blends a rustic entrance with a virtual garden scene.&lt;/p&gt;
+" data-large-file="https://greenido.dev/wp-content/uploads/2026/07/ido-green-6a4fd9fe02061.png?w=696" />					
+		<header class="entry-header">
+			<span class="categories-links"><a href="https://greenido.dev/category/business/" rel="category tag">Business</a></span><h1 class="entry-title">The Cheapest Way Into Your Business Isn&#8217;t Malware. It&#8217;s a Phone Call.</h1>		</header><!-- .entry-header -->
+
+		<footer class="entry-meta">
+			<span class="entry-date"><a href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/" title="7:07 am" rel="bookmark"><time datetime="2026-07-10T07:07:00-07:00">July 10, 2026</time></a></span><span class="author vcard"><a class="url fn n" href="https://greenido.dev/author/greenido/" title="View all posts by greenido" rel="author">greenido</a></span><span class="tags-links"><a href="https://greenido.dev/tag/ai/" rel="tag">AI</a>, <a href="https://greenido.dev/tag/cybersecurity/" rel="tag">cybersecurity</a>, <a href="https://greenido.dev/tag/risk/" rel="tag">risk</a>, <a href="https://greenido.dev/tag/smb/" rel="tag">SMB</a>, <a href="https://greenido.dev/tag/smb-security-best-practices/" rel="tag">SMB security best practices</a>, <a href="https://greenido.dev/tag/technology/" rel="tag">technology</a></span>
+						<span class="comments-link"><a href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/#respond">Leave a comment</a></span>
+			
+					</footer><!-- .entry-meta -->
+
+				<div class="entry-content clear">
+			
+<p class="wp-block-paragraph">It&#8217;s 4:45 on a Friday. <br>Someone on your finance team gets a call. <br>The voice is calm, knows the CFO&#8217;s name, references a real invoice number, and just needs &#8220;one quick correction&#8221; on a wire transfer. <br>Ninety seconds later, the money is gone.</p>
+
+
+
+<p class="wp-block-paragraph">Nobody wrote a single line of malicious code to make that happen.</p>
+
+
+
+<p class="wp-block-paragraph">That&#8217;s not a scare story. It&#8217;s the new baseline. <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-global-threat-report-findings/" target="_blank" rel="noopener nofollow">CrowdStrike found that 79% of detections in 2025 involved no malware at all</a> — no virus, no exploit kit, nothing your antivirus was ever built to catch. The attacker just&#8230; logged in. Or called. Or asked nicely.</p>
+
+
+
+<p class="wp-block-paragraph">If you run a small or midsize business, 2026 is the year to stop thinking about cybersecurity as &#8220;did we install the right software&#8221; and start thinking about it as &#8220;can someone talk, click, or log their way into something they shouldn&#8217;t.&#8221;</p>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s what the data actually says, and what to do about it.</p>
+
+
+
+<span id="more-12997"></span>
+
+
+
+<h2 class="wp-block-heading">Why SMBs, specifically</h2>
+
+
+
+<p class="wp-block-paragraph">Big enterprises get the headlines. <br>Small businesses get the volume.</p>
+
+
+
+<p class="wp-block-paragraph">You&#8217;re targeted not because you&#8217;re important, but because you&#8217;re <em>reachable</em> — connected to customers, suppliers, cloud platforms, and whatever IT vendor you outsourced to three years ago and haven&#8217;t thought about since.</p>
+
+
+
+<p class="wp-block-paragraph">The numbers make the case on their own. Ransomware showed up in <a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" target="_blank" rel="noopener nofollow">88% of SMB breaches in Verizon&#8217;s 2025 Data Breach Investigations Report</a>. Third-party involvement in breaches doubled to 30%. And business email compromise — the unglamorous, no-malware, &#8220;just ask for money&#8221; scam — accounted for <a href="https://www.proofpoint.com/us/blog/email-and-cloud-threats/email-attacks-drive-record-cybercrime-losses-2024" target="_blank" rel="noopener nofollow">$2.77 billion in reported losses in the FBI&#8217;s 2024 IC3 data</a>.</p>
+
+
+
+<p class="wp-block-paragraph">None of that requires a nation-state hacker. <br>It requires you to have a weak admin password, an unpatched VPN, or a finance process that runs on trust and speed instead of verification.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>The good news:</strong> if the cheap attacks are what&#8217;s working, the fixes are also cheap relative to the risk. <br>You don&#8217;t need to outspend attackers. You need to close the doors they&#8217;re actually walking through.</p>
+
+
+
+<h2 class="wp-block-heading">Ransomware: still huge, but not the story you think it is</h2>
+
+
+
+<p class="wp-block-paragraph">Ransomware isn&#8217;t going anywhere — it showed up in that 88% of SMB breaches — but the old mental model of &#8220;someone opened a bad attachment&#8221; is outdated. <a href="https://www.sophos.com/en-us/content/state-of-ransomware" target="_blank" rel="noopener nofollow">Sophos found that exploited vulnerabilities, not phishing emails, were the leading root cause in ransomware cases</a>, and Mandiant has watched attackers get more deliberate: they now go after your backup infrastructure, your identity systems, and your virtualization layer <em>specifically</em>, because that&#8217;s what makes recovery expensive instead of routine.</p>
+
+
+
+<p class="wp-block-paragraph">That&#8217;s the real shift. Ransomware in 2026 is rarely &#8220;one infected laptop.&#8221; It&#8217;s a combined failure of identity, patching, and recovery planning, and the attacker knows exactly which piece to break first.</p>
+
+
+
+<p class="wp-block-paragraph">The money reflects that. Verizon puts the median ransom payment at $115,000. Sophos puts the <em>average recovery cost</em> — consulting, downtime, lost customers, the whole mess — at $1.5 million. Whatever the ransom demand says on the note, the real bill is usually the business interruption, not the extortion itself.</p>
+
+
+
+<h2 class="wp-block-heading">Your people are the new perimeter</h2>
+
+
+
+<p class="wp-block-paragraph">Phishing used to mean a suspicious email. Now it means phone calls, fake IT support tickets, QR codes, and multi-step impersonation that plays out over days, not seconds.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-global-threat-report-findings/" target="_blank" rel="noopener nofollow">CrowdStrike measured a 442% increase in voice phishing between the first and second half of 2024</a> alone. Mandiant&#8217;s latest data shows voice phishing now accounts for 11% of intrusions — ahead of email phishing at 6%. Somewhere along the way, the phone became a bigger threat than the inbox.</p>
+
+
+
+<p class="wp-block-paragraph">For small businesses, the exposure isn&#8217;t technical, it&#8217;s cultural. Lean finance teams run on familiarity: &#8220;that&#8217;s definitely how our vendor sounds,&#8221; &#8220;the CEO does ask for rush payments sometimes.&#8221; Attackers know this, and that&#8217;s exactly what business email compromise exploits — not a firewall gap, but a <em>process</em> gap. The single highest-leverage fix here costs nothing but discipline: callback verification on every payment or payroll change, using a number you already have on file, never one provided in the request itself.</p>
+
+
+
+<h2 class="wp-block-heading">Identity is the whole game now</h2>
+
+
+
+<p class="wp-block-paragraph">If there&#8217;s one sentence to take away from this entire report, it&#8217;s this: <strong>identity is now the primary battlefield, for both sides.</strong></p>
+
+
+
+<p class="wp-block-paragraph">Verizon names credential abuse and vulnerability exploitation as the top two ways attackers get in. CrowdStrike found that stolen-but-valid credentials were behind 35% of cloud incidents in the first half of 2024. IBM reported that roughly one in three incidents now involves credential theft. And Fortinet found something genuinely unsettling: <a href="https://www.fortinet.com/corporate/about-us/newsroom/press-releases/2025/fortinet-threat-report-reveals-record-surge-in-automated-cyberattacks" target="_blank" rel="noopener nofollow">1.7 billion stolen credential records circulating on underground forums</a> — meaning the &#8220;market&#8221; for access into your systems is now industrial-scale, not artisanal.</p>
+
+
+
+<p class="wp-block-paragraph">Multi-factor authentication was supposed to fix this. It helped — but it&#8217;s not enough on its own anymore. Cisco Talos found that many organizations they assisted still lacked full MFA coverage, including 19% with no MFA at all on VPN access — one of the most obvious front doors there is.</p>
+
+
+
+<p class="wp-block-paragraph">Meanwhile, <a href="https://www.microsoft.com/en-us/security/blog/2025/05/01/pushing-passkeys-forward-microsofts-latest-updates-for-simpler-safer-sign-ins/" target="_blank" rel="noopener nofollow">Microsoft is seeing 7,000 password attacks <em>per second</em></a>, and reports that passkeys are succeeding at sign-in far more reliably than passwords ever did. Passwordless authentication has quietly gone from &#8220;nice future idea&#8221; to &#8220;thing you should already be rolling out for your admins and finance team.&#8221;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>If you do nothing else this year:</strong> put phishing-resistant MFA or passkeys on every admin, finance, and executive account. Separate admin logins from daily-use accounts. That one change raises attacker cost more than almost anything else on this list.</p>
+
+
+
+<h2 class="wp-block-heading">The browser is now a front door, not a window</h2>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s a stat that surprises people: Unit 42 found that 44% of incidents involved a web browser somewhere in the chain. Malicious redirects, drive-by downloads, stolen session tokens, fake login pages that look pixel-perfect. Mandiant separately documented attackers using help-desk social engineering to steal session tokens straight into SaaS platforms like Microsoft 365 and Google Workspace — no password needed at all.</p>
+
+
+
+<p class="wp-block-paragraph">Treat your browser like the security perimeter it&#8217;s become: DNS filtering, managed browser policies, extension review, and session protections for anyone with elevated access. It&#8217;s an unglamorous fix, and it matters more than most of the &#8220;AI security&#8221; tools being pitched to you right now.</p>
+
+
+
+<h2 class="wp-block-heading">Your vendors are your problem too</h2>
+
+
+
+<p class="wp-block-paragraph">Verizon&#8217;s finding that third-party involvement in breaches doubled to 30% should make every SMB owner pause. You might have decent security. Does your bookkeeper? Your MSP? The logistics company with a login into your inventory system?</p>
+
+
+
+<p class="wp-block-paragraph">Attackers have figured out that the smaller supplier is often the easier target — and just as useful a stepping stone into you. This risk tends to be invisible until it isn&#8217;t: an incident happens, and only then does anyone realize a contractor&#8217;s account was never disabled, or a vendor had far more access than the relationship ever required.</p>
+
+
+
+<p class="wp-block-paragraph">The fix is unsexy but effective: keep an actual inventory of every third party with administrative access to anything of yours, review those permissions on a schedule, and hold critical vendors to real contractual and logging standards — not just a handshake.</p>
+
+
+
+<h2 class="wp-block-heading">AI didn&#8217;t invent new attacks. It made the old ones faster.</h2>
+
+
+
+<p class="wp-block-paragraph">Let&#8217;s cut through the hype: generative AI is not spawning some new category of attack. It&#8217;s making the existing playbook cheaper and more convincing. Better-written phishing emails. Faster reconnaissance. More believable fake support calls. IBM saw infostealer-delivery emails jump 84% in a single year, and Fortinet is now tracking roughly 36,000 automated scans <em>per second</em> hitting the internet — up nearly 17% year over year.</p>
+
+
+
+<p class="wp-block-paragraph">The right response isn&#8217;t panic-buying an &#8220;AI security&#8221; product. It&#8217;s tightening the same verification habits that already stop social engineering — because AI is aimed squarely at your people&#8217;s judgment, not your firewall.</p>
+
+
+
+<h2 class="wp-block-heading">Where the money actually goes to work</h2>
+
+
+
+<p class="wp-block-paragraph">If you&#8217;re triaging a limited budget and limited time, here&#8217;s the order that matches the actual data, not the sales pitch:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1. Identity first.</strong> Phishing-resistant MFA or passkeys for admins, finance, and executives. Separate admin accounts from daily accounts. Kill legacy authentication protocols that don&#8217;t support modern MFA at all.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>2. Patch what&#8217;s exposed to the internet.</strong> Firewalls, VPNs, remote access tools, and identity platforms should be on an emergency patch track, not the quarterly one. This is still one of the top entry paths across Verizon, Sophos, and Mandiant&#8217;s data.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>3. Fix the money process, not just the inbox.</strong> Callback verification for wires and payroll changes. Help-desk identity proofing before anyone resets a password or re-enrolls MFA. This single process change addresses the highest-dollar-loss attack path in the entire report.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>4. Treat the browser as a control point.</strong> Managed browser policies, DNS filtering, and session protections for anyone with real access.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>5. Test your backups like you mean it.</strong> Not &#8220;did the backup job complete&#8221; — can you actually restore identity systems, cloud data, and your core line-of-business applications, in the right order, under pressure? Keep at least one immutable or offline copy, because attackers are now targeting backup infrastructure directly to remove your leverage.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>6. Audit your vendors like you audit your employees.</strong> Because increasingly, they&#8217;re the same risk.</p>
+
+
+
+<p class="wp-block-paragraph">Mandiant&#8217;s numbers explain why the ordering matters so much: once an attacker is in, the median handoff to a second threat group was 22 seconds, and CrowdStrike&#8217;s average breakout time to lateral movement was 48 minutes. There is no &#8220;catch it later.&#8221; Identity and access controls are the only layer fast enough to matter before an attacker is already three systems deep.</p>
+
+
+
+<h2 class="wp-block-heading">The passwordless shift is no longer optional</h2>
+
+
+
+<p class="wp-block-paragraph">One more data point worth sitting with: Microsoft now sees nearly a million passkeys registered every single day, across more than 15 billion accounts that support passwordless sign-in. That&#8217;s not an early-adopter trend anymore — it&#8217;s the direction the entire industry is moving, and sign-in success rates back it up.</p>
+
+
+
+<p class="wp-block-paragraph">For an SMB, this doesn&#8217;t mean ripping out every password overnight. It means starting with the accounts that would hurt the most if compromised — admins, finance, execs — and moving them to passkeys or FIDO2 hardware keys now, while it&#8217;s a choice, rather than later, after it&#8217;s a incident report.</p>
+
+
+
+<h2 class="wp-block-heading">The bottom line</h2>
+
+
+
+<p class="wp-block-paragraph">None of this requires predicting the next zero-day or outspending a nation-state. The attacks doing the most damage to small businesses right now are boring: stolen passwords, unpatched VPNs, a convincing phone call, an over-trusted vendor. Boring problems have boring, achievable fixes — you just have to actually do them, on a schedule, instead of hoping this is the year nobody calls.</p>
+
+
+
+<p class="wp-block-paragraph">Start with <a href="https://greenido.dev/2025/12/01/protect-your-accounts-the-case-for-mfa-and-passkeys/">identity</a>. <br>Everything else gets easier from there.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+
+
+
+<h3 class="wp-block-heading">The numbers, all in one place</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>88%</strong> of SMB breaches involved ransomware — Verizon DBIR, 2025</li>
+
+
+
+<li><strong>30%</strong> of breaches involved a third party, double the year before — Verizon DBIR, 2025</li>
+
+
+
+<li><strong>$2.77B</strong> in BEC losses across 21,442 reported incidents — Proofpoint / FBI IC3, 2025</li>
+
+
+
+<li><strong>442%</strong> increase in voice phishing, H1 to H2 2024 — CrowdStrike, 2025</li>
+
+
+
+<li><strong>79%</strong> of detections were malware-free — CrowdStrike, 2025</li>
+
+
+
+<li><strong>44%</strong> of incidents involved a web browser — Unit 42, 2025</li>
+
+
+
+<li><strong>22 seconds</strong> — median handoff window to a second threat group — Mandiant M-Trends, 2026</li>
+
+
+
+<li><strong>7,000</strong> password attacks per second observed — Microsoft, 2025</li>
+
+
+
+<li><strong>1.7 billion</strong> stolen credential records seen in underground forums — Fortinet, 2025</li>
+
+
+
+<li><strong>63%</strong> of ransomware victims cited a lack of people or skills as a contributing factor — Sophos, 2025</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading"><em>Sources</em></h3>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" target="_blank" rel="noopener nofollow">Verizon DBIR 2025</a></li>
+
+
+
+<li><a href="https://www.proofpoint.com/us/blog/email-and-cloud-threats/email-attacks-drive-record-cybercrime-losses-2024" target="_blank" rel="noopener nofollow">Proofpoint (citing FBI IC3 2024)</a></li>
+
+
+
+<li><a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-global-threat-report-findings/" target="_blank" rel="noopener nofollow">CrowdStrike 2025 Global Threat Report</a></li>
+
+
+
+<li><a href="https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026" target="_blank" rel="noopener nofollow">Google Cloud/Mandiant M-Trends 2025 &amp; 2026</a></li>
+
+
+
+<li><a href="https://www.paloaltonetworks.com/resources/research/unit-42-incident-response-report-2025" target="_blank" rel="noopener nofollow">Palo Alto Networks Unit 42 Incident Response Report 2025</a></li>
+
+
+
+<li><a href="https://www.sophos.com/en-us/content/state-of-ransomware" target="_blank" rel="noopener nofollow">Sophos State of Ransomware 2025</a></li>
+
+
+
+<li><a href="https://newsroom.ibm.com/2025-04-17-2025-ibm-x-force-threat-index-large-scale-credential-theft-escalates,-threat-actors-pivot-to-stealthier-tactics" target="_blank" rel="noopener nofollow">IBM X-Force Threat Index 2025</a></li>
+
+
+
+<li><a href="https://www.microsoft.com/en-us/security/blog/2025/05/01/pushing-passkeys-forward-microsofts-latest-updates-for-simpler-safer-sign-ins/" target="_blank" rel="noopener nofollow">Microsoft Security Blog 2025</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+<div class="wp-block-group has-border-color" style="border-style:none;border-width:0px;margin-top:32px;margin-bottom:32px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+	
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="margin-bottom:24px"/>
+	
+
+	
+	<h3 class="wp-block-heading has-text-align-center" style="margin-top:4px;margin-bottom:10px">Discover more from Ido Green</h3>
+	
+
+	
+	<p class="has-text-align-center wp-block-paragraph" style="margin-top:10px;margin-bottom:10px;font-size:15px">Subscribe to get the latest posts sent to your email.</p>
+	
+
+	
+	<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-container-core-group-is-layout-558d648c wp-block-group-is-layout-constrained">
+			<div class="wp-block-jetpack-subscriptions__supports-newline wp-block-jetpack-subscriptions">
+		<div class="wp-block-jetpack-subscriptions__container is-not-subscriber">
+							<form
+					action="https://wordpress.com/email-subscriptions"
+					method="post"
+					accept-charset="utf-8"
+					data-blog="8823334"
+					data-post_access_level="everybody"
+					data-subscriber_email=""
+					id="subscribe-blog"
+				>
+					<div class="wp-block-jetpack-subscriptions__form-elements">
+												<p id="subscribe-email">
+							<label
+								id="subscribe-field-label"
+								for="subscribe-field"
+								class="screen-reader-text"
+							>
+								Type your email…							</label>
+							<input
+									required="required"
+									type="email"
+									name="email"
+									autocomplete="email"
+									class="no-border-radius "
+									style="font-size: 16px;padding: 15px 23px 15px 23px;border-radius: 0px;border-width: 1px;"
+									placeholder="Type your email…"
+									value=""
+									id="subscribe-field"
+									title="Please fill in this field."
+								/>						</p>
+												<p id="subscribe-submit"
+													>
+							<input type="hidden" name="action" value="subscribe"/>
+							<input type="hidden" name="blog_id" value="8823334"/>
+							<input type="hidden" name="source" value="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?utm_source=bonobopress&#038;utm_medium=newsletter&#038;utm_campaign=2326"/>
+							<input type="hidden" name="sub-type" value="subscribe-block"/>
+							<input type="hidden" name="app_source" value="subscribe-block-post-end"/>
+							<input type="hidden" name="redirect_fragment" value="subscribe-blog"/>
+							<input type="hidden" name="lang" value="en"/>
+							<input type="hidden" id="_wpnonce" name="_wpnonce" value="1340de2b69" /><input type="hidden" name="_wp_http_referer" value="/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?utm_source=bonobopress&#038;utm_medium=newsletter&#038;utm_campaign=2326" /><input type="hidden" name="post_id" value="12997"/>							<button type="submit"
+																	class="wp-block-button__link no-border-radius"
+																									style="font-size: 16px;padding: 15px 23px 15px 23px;margin: 0; margin-left: 10px;border-radius: 0px;border-width: 1px;"
+																name="jetpack_subscriptions_widget"
+							>
+								Subscribe							</button>
+						</p>
+					</div>
+				</form>
+								</div>
+	</div>
+	
+	</div></div>
+	
+</div></div>
+<div id="jp-post-flair" class="sharedaddy sd-rating-enabled sd-like-enabled sd-sharing-enabled"><div class="sd-block sd-rating"><h3 class="sd-title">Rate this:</h3><div class="cs-rating pd-rating" id="pd_rating_holder_195085_post_12997"></div></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share only with good friends:</h3><div class="sd-content"><ul><li class="share-jetpack-whatsapp"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-whatsapp-12997"
+				class="share-jetpack-whatsapp sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=jetpack-whatsapp"
+				target="_blank"
+				aria-labelledby="sharing-whatsapp-12997"
+				>
+				<span id="sharing-whatsapp-12997" hidden>Share on WhatsApp (Opens in new window)</span>
+				<span>WhatsApp</span>
+			</a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-twitter-12997"
+				class="share-twitter sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=twitter"
+				target="_blank"
+				aria-labelledby="sharing-twitter-12997"
+				>
+				<span id="sharing-twitter-12997" hidden>Share on X (Opens in new window)</span>
+				<span>X</span>
+			</a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-linkedin-12997"
+				class="share-linkedin sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=linkedin"
+				target="_blank"
+				aria-labelledby="sharing-linkedin-12997"
+				>
+				<span id="sharing-linkedin-12997" hidden>Share on LinkedIn (Opens in new window)</span>
+				<span>LinkedIn</span>
+			</a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-facebook-12997"
+				class="share-facebook sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=facebook"
+				target="_blank"
+				aria-labelledby="sharing-facebook-12997"
+				>
+				<span id="sharing-facebook-12997" hidden>Share on Facebook (Opens in new window)</span>
+				<span>Facebook</span>
+			</a></li><li class="share-mastodon"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-mastodon-12997"
+				class="share-mastodon sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=mastodon"
+				target="_blank"
+				aria-labelledby="sharing-mastodon-12997"
+				>
+				<span id="sharing-mastodon-12997" hidden>Share on Mastodon (Opens in new window)</span>
+				<span>Mastodon</span>
+			</a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-pinterest"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-pinterest-12997"
+				class="share-pinterest sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=pinterest"
+				target="_blank"
+				aria-labelledby="sharing-pinterest-12997"
+				>
+				<span id="sharing-pinterest-12997" hidden>Share on Pinterest (Opens in new window)</span>
+				<span>Pinterest</span>
+			</a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-reddit-12997"
+				class="share-reddit sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=reddit"
+				target="_blank"
+				aria-labelledby="sharing-reddit-12997"
+				>
+				<span id="sharing-reddit-12997" hidden>Share on Reddit (Opens in new window)</span>
+				<span>Reddit</span>
+			</a></li><li class="share-tumblr"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-tumblr-12997"
+				class="share-tumblr sd-button share-icon no-text"
+				href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?share=tumblr"
+				target="_blank"
+				aria-labelledby="sharing-tumblr-12997"
+				>
+				<span id="sharing-tumblr-12997" hidden>Share on Tumblr (Opens in new window)</span>
+				<span>Tumblr</span>
+			</a></li><li class="share-end"></li></ul></div></div></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-8823334-12997-6a790b381ab9d' data-src='//widgets.wp.com/likes/index.html?ver=20260809#blog_id=8823334&amp;post_id=12997&amp;origin=greenido.wordpress.com&amp;obj_id=8823334-12997-6a790b381ab9d&amp;domain=greenido.dev' data-name='like-post-frame-8823334-12997-6a790b381ab9d' data-title='Like or Reblog'><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Like</span></span> <span class='loading'>Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	
+</div></div>					</div><!-- .entry-content -->
+		
+		<span class="entry-format-badge theme-genericon"><span class="screen-reader-text">Standard</span></span>
+	</div><!-- .entry-wrap -->
+</article><!-- #post-## -->
+				<nav role="navigation" id="nav-below" class="navigation-post double">
+		<div class="wrap clear">
+			<h1 class="screen-reader-text">Post navigation</h1>
+
+		
+			<div class="next"><a href="https://greenido.dev/2026/07/22/what-a-law-firms-ransomware-nightmare-can-teach-your-startup/" rel="next"><span class="meta-nav">&rarr;</span> <span class="text-nav">What a Law Firm&#8217;s Ransomware Nightmare Can Teach Your Startup</span></a></div>
+			<div class="previous"><a href="https://greenido.dev/2026/07/03/unlocking-whatsapp-your-local-analytics-dashboard/" rel="prev"><span class="meta-nav">&larr;</span> <span class="text-nav">Unlocking WhatsApp: Your Local Analytics Dashboard</span></a></div>
+
+		
+		</div>
+	</nav><!-- #nav-below -->
+	
+			
+<div id="comments" class="comments-area">
+	<div class="comments-wrap wrap">
+
+		
+		
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?utm_source=bonobopress&#038;utm_medium=newsletter&#038;utm_campaign=2326#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://greenido.dev/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="comment-form__verbum transparent"></div><div class="verbum-form-meta"><input type='hidden' name='comment_post_ID' value='12997' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+
+			<input type="hidden" name="highlander_comment_nonce" id="highlander_comment_nonce" value="771bc78d0e" />
+			<input type="hidden" name="verbum_show_subscription_modal" value="" /></div></form>	</div><!-- #respond -->
+	
+	</div><!-- .comments-wrap -->
+</div><!-- #comments -->
+		
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info wrap">
+						<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--  -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/files/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/pub/ryu/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="grofiles-cards-js" src="//0.gravatar.com/js/hovercards/hovercards.min.js?ver=202632d1133547e8a1f2801609f51cef12522abe7f6647d869e9fbc974fe356a37e613"></script>
+<script id="wpgroho-js-extra">
+var WPGroHo = {"my_hash":""};
+//# sourceURL=wpgroho-js-extra
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1610363240i'></script>
+
+	<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
+
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
+
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
+
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init(
+					'body',
+					'#wp-admin-bar-my-account',
+					{
+						i18n: {
+							'Edit your profile →': 'Edit your profile →',
+							'View profile →': 'View profile →',
+							'Contact': 'Contact',
+							'Send money': 'Send money',
+							'Sorry, we are unable to load this Gravatar profile.': 'Sorry, we are unable to load this Gravatar profile.',
+							'Gravatar not found.': 'Gravatar not found.',
+							'Too Many Requests.': 'Too Many Requests.',
+							'Internal Server Error.': 'Internal Server Error.',
+							'Is this you?': 'Is this you?',
+							'Claim your free profile.': 'Claim your free profile.',
+							'Email': 'Email',
+							'Home Phone': 'Home Phone',
+							'Work Phone': 'Work Phone',
+							'Cell Phone': 'Cell Phone',
+							'Contact Form': 'Contact Form',
+							'Calendar': 'Calendar',
+						},
+					}
+				);
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+
+		<div style="display:none">
+	</div>
+		<div id="actionbar" dir="ltr" style="display: none;"
+			class="actnbr-pub-ryu actnbr-has-follow actnbr-has-actions">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-comment" href="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/#respond">
+							<svg class="gridicon gridicons-comment" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 16l-5 5v-5H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-7z"/></g></svg>							<span>Comment						</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-reblog" href="">
+							<svg class="gridicon gridicons-reblog" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M22.086 9.914L20 7.828V18c0 1.105-.895 2-2 2h-7v-2h7V7.828l-2.086 2.086L14.5 8.5 19 4l4.5 4.5-1.414 1.414zM6 16.172V6h7V4H6c-1.105 0-2 .895-2 2v10.172l-2.086-2.086L.5 15.5 5 20l4.5-4.5-1.414-1.414L6 16.172z"/></g></svg><span>Reblog</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z"  fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V3H17.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H14.5V13.5H10.5V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20"></path><path d="M19.5303 15.0303L15.5 19.0605L12.9697 16.5303L14.0303 15.4697L15.5 16.9395L18.4697 13.9697L19.5303 15.0303Z" fill="#008A20"></path></svg>
+			<span>Subscribed</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="https://greenido.dev">
+				<img loading='lazy' alt='' src='https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=50' srcset='https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=50 1x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=75 1.5x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=100 2x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=150 3x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=200 4x' class='avatar avatar-50' height='50' width='50' />				Ido Green			</a>
+		</li>
+										<div class="actnbr-message no-display"></div>
+									<form method="post" action="https://subscribe.wordpress.com" accept-charset="utf-8" style="display: none;">
+																						<div class="actnbr-follow-count">Join 344 other subscribers</div>
+																					<div>
+										<input type="email" name="email" placeholder="Enter your email address" class="actnbr-email-field" aria-label="Enter your email address" />
+										</div>
+										<input type="hidden" name="action" value="subscribe" />
+										<input type="hidden" name="blog_id" value="8823334" />
+										<input type="hidden" name="source" value="https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/?utm_source=bonobopress&#038;utm_medium=newsletter&#038;utm_campaign=2326" />
+										<input type="hidden" name="sub-type" value="actionbar-follow" />
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="1340de2b69" />										<div class="actnbr-button-wrap">
+											<button type="submit" value="Sign me up">
+												Sign me up											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Fgreenido.dev%252F2026%252F07%252F10%252Fthe-cheapest-way-into-your-business-isnt-malware-its-a-phone-call%252F">Log in now.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"/></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+								<li class="actnbr-sitename">
+			<a href="https://greenido.dev">
+				<img loading='lazy' alt='' src='https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=50' srcset='https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=50 1x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=75 1.5x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=100 2x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=150 3x, https://greenido.dev/wp-content/uploads/2025/07/greenido-logo-512x512-1.png?w=200 4x' class='avatar avatar-50' height='50' width='50' />				Ido Green			</a>
+		</li>
+								<li class="actnbr-folded-follow">
+										<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z"  fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V3H17.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H14.5V13.5H10.5V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20"></path><path d="M19.5303 15.0303L15.5 19.0605L12.9697 16.5303L14.0303 15.4697L15.5 16.9395L18.4697 13.9697L19.5303 15.0303Z" fill="#008A20"></path></svg>
+			<span>Subscribed</span>
+		</a>
+								</li>
+														<li class="actnbr-signup"><a href="https://wordpress.com/start/">Sign up</a></li>
+							<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Fgreenido.dev%252F2026%252F07%252F10%252Fthe-cheapest-way-into-your-business-isnt-malware-its-a-phone-call%252F">Log in</a></li>
+																<li class="actnbr-shortlink">
+										<a href="https://wp.me/pB1lQ-3nD">
+											<span class="actnbr-shortlink__text">Copy shortlink</span>
+											<span class="actnbr-shortlink__icon"><svg class="gridicon gridicons-checkmark" height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"/></g></svg></span>
+										</a>
+									</li>
+																<li class="flb-report">
+									<a href="https://wordpress.com/abuse/?report_url=https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/" target="_blank" rel="noopener noreferrer">
+										Report this content									</a>
+								</li>
+															<li class="actnbr-reader">
+									<a href="https://wordpress.com/reader/blogs/8823334/posts/12997">
+										View post in Reader									</a>
+								</li>
+															<li class="actnbr-subs">
+									<a href="https://subscribe.wordpress.com/">Manage subscriptions</a>
+								</li>
+																<li class="actnbr-fold"><a href="">Collapse this bar</a></li>
+														</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "DOMContentLoaded", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "/wp-content/mu-plugins/actionbar/actionbar.css?v=20250116";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "/wp-content/mu-plugins/actionbar/actionbar.js?v=20250204";
+	document.body.appendChild( script );
+} );
+</script>
+
+	
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/":12997};
+	</script>
+						
+	<script type="text/javascript">
+		(function () {
+			var wpcom_reblog = {
+				source: 'toolbar',
+
+				toggle_reblog_box_flair: function (obj_id, post_id) {
+
+					// Go to site selector. This will redirect to their blog if they only have one.
+					const postEndpoint = `https://wordpress.com/post`;
+
+					// Ideally we would use the permalink here, but fortunately this will be replaced with the 
+					// post permalink in the editor.
+					const originalURL = `${ document.location.href }?page_id=${ post_id }`; 
+					
+					const url =
+						postEndpoint +
+						'?url=' +
+						encodeURIComponent( originalURL ) +
+						'&is_post_share=true' +
+						'&v=5';
+
+					const redirect = function () {
+						if (
+							! window.open( url, '_blank' )
+						) {
+							location.href = url;
+						}
+					};
+
+					if ( /Firefox/.test( navigator.userAgent ) ) {
+						setTimeout( redirect, 0 );
+					} else {
+						redirect();
+					}
+				},
+			};
+
+			window.wpcom_reblog = wpcom_reblog;
+		})();
+	</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-content/mu-plugins/likes/queuehandler.js?m=1741961244i'></script>
+<script id="wp-hooks-js" src="/wp-content/plugins/gutenberg-core/v23.7.1/build/scripts/hooks/index.min.js?m=1786118922i&#038;ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="/wp-content/plugins/gutenberg-core/v23.7.1/build/scripts/i18n/index.min.js?m=1786118922i&#038;ver=125448662852c5e18937"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="verbum-settings-js-before">
+window.VerbumComments = {"Log in or provide your name and email to leave a reply.":"Log in or provide your name and email to leave a reply.","Log in or provide your name and email to leave a comment.":"Log in or provide your name and email to leave a comment.","Receive web and mobile notifications for posts on this site.":"Receive web and mobile notifications for posts on this site.","Name":"Name","Email (address never made public)":"Email (address never made public)","Website (optional)":"Website (optional)","Leave a reply. (log in optional)":"Leave a reply. (log in optional)","Leave a comment. (log in optional)":"Leave a comment. (log in optional)","Log in to leave a reply.":"Log in to leave a reply.","Log in to leave a comment.":"Log in to leave a comment.","Logged in via %s":"Logged in via %s","Log out":"Log out","Your browser is blocking the cookies needed to log in and comment here. Allow cookies in your privacy settings, then reload the page.":"Your browser is blocking the cookies needed to log in and comment here. Allow cookies in your privacy settings, then reload the page.","Email":"Email","(Address never made public)":"(Address never made public)","Instantly":"Instantly","Daily":"Daily","Reply":"Reply","Comment":"Comment","WordPress":"WordPress","Weekly":"Weekly","Notify me of new posts":"Notify me of new posts","Email me new posts":"Email me new posts","Email me new comments":"Email me new comments","Cancel":"Cancel","Write a comment...":"Write a comment...","Write a reply...":"Write a reply...","Website":"Website","Optional":"Optional","We'll keep you in the loop!":"We'll keep you in the loop!","Loading your comment...":"Loading your comment...","Discover more from":"Discover more from Ido Green","Subscribe now to keep reading and get access to the full archive.":"Subscribe now to keep reading and get access to the full archive.","Continue reading":"Continue reading","Never miss a beat!":"Never miss a beat!","Interested in getting blog post updates? Simply click the button below to stay in the loop!":"Interested in getting blog post updates? Simply click the button below to stay in the loop!","Enter your email address":"Enter your email address","Subscribe":"Subscribe","Comment sent successfully":"Comment sent successfully","Save my name, email, and website in this browser for the next time I comment.":"Save my name, email, and website in this browser for the next time I comment.","hovercardi18n":{"Edit your profile \u2192":"Edit your profile \u2192","View profile \u2192":"View profile \u2192","Contact":"Contact","Send money":"Send money","Gravatar not found.":"Gravatar not found.","This profile is private.":"This profile is private.","Too Many Requests.":"Too Many Requests.","Internal Server Error.":"Internal Server Error.","Sorry, we are unable to load this Gravatar profile.":"Sorry, we are unable to load this Gravatar profile."},"siteId":8823334,"postId":12997,"mustLogIn":true,"requireNameEmail":true,"commentRegistration":true,"connectURL":"https://greenido.wordpress.com/public.api/connect/?action=request\u0026domain=greenido.dev","logoutURL":"https://greenido.wordpress.com/wp-login.php?action=logout\u0026_wpnonce=b8945ba7d7","homeURL":"https://greenido.dev/","subscribeToBlog":true,"subscribeToComment":true,"isJetpackCommentsLoggedIn":false,"jetpackUsername":"","jetpackUserId":0,"jetpackSignature":"","jetpackAvatar":"https://0.gravatar.com/avatar/?s=96\u0026amp;d=retro\u0026amp;r=G","enableBlocks":true,"enableSubscriptionModal":true,"currentLocale":"en","isJetpackComments":false,"allowedBlocks":["core/paragraph","core/list","core/code","core/list-item","core/quote","core/image","core/embed","core/quote","core/code"],"embedNonce":"e7fb0377dd","verbumBundleUrl":"/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/moon/jetpack_vendor/automattic/jetpack-mu-wpcom/src/features/verbum-comments/dist/index.js","isRTL":false,"vbeCacheBuster":1771405207,"iframeUniqueId":0,"colorScheme":false}
+//# sourceURL=verbum-settings-js-before
+</script>
+<script data-wp-strategy="defer" defer id="verbum-dynamic-loader-js" src="/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/moon/jetpack_vendor/automattic/jetpack-mu-wpcom/src/build/verbum-comments/assets/dynamic-loader.js?m=1772518873i&#038;minify=false&#038;ver=8b5296f9195db92c42e4"></script>
+<script id="jetpack-script-data-js-before">
+window.JetpackScriptData = {"site":{"host":"wpcom","is_wpcom_platform":true}};
+//# sourceURL=jetpack-script-data-js-before
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/_static/??-eJyNjUEOgjAQRS9kmRiDysJ4FFPaggPttGGmILe3C2Hhwria5P/338CSlIkkjgTk6YJjSLmFac0wMJCesdeCkaqBD/CT5RGT8kij6qLJrDp8bSMk47MteMFMDKEI1OSSX6uAf5jL+YZCVsnnHqk4nSRtRlWiJRX7p4AQI23lY3Zk4wQ6SwxaBM0+08xOGNqM3u4hmwmTKKtFl8/3cDternVzaurmPLwBDmhyDw=='></script>
+<script id="twitter-widgets-js" src="https://platform.twitter.com/widgets.js?ver=20111117"></script>
+<script id="jetpack-blocks-assets-base-url-js-before">
+var Jetpack_Block_Assets_Base_Url="https://s0.wp.com/wp-content/mu-plugins/jetpack-plugin/moon/_inc/blocks/";
+//# sourceURL=jetpack-blocks-assets-base-url-js-before
+</script>
+<script id="wp-dom-ready-js" src="/wp-content/plugins/gutenberg-core/v23.7.1/build/scripts/dom-ready/index.min.js?m=1786118922i&#038;ver=a06281ae5cf5500e9317"></script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-includes/js/dist/vendor/wp-polyfill.min.js?m=1775575011i'></script>
+<script data-wp-strategy="defer" defer id="jetpack-block-subscriptions-js" src="/wp-content/mu-plugins/jetpack-plugin/moon/_inc/blocks/subscriptions/view.js?m=1782389597i&#038;minify=false&#038;ver=16.2-a.0"></script>
+<script id="crowdsignal-rating-js-before">
+<!--//--><![CDATA[//><!--
+PDRTJS_settings_195085_post_12997={"id":195085,"unique_id":"wp-post-12997","title":"The%20Cheapest%20Way%20Into%20Your%20Business%20Isn%26%238217%3Bt%20Malware.%20It%26%238217%3Bs%20a%20Phone%20Call.","permalink":"https://greenido.dev/2026/07/10/the-cheapest-way-into-your-business-isnt-malware-its-a-phone-call/","item_id":"_post_12997"}; if ( typeof PDRTJS_RATING !== 'undefined' ){if ( typeof PDRTJS_195085_post_12997 == 'undefined' ){PDRTJS_195085_post_12997 = new PDRTJS_RATING( PDRTJS_settings_195085_post_12997 );}}
+//--><!]]>
+//# sourceURL=crowdsignal-rating-js-before
+</script>
+<script id="crowdsignal-rating-js" src="https://polldaddy.com/js/rating/rating.js?ver=16.2-a.0"></script>
+<script id="sharing-js-js-extra">
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+//# sourceURL=sharing-js-js-extra
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-content/mu-plugins/jetpack-plugin/moon/_inc/build/sharedaddy/sharing.min.js?m=1755006225i'></script>
+<script id="sharing-js-js-after">
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-twitter' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-twitter' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-linkedin' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-linkedin' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-facebook' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-facebook' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-mastodon' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-mastodon' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcommastodon', 'menubar=1,resizable=1,width=460,height=400' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-tumblr' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-tumblr' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+						return false;
+					}
+				} );
+			} )();
+//# sourceURL=sharing-js-js-after
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/72x72/","ext":".png","svgUrl":"https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?m=1783090810i&ver=7.1-alpha-62543"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+	<iframe src='https://widgets.wp.com/likes/master.html?ver=20260809#ver=20260809' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+	<div id='likes-other-gravatars' role="dialog" aria-hidden="true" tabindex="-1"><div class="likes-text"><span>%d</span></div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	<script src="//stats.wp.com/w.js?69" defer></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'8823334','blog_tz':'-7','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+		// Prevent sending pageview tracking from WP-Admin pages.
+		_stq.push(['view', {'blog':'8823334','v':'wpcom','tz':'-7','user_id':'0','post':'12997','subd':'greenido','utm_source':'bonobopress','utm_medium':'newsletter','utm_campaign':'2326'}]);
+		_stq.push(['extra', {'crypt':'UE5tW3cvZGRhJUZnNU00N0N3PWRRZHZELyZvcXVpRS4/ZC8/VCVLbFU1Jno1fnR5Ult+bG8scUl5Y0pxS0NpPSU2ckZoc0c0fkxXY2Jiay9CZzV8YkE0JjR6T1Fud1Ftflh+emp+QTRtYjdrfnJUMFZNVTUxJT81QkNyXTNGRy4/N3ltaltFRXFZRzQzSnguNngrVXFHW3d+enctZS02UEQzMD9sQmxMLG54N0tZLVhKSkhUeUZhV0QrX05GUH5hRW8seTVFTS5XQW9IMm13Y2FDS2ZGLF1sZjA0TD9CZGFnR3QlTGR1VHVzYV9LSCViPzZ4YTVSbVNnQ0U5TTZbeCs4bnR6VVpfXT94cA=='}]);
+_stq.push([ 'clickTrackerInit', '8823334', '12997' ]);
+</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<meta id="bilmur" property="bilmur:data" content="" data-provider="wordpress.com" data-service="simple" data-site-tz="America/Los_Angeles" data-custom-props="{&quot;enq_jquery&quot;:&quot;1&quot;,&quot;enq_wp-polyfill&quot;:&quot;1&quot;,&quot;logged_in&quot;:&quot;0&quot;,&quot;wptheme&quot;:&quot;pub\/ryu&quot;,&quot;wptheme_is_block&quot;:&quot;0&quot;}"   >
+		<script defer src="/wp-content/js/bilmur.min.js?i=17&amp;m=202632"></script> 	
+<script>
+(function() {
+	'use strict';
+
+	const fetches = {};
+	const promises = {};
+	const urls = {
+		'verbum': '/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/moon/jetpack_vendor/automattic/jetpack-mu-wpcom/src/build/verbum-comments/verbum-comments.js?m=1785895867i&minify=false&ver=ecf5cfe8827907d3ea28'
+	};
+	const loaders = {
+		'verbum': () => {
+			fetchExternalScript('verbum');
+			promises['verbum'] = promises['verbum'] || loadWPScript('verbum');
+			return promises['verbum'];
+		},
+		
+	};
+	const scriptExtras = {
+		
+	};
+
+	window.WP_Enqueue_Dynamic_Script = {
+		loadScript: (handle) => {
+			if (!loaders[handle]) {
+				console.error('WP_Enqueue_Dynamic_Script: unregistered script `' + handle + '`.');
+			}
+			return loaders[handle]();
+		}
+	};
+
+	function fetchExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		fetches[handle] = fetches[handle] || fetch(urls[handle], { mode: 'no-cors' });
+		return fetches[handle];
+	}
+
+	function runExtraScript(handle, type, index) {
+		const id = 'wp-enqueue-dynamic-script:' + handle + ':' + type + ':' + (index + 1);
+		const template = document.getElementById(id);
+		if (!template) {
+			return Promise.reject();
+		}
+
+		const script = document.createElement( 'script' );
+		script.innerHTML = template.innerHTML;
+		document.body.appendChild( script );
+		return Promise.resolve();
+	}
+
+	function loadExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		return fetches[handle].then(() => {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				script.onload = () => resolve();
+				script.onerror = (e) => reject(e);
+				script.src = urls[handle];
+				document.body.appendChild(script);
+			});
+		});
+	}
+
+	function loadExtra(handle, pos) {
+		const count = (scriptExtras[handle] && scriptExtras[handle][pos]) || 0;
+		let promise = Promise.resolve();
+
+		for (let i = 0; i < count; i++) {
+			promise = promise.then(() => runExtraScript(handle, pos, i));
+		}
+
+		return promise;
+	}
+
+	function loadWPScript(handle) {
+		// Core loads scripts in this order. See: https://github.com/WordPress/WordPress/blob/a59eb9d39c4fcba834b70c9e8dfd64feeec10ba6/wp-includes/class-wp-scripts.php#L428.
+		return loadExtra(handle, 'translations')
+			.then(() => loadExtra(handle, 'before'))
+			.then(() => loadExternalScript(handle))
+			.then(() => loadExtra(handle, 'after'));
+	}
+} )();
+</script>
+
+</body>
+</html>

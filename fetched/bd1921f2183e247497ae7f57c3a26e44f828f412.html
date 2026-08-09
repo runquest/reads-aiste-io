@@ -1,0 +1,536 @@
+<!-- source: https://leadershipintech.com/links/22845/027d9985-d4c5-48a7-af59-5152efd9c8a4/email -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Please Don&#x27;t Smooth the Metrics</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="https://www.kellblog.com/assets/built/screen.css?v=YrOs10DcvqL6VEJy">
+    <link rel="preload" as="script" href="https://www.kellblog.com/assets/built/source.js?v=hgnv3dFRNrcfIROn">
+    
+    <link rel="preload" as="font" type="font/woff2" href="https://www.kellblog.com/assets/fonts/inter-roman.woff2?v=OecsB5TBLy27FKD2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(https://www.kellblog.com/assets/fonts/inter-roman.woff2?v=OecsB5TBLy27FKD2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="https://www.kellblog.com/assets/built/screen.css?v=YrOs10DcvqL6VEJy">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w256h256/2025/08/Original-Logo-Symbol-1.png" type="image/png">
+    <link rel="canonical" href="https://www.kellblog.com/please-dont-smooth-the-metrics/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Kellblog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Please Don&#x27;t Smooth the Metrics">
+    <meta property="og:description" content="Investors have lots of good habits when it comes to metrics. Operators can copy many of them. One habit they shouldn&#x27;t copy, however, is smoothing.
+
+Smoothing has a legitimate purpose. Investors are trying to understand businesses. They&#x27;re looking for long-term trends and patterns, so they want to">
+    <meta property="og:url" content="https://www.kellblog.com/please-dont-smooth-the-metrics/">
+    <meta property="og:image" content="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/2026/07/please-don-t-smooth-the-metrics.png">
+    <meta property="article:published_time" content="2026-07-26T01:22:24.000Z">
+    <meta property="article:modified_time" content="2026-07-26T01:22:24.000Z">
+    <meta property="article:tag" content="Metrics">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Please Don&#x27;t Smooth the Metrics">
+    <meta name="twitter:description" content="Investors have lots of good habits when it comes to metrics. Operators can copy many of them. One habit they shouldn&#x27;t copy, however, is smoothing.
+
+Smoothing has a legitimate purpose. Investors are trying to understand businesses. They&#x27;re looking for long-term trends and patterns, so they want to">
+    <meta name="twitter:url" content="https://www.kellblog.com/please-dont-smooth-the-metrics/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/2026/07/please-don-t-smooth-the-metrics.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dave Kellogg">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Metrics">
+    <meta name="twitter:site" content="@Kellblog">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="960">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Kellblog",
+        "url": "https://www.kellblog.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/03/Original-Logo.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dave Kellogg",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2025/08/Dave-Kellog-Headshot-for-Kellblog-96x96.jpg",
+            "width": 96,
+            "height": 96
+        },
+        "url": "https://www.kellblog.com/author/kellblog/",
+        "sameAs": []
+    },
+    "headline": "Please Don't Smooth the Metrics",
+    "url": "https://www.kellblog.com/please-dont-smooth-the-metrics/",
+    "datePublished": "2026-07-26T01:22:24.000Z",
+    "dateModified": "2026-07-26T01:22:24.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/2026/07/please-don-t-smooth-the-metrics.png",
+        "width": 1200,
+        "height": 960
+    },
+    "keywords": "Metrics",
+    "description": "Investors have lots of good habits when it comes to metrics. Operators can copy many of them. One habit they shouldn't copy, however, is smoothing.\n\nSmoothing has a legitimate purpose. Investors are trying to understand businesses. They're looking for long-term trends and patterns, so they want to damp out seasonality and quarter-to-quarter noise.\n\nSuppose 40% of your orders come in Q4. Roughly 40% of your churn is going to occur in Q4 as well. Maybe more than half of it will occur in December. ",
+    "mainEntityOfPage": "https://www.kellblog.com/please-dont-smooth-the-metrics/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="Kellblog" href="https://www.kellblog.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://www.kellblog.com/" data-key="13408c4deb8db5219b2f0e8bcc" data-api="https://kellblog.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="13408c4deb8db5219b2f0e8bcc" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://kellblog.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://www.kellblog.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=D6OJpxckK_6QDJ1o"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=zbOBSN8qHrr3rC6Y">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://www.kellblog.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://www.kellblog.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="c273c431-3cb6-4d51-a332-a1ac8e611c29" tb_post_uuid="12e5119f-aa54-42dc-ba0f-e2f2c32aeefd" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #196eff;}</style>
+    <style>
+.gh-article-image figcaption {
+  display: none;
+}
+</style>
+
+</head>
+<body class="post-template tag-metrics has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-left-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://www.kellblog.com">
+                    <img src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/03/Original-Logo.svg" alt="Kellblog">
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-home"><a href="https://www.kellblog.com/">Home</a></li>
+    <li class="nav-best-of"><a href="https://www.kellblog.com/best-of-kellblog/">Best Of</a></li>
+    <li class="nav-chat"><a href="https://www.kellblog.com/chat/">Chat</a></li>
+    <li class="nav-faq"><a href="https://www.kellblog.com/frequently-asked-questions/">FAQ</a></li>
+    <li class="nav-about"><a href="https://www.kellblog.com/about-dave-kellogg/">About</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>                <div class="gh-navigation-members">
+                            <a href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                </div>
+        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-metrics">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://www.kellblog.com/tag/metrics/">Metrics</a>
+            <h1 class="gh-article-title is-title">Please Don&#x27;t Smooth the Metrics</h1>
+
+                <div class="gh-meta-share">
+                    <div class="gh-article-meta">
+                        <div class="gh-article-author-image instapaper_ignore">
+                                    <a href="/author/kellblog/">
+                                        <img class="author-profile-image" src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w160/2025/08/Dave-Kellog-Headshot-for-Kellblog-96x96.jpg" alt="Dave Kellogg">
+                                    </a>
+                        </div>
+                        <div class="gh-article-meta-wrapper">
+                            <h4 class="gh-article-author-name"><a href="/author/kellblog/">Dave Kellogg</a></h4>
+                            <div class="gh-article-meta-content">
+                                <time class="gh-article-meta-date" datetime="2026-07-25">25 Jul 2026</time>
+                                    <span class="gh-article-meta-length"><span class="bull">—</span> 5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/share" class="gh-button gh-button-share">
+                        Share
+                    </a>
+                </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w320/2026/07/please-don-t-smooth-the-metrics.png 320w,
+                    https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/please-don-t-smooth-the-metrics.png 600w,
+                    https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w960/2026/07/please-don-t-smooth-the-metrics.png 960w,
+                    https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/2026/07/please-don-t-smooth-the-metrics.png 1200w,
+                    https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w2000/2026/07/please-don-t-smooth-the-metrics.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1120px"
+            src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/2026/07/please-don-t-smooth-the-metrics.png"
+            alt="Please Don&#x27;t Smooth the Metrics"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>Investors have lots of good habits when it comes to metrics. Operators can copy many of them.  One habit they shouldn't copy, however, is smoothing.</p><p>Smoothing has a legitimate purpose. Investors are trying to understand businesses. They're looking for long-term trends and patterns, so they want to damp out seasonality and quarter-to-quarter noise.</p><p>Suppose 40% of your orders come in Q4. Roughly 40% of your churn is going to occur in Q4 as well. Maybe more than half of it will occur in December. That volatility doesn't really tell you anything interesting. It's just the calendar. Smoothing makes it easier to see the underlying trend. The same argument applies to CAC. If you hire a bunch of salespeople in Q1, those investments won't pay off until Q2, Q3, and Q4. Looking at quarterly CAC can produce wild swings that don't reflect the underlying efficiency of your go-to-market model. A rolling 12-month CAC ratio is often a much better metric.</p><p>So, if you're an investor – and you're in investment-mode – then smooth to your heart's content.</p><p>But for the love of God, don't be a <a href="https://www.youtube.com/watch?v=4TYv2PhG89A&ref=kellblog.com" rel="noreferrer">smooth operator</a>.  No, I don't mean the 1980s R&amp;B hit. I mean an operator — someone running a business. As an operator, don't smooth your metrics. Why? Because smoothing hides the very volatility you should be looking for.</p><p>Smoothing is a sharp, double-edged sword. The same smoothing that can make a trend more visible can also obscure one.  I don't think management teams smooth metrics in bad faith.  I think they smooth them out of habit (because investors often ask) and because they're convinced it's the best way to see long-term trends. </p><p>But if I wanted a dark-arts technique for deferring an uncomfortable conversation about a deteriorating CAC ratio or rising churn rate, smoothing would be exactly the tool I'd use.</p><p>Let's show an example of where smoothing gets in the way.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/image.png" class="kg-image" alt="" loading="lazy" width="1161" height="257" srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/image.png 600w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1000/2026/07/image.png 1000w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/image.png 1161w" sizes="(min-width: 720px) 720px"></figure><p>Looking at this chart, here's what you might think:</p><p><em>StartCo is doing pretty well.  They ended 2024 with $16.3M in ARR, then nearly doubled that to $32.2M in 2025.  Growth's slowing down a bit in the first half of 2026, but that's probably just the law of large numbers.</em></p><p><em>The churn rate's been increasing, but their first year of operations was 2023, and since they do one-year minimum contracts, there wasn't much that could churn.  So the rate seems to be converging in the 15% range, which is pretty normal.  (And equivalent to a </em><a href="https://www.thesaascfo.com/how-to-calculate-gross-dollar-retention/?ref=kellblog.com" rel="noreferrer"><em>GDR</em></a><em> of 85%.)  Gosh, I'd prefer that to be 85% instead of 82%, but otherwise everything's looking pretty good.</em></p><p>You might think that.  You'd be missing some signs though:</p><ul><li>Churn ARR dollars are exploding – nearly $5.5M of churn ARR in 1Q26. (Only showing rates tends to hide such things, which is why I show dollars, too.)</li><li>Net new ARR is nearly zero in 1Q26 which I noticed by sliding my eye along the Ending ARR line:  from $32.2M in 4Q25 to $32.5M in 1Q26.  Whoa!  What the heck is going on?</li></ul><p>Let's add just four rows to our sheet and see how the picture changes:</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/image-1.png" class="kg-image" alt="" loading="lazy" width="1161" height="371" srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/image-1.png 600w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1000/2026/07/image-1.png 1000w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/image-1.png 1161w" sizes="(min-width: 720px) 720px"></figure><p>The first row I added was quarterly churn rate, which I'll define here as churn ARR / starting ARR. That's not a great way to <a href="https://www.kellblog.com/a-fresh-look-at-how-to-measure-saas-churn-rates/" rel="noreferrer">calculate</a> it, but it helps me for several reasons.</p><p>First, it's a quarterly metric, so it bounces around from quarter to quarter. That volatility is exactly what I want because it lets me see immediately whether we had a good or bad renewal quarter.</p><p>Second, while it's not shown in a visible row, I have the churn ARR plan number in the sheet so I can start comparing actual churn ARR to plan. You can see that after six quarters running at 100% of plan, actual churn suddenly jumps to 200% of plan in 3Q25.</p><p>But holy cow. It's the 2Q26 board meeting (held in April 2026) before the smoothed churn metric finally gets my attention with an 18% churn rate. The problem actually began in 3Q25. We should have been discussing it at the October 2025 board meeting.</p><p>Third, I can show excess churn ARR – the amount by which actual churn exceeds plan. These aren't small numbers: $1.7M, $2.5M, and climbing. Now multiply those numbers by your CAC ratio to estimate what it's going to cost to replace that lost ARR.</p><p>And I snuck in one more row to help the Sherlock Holmes types figure out what happened here: New ARR / Plan.  What does plan attainment show us? After a good first year in 2023, the company gets off to a terrible start in 1H24. You can't see that by looking only at growth because the company is growing off a tiny base (ending ARR grows spectacularly at 13x and then 6x in 1Q24 and 2Q24).</p><p>So we need to look at plan-relative performance instead. The company achieves only 50% and 67% of plan, respectively. Those are the kinds of numbers that get a head of sales fired.</p><p>What does our desperate sales leader do?  He broadens the <a href="https://www.kellblog.com/your-icp-starts-as-an-aspiration-and-becomes-a-regression/" rel="noreferrer">ICP</a>, so the team can sell to a much wider range of customers. Because that's the only way he thinks the team can make the numbers. And it works. They hit 94% of plan in 3Q24 and 100% every quarter thereafter.  Life is good.</p><p>Until 3Q25, that is, when all those formerly non-ICP customers start coming up for renewal. The <a href="https://www.kellblog.com/your-icp-starts-as-an-aspiration-and-becomes-a-regression/" rel="noreferrer">available-to-renew</a> (ATR) churn rate doubles from 15% to 30%. That's what drives the excess dollar churn and causes Ending ARR growth to flatten.</p><p>This example shows why I hate smoothing:</p><ul><li>It delayed the conversation from October until April.</li><li>During that delay the problem kept getting worse.  We sold more and more customers who weren't successful with the product – and who perhaps never even had a realistic shot at succeeding.  (I once took over a company where the Professional Services team refused to implement certain customers, sending those doomed projects to partners instead.  That did wonders for our partner relationships, too.)</li></ul><p>Yes, there were other signs, even in the metrics table. Churn ARR dollars were exploding. Inside the company, the Customer Success team should have been screaming. Post-implementation CSAT scores should have been plunging. Solutions Consultants were probably grumbling loudly as well.</p><p>But if you were outside the company – sitting on the board – and the first metrics table was all you got, you might have missed it.</p><p>You might have asked, "Why do we smooth the churn rate?"</p><p>To which management would answer, "To hide the volatility."</p><p>To which, I hope you'll always answer: "The volatility is the point."</p><p>I'm here for the volatility. If I want to smooth the metrics, I can. But I can never unsmooth them.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/volatility.png" class="kg-image" alt="" loading="lazy" width="1402" height="1122" srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/volatility.png 600w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1000/2026/07/volatility.png 1000w, https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/07/volatility.png 1402w" sizes="(min-width: 720px) 720px"></figure><p>The spreadsheet is available <a href="https://docs.google.com/spreadsheets/d/1H_9TPtldi_fKRLH4nuuD4RyzGF8Y6FEL/edit?usp=sharing&ouid=108385722813510237259&rtpof=true&sd=true&ref=kellblog.com" rel="noreferrer">here</a>.</p>
+        </section>
+
+    </article>
+
+        <div class="gh-comments gh-canvas">
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://www.kellblog.com/" data-api="https://kellblog.ghost.io/ghost/api/content/" data-admin="https://kellblog.ghost.io/ghost/" data-key="13408c4deb8db5219b2f0e8bcc" data-title="null" data-count="true" data-post-id="6a652afd863f23000172e989" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#196eff" data-comments-enabled="all" data-publication="Kellblog" crossorigin="anonymous"></script>
+    
+        </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/introducing-subscriptions-to-kellblog/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w160/format/webp/2026/08/kellblog-subscriptions-1.png 160w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w320/format/webp/2026/08/kellblog-subscriptions-1.png 320w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/format/webp/2026/08/kellblog-subscriptions-1.png 600w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w960/format/webp/2026/08/kellblog-subscriptions-1.png 960w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/format/webp/2026/08/kellblog-subscriptions-1.png 1200w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w2000/format/webp/2026/08/kellblog-subscriptions-1.png 2000w"
+                    sizes="320px"
+                    src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/08/kellblog-subscriptions-1.png"
+                    alt="Introducing Kellblog Subscriptions"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Introducing Kellblog Subscriptions</h3>
+                    <p class="gh-card-excerpt is-body">(Edited 8/5 with expectations for more changes coming.)
+
+I often tell founders to &quot;test by doing,&quot; so in this post I&#39;ll be practicing what I preach. After nearly 20 years of publishing Kellblog for free, I&#39;m introducing subscriptions.
+
+I&#39;ll start by</p>
+            <footer class="gh-card-meta">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20" id="Lock-1--Streamline-Ultimate"><defs></defs><title>lock-1</title><path d="M4.375 8.125h11.25s1.25 0 1.25 1.25v8.75s0 1.25 -1.25 1.25H4.375s-1.25 0 -1.25 -1.25v-8.75s0 -1.25 1.25 -1.25" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M5.625 8.125V5a4.375 4.375 0 0 1 8.75 0v3.125" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="m10 12.5 0 2.5" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>                <!--
+             -->                    <time class="gh-card-date" datetime="2026-08-04">04 Aug 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/board-meetings-your-notetaker-is-not-welcome-here/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w160/format/webp/2026/08/ai-notetaker.png 160w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w320/format/webp/2026/08/ai-notetaker.png 320w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/format/webp/2026/08/ai-notetaker.png 600w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w960/format/webp/2026/08/ai-notetaker.png 960w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/format/webp/2026/08/ai-notetaker.png 1200w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w2000/format/webp/2026/08/ai-notetaker.png 2000w"
+                    sizes="320px"
+                    src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/08/ai-notetaker.png"
+                    alt="Board Meetings: Your Notetaker Is Not Welcome Here"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Board Meetings: Your Notetaker Is Not Welcome Here</h3>
+                    <p class="gh-card-excerpt is-body">In an era where it seems that every conversation is being recorded, there should be a sign outside every board meeting that reads: “Your notetaker is not welcome here.”
+
+By “your notetaker,” I mean any AI notetaker. A personal one that follows you from meeting to meeting – whether a meeting</p>
+            <footer class="gh-card-meta">
+<!--
+             -->                    <time class="gh-card-date" datetime="2026-08-03">03 Aug 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/the-kellblog-companion-and-thoughts-on-derivative-works/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w160/format/webp/2026/07/kellblog-companion.jpg 160w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w320/format/webp/2026/07/kellblog-companion.jpg 320w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/format/webp/2026/07/kellblog-companion.jpg 600w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w960/format/webp/2026/07/kellblog-companion.jpg 960w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/format/webp/2026/07/kellblog-companion.jpg 1200w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w2000/format/webp/2026/07/kellblog-companion.jpg 2000w"
+                    sizes="320px"
+                    src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/kellblog-companion.jpg"
+                    alt="The Kellblog Companion and Thoughts on Derivative Works"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Kellblog Companion and Thoughts on Derivative Works</h3>
+                    <p class="gh-card-excerpt is-body">Today I&#39;m pleased to introduce the Kellblog Companion, a new way to explore Kellblog created by Saurav Chowdhury. It reorganizes decades of posts into a structured knowledge base that&#39;s easier to browse by topic, easier to search, and easier to use when you&#39;re trying</p>
+            <footer class="gh-card-meta">
+<!--
+             -->                    <time class="gh-card-date" datetime="2026-07-22">22 Jul 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/what-mr-jambo-and-levis-can-teach-us-about-listening-to-customers/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w160/format/webp/2026/07/mr-jambo.jpeg 160w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w320/format/webp/2026/07/mr-jambo.jpeg 320w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/format/webp/2026/07/mr-jambo.jpeg 600w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w960/format/webp/2026/07/mr-jambo.jpeg 960w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w1200/format/webp/2026/07/mr-jambo.jpeg 1200w,
+                            https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w2000/format/webp/2026/07/mr-jambo.jpeg 2000w"
+                    sizes="320px"
+                    src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/size/w600/2026/07/mr-jambo.jpeg"
+                    alt="What Mr. Jambo and Levi&#x27;s Can Teach Us About Listening to Customers"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">What Mr. Jambo and Levi&#x27;s Can Teach Us About Listening to Customers</h3>
+                    <p class="gh-card-excerpt is-body">Founders, chief product officers (CPOs), and chief marketing officers (CMOs) spend a lot of time talking with and listening to customers. As they should.
+
+And, by and large, they do it well. But there&#39;s one common mistake that many smart, strong-willed, and vision-driven leaders make. Surprisingly,</p>
+            <footer class="gh-card-meta">
+<!--
+             -->                    <time class="gh-card-date" datetime="2026-07-18">18 Jul 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+                <section class="gh-footer-signup">
+                    <h2 class="gh-footer-signup-header is-title">
+                        Sign up to receive posts
+                    </h2>
+                    <p class="gh-footer-signup-subhead is-body">
+                        At the corner of new tech and old truth
+                    </p>
+                    <form class="gh-form" data-members-form>
+    <input class="gh-form-input" id="footer-email" name="email" type="email" placeholder="jamie@example.com" required data-members-email>
+    <button class="gh-button" type="submit" aria-label="Subscribe">
+        <span><span>Subscribe</span> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></span>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
+    <g stroke-linecap="round" stroke-width="2" fill="currentColor" stroke="none" stroke-linejoin="round" class="nc-icon-wrapper">
+        <g class="nc-loop-dots-4-24-icon-o">
+            <circle cx="4" cy="12" r="3"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+            <circle cx="20" cy="12" r="3"></circle>
+        </g>
+        <style data-cap="butt">
+            .nc-loop-dots-4-24-icon-o{--animation-duration:0.8s}
+            .nc-loop-dots-4-24-icon-o *{opacity:.4;transform:scale(.75);animation:nc-loop-dots-4-anim var(--animation-duration) infinite}
+            .nc-loop-dots-4-24-icon-o :nth-child(1){transform-origin:4px 12px;animation-delay:-.3s;animation-delay:calc(var(--animation-duration)/-2.666)}
+            .nc-loop-dots-4-24-icon-o :nth-child(2){transform-origin:12px 12px;animation-delay:-.15s;animation-delay:calc(var(--animation-duration)/-5.333)}
+            .nc-loop-dots-4-24-icon-o :nth-child(3){transform-origin:20px 12px}
+            @keyframes nc-loop-dots-4-anim{0%,100%{opacity:.4;transform:scale(.75)}50%{opacity:1;transform:scale(1)}}
+        </style>
+    </g>
+</svg>        <span>Email sent</span>
+    </button>
+    <p data-members-error></p>
+</form>
+                </section>
+
+        <div class="gh-social-links">
+                <a href="https://x.com/Kellblog" target="_blank" rel="noopener" aria-label="X">
+<svg viewBox="0 0 24 24" fill="currentColor"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>                </a>
+        </div>
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    <img src="https://storage.ghost.io/c/c2/73/c273c431-3cb6-4d51-a332-a1ac8e611c29/content/images/2026/03/Original-Logo.svg" alt="Kellblog">
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://www.kellblog.com/assets/built/source.js?v=hgnv3dFRNrcfIROn"></script>
+
+
+
+</body>
+</html>

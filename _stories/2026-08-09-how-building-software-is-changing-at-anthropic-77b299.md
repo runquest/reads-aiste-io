@@ -1,0 +1,19 @@
+---
+layout: "story"
+title: "How Building Software Is Changing At Anthropic"
+date: "2026-08-09"
+permalink: "/2026/08/09/stories/how-building-software-is-changing-at-anthropic-77b299/"
+source: "Pointer"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F4951mhY03iCawzSQ6poZedL3n7H-lMzRTsKnY9bvtDfJYA8pICpvyyNYWT98Xtr9WdPcSpxxaa7Q5dr87aiW7bH99aCL_Aga5sP1yM7s6XNsR0dpIXX-qcKInonA0sg3eMpFhwqdDFjNAhws05iVQ8F4KLX2lelAs6zNlNEq2JbYPQBDsWLeT4mKYI2vic4dn2BpnqRQKwjIdFm2jjdMYi4bZxpNC_yJgwMPmgEbXu8YmoEOE1L0caaBsL3bIuRMz2lPhjPprXO0bcSfeGmQvSMQw7ktrIDrrJ95UvO7veFhloJfj9aDKRl8k_ZzD6sUbC_J5gXQCJMdIsh6UPzMDeEo_tnDS2dDqWcXi2h91yQGqVhp7wzRzjrWKIvg4MAt44j00bLbg8MdJKZdHFhpEJv6EZS5SvJXU89qaAUWUgXLcU-LKWroXRDM6tl_ix8nKtB1MiiIRugmKe04bMYKzGJDou6PE7lVklMrUIXDm6YsQSoNgCfNVIjqpyhV9e_7nB9t7-zx0Cvue0K2iYiG8aoqIYvPNiyW4IU7E1f0iQnW3AY817YYLHqefClx-p22tLiy57rl-gfjnoYzpAbjI2QamyTwC_ZINrzCQtP9OZyf64jb7wpKpzIgghH2TfLWIUyQhU5cn3xn-0d8wJfuTQOh4O02_1fT9NR0IV8SlePm9KI-uWHeGLEnCb7DWDUCB8CwBIs8lDYfmhp0Dht25k3mByiFp7FS4OZQrSzUVOETOKQIFqyAtsKQqjICotHWhxMiljF6vHUh8fxCjXrEwjIk62Ipaz9_5BZgskfA-YTa-DMobMMiB0Gs7XPHQDvdri9yxNh43EdX77p8CHGMGO4yVX2wiiyIQEeCVxaIw/4ss/FlauVPTqTeGKDEKpox9WIg/h30/h001.G7SSlFo4BDZvptAqW21lKym9vBIYwiKtU334dtw5Csc"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYc6Roum41tU9YvWrxTcURupr9TFTmoGO6OCTwo0MrYEw-wZsuPFi8sM03qk8dIFYwBXW9f6A6Pa_4AKr3Y381_vMuA7Ybmzaxt7NEtHP7cONHQPkxzN6p8zWAHgWYoV-CV2jQEQcxh9IUrf8AaE1zeIbsnwSu5T3jcbFlPVDk4ft/4ss/FlauVPTqTeGKDEKpox9WIg/h14/h001.4BI-NnHBMFuprGIugy7KR0G9i2pPme66YLjj2Ozk4KY"
+category: "AI"
+excerpt_separator: ""
+---
+
+{% raw %}
+A deepdive on what's changed in how the leading AI lab makes software. Ever more code review and testing is done by AI, two-pizza teams very much alive, and more.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYc6Roum41tU9YvWrxTcURupr9TFTmoGO6OCTwo0MrYEw-wZsuPFi8sM03qk8dIFYwBXW9f6A6Pa_4AKr3Y381_vMuA7Ybmzaxt7NEtHP7cONHQPkxzN6p8zWAHgWYoV-CV2jQEQcxh9IUrf8AaE1zeIbsnwSu5T3jcbFlPVDk4ft/4ss/FlauVPTqTeGKDEKpox9WIg/h14/h001.4BI-NnHBMFuprGIugy7KR0G9i2pPme66YLjj2Ozk4KY).*
+
+{% endraw %}

@@ -1,0 +1,393 @@
+<!-- source: https://programmingdigest.net/links/22855/91ee7b33-c28b-4a8e-bab4-e5b8bc4f3f47/email -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>How big is a Git commit? - ratfactor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/atom+xml" href="http://ratfactor.com/atom.xml" title="Rat-Feed">
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link type="text/plain" rel="author" href="http://ratfactor.com/humans.txt">
+</head>
+<body>
+
+    <!-- regular page content -->
+    <nav>
+        
+            <a href="/"><img src="/images/rat-logo.svg" alt="vector ratfactor rat logo" width="100"></a>
+        
+        <div class="link-block">
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="/now">Now</a> |
+            <a href="/repos/">Repos</a> |
+            <a href="/cards/">Cards</a> |
+            <a href="/contact-me">Contact</a> |
+            <a href="/atom.xml">RSS<img src="/images/rss.svg" alt="rss feed icon" width="15" style="width: 15px; top: 3px; position: relative;"></a>
+        </div>
+    </nav>
+
+    <article>
+        <header>
+            
+                <div style="border-top: 4px solid #91b5d5; border-bottom: 4px solid #ea596e; padding: 4px; text-align: center; background: #fffad0;">
+                    This is a card in <a href="/cards/">Dave's Virtual Box of Cards</a>.
+                </div>
+            
+            
+            <h1>How big is a Git commit?</h1>
+            
+            
+                <div>Page created: <span class="created">2026-01-10</span></div>
+            
+            
+            
+            
+                <div>Updated: <span class="updated">2026-07-24</span></div>
+                
+            
+        </header>
+
+        
+        <div class="paragraph">
+<p>back to <a href="git">Git</a>.</p>
+</div>
+<div class="paragraph">
+<p>Short answer: It depends. Git stores "objects" as zlib compressed data. So the exact size of a commit will depend on the compressibility of your files (which is basically a function of the amount of repetition in them).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://git-scm.com/docs/gitformat-loose" class="bare">https://git-scm.com/docs/gitformat-loose</a></p>
+</div>
+<div class="paragraph">
+<p>The other factor is that Git eventually turns object files into even more efficient packfiles, saving additional space by getting rid of redundancy across objects.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://git-scm.com/book/en/v2/Git-Internals-Packfiles" class="bare">https://git-scm.com/book/en/v2/Git-Internals-Packfiles</a></p>
+</div>
+<div class="paragraph">
+<p>For fun, I did some little experiments (all "loose objects" with no packfiles created). Here&#8217;s the results:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>64,828</strong> bytes - git init</p>
+</li>
+<li>
+<p><strong>47,640</strong> bytes - committing 250 tiny files</p>
+</li>
+<li>
+<p><strong>17,145</strong> bytes - committing 3 bytes of change to a file in a directory of 50 files</p>
+</li>
+<li>
+<p><strong>8,709</strong> bytes - committing 3 bytes of change to a single-file repo</p>
+</li>
+<li>
+<p><strong>297,873</strong> bytes - committing a 583,840 byte binary file</p>
+</li>
+<li>
+<p><strong>1,622,188</strong> bytes - committing a huge 16,415,223 byte source file</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we see kilobytes of overhead for very tiny commits - exactly how much will depend on the size of the file/directory tree involved with the changes.</p>
+</div>
+<div class="paragraph">
+<p>For larger commits with small numbers of files, the stored data in <code>.git</code> will be anywhere from 50% to 10% of the uncompressed committed files.</p>
+</div>
+<div class="paragraph">
+<p>In other words, it&#8217;s extremely efficient.</p>
+</div>
+<div class="paragraph">
+<p>Below is the running log of the experiments resulting in the numbers above.</p>
+</div>
+<div class="sect1">
+<h2 id="_init_5_directories_250_files">Init, 5 directories, 250 files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First, how big is a brand new empty Git directory (<code>.git</code>)?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git init
+Initialized empty Git repository in /home/dave/tmp/foo/.git/
+
+$ du -sb .git
+64828	.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>About <strong>64 Kb</strong>.</p>
+</div>
+<div class="paragraph">
+<p>(The <code>du</code> options are: <code>s</code> to summarize and <code>b</code> to display bytes.)</p>
+</div>
+<div class="paragraph">
+<p>Now I&#8217;m going to make a bunch of tiny files in directories with a pair of nested shell loops:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ for d in {1..5};do
+    mkdir $d;
+    for f in {1..50};do
+        echo foo &gt; $d/$f;
+    done;
+done</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now I have 250 files in 5 directories containing the string "foo":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls
+1  2  3  4  5
+$ cat 2/45
+foo</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I&#8217;ll commit them:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git add .
+$ git commit -m 'initial commit'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s see how big <code>.git</code> is now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$du -sb .git
+112468	.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The commit has added about <strong>47 Kb</strong> to the initial blank repo.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aside:</strong> I calculated this in the geekiest way I could think of, using the standard Unix command <code>dc</code>, the arbitrary precicision reverse-polish notation desk calculator (note that 'p' is the print command so we can see the result!):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ dc -e '112468 64828 - p'
+47640</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now I&#8217;ll make one tiny change to one file and commit it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ echo bar &gt; 1/1
+$ git commit -am 'changed 1/1'
+
+$ du -sb .git
+129613
+$ dc -e '129613 112468 - p'
+17145</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So that&#8217;s <strong>17 Kb</strong> to store about 3 bytes of changes to my repo.</p>
+</div>
+<div class="paragraph">
+<p>Where is that weight coming from?</p>
+</div>
+<div class="paragraph">
+<p>I&#8217;m gonna do another little commit. Here&#8217;s what it looks like before:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ du -b .git
+4096	.git/objects/info
+4096	.git/objects/pack
+4115	.git/objects/25
+4155	.git/objects/7b
+4225	.git/objects/af
+4115	.git/objects/57
+4271	.git/objects/07
+4177	.git/objects/61
+4255	.git/objects/bb
+4299	.git/objects/a8
+45900	.git/objects
+4336	.git/info
+4096	.git/refs/tags
+4137	.git/refs/heads
+12329	.git/refs
+4096	.git/branches
+4411	.git/logs/refs/heads
+8507	.git/logs/refs
+12918	.git/logs
+27538	.git/hooks
+129613	.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then I modify file 1/1 again to contain the string 'baz' and commit that.</p>
+</div>
+<div class="paragraph">
+<p>After:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>4096	.git/objects/info
+4096	.git/objects/pack
+4115	.git/objects/25
+4253	.git/objects/81 &lt;-- new 4 Kb
+4155	.git/objects/7b
+4225	.git/objects/af
+4115	.git/objects/57
+4271	.git/objects/07
+4177	.git/objects/61
+4302	.git/objects/fc &lt;-- new 4 Kb
+4255	.git/objects/bb
+4115	.git/objects/76 &lt;-- new 4 Kb
+4299	.git/objects/a8
+4177	.git/objects/92 &lt;-- new 4 Kb
+62747	.git/objects
+4336	.git/info
+4096	.git/refs/tags
+4137	.git/refs/heads
+12329	.git/refs
+4096	.git/branches
+4561	.git/logs/refs/heads &lt;-- added 0.1 Kb
+8657	.git/logs/refs
+13218	.git/logs
+27538	.git/hooks
+146759	.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s 4 new objects for a single-file commit.</p>
+</div>
+<div class="paragraph">
+<p>Thanks to Julia "b0rk" Evans&#8217;s awesome work on the
+<a href="https://jvns.ca/blog/2026/01/08/a-data-model-for-git/">new Git data model documentation</a> (jvns.ca)
+, I can figure out what these new objects are.</p>
+</div>
+<div class="paragraph">
+<p>Although these files are all zlib compressed data, I figured out that <code>git show</code> will show the value of <strong>any</strong> object by hash identifier, not just commits!</p>
+</div>
+<div class="paragraph">
+<p>So to view these objects, I did:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls .git/objects/81
+b1a9d27494b40679d612b96bb6acaac83afa9c
+$ git show 81b1a9d27494b40679d612b96bb6acaac83afa9c</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the results are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>81&#8230;&#8203; is my actual commit</p>
+</li>
+<li>
+<p>fc&#8230;&#8203; is the tree file for the changed directory <code>1</code>., listing all of the files in that directory (1 through 50).</p>
+</li>
+<li>
+<p>76&#8230;&#8203; is the actual contents of file 1/1 (which is now the string 'baz')</p>
+</li>
+<li>
+<p>92&#8230;&#8203; is another tree for the root directory of the repo</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>That makes sense. There&#8217;s a commit, two trees, and one file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tiny_repo">Tiny repo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>How about a repo with just a single little file. How much space does a commit require then?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git init
+$ echo foo &gt; foo
+$ git add foo
+$ git commit -m 'initial'
+$ du -sb .git
+94208
+$ echo bar &gt; foo
+$ git -am 'change1'
+$ du -sb .git
+102917
+$ dc -e '102917 94208 - p'
+8709</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So that&#8217;s <strong>8 Kb</strong> per commit, about <em>half</em> the size of the repo with a larger tree of files. I suspect a lot of the size of both of these is overhead and larger commits will see substantial savings.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_big_files">"Big" files?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s add a "big" (580 Kb) binary file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cp /usr/bin/librewolf .
+$ du -b librewolf
+583840
+$ git add .
+$ git commit -m 'added librewolf'
+$ du -sb .git
+400790
+$ dc -e '400790 102917 -  p'
+297873</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The binary compresses quite a bit, so the commit is smaller than the added file (<strong>300 Kb</strong> for a 580 Kb file).</p>
+</div>
+<div class="paragraph">
+<p>Even better, a <strong>huge</strong> (16.2 Mb) text source file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cp /usr/src/linux...mask.h .
+$ du -b nbio_7_2_0_sh_mask.h
+16415223
+$ git add .
+$ git commit -m 'huge source'
+$ du -sb .git
+2022978
+$ dc -e '2022978 400790 - p'
+1622188</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So that&#8217;s <strong>1.6 Mb</strong> to commit a 16.4 Mb source file! I expected the text to compress nicely, but that&#8217;s <em>really</em> impressive.</p>
+</div>
+</div>
+</div>
+
+        <footer class="subdued">
+            This page was last generated 2026-07-24 16:12:58 -0400<br>
+            Using anything on this website to train large language
+            models (LLMs) is strictly forbidden.<br>
+            All content &copy; Copyright Dave Gauer<br>
+        </footer>
+    </article>
+
+
+</body>
+</html>

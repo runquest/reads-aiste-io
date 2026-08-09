@@ -1,0 +1,625 @@
+<!-- source: https://leadershipintech.com/links/22788/027d9985-d4c5-48a7-af59-5152efd9c8a4/email -->
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<!--[if lt IE 9]>
+<script src="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<title>Lessons Learned from CISA&#8217;s Recent GitHub Leak &#8211; Krebs on Security</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security &raquo; Feed" href="https://krebsonsecurity.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security &raquo; Comments Feed" href="https://krebsonsecurity.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security &raquo; Lessons Learned from CISA&#8217;s Recent GitHub Leak Comments Feed" href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/krebsonsecurity.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='colorbox-theme1-css' href='https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/theme1/colorbox.css?ver=1.3.14' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://krebsonsecurity.com/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://krebsonsecurity.com/wp-includes/css/classic-themes.min.css?ver=6.2.2' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://krebsonsecurity.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='publisho-style-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/style.css?subver=1.2&#038;ver=6.2.2' type='text/css' media='all' />
+<style id='publisho-style-inline-css' type='text/css'>
+
+	.themonic-nav .current-menu-item > a, .themonic-nav .current-menu-ancestor > a, .themonic-nav .current_page_item > a, .themonic-nav .current_page_ancestor > a {
+		background: #cc6600;
+	}
+	.themonic-nav ul.nav-menu, .themonic-nav div.nav-menu > ul {
+		border-bottom: 5px solid #cc6600;
+	}
+	#site-navigation .topheadmenu a {
+    background: rgba(0, 0, 0, 0);
+	}
+	.themonic-nav li a:hover {
+		background: #cc6600;
+	}
+	.themonic-nav li:hover {
+		background: #cc6600;
+	}.wrapper .flexslider {margin: 0 0 30px;}.frontp .btm-wrap {
+    border-top: 1px solid #e9e9e9;
+	}
+	.entry-summary {
+    border-top: none;
+	}.frontp .btm-wrap { margin-bottom: 30px;}.site { font-size:14px;}.site { font-family:'Roboto', arial ;}
+</style>
+<link rel='stylesheet' id='publisho-custom-style-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/custom.css?subver=1.2&#038;ver=6.2.2' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='publisho-ie-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/css/ie.css?ver=20160606' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='fontawesome-css-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/fonts/font-awesome.min.css?ver=6.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='publisho_custom_fonts-css' href='//fonts.googleapis.com/css?family=Roboto%3Aregular%2Citalic%2C500%26subset%3Dlatin%2C' type='text/css' media='screen' />
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/jquery.colorbox-min.js?ver=1.3.14' id='colorbox-js'></script>
+<link rel="https://api.w.org/" href="https://krebsonsecurity.com/wp-json/" /><link rel="alternate" type="application/json" href="https://krebsonsecurity.com/wp-json/wp/v2/posts/73982" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://krebsonsecurity.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://krebsonsecurity.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.2" />
+<link rel="canonical" href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/" />
+<link rel='shortlink' href='https://krebsonsecurity.com/?p=73982' />
+<link rel="alternate" type="application/json+oembed" href="https://krebsonsecurity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkrebsonsecurity.com%2F2026%2F07%2Flessons-learned-from-cisas-recent-github-leak%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://krebsonsecurity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkrebsonsecurity.com%2F2026%2F07%2Flessons-learned-from-cisas-recent-github-leak%2F&#038;format=xml" />
+<!-- JavaScript Pull-Quotes plugin v2.2 -->
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-core.css" type="text/css" />
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-default.css" type="text/css" />
+	<script type="text/javascript" src="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes.js"></script>
+	<script type="text/javascript">
+		var arrOptions = new Array("1", "1", "right", "1", "1", "blockquote", "pullquote", "pullquote pqRight");
+		pullQuoteOpts(arrOptions);
+	</script>
+<!-- end pull-quote additions -->
+<!-- jQuery Lightbox For Native Galleries v3.1.3 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			var galleryid = Math.floor(Math.random()*10000);
+			$(obj).find("a").colorbox({rel:galleryid, maxWidth:"95%", maxHeight:"95%"});
+		});
+		$("a.lightbox").colorbox({maxWidth:"95%", maxHeight:"95%"});
+	});
+// ]]>
+</script>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<meta name="twitter:widgets:link-color" content="#000000" /><meta name="twitter:widgets:border-color" content="#000000" /><meta name="twitter:partner" content="tfwp" />
+<meta name="twitter:card" content="summary" /><meta name="twitter:title" content="Lessons Learned from CISA&#8217;s Recent GitHub Leak" /><meta name="twitter:site" content="@briankrebs" /><meta name="twitter:description" content="The Cybersecurity and Infrastructure Security Agency (CISA) has issued a postmortem on a data leak in which a contractor published dozens of internal CISA credentials -- including AWS Govcloud keys -- in a public GitHub repository for almost six months&hellip;" /><meta name="twitter:image" content="https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo.png" />
+</head>
+<body class="post-template-default single single-post postid-73982 single-format-standard custom-background custom-background-white single-author">
+<div id="page" class="site">
+	<!-- <div class="publisho-top-mobile-nav clear"></div> -->
+	<div class="themonic-logo themonic-ad3"><div class="a-statement">Advertisement</div><a href="https://www.gartner.com/en/conferences/na/symposium-us/conference-resources/security?utm_medium=display&amp;utm_campaign=EVT_NA_2026_SYM36_PD_BN1_CYBERINSIGHTS&amp;utm_term=krebs">
+<img src="/b-gartner/15.png">
+</a></div>
+	<div class="themonic-logo themonic-ad6"><div class="a-statement">Advertisement</div><a href="https://www.gartner.com/en/conferences/na/symposium-us/conference-resources/security?utm_medium=display&amp;utm_campaign=EVT_NA_2026_SYM36_PD_BN1_CYBERINSIGHTS&amp;utm_term=krebs">
+<img src="/b-gartner/16.png">
+</a></div>
+	<nav id="site-navigation" class="themonic-nav" role="navigation">
+	</nav><!-- #site-navigation -->
+	<div class="clear"></div>
+	<header id="masthead" class="site-header" role="banner">
+ 					<div class="desktop-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+				 	</div>
+																						   
+		
+		<div class="themonic-logo responsive-img-container">
+			<a href="https://krebsonsecurity.com/" title="Krebs on Security" rel="home"><img src="https://krebsonsecurity.com/wp-content/uploads/2021/03/kos-27-03-2021.jpg" alt="Krebs on Security"></a>
+		</div>
+
+					<div class="mobile-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+					</div>
+		
+				<!-- <div class="publisho-mobile-nav clear"></div> -->
+		<nav id="site-navigation" class="themonic-nav" role="navigation">
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div id="menu-top" class="nav-menu"><ul>
+<li ><a href="https://krebsonsecurity.com/">Home</a></li><li class="page_item page-item-2"><a href="https://krebsonsecurity.com/about/">About the Author</a></li>
+<li class="page_item page-item-645"><a href="https://krebsonsecurity.com/cpm/">Advertising/Speaking</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+		<div class="clear"></div>
+	</header><!-- #masthead -->
+	<div id="main" class="wrapper">
+	<header class="entry-header">
+							<div class="singleentry">
+					<h1 class="entry-title">Lessons Learned from CISA&#8217;s Recent GitHub Leak</h1>
+				</div>
+							
+			
+			</header><!-- .entry-header -->
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+					<article id="post-73982" class="post-73982 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-data-breaches category-latest-warnings tag-brad-libbey tag-cybersecurity-and-infrastructure-security-agency tag-gitguardian tag-guillaume-valadon tag-preston-werntz">
+				<header class="entry-header">
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">July 13, 2026</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comments">16 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+		
+							<div class="entry-content">
+												<p>The <strong>Cybersecurity and Infrastructure Security Agency</strong> (CISA) has issued a postmortem on a recent data leak in which a contractor published dozens of internal CISA credentials &#8212; including AWS Govcloud keys &#8212; in a public GitHub repository for almost six months before being notified by KrebsOnSecurity. Experts say the gaps identified in the agency&#8217;s initial response provide important lessons that all security teams should absorb.</p>
+<p><img decoding="async" class=" wp-image-73648 aligncenter" src="https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo.png" alt="" width="747" height="153" srcset="https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo.png 1873w, https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo-768x157.png 768w, https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo-1536x314.png 1536w, https://krebsonsecurity.com/wp-content/uploads/2026/05/CISA-logo-782x160.png 782w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>On May 15, 2026, the security firm <strong>GitGuardian</strong> asked for help in notifying CISA about the existence of a public GitHub repository called &#8220;Private CISA&#8221; that included 844 MB of sensitive CISA-related data. One of the exposed files, titled “importantAWStokens,” included the administrative credentials to three Amazon AWS GovCloud servers. Another file — “AWS-Workspace-Firefox-Passwords.csv” — listed plaintext usernames and passwords for dozens of internal CISA systems.</p>
+<p>CISA quickly acknowledged our initial alert, but took more than 48 hours to invalidate the AWS keys and many other important secrets leaked in the GitHub repo. In <a href="https://www.cisa.gov/news-events/news/lessons-cisas-cyber-incident" target="_blank" rel="noopener">its report on the data leak</a>, CISA said the complexities of the agency&#8217;s systems and interconnections with federal and industry partners caused its key rotation to take longer than anticipated.</p>
+<p>&#8220;Drawing on this experience, CISA encourages others to maintain mature and well-tested key management capabilities,&#8221; the report notes.</p>
+<p>CISA also admitted it can do better when it comes to responding to security incident notifications from external parties. The postmortem stresses that clear and distinct reporting channels are essential to ensure that incidents affecting the organization itself are handled differently from those involving its products or customers.</p>
+<p>&#8220;In CISA&#8217;s case, these channels were not well defined, leading the security researcher to try multiple avenues – including emailing the contractor, submitting through CISA’s vulnerability disclosure platform (which is intended for vulnerabilities impacting the broader cybersecurity community), and ultimately involving a reporter,&#8221; reads the analysis written by <strong>Preston Werntz</strong> and <strong>Brad Libbey</strong>, the acting chief information officer and acting chief information security officer at CISA, respectively.</p>
+<p>CISA said it is refining its reporting channels to make them easier and faster for researchers. &#8220;Additionally, while many researchers rely on the security.txt file, organizations can ensure clarity by publishing reporting instructions in multiple prominent locations,&#8221; the CISA authors wrote.</p>
+<p><strong>Guillaume Valadon</strong>, the GitGuardian researcher who first contacted KrebsOnSecurity about the exposed CISA credentials, said CISA ignored nine automated alerts about the exposed credentials prior to our notification on May 15. Valadon’s company constantly scans public code repositories at GitHub and elsewhere for exposed secrets, automatically alerting the offending accounts of any apparent sensitive data exposures.</p>
+<p>&#8220;Letting nine notification emails go unanswered is how a one-day incident becomes a six-month exposure,&#8221; Valadon <a href="https://blog.gitguardian.com/cisa-github-leak-incident-response-lessons/" target="_blank" rel="noopener">wrote</a> in an analysis of CISA&#8217;s report. &#8220;Make it trivial to report a leak about you, not just about your products. The person reporting a leak to you is not the threat. Publish a <a href="https://krebsonsecurity.com/2021/09/does-your-organization-have-a-security-txt-file/" target="_blank" rel="noopener">security.txt</a>, but do not stop there. Put reporting instructions in several prominent places, and make sure a report about your own infrastructure does not land in a product-bug queue.&#8221;<span id="more-73982"></span></p>
+<p>The report&#8217;s authors also emphasized the importance of continuously scanning public code repositories like GitHub for exposed secrets, and said CISA has since rotated all secrets and created an action plan to improve management of developer secrets and to better monitor for them going forward.</p>
+<p>The report notes that while CISA had developed a playbook for responding to cybersecurity incidents, that playbook somehow didn&#8217;t include what to do in situations involving GitHub or other cloud services. Valadon said the report validates the need to scan continuously &#8212; not just quarterly &#8212; for exposed secrets.</p>
+<p>&#8220;The Private-CISA repository sat public for six months,&#8221; Valadon wrote. &#8220;Continuous monitoring of public GitHub surfaced it. Comprehensive internal scanning could have caught the plaintext passwords and committed backups long before they left the building.&#8221;</p>
+<p>CISA gave itself passing grades on several areas of security preparedness that it said helped the agency gauge the scope and impact of the exposed secrets, including enhanced logging capabilities, and the adoption of zero-trust principles in both its production and development systems. CISA said those detailed logs allowed it to show that no customer or mission data was exposed, and that the leaked credentials were not used outside of CISA&#8217;s environments. The agency said the contractor who exposed the secrets had their system access revoked.</p>
+<p>Valadon reckons the biggest takeaway is the CISA postmortem itself, and praised the agency for being transparent about what worked and what didn&#8217;t.</p>
+<p>&#8220;To my knowledge, it is also the first time a national cybersecurity agency has publicly advocated for secrets scanning and for simplifying relations with security researchers,&#8221; Valadon wrote. &#8220;That is exactly the incident communication we should expect from every organization.&#8221;</p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+			
+		<p><i>
+         This entry was posted on Monday 13th of July 2026 11:03 AM 
+         </i></p>
+		 
+					<div class="categories"><a href="https://krebsonsecurity.com/category/sunshine/" rel="category tag">A Little Sunshine</a> <a href="https://krebsonsecurity.com/category/data-breaches/" rel="category tag">Data Breaches</a> <a href="https://krebsonsecurity.com/category/latest-warnings/" rel="category tag">Latest Warnings</a></div>
+								<div class="tags"><a href="https://krebsonsecurity.com/tag/brad-libbey/" rel="tag">Brad Libbey</a> <a href="https://krebsonsecurity.com/tag/cybersecurity-and-infrastructure-security-agency/" rel="tag">Cybersecurity and Infrastructure Security Agency</a> <a href="https://krebsonsecurity.com/tag/gitguardian/" rel="tag">GitGuardian</a> <a href="https://krebsonsecurity.com/tag/guillaume-valadon/" rel="tag">Guillaume Valadon</a> <a href="https://krebsonsecurity.com/tag/preston-werntz/" rel="tag">Preston Werntz</a></div>
+			
+	</footer>
+
+	</article><!-- #post -->
+		
+			<br><div class="themonic-ad4"></div>
+					<nav class="nav-single">
+					<div class="assistive-text">Post navigation</div>
+					<span class="nav-previous"><a href="https://krebsonsecurity.com/2026/07/felons-fraudsters-flog-offensive-cybersecurity-startup/" rel="prev"><span class="meta-nav">&larr;</span> Felons, Fraudsters Flog Offensive Cybersecurity Startup</a></span>
+					<span class="nav-next"><a href="https://krebsonsecurity.com/2026/07/microsoft-patches-a-record-570-security-flaws/" rel="next">Microsoft Patches a Record 570 Security Flaws <span class="meta-nav">&rarr;</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			16 thoughts on &ldquo;<span>Lessons Learned from CISA&#8217;s Recent GitHub Leak</span>&rdquo;		</h2>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-657819">
+		<article id="comment-657819" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Doc </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657819"><time datetime="2026-07-13T13:31:28-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The government will always condone and positively critique its own behavior.  Some bureaucrat(s) should at least lose their job and pensions as a result of this egregious fubar.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657819#respond' data-commentid="657819" data-postid="73982" data-belowelement="comment-657819" data-respondelement="respond" data-replyto="Reply to Doc" aria-label='Reply to Doc'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-657857">
+		<article id="comment-657857" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Jay </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657857"><time datetime="2026-07-14T09:26:33-04:00">July 14, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Unfortunately, so many people have been culled at CISA and other agencies by the orange-faced buffoon there aren&#8217;t enough people left to do the job properly.  Firing those who are already overworked and underpaid isn&#8217;t the answer.  Yes, this incident was preventable and should have been caught sooner, but when your bosses boss changes priorities to make sure that national security takes a back seat to them making money these things happen.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657857#respond' data-commentid="657857" data-postid="73982" data-belowelement="comment-657857" data-respondelement="respond" data-replyto="Reply to Jay" aria-label='Reply to Jay'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-657820">
+		<article id="comment-657820" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Dennis </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657820"><time datetime="2026-07-13T14:07:38-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I’m surprised we didn’t print out that importantAWStokens text file and kept it in a cardboard box in a Mar A Lago bathroom. What else can you expect from the current government?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657820#respond' data-commentid="657820" data-postid="73982" data-belowelement="comment-657820" data-respondelement="respond" data-replyto="Reply to Dennis" aria-label='Reply to Dennis'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-657824">
+		<article id="comment-657824" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">BooBoo Witch </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657824"><time datetime="2026-07-13T15:43:41-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I dunno about you, but I kind of don&#8217;t think it is a terrible idea to keep some printouts of keys offline in a safe place somewhere. Too many disk meltdowns and outages to not know how that can go.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657824#respond' data-commentid="657824" data-postid="73982" data-belowelement="comment-657824" data-respondelement="respond" data-replyto="Reply to BooBoo Witch" aria-label='Reply to BooBoo Witch'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-657822">
+		<article id="comment-657822" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="https://mrw.5-cent.us" class="url" rel="ugc external nofollow">mark</a> </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657822"><time datetime="2026-07-13T15:18:43-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks, Brian. There&#8217;s a reason I still read you daily, even though I retired from my sysadmin job in &#8217;19.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657822#respond' data-commentid="657822" data-postid="73982" data-belowelement="comment-657822" data-respondelement="respond" data-replyto="Reply to mark" aria-label='Reply to mark'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-657828">
+		<article id="comment-657828" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">vb </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657828"><time datetime="2026-07-13T17:18:51-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The root cause is the overuse of contractors. A long time ago, contractors were hired as experts for short-term projects where the regular staff had knowledge gaps.  More recently, contractors are hired to avoid having regular staff. Regular staff had low turnover rates. Contractors have very high turnover rates. And now, many contractors are far from experts, they are closer to young and inexperienced. Whatever the staffing company can get.  Young and inexperienced people should not be handling large files of sensitive data. Managers used to be responsible for their staff.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657828#respond' data-commentid="657828" data-postid="73982" data-belowelement="comment-657828" data-respondelement="respond" data-replyto="Reply to vb" aria-label='Reply to vb'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-657830">
+		<article id="comment-657830" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">john </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657830"><time datetime="2026-07-13T18:34:08-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Do DOGE cuts have any impact on this event? Would this happen have happened in earlier times?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657830#respond' data-commentid="657830" data-postid="73982" data-belowelement="comment-657830" data-respondelement="respond" data-replyto="Reply to john" aria-label='Reply to john'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-657834">
+		<article id="comment-657834" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="http://None" class="url" rel="ugc external nofollow">Alida</a> </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657834"><time datetime="2026-07-13T18:59:30-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I agree with you, john. I think the recent DOGE cuts DID have something to do with it. I read morale was low and the people working there have had their workloads increased.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657834#respond' data-commentid="657834" data-postid="73982" data-belowelement="comment-657834" data-respondelement="respond" data-replyto="Reply to Alida" aria-label='Reply to Alida'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-657837">
+		<article id="comment-657837" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">jahlen </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657837"><time datetime="2026-07-13T19:20:03-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>wow</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657837#respond' data-commentid="657837" data-postid="73982" data-belowelement="comment-657837" data-respondelement="respond" data-replyto="Reply to jahlen" aria-label='Reply to jahlen'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-657838">
+		<article id="comment-657838" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="http://Na" class="url" rel="ugc external nofollow">Frank</a> </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657838"><time datetime="2026-07-13T21:54:05-04:00">July 13, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>If anybody out there in United States still think that any government agency in this country can keep any secrets about anything anymore. Let me dissuade you of that idea. Anything you share  with the government will always be hacked and shared with the rest of the world. There are no secrets.  If anybody thinks the Russians, the Chinese the North Koreans don&#8217;t know everything that goes on in this country with all our companies and the government is living in delusion land.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657838#respond' data-commentid="657838" data-postid="73982" data-belowelement="comment-657838" data-respondelement="respond" data-replyto="Reply to Frank" aria-label='Reply to Frank'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-2" id="li-comment-658266">
+		<article id="comment-658266" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Terry </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-658266"><time datetime="2026-07-21T11:56:20-04:00">July 21, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>lol, You do understand that the Russians, Chinese, North Koreans and ALL others have the exact same issue that we have. Too much information and no one to look at it. They may, occasionally, have a vague clue at what they are seeing. But mostly move past, if they ever see it.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=658266#respond' data-commentid="658266" data-postid="73982" data-belowelement="comment-658266" data-respondelement="respond" data-replyto="Reply to Terry" aria-label='Reply to Terry'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-657873">
+		<article id="comment-657873" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Y.S. </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-657873"><time datetime="2026-07-14T19:23:27-04:00">July 14, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>&#8220;Another file — &#8216;AWS-Workspace-Firefox-Passwords.csv&#8217; — listed plaintext usernames and passwords for dozens of internal CISA systems.&#8221;</p>
+<p>The bar is in hell and we&#8217;re still faceplanting</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=657873#respond' data-commentid="657873" data-postid="73982" data-belowelement="comment-657873" data-respondelement="respond" data-replyto="Reply to Y.S." aria-label='Reply to Y.S.'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-658002">
+		<article id="comment-658002" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Paul Kile </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-658002"><time datetime="2026-07-17T07:20:26-04:00">July 17, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>&#8220;security.txt&#8221; is referenced in this post as well as in a previous post to this blog (<a href="https://krebsonsecurity.com/2021/09/does-your-organization-have-a-security-txt-file/" rel="ugc">https://krebsonsecurity.com/2021/09/does-your-organization-have-a-security-txt-file/</a>).</p>
+<p>As a former implementer of websites with 100,000+ daily unique visitors, I find the idea very positive. A quick search shows that some leading tech companies indeed have a security.txt page&#8211;terrific!</p>
+<p>This website feels like it should be setting an example or practicing what it preaches. But I can&#8217;t find a security.txt page on the site. What am I missing? [May I have a bug bounty, please 🙂 ]</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=658002#respond' data-commentid="658002" data-postid="73982" data-belowelement="comment-658002" data-respondelement="respond" data-replyto="Reply to Paul Kile" aria-label='Reply to Paul Kile'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-658095">
+		<article id="comment-658095" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Slope </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-658095"><time datetime="2026-07-19T23:43:31-04:00">July 19, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I think this incident shows that even organizations with strong security frameworks can be undermined by slow operational response. To me, the biggest lesson is that continuous monitoring and a clear reporting process are just as important as technical defenses. A mature security program should make it easy to detect, report, and remediate exposed secrets before they become long-term risks.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=658095#respond' data-commentid="658095" data-postid="73982" data-belowelement="comment-658095" data-respondelement="respond" data-replyto="Reply to Slope" aria-label='Reply to Slope'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-658260">
+		<article id="comment-658260" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">S. Sari </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-658260"><time datetime="2026-07-21T07:44:08-04:00">July 21, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Very good to be informed of things like this. With the rapidly dwindling availability of trustworthy reporters to provide cogent reports on things of this nature, Mr. Krebs continues to shine a light in the darkened streets and alleys of the underbelly of the information parking lots of the world.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=658260#respond' data-commentid="658260" data-postid="73982" data-belowelement="comment-658260" data-respondelement="respond" data-replyto="Reply to S. Sari" aria-label='Reply to S. Sari'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-659236">
+		<article id="comment-659236" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">fnaf </cite><a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/#comment-659236"><time datetime="2026-08-05T05:40:19-04:00">August 5, 2026</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Wow. Not surprising. Putting a budget a few years ago that is not feasible but yet waiting a reasonable mindset with intelligent people. Equals = mistakes.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/?replytocom=659236#respond' data-commentid="659236" data-postid="73982" data-belowelement="comment-659236" data-respondelement="respond" data-replyto="Reply to fnaf" aria-label='Reply to fnaf'>Reply</a> <span>&rarr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2026/07/lessons-learned-from-cisas-recent-github-leak/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://krebsonsecurity.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required="required" /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required="required" /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='73982' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="446d1774fb" /></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1"/><script type="text/javascript">
+document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+</script>
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+
+        <div id="sidebar_ad" class="widget themonic-ad5"><div class="a-statement">Advertisement</div><a href="https://www.gartner.com/en/conferences/na/symposium-us/conference-resources/security?utm_medium=display&amp;utm_campaign=EVT_NA_2026_SYM36_PD_BN1_CYBERINSIGHTS&amp;utm_term=krebs">
+<img src="/b-gartner/17.png">
+</a></div>
+
+                        <br><div class="widget themonic-ad1"><div class="a-statement">Advertisement</div></div><br>
+
+			<aside id="custom_html-2" class="widget_text widget widget_custom_html"><p class="widget-title">Mailing List</p><div class="textwidget custom-html-widget"><a href="/subscribe/">Subscribe here</a></div></aside><aside id="search-2" class="widget widget_search"><p class="widget-title">Search KrebsOnSecurity</p><form role="search" method="get" id="searchform" class="searchform" action="https://krebsonsecurity.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<p class="widget-title">Recent Posts</p>
+		<ul>
+											<li>
+					<a href="https://krebsonsecurity.com/2026/08/canadian-man-pleads-guilty-in-snowflake-extortions/">Canadian Man Pleads Guilty in Snowflake Extortions</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2026/07/read-this-before-you-buy-that-tv-streaming-stick/">Read This Before You Buy That TV Streaming Stick</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2026/07/lg-to-ban-residential-proxies-from-smart-tv-apps/">LG to Ban Residential Proxies from Smart TV Apps</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2026/07/microsoft-patches-a-record-570-security-flaws/">Microsoft Patches a Record 570 Security Flaws</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/" aria-current="page">Lessons Learned from CISA&#8217;s Recent GitHub Leak</a>
+									</li>
+					</ul>
+
+		</aside><aside id="text-2" class="widget widget_text">			<div class="textwidget"><a name="subscribe2"></a></div>
+		</aside><aside id="categories-2" class="widget widget_categories"><p class="widget-title">Story Categories</p>
+			<ul>
+					<li class="cat-item cat-item-5"><a href="https://krebsonsecurity.com/category/sunshine/">A Little Sunshine</a>
+</li>
+	<li class="cat-item cat-item-2240"><a href="https://krebsonsecurity.com/category/all-about-skimmers/">All About Skimmers</a>
+</li>
+	<li class="cat-item cat-item-9085"><a href="https://krebsonsecurity.com/category/ashley-madison-breach/">Ashley Madison breach</a>
+</li>
+	<li class="cat-item cat-item-3191"><a href="https://krebsonsecurity.com/category/breadcrumbs/">Breadcrumbs</a>
+</li>
+	<li class="cat-item cat-item-3771"><a href="https://krebsonsecurity.com/category/data-breaches/">Data Breaches</a>
+</li>
+	<li class="cat-item cat-item-4624"><a href="https://krebsonsecurity.com/category/ddos-for-hire/">DDoS-for-Hire</a>
+</li>
+	<li class="cat-item cat-item-11540"><a href="https://krebsonsecurity.com/category/doge/">DOGE</a>
+</li>
+	<li class="cat-item cat-item-9173"><a href="https://krebsonsecurity.com/category/employment-fraud/">Employment Fraud</a>
+</li>
+	<li class="cat-item cat-item-2151"><a href="https://krebsonsecurity.com/category/how-to-break-into-security/">How to Break Into Security</a>
+</li>
+	<li class="cat-item cat-item-10357"><a href="https://krebsonsecurity.com/category/internet-of-things-iot/">Internet of Things (IoT)</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="https://krebsonsecurity.com/category/latest-warnings/">Latest Warnings</a>
+</li>
+	<li class="cat-item cat-item-4071"><a href="https://krebsonsecurity.com/category/neer-do-well-news/">Ne&#039;er-Do-Well News</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://krebsonsecurity.com/category/other/">Other</a>
+</li>
+	<li class="cat-item cat-item-1306"><a href="https://krebsonsecurity.com/category/pharma-wars/">Pharma Wars</a>
+</li>
+	<li class="cat-item cat-item-8240"><a href="https://krebsonsecurity.com/category/ransomware/">Ransomware</a>
+</li>
+	<li class="cat-item cat-item-9635"><a href="https://krebsonsecurity.com/category/russias-war-on-ukraine/">Russia&#039;s War on Ukraine</a>
+</li>
+	<li class="cat-item cat-item-599"><a href="https://krebsonsecurity.com/category/security-tools/">Security Tools</a>
+</li>
+	<li class="cat-item cat-item-8298"><a href="https://krebsonsecurity.com/category/sim-swapping/">SIM Swapping</a>
+</li>
+	<li class="cat-item cat-item-4079"><a href="https://krebsonsecurity.com/category/spam-nation/">Spam Nation</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://krebsonsecurity.com/category/smallbizvictims/">Target: Small Businesses</a>
+</li>
+	<li class="cat-item cat-item-5167"><a href="https://krebsonsecurity.com/category/tax-refund-fraud/">Tax Refund Fraud</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://krebsonsecurity.com/category/comingstorm/">The Coming Storm</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://krebsonsecurity.com/category/patches/">Time to Patch</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://krebsonsecurity.com/category/web-fraud-2-0/">Web Fraud 2.0</a>
+</li>
+			</ul>
+
+			</aside><aside id="media_image-2" class="widget widget_media_image"><p class="widget-title">Why So Many Top Hackers Hail from Russia</p><a href="https://krebsonsecurity.com/2017/06/why-so-many-top-hackers-hail-from-russia/"><img width="580" height="389" src="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png" class="image wp-image-39684  attachment-medium size-medium" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png 580w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-768x514.png 768w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-940x630.png 940w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered.png 1551w" sizes="(max-width: 580px) 100vw, 580px" /></a></aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	
+	<div id="publisho-footer" class="widget-area">
+				<div class="footer-widget">
+                				</div>
+				<div class="footer-widget">
+								</div>
+				<div class="footer-widget">
+								</div>
+	</div>
+
+	<div class="site-wordpress">
+					&copy; Krebs on Security - <a rel="me" href="https://infosec.exchange/@briankrebs">Mastodon</a> <br />
+  </div>
+	<!-- .site-info --><div class="clear"></div>
+</div><!-- #page -->
+
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-includes/js/comment-reply.min.js?ver=6.2.2' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/slicknav.js?ver=6.2.2' id='publisho-mobile-navigation-js'></script>
+<script defer type='text/javascript' src='https://krebsonsecurity.com/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1777010399' id='akismet-frontend-js'></script>
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Object Caching 133/142 objects using memcached
+Page Caching using memcached 
+Database Caching 3/15 queries in 0.454 seconds using memcached
+
+Served from: krebsonsecurity.com @ 2026-08-09 19:05:02 by W3 Total Cache
+-->

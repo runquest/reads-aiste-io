@@ -199,8 +199,16 @@ async function fetchArticleText(url) {
     const html = await fetchHtml(url);
     if (!html) return null;
     const articleMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    const scoped = articleMatch ? articleMatch[1] : html;
+    // turndown doesn't strip script/style content by default — it just
+    // drops the tags and keeps the text, which once broke the whole site
+    // build when a page's ad-tech JS containing "{{" leaked through and
+    // Jekyll's Liquid parser choked on it.
+    const withoutScripts = scoped
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
     const markdown = turndown
-      .turndown(articleMatch ? articleMatch[1] : html)
+      .turndown(withoutScripts)
       // Empty "copy link to heading" anchors many sites attach to every
       // heading turn into noisy empty markdown links; drop them.
       .replace(/\[]\(#[^)]*\)/g, "")
@@ -298,6 +306,10 @@ function buildStoryMarkdown(item, dateDir) {
     unsubscribe_url: item.unsubscribeUrl,
     original_url: item.url,
     category: item.category,
+    // We don't use page.excerpt anywhere; disabling it avoids Jekyll's
+    // "Excerpt modified" build-log noise from the excerpt separator
+    // landing inside our {% raw %} block on every single story.
+    excerpt_separator: "",
   };
 
   let front = "---\n";
@@ -316,7 +328,11 @@ function buildStoryMarkdown(item, dateDir) {
     body += `*Couldn't fetch the full article — [read it on the original site ↗](${item.url}).*\n`;
   }
 
-  return front + body;
+  // Everything above is text from other people's emails/websites, not ours
+  // — wrap it so a stray "{{" or "{%" in someone's article (ad-tech JS,
+  // a code sample, whatever) can't be parsed as a Liquid tag and break
+  // the whole site build, the way one already did.
+  return `${front}{% raw %}\n${body}\n{% endraw %}\n`;
 }
 
 function writeStoryFile(item, dateDir) {
@@ -405,9 +421,12 @@ async function main() {
       if (item.subscriptionEmail) attributionParts.push(`via ${item.subscriptionEmail}`);
       if (item.unsubscribeUrl) attributionParts.push(`[unsubscribe](${item.unsubscribeUrl})`);
 
-      body += `### [${item.title}](${item.permalink})\n_${attributionParts.join(" · ")}_\n\n`;
+      // Title/teaser come from other people's emails (or a model reading
+      // them) — wrap in raw so a stray "{{"/"{%" can't be parsed as Liquid
+      // and break the whole site build.
+      body += `### [{% raw %}${item.title}{% endraw %}](${item.permalink})\n_${attributionParts.join(" · ")}_\n\n`;
       const teaser = item.existing_summary || (item.summary_bullets || []).join(" ");
-      body += `${teaser}\n\n`;
+      body += `{% raw %}${teaser}{% endraw %}\n\n`;
       body += item.full_text
         ? `[Read full piece →](${item.permalink})\n\n`
         : item.url

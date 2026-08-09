@@ -1,0 +1,298 @@
+<!-- source: https://programmingdigest.net/links/22964/91ee7b33-c28b-4a8e-bab4-e5b8bc4f3f47/email -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 2026-05-25 Mon 17:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>90 % of the t distribution</title>
+<meta name="author" content="kqr" />
+<meta name="generator" content="Org Mode" />
+
+        <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <link rel="icon" type="image/png" href="/image/favicon/favicon-48x48.png" sizes="48x48" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/image/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Entropic Thoughts" />
+
+        <link rel="canonical" href="/ninety-percent-of-the-t-distribution">
+        <link href="/etc/style/css/htmlize-classes.css" rel="stylesheet" />
+        <link href="/etc/style/css/main.css?v=17" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/katex/katex.min.css" />
+        <script src="/lib/katex/katex.min.js"></script>
+        <script src="/lib/katex/contrib/auto-render.min.js"></script>
+    </head>
+    <body>
+
+        <header>
+            <div class="title">
+                <h1><a href="/">Entropic Thoughts</a></h1>
+                <h2>90 % of the t distribution</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/archive">Archive</a></li>
+                    <li><a href="/tags">Tags</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="https://xkqr.org/">xkqr.org</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article>
+            <header>
+<h1>90 % of the t distribution</h1>
+<div class="article-meta">
+<div>by <address>kqr</address>, 
+scheduled <time pubdate datetime="2026-05-26T00:00:00+0200">2026-05-26</time>
+</div><div>Tags: <ul class="tag-list "><li><a href="tags.html#forecasting">forecasting</a></li>
+<li><a href="tags.html#statistics">statistics</a></li></ul></div>
+</div>
+</header>
+
+            <div class="content">
+                <div class="fullwidth" id="orgb91eccc">
+
+<div id="org7078844" class="figure">
+<p><img src="../image/banner/ninety-percent-of-the-t-distribution.jpg" alt="ninety-percent-of-the-t-distribution.jpg" />
+</p>
+</div>
+
+</div>
+
+<p>
+William Sealy Gosset was great. He improved beer at Guinness by using the
+statistics that existed at the time. Not happy with that, he invented new
+statistics to brew even better beer. The things he invented are used all over
+the place now, but Guinness wanted to keep him a secret weapon, so they made him
+publish his results under the fake name <i>Student</i>.
+</p>
+
+<p>
+One thing Gosset realised is that it is wrong to compute 90 % confidence
+intervals for the mean by taking the standard deviation of the sample, and
+<i>assume a normal distribution</i>, like-a-so:
+</p>
+
+<p>
+\[\hat{\mu} \pm 1.645 \hat{\sigma}\]
+</p>
+
+<p>
+When we do this we get too narrow a range, because while we recognise
+\(\hat{\mu}\) is just an approximation, we are assuming we know \(\sigma =
+\hat{\sigma}\) with certainty!
+</p>
+
+<p>
+Gosset came up with correction tables based on the number of samples used in the
+estimation of the confidence interval, to account for our uncertainty in the
+estimation of \(\hat{\sigma}\). Here are some useful values, rounded to be easier
+to memorise:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Number of samples</th>
+<th scope="col" class="org-left">Correction factor for 90 % interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">4×</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">2×</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">1.5×</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">1.3×</td>
+</tr>
+
+<tr>
+<td class="org-right">6–8</td>
+<td class="org-left">1.2×</td>
+</tr>
+
+<tr>
+<td class="org-right">9–20</td>
+<td class="org-left">1.1×</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+To use this table, count how many samples the estimation of the standard
+deviation is based on, multiply the estimation of the standard deviation
+\(\hat{\sigma}\) with the correction factor, and then multiply again with 1.645 to
+get a 90 % interval. If the number of samples is greater than 20, the naïve
+estimation of the standard deviation is good enough for a 90 % interval.
+</p>
+
+<p>
+Thus, if we have 7 samples and these have lead us to estimate a mean of 32
+minutes with a standard deviation of 8 minutes, we should not think of the 90 %
+confidence interval as
+</p>
+
+<p>
+\[ 32 \pm 8×1.645\]
+</p>
+
+<p>
+but rather as
+</p>
+
+<p>
+\[32 \pm 8×1.2×1.645\]
+</p>
+
+<p>
+Already with 7 samples, the actual 90 % confidence interval is fairly close to
+the naïve one, being only a factor of 1.2 too narrow. With fewer samples, the
+uncertainty in the standard deviation is larger, so we should estimate a
+similarly wider confidence interval.<label class="footref" for="fn.1">1</label><input id="fn.1" class="footref-toggle" type="checkbox" /><span class="sidenote"><sup>1</sup> A stronger confidence interval, like
+the 95 % or even 99 % interval will be correspondingly much wider after the
+Student t correction.</span>
+</p>
+
+<p>
+This is the table for 90 % intervals because that&rsquo;s what I need most often.
+Gosset didn&rsquo;t actually come up with any specific approximation table; he came up
+with the entire <i>Student&rsquo;s t</i> distribution which lets us create any table of
+correction factors we need.
+</p>
+<section id="outline-container-variation-from-just-two-values" class="outline-1">
+<h1 id="variation-from-just-two-values"><a href="#variation-from-just-two-values">Variation from just two values</a></h1>
+<div class="outline-text-1" id="text-org37298a4">
+<p>
+Although the above table is what you need for getting a 90 % confidence interval, we
+can also use a similar technique to get a sloppy estimation of the standard
+deviation based on just two samples. The sample standard deviation of two values
+is given by
+</p>
+
+<p>
+\[\frac{\left(\mathrm{high} - \mathrm{low}\right)}{\sqrt{2}}\]
+</p>
+
+<p>
+This massively underestimates the actual standard deviation, because it is based
+on just two values. But one standard deviation corresponds to a t score of
+1.846, so we can multiply the above by that, and we get a better approximation
+of the standard deviation.
+</p>
+
+<p>
+If we round the constant factors for convenience, we&rsquo;ll find that the
+appropriate estimation of the standard deviation (corrected through the t
+distribution) is 1.3 times the distance between the two numbers we have. That&rsquo;s
+incredibly useful in practice!
+</p>
+</div>
+<div id="outline-container-example-of-how-to-use-it" class="outline-2">
+<h2 id="example-of-how-to-use-it"><a href="#example-of-how-to-use-it">Example of how to use it</a></h2>
+<div class="outline-text-2" id="text-orgf72d46f">
+<p>
+I&rsquo;m sure you&rsquo;ve been in a situation where someone has asked something like &ldquo;Is
+49 litres a good result?&rdquo;
+</p>
+
+<p>
+You don&rsquo;t know, of course, so you ask &ldquo;Compared to what?&rdquo;
+</p>
+
+<p>
+Maybe they respond &ldquo;Compared to 43 litres!&rdquo;
+</p>
+
+<p>
+That sounds impressive, but you don&rsquo;t want me to chastise you, so you say, &ldquo;That
+still tells me nothing because I don&rsquo;t know the variation inherent in the
+process. Give me another typical result!&rdquo;
+</p>
+
+<p>
+They might then say &ldquo;Uhh, 47 litres.&rdquo;
+</p>
+
+<p>
+Now you let your guard down and think, &ldquo;Oh, 49 is above both the typical
+results. Very good!&rdquo;
+</p>
+
+<p>
+<abbr>And then i chastise you!</abbr>
+</p>
+
+<p>
+So you turn on your brain instead.
+</p>
+
+<p>
+You have received two typical numbers: 43 and 47. These don&rsquo;t tell you much
+about how the inherent variation, but they do tell you a little. The distance
+between them is four. If we multiply that by 1.3, we get our estimation of the
+standard deviation, which is something like 5 litres. That means 49 litres is
+less than one standard deviation away from the midpoint of 45 litres. That&rsquo;s a
+normal result, not unusually good or bad.
+</p>
+</div>
+</div>
+</section>
+<footer><!--Footnotes--><h1>Sidenotes</h1>
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">A stronger confidence interval, like
+the 95 % or even 99 % interval will be correspondingly much wider after the
+Student t correction.</p></div></div>
+
+</footer>
+            </div>
+            
+        </article>
+
+        <footer>
+            <div class="twocols" >
+                <p>
+                    If you liked this and want more you should
+                    <a href="https://buymeacoff.ee/kqr">buy me a coffee</a>.
+                    That helps me turn my 170+ ideas backlog into articles.
+                </p>
+
+                <p>
+                    Shoutout to my amazing wife <span class="redacted">
+                    &nbsp;</span> without whose support I would never
+                    make it past the first sentence. ♥
+                </p>
+
+                <p>S = k log W.<br />&nbsp;<br />Comments? <a href="/about">Send
+                    me an email</a>.<br />
+
+                    You can also <a href="https://buttondown.email/entropicthoughts">subscribe for new articles</a>.
+                </p>
+        </footer>
+
+
+        <script type="text/javascript">
+         renderMathInElement(document.body);
+        </script>
+  </body>
+</html>

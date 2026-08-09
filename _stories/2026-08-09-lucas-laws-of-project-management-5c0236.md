@@ -1,0 +1,17 @@
+---
+layout: "story"
+title: "Lucas' Laws of Project Management"
+date: "2026-08-09"
+permalink: "/2026/08/09/stories/lucas-laws-of-project-management-5c0236/"
+source: "Pointer"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F4951mhY03iCawzSQ6poZedL3n7H-lMzRTsKnY9bvtDfJYA8pICpvyyNYWT98Xtr9WdPcSpxxaa7Q5dr87aixq5vJ-Qw1L7gIyWMpCypEOlfXAJm8SQXIm1s7koyy1uCxC7zXuh07rmNPoUGkVv1gKpPEmpnlpiJFRjhqtOsj5IPIisKSGm6bfnPNBb7Os_uB2VVcdMG9bYc6piswwPej6jIwWj01iywjRr50IXFQSKaxPm4ZrdXmrxqvKM393XlcMsOq6gCMoS0C0j4HA1PvXrlhpQEld-gUUeLw4g22XSEMWMM0rWvQNEIuLnCbhCCm0uCKYqat4jKd3YN4nVHAcMCNQ2Ei2GPykfDHxJYVdco3KJX9l_5_H6GMKBlXDS2VJ9uvj1KdE5hvtRDA9JpsnR5JJq8QDHsBioqn8iUu2PSvhMbiubNTphxednjfeRB90DtJQjS-8NSA6TRu0zRbBERlc9vv94VDRiUhF99FmH7qo2VK1oeV_Jt6u7tbyorAOmxErkh7wKn0Smc_5XQRHXd3rPRWgE2WGFygE5_g37YwMdVHLcl3K8bnt4r-3bJbbgfnzVAsUn1p-3X7DwAKEjwRTq5GEQm0T0BNnZwBHPZ4zVWO8iZmjM0-MrtHIBiUCB-w-1LHsLC-onSDSWLza-QTye7jV6s_6dBH0jyCZEwQJz1v6pog6Ys9INTeYxqRrIb-UZfOKTnt4Emg3iN7_Duxbo-6kxT3fCdcClBFkAOisx45q-pqFhHRn1hyXoEReY0GafKB-yw2hqgKANAVRThb3TLuFB4oTYA4sFOmAH6gey7V58qCPOxWbHvy4HvHJ4MlMksMvE7L0nfn14qm57Kwj8zbo_4PLphSDSiPA/4sl/h7_ivzkxSm-YefoUD5CPxQ/h30/h001.fEtOnaRhwDCITS_nqM_VTSWLrYI5DtFh6HjTL9DQUa0"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0iXWukwtzo0n-HZhmbKC-6IH6S2lm2PJQxO77ai2ImAicfw-LCr2fACBiKDFcS8OblcuB8yl3X1OVPDFHHPEtY82UboXu2Yv1DxYCAdolLirr1-5mwdH77oW451v7y-qh9Uv7KFnFxyCRduw_VtGhOCr2LJlvTOV0yQFlGXfq-68JLPBuvtGcHJmx2eFUtft5A/4sl/h7_ivzkxSm-YefoUD5CPxQ/h19/h001.UoThSE5BS2VhSSZLa5R3uTrgdf0vg4bF-bO4A6S8UYs"
+category: "Leadership"
+excerpt_separator: ""
+---
+
+{% raw %}
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0iXWukwtzo0n-HZhmbKC-6IH6S2lm2PJQxO77ai2ImAicfw-LCr2fACBiKDFcS8OblcuB8yl3X1OVPDFHHPEtY82UboXu2Yv1DxYCAdolLirr1-5mwdH77oW451v7y-qh9Uv7KFnFxyCRduw_VtGhOCr2LJlvTOV0yQFlGXfq-68JLPBuvtGcHJmx2eFUtft5A/4sl/h7_ivzkxSm-YefoUD5CPxQ/h19/h001.UoThSE5BS2VhSSZLa5R3uTrgdf0vg4bF-bO4A6S8UYs).*
+
+{% endraw %}

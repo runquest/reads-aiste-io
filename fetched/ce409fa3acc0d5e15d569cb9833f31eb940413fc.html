@@ -1,0 +1,922 @@
+<!-- source: https://aaronstannard.com/escaping-ai-coding-ratrace/ -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    <title>Escaping the LLM Coding Rat Race – Aaronontheweb</title>
+
+    <meta name="author" content="Aaronontheweb" />
+    <meta name="description" content="Escaping the LLM Coding Rat Race">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    <link rel="alternate" type="application/rss+xml" title="Aaronontheweb - Software. Startups. Outer Space." href="/feed.xml" />
+
+    
+    <link rel="canonical" href="https://aaronstannard.com/escaping-ai-coding-ratrace/">
+
+    <!-- Open Graph tags -->
+    <meta content="" property="og:site_name">
+    
+      <meta content="Escaping the LLM Coding Rat Race" property="og:title">
+    
+    
+      <meta content="article" property="og:type">
+    
+    
+      <meta content="There's only one winner in the AI coding rat race: your inference provider." property="og:description">
+    
+    
+      <meta content="https://aaronstannard.com/escaping-ai-coding-ratrace/" property="og:url">
+    
+    
+      <meta content="2026-07-27T22:03:11+00:00" property="article:published_time">
+      <meta content="https://aaronstannard.com/about/" property="article:author">
+    
+    <!-- Social image generation -->
+    
+    
+      <meta content="https://hcti.io/v1/image/0346727fd062876e48dbaa3e6dbb9f6c02bc563d7c07dd3dedfe34367369b65a" property="og:image">
+    
+    
+      
+      <meta content="AI" property="article:section">
+      
+    
+    
+      
+      <meta content="Software Development" property="article:tag">
+      
+      <meta content="LLM" property="article:tag">
+      
+      <meta content="AI" property="article:tag">
+      
+      <meta content="Software 2.0" property="article:tag">
+      
+    
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Aaronontheweb">
+    <meta name="twitter:creator" content="@Aaronontheweb">
+    
+      <meta name="twitter:title" content="Escaping the LLM Coding Rat Race">
+    
+    
+      <meta name="twitter:url" content="https://aaronstannard.com/escaping-ai-coding-ratrace/">
+    
+    
+      <meta name="twitter:description" content="There's only one winner in the AI coding rat race: your inference provider.">
+    
+    
+    
+      <meta name="twitter:image:src" content="https://hcti.io/v1/image/0346727fd062876e48dbaa3e6dbb9f6c02bc563d7c07dd3dedfe34367369b65a">
+    
+  </head>
+
+  <body>
+    <div class="wrapper-masthead  header-floting ">
+      <div class="container">
+        <header class="masthead clearfix">
+          <!-- <a href="/" class="site-avatar"><img src="/images/logo/aaronontheweb-logo-rect.png" /></a> -->
+          
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Aaronontheweb</a></h1>
+            <p class="site-description">Software. Startups. Outer Space.</p>
+          </div>
+          
+          <nav>
+            <a href="/">Home</a>
+            <a href="https://stannardlabs.kit.com/signup">Subscribe</a>
+            <a href="https://petabridge.com/">Consulting</a>
+            <a href="/about">About</a>
+            <a href="/talks">Talks</a>
+            <a href="/oss">Open Source</a>
+            <a href="https://www.twitch.tv/stannardian">Twitch</a>
+            <a href="https://www.youtube.com/@Stannardian?sub_confirmation=1">Youtube</a>
+            <button id="search-button" class="search-button" aria-label="Search" title="Search (Ctrl+K)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              </svg>
+            </button>
+          </nav>
+        </header>
+      </div>
+    </div>
+    
+      <section class="hero">
+    <div class="container">
+        
+            
+    </div>
+
+</section>
+    
+
+   
+    <div id="main" role="main" class="container">
+
+<article class="post">
+  
+  <section class="byline author">
+    July 27, 2026 <span class="reading-time-separator">•</span>
+    <span class="reading-time">
+      
+
+
+9 minutes to read
+
+    </span>
+  </section>
+  <h1>
+    <a href="/escaping-ai-coding-ratrace/">Escaping the LLM Coding Rat Race</a>
+  </h1>
+
+  
+  <section class="post-tags">
+    
+      <a href="/tags/software-development/" class="post-tag">Software Development</a>
+    
+      <a href="/tags/llm/" class="post-tag">LLM</a>
+    
+      <a href="/tags/ai/" class="post-tag">AI</a>
+    
+      <a href="/tags/software-2-0/" class="post-tag">Software 2.0</a>
+    
+  </section>
+  
+
+  
+  <h2 class="post-description">There's only one winner in the AI coding rat race: your inference provider.</h2>
+  
+
+  <ul><li><a href="#customers-and-consumers-still-human">Customers and Consumers: Still Human</a><ul><li><a href="#self-published-books">Self-Published Books</a></li><li><a href="#apple-app-store">Apple App Store</a></li></ul></li><li><a href="#escaping-the-permanent-underclass-is-marketing">“Escaping the Permanent Underclass” is Marketing</a></li></ul>
+
+  <p>I experienced a type of AI psychosis, but not <a href="https://en.wikipedia.org/wiki/Chatbot_psychosis">the one everyone else is talking about</a> - in my case it was a need to “keep my agents busy” at all times or I was “falling behind” relative to everyone else using large language models to move “faster” in the software industry.</p>
+
+<p>I’ve recently concluded that this fear is nonsense and, like most other things you read online, is manufactured to sell something. AI inference probably.</p>
+
+<!-- more -->
+
+<p>Since the start of 2026 I’ve basically not spent any time playing video games or doing much leisure activity outside of spending time with my kids. I diverted all my cycles towards keeping my agents busy at all times. This has produced some great results, like launching <a href="https://textforge.net/">TextForge</a>.</p>
+
+<p>It’s worth noting though that shipping TextForge has been <em>a lot</em> easier than marketing it, which I essentially have not done. It’s very unpleasant to relearn lessons you already knew you knew, but here we are: “distribution is more important than production.”</p>
+
+<p>The lessons I’ve learned and codified into my “<a href="https://aaronstannard.com/tags/software-2-0/">Software 2.0</a>” series are very useful, because coding with LLMs <em>is obviously</em> a huge source of productivity improvement for software engineers. Knowing how to wield agents effectively is still a fantastic use of your time.</p>
+
+<p>The real question though: are you going to become part of the “permanent underclass” and become unhireable if you don’t launch an automated Claude-powered software factory that runs 24/7?</p>
+
+<h2 id="customers-and-consumers-still-human">Customers and Consumers: Still Human</h2>
+
+<p>If the point of running full speed with AI agents is to create new offerings and new products in market that you couldn’t do before because of the sheer amount of effort involved, what does the market have to say about the quality of products being produced by AI-heavy authors?</p>
+
+<h3 id="self-published-books">Self-Published Books</h3>
+
+<p>To answer this, let me direct you to NBER’s working paper from January to May of 2026: “<a href="https://www.nber.org/papers/w34777">AI and the Quantity and Quality of Creative Products: Have LLMs Boosted Creation of Valuable Books?</a>”</p>
+
+<p>The first thing LLMs could really produce at scale was prose, in English and many other languages. Given how much models have advanced since ChatGPT was introduced in 2022, surely someone has prompted the Great American Artificially Generated Novel into existence by now.</p>
+
+<p>What do the numbers say?</p>
+
+<p><img src="/images/2026/llm-rat-race/01_figure_2_book_entry_and_ai_share.png" alt="Figure 2: Book entry and detected AI usage" /></p>
+
+<p>The chart counts every book whose 1,000-word Amazon Kindle preview trips <a href="https://www.pangram.com/">Pangram’s AI detector</a> as an “AI book.”<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p>Moreover, let’s call a spade a spade here: what could possibly cause the number of monthly book releases to triple between July 2021 and January 2026? Obviously, large language models are responsible for this.</p>
+
+<p><a href="https://www.pcmag.com/news/amazon-limits-authors-to-self-publishing-3-books-per-day-amid-flood-of">In 2023 Amazon had to limit the rate at which authors could self-publish books on their platform</a>, just to help stave off the waves of AI slop crowding up the Kindle bookstore.</p>
+
+<p>AI has obviously been a great productivity boost for publishers, just like it is for software developers. But, what are the results with <em>actual</em> consumers? Who’s buying these AI-generated novellas, cookbooks, and so on?</p>
+
+<p><img src="/images/2026/llm-rat-race/08_figure_6a_ai_vs_human_usage.png" alt="Figure 6a - AI books lag far behind human-authored books in terms of usage" /></p>
+
+<p>What you’re seeing above is a chart of “adjusted usage” of these books on the Kindle store - a rough engagement proxy<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. Human-authored books have a fairly consistent log-adjusted usage both pre- and post-ChatGPT; AI books have been improving alongside model quality but still lag far behind human-authored ones. This data is not adjusted for category - AI generated fiction, technical manuals, and cookbooks are all grouped in together here.</p>
+
+<p>Being “fast” and “shipping” LLM-authored books hasn’t had a material impact on the economy, other than degrading the overall quality of adjusted ratings in the Kindle store.</p>
+
+<h3 id="apple-app-store">Apple App Store</h3>
+
+<p>The Apple App Store has also surged with excess supply of new app submissions, to the tune of <a href="https://www.nytimes.com/2026/07/20/technology/apple-app-store-vibecoding.html">new app store releases growing by 30% in 2025</a>.</p>
+
+<p>And how did consumers react to all of their new AI-coded options?</p>
+
+<blockquote>
+  <p>But Apple can’t take its cut if consumers don’t download and buy things from apps — and downloads from the App Store haven’t taken off. Last year [2025], they <em>grew 3 percent</em> to 35.4 billion, according to Sensor Tower. In the first half of this year [2026], downloads <em>grew 2 percent</em> to 17.6 billion.</p>
+</blockquote>
+
+<p>30% increase in total supply; 3% growth in utilization: this does not sound like customers clamoring for more LLM-authored applications.</p>
+
+<p>For as “fast” as large language models have made authors of both software and English, it hasn’t resulted in happier customers or made the operators wealthier. So what’s the point in tokenmaxxing 12-16 hours a day to ship slop?</p>
+
+<h2 id="escaping-the-permanent-underclass-is-marketing">“Escaping the Permanent Underclass” is Marketing</h2>
+
+<p>I spent the last few weeks going all out: working on weekends, missed Church a couple times, all while trying to get a million things done at once. I shipped a big deliverable on Friday morning and I just felt completely spent.</p>
+
+<p>I clocked out early on Friday to take my kids to see the new <em>Toy Story</em> movie. Had a birthday party for my oldest over the weekend. Played video games.</p>
+
+<p>I didn’t spend a single second thinking about:</p>
+
+<ul>
+  <li>The amount of stuff Claude / <a href="https://netclaw.dev/">Netclaw</a> / Codex was doing on my behalf;</li>
+  <li>Making sure I fully spend my Claude Code Max / Codex subscriptions down to zero so I get my money’s worth; and</li>
+  <li>Worry about “<a href="https://www.newyorker.com/culture/infinite-scroll/will-ai-trap-you-in-the-permanent-underclass">escaping the permanent underclass</a>,” as the meme goes.</li>
+</ul>
+
+<p>Fresh from touching grass for a few days, I came into work this morning feeling relaxed and decided to do something I hadn’t done all year: <em>slow down</em>. Sit in the comfy chair at the back of my office, far away from my computer, and think about the state of my business and industry. Let the agents stay idle. Get out my Moleskine and write down ideas.</p>
+
+<p>“Escaping the permanent underclass” became a joke that internalized<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> into a compulsion to get as much done as possible, all the time. As the evidence is borne out in real data with real customers, there’s no benefit to producing noise faster than the next guy.</p>
+
+<p>The NBER paper bears this out for successful human authors of books too:</p>
+
+<p><img src="/images/2026/llm-rat-race/13_figure_9_incumbent_author_productivity.png" alt="Figure 9: Productivity of incumbent authors" /></p>
+
+<p>Incumbent authors, people who had published books pre-ChatGPT, <em>also began</em> shipping more book releases post-ChatGPT. This doesn’t necessarily mean LLMs writing entire novels, but more tasteful and targeted usage of it: proofreading, research, spitballing, and lots of other LLM interactivity patterns that don’t result in LLM prose being shipped directly to readers.</p>
+
+<p>Customers are the ultimate judge of success in the free market and the “speed at all costs” crowd is putting up zeroes and burning themselves out in the process.</p>
+
+<p>I wasn’t producing noise, though. I care a lot about quality, and I think the products I shipped are good ones. My actual problem was that I was building good products without building good businesses around them. Building a business is slow work: talking to customers, looking at the data, running experiments, figuring out how anyone will find the product and why they’d pay for it. None of that gets faster because your agents are busy, and there are no shortcuts. Shipping good products with no marketing mechanism and no business model behind them was the real sin I was committing.</p>
+
+<p>The new balance I’m setting out to strike is worrying <em>a lot less</em> about token spend and whether or not my agents are working for me, and worrying a lot more about whether I’m having them working on the right things the right way.</p>
+
+<p>The permanent underclass was never a real threat to my livelihood. It was a story about selling tokens, and I transformed it into a race against myself only to discover that no one else is winning anything either.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:3">
+      <p>Pangram isn’t perfect and will misclassify some books in both directions, but that doesn’t explain the pronounced trend you can clearly see on the chart. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:1">
+      <p>Adjusted usage isn’t from sales, it’s from ratings of the book. See the paper for the full explanation of the methodology: <a href="https://www.nber.org/papers/w34777">https://www.nber.org/papers/w34777</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>It’s also been externalized into a global competition too, as is evident by the news of constant funding announcements or any tech discourse you’ll find on LinkedIn or X if you read for more than a few minutes. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  
+  <section class="related-posts">
+    <h3>Related Posts</h3>
+    
+    
+    
+    
+    
+    
+      <div class="related-posts-list">
+        
+          <article class="related-post">
+            <h4><a href="/software-2.0-case-study-textforge/">Software 2.0: Planning and Verifying a Greenfield Project</a></h4>
+            <div class="related-post-meta">
+              March 13, 2026
+              
+                <span class="related-post-tags">
+                  
+                    <span class="related-tag">Software Development</span>
+                  
+                    <span class="related-tag">LLM</span>
+                  
+                    <span class="related-tag">AI</span>
+                  
+                </span>
+              
+            </div>
+          </article>
+        
+          <article class="related-post">
+            <h4><a href="/beginning-of-software-2.0/">Software 2.0: Code is Cheap, Good Taste is Not</a></h4>
+            <div class="related-post-meta">
+              January 26, 2026
+              
+                <span class="related-post-tags">
+                  
+                    <span class="related-tag">Software Development</span>
+                  
+                    <span class="related-tag">LLM</span>
+                  
+                    <span class="related-tag">AI</span>
+                  
+                </span>
+              
+            </div>
+          </article>
+        
+          <article class="related-post">
+            <h4><a href="/why-your-software-sucks-inheritance/">Why Your Software Sucks: Inheritance</a></h4>
+            <div class="related-post-meta">
+              January 26, 2026
+              
+                <span class="related-post-tags">
+                  
+                    <span class="related-tag">Architecture</span>
+                  
+                    <span class="related-tag">Design Patterns</span>
+                  
+                    <span class="related-tag">.NET</span>
+                  
+                </span>
+              
+            </div>
+          </article>
+        
+      </div>
+    
+  </section>
+  
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/Aaronontheweb" target="_blank" class="site-avatar">
+        <img src="/images/logo/aaronontheweb-logo-rect.png" />
+      </a>
+
+      <p>
+        I'm the CTO and founder of <a href="http://petabridge.com/" title="Petabridge - Production-level training and support for Akka.NET">Petabridge</a>, where I'm making distributed programming for .NET developers easy by working on <a href="https://getakka.net/" title="Akka.NET - Distributed Actor Model for C# and F#">Akka.NET</a>, <a href="https://phobos.petabridge.com/" title="Application Performance Monitoring for Akka.NET and .NET Core">Phobos</a>, and more..
+      </p>
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="Aaronontheweb">Tweet</a>
+      <a href="https://twitter.com/Aaronontheweb" class="twitter-follow-button" data-show-count="false">Follow @Aaronontheweb</a>
+      <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    </section>
+
+
+   
+  </section>
+</article>
+
+</div>
+
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup" class="subscribe">
+    <div class="container">
+    <form action="//aaronstannard.us8.list-manage.com/subscribe/post?u=2f86204259d0c6af054879a81&amp;id=d23eb33af3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        
+        <div class="row">
+            <div class="c-6">
+                <div class="subs-inner">                    
+                    <h2>P.S. Get the latest from Aaronontheweb</h2>
+                    <p>Have my most recent essays and articles delivered directly to your mailbox.</p>
+                </div>
+            </div>
+            <div class="c-6">       
+                <script async data-uid="d624aeb954" src="https://stannardlabs.kit.com/d624aeb954/index.js"></script>
+            </div>
+        </div>
+        
+    </form>
+</div>
+</div>
+<!--End mc_embed_signup-->
+<div class="container">
+
+  <section class="comments">
+    
+<div class="comments">
+	<script defer src="https://comments.aaronstannard.com/comentario.js"></script>
+	<comentario-comments></comentario-comments>
+	<noscript>Please enable JavaScript to view the <a href="https://comments.aaronstannard.com/">comments powered by self-hosted Comentario.</a></noscript>
+</div>
+
+  </section>
+</div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="/cdn-cgi/l/email-protection#7c1d1d0e13123c1d1d0e13120f081d12121d0e18521f1311"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/Aaronontheweb"><i class="svg-icon github"></i></a>
+
+<a href="http://linkedin.com/in/aaronstannard"><i class="svg-icon linkedin"></i></a>
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://twitter.com/Aaronontheweb"><i class="svg-icon twitter"></i></a>
+<a href="http://stackoverflow.com/users/377476/aaronontheweb"><i class="svg-icon stackoverflow"></i></a>
+
+          <p><a href='https://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.aaronstannard.com%2Fsyndication.axd'  target='blank'><img id='feedlyFollow' src='https://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png' alt='follow us in feedly' width='131' height='56'></a></p>
+          
+          <div class="footer-tags">
+            <h4>Popular Topics</h4>
+            <div class="footer-tag-links">
+              <a href="/tags/net/" class="footer-tag">.NET</a>
+              <a href="/tags/startups/" class="footer-tag">Startups</a>
+              <a href="/tags/oss/" class="footer-tag">Open Source</a>
+              <a href="/tags/azure/" class="footer-tag">Azure</a>
+              <a href="/tags/general/" class="footer-tag">General</a>
+            </div>
+          </div>
+          
+          <p>Copyright 2010 - 2026 Aaron Stannard</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+      <div class="search-modal-content">
+        <div class="search-modal-header">
+          <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
+          <button id="search-close" class="search-close" aria-label="Close search">×</button>
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div id="search-info" class="search-info"></div>
+      </div>
+    </div>
+
+    <style>
+    .search-button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 10px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .search-button:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .search-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .search-modal.active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 10vh;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .search-modal-content {
+      background: white;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 70vh;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.2s ease;
+    }
+
+    @keyframes slideIn {
+      from { 
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .search-modal-header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    #search-input {
+      flex: 1;
+      font-size: 18px;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    #search-input:focus {
+      border-color: #4a90e2;
+    }
+
+    .search-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #999;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 15px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .search-close:hover {
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    .search-results {
+      max-height: 50vh;
+      overflow-y: auto;
+      padding: 0 20px;
+    }
+
+    .search-result {
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .search-result:last-child {
+      border-bottom: none;
+    }
+
+    .search-result h3 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+    }
+
+    .search-result h3 a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .search-result h3 a:hover {
+      color: #4a90e2;
+    }
+
+    .search-result .date {
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .search-result .excerpt {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .search-result .tags {
+      margin-top: 8px;
+    }
+
+    .search-result .tag {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: #1e88e5;
+      padding: 3px 8px;
+      margin: 0 4px 4px 0;
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(30, 136, 229, 0.2);
+    }
+
+    .search-info {
+      padding: 10px 20px;
+      color: #666;
+      font-size: 12px;
+      border-top: 1px solid #f0f0f0;
+      background: #f9f9f9;
+    }
+
+    .highlight {
+      background-color: #e3f2fd;
+      color: #1565c0;
+      padding: 1px 3px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .no-results {
+      text-align: center;
+      color: #999;
+      font-style: italic;
+      padding: 40px 20px;
+    }
+
+    /* Image Zoom Modal Styles */
+    .image-zoom-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      cursor: pointer;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .image-zoom-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-zoom-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      animation: zoomIn 0.3s ease;
+      cursor: default;
+    }
+
+    .image-zoom-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+      transition: color 0.2s ease;
+      /* Ensure adequate touch target size on mobile */
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Add subtle background for better visibility on light images */
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      line-height: 1;
+    }
+
+    .image-zoom-close:hover,
+    .image-zoom-close:active {
+      color: #ccc;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Add visual hint that images are tappable on mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .image-zoom-modal img {
+        /* Add subtle shadow to indicate interactivity */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    </style>
+
+    
+	<!-- Google Analytics -->
+	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-2285755-4', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+    <script src="/js/image-zoom.js" defer></script>
+    <script src="https://unpkg.com/mermaid@11.4.1/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Mermaid
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: "dark",
+        });
+
+        // Find and render all elements with the class `language-mermaid`
+        const mermaidBlocks = document.querySelectorAll('.language-mermaid');
+        mermaidBlocks.forEach((block) => {
+          // Add class to parent pre element for CSS styling (Ruby Sass doesn't support :has())
+          const preElement = block.closest('pre');
+          if (preElement) {
+            preElement.classList.add('mermaid-container');
+          }
+          mermaid.init(undefined, block);
+        });
+
+        // Search functionality
+        let searchData = [];
+        let searchTimeout;
+        const modal = document.getElementById('search-modal');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const searchInfo = document.getElementById('search-info');
+        const searchButton = document.getElementById('search-button');
+        const searchClose = document.getElementById('search-close');
+
+        // Load search data
+        fetch('/search.json')
+          .then(response => response.json())
+          .then(data => {
+            searchData = data;
+          })
+          .catch(error => {
+            console.error('Error loading search data:', error);
+          });
+
+        // Simple stemming function
+        function stem(word) {
+          word = word.toLowerCase();
+          if (word.endsWith('ing') && word.length > 4) return word.slice(0, -3);
+          if (word.endsWith('ed') && word.length > 3) return word.slice(0, -2);
+          if (word.endsWith('er') && word.length > 3) return word.slice(0, -2);
+          if (word.endsWith('est') && word.length > 4) return word.slice(0, -3);
+          if (word.endsWith('ly') && word.length > 3) return word.slice(0, -2);
+          if (word.endsWith('s') && word.length > 2) return word.slice(0, -1);
+          return word;
+        }
+
+        // Search function
+        function searchPosts(query) {
+          if (!query.trim()) return [];
+          
+          const searchTerms = query.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+          const stemmedTerms = searchTerms.map(stem);
+          
+          return searchData.map(post => {
+            let score = 0;
+            const titleLower = post.title.toLowerCase();
+            const contentLower = post.content.toLowerCase();
+            const tagsLower = post.tags.map(tag => tag.toLowerCase());
+            const categoriesLower = post.categories.map(cat => cat.toLowerCase());
+            
+            searchTerms.forEach((term, index) => {
+              const stemmedTerm = stemmedTerms[index];
+              
+              if (query.length > 10 && titleLower.includes(query.toLowerCase())) score += 50;
+              if (query.length > 10 && contentLower.includes(query.toLowerCase())) score += 20;
+              
+              if (titleLower.includes(term)) score += 20;
+              if (titleLower.includes(stemmedTerm)) score += 15;
+              
+              if (tagsLower.some(tag => tag.includes(term))) score += 15;
+              if (tagsLower.some(tag => tag.includes(stemmedTerm))) score += 12;
+              if (categoriesLower.some(cat => cat.includes(term))) score += 15;
+              if (categoriesLower.some(cat => cat.includes(stemmedTerm))) score += 12;
+              
+              const termMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+              const stemmedMatches = (contentLower.match(new RegExp(stemmedTerm, 'g')) || []).length;
+              score += Math.min(termMatches * 2, 10);
+              score += Math.min(stemmedMatches * 1, 5);
+            });
+            
+            const matchedTerms = searchTerms.filter(term => 
+              titleLower.includes(term) || 
+              contentLower.includes(term) ||
+              tagsLower.some(tag => tag.includes(term)) ||
+              categoriesLower.some(cat => cat.includes(term))
+            );
+            
+            if (matchedTerms.length > 1) {
+              score += matchedTerms.length * 5;
+            }
+            
+            return { ...post, score };
+          })
+          .filter(post => post.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 20);
+        }
+
+        // Highlight search terms
+        function highlightTerms(text, query) {
+          if (!query.trim()) return text;
+          
+          const terms = query.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+          let highlightedText = text;
+          
+          terms.forEach(term => {
+            const regex = new RegExp(`(${term})`, 'gi');
+            highlightedText = highlightedText.replace(regex, '<span class="highlight">$1</span>');
+          });
+          
+          return highlightedText;
+        }
+
+        // Display results
+        function displayResults(results, query) {
+          // Deduplicate results by URL
+          const uniqueResults = results.filter((post, index, arr) => 
+            arr.findIndex(p => p.url === post.url) === index
+          );
+          
+          if (uniqueResults.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">No posts found matching your search.</div>';
+            searchInfo.textContent = '';
+            return;
+          }
+          
+          searchInfo.textContent = `Found ${uniqueResults.length} post${uniqueResults.length === 1 ? '' : 's'}`;
+          
+          const html = uniqueResults.map(post => {
+            const excerpt = post.excerpt || post.content.substring(0, 150) + '...';
+            
+            return `
+              <div class="search-result">
+                <h3><a href="${post.url}" onclick="closeSearchModal()">${highlightTerms(post.title, query)}</a></h3>
+                <div class="date">${post.date}</div>
+                <div class="excerpt">${highlightTerms(excerpt, query)}</div>
+                ${post.tags.length > 0 ? `
+                  <div class="tags">
+                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          }).join('');
+          
+          searchResults.innerHTML = html;
+        }
+
+        // Modal controls
+        function openSearchModal() {
+          modal.classList.add('active');
+          searchInput.focus();
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeSearchModal() {
+          modal.classList.remove('active');
+          searchInput.value = '';
+          searchResults.innerHTML = '';
+          searchInfo.textContent = '';
+          document.body.style.overflow = '';
+        }
+
+        // Event listeners
+        searchButton.addEventListener('click', openSearchModal);
+        searchClose.addEventListener('click', closeSearchModal);
+        
+        searchInput.addEventListener('input', function(e) {
+          const query = e.target.value;
+          
+          clearTimeout(searchTimeout);
+          
+          if (!query.trim()) {
+            searchResults.innerHTML = '';
+            searchInfo.textContent = '';
+            return;
+          }
+          
+          searchTimeout = setTimeout(() => {
+            const results = searchPosts(query);
+            displayResults(results, query);
+          }, 300);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+          if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            openSearchModal();
+          }
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeSearchModal();
+          }
+        });
+
+        // Click outside modal to close
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeSearchModal();
+          }
+        });
+
+        // Make function global for onclick handlers
+        window.closeSearchModal = closeSearchModal;
+      });
+    </script>
+    <script async data-uid="c2ccb5f5b3" src="https://stannardlabs.kit.com/c2ccb5f5b3/index.js"></script>
+  </body>
+</html>

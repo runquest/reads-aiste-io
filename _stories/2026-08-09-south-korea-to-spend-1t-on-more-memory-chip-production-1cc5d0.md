@@ -1,0 +1,88 @@
+---
+layout: "story"
+title: "South Korea to spend $1T on more memory chip production"
+date: "2026-08-09"
+permalink: "/2026/08/09/stories/south-korea-to-spend-1t-on-more-memory-chip-production-1cc5d0/"
+source: "Leadership in Tech"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe"
+original_url: "https://leadershipintech.com/links/22699/027d9985-d4c5-48a7-af59-5152efd9c8a4/email"
+category: "Industry"
+excerpt_separator: ""
+---
+
+{% raw %}
+---
+
+Must construct additional pylons
+
+# South Korea to spend $1T on more memory chip production and humanoid robots
+
+South Korea targets physical AI lead and commercial humanoid robots by 2028.
+
+[Jeremy Hsu](https://arstechnica.com/author/jeremyhsu/) – Jun 29, 2026 5:09 pm | [77](https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/#comments "77 comments")
+
+ [![An Atlas humanoid robot developed by Boston Dynamics crouches as it lifts a mini fridge.](https://cdn.arstechnica.net/wp-content/uploads/2026/06/Screenshot-2026-06-29-at-4.36.13-PM-640x355.png) ![An Atlas humanoid robot developed by Boston Dynamics crouches as it lifts a mini fridge.](https://cdn.arstechnica.net/wp-content/uploads/2026/06/Screenshot-2026-06-29-at-4.36.13-PM-1152x648.png)](https://cdn.arstechnica.net/wp-content/uploads/2026/06/Screenshot-2026-06-29-at-4.36.13-PM.png)
+
+An Atlas humanoid robot developed by Boston Dynamics lifts a mini fridge. Credit: [Boston Dynamics](https://www.youtube.com/watch?v=3aQWvdCac9o)
+
+An Atlas humanoid robot developed by Boston Dynamics lifts a mini fridge. Credit: [Boston Dynamics](https://www.youtube.com/watch?v=3aQWvdCac9o)
+
+Text settings
+
+Story text
+
+Size Small Standard Large Width \* Standard Wide Links Standard Orange
+
+\* Subscribers only  
+  [Learn more](/store/product/subscriptions/)
+
+Minimize to nav
+
+South Korea’s government and top tech companies are committing $1 trillion to several flagship megaprojects that could bolster global memory chip supply, build new AI data centers, and spur commercial deployment of humanoid robots by 2028.
+
+The announcement comes as South Korean companies such as Samsung and SK Hynix have enjoyed [record profits](https://www.chosun.com/english/industry-en/2026/06/26/DDEEK436YJFZBH5GZDUR2BKCZM/) and [stock valuations](https://www.reuters.com/world/asia-pacific/sk-hynix-overtakes-samsung-become-koreas-most-valuable-company-2026-06-22/) due to the AI industry’s demand for memory chips—with the subsequent supply strain leading to [memory chip shortages](https://arstechnica.com/gadgets/2026/01/ram-shortage-chaos-expands-to-gpus-high-capacity-ssds-and-even-hard-drives/) and higher prices for consumer electronics. Meanwhile, Hyundai Motor Company is racing to mass-manufacture humanoid robots developed by its subsidiary, Boston Dynamics, so that the robotic workers can start taking over certain laborious tasks in automotive factories and other workplaces.
+
+“We must secure the core elements of AI faster than any other country,” said South Korean President Lee Jae Myung in a televised speech on June 29, as reported by [BBC News](https://www.bbc.com/news/articles/c9q2pwzngjqo) and other media outlets. “Semiconductors, physical AI, and AI data centers are the triple axis for a great leap forward.”
+
+But the initiatives also coincide with public debates about South Korean chipmakers’ huge profits during the AI boom and even policymaker proposals to distribute the excess wealth, along with South Korean labor unions pushing back against the prospect of humanoid robots entering the workforce.
+
+## More memory chips and data centers
+
+The most costly of the megaprojects involves a commitment by Samsung and SK Hynix of $585 billion to build new chip fabrication plants in the southwest provinces of South Korea, along with boosting semiconductor fab construction in the Seoul capital region, [according to Reuters](https://www.reuters.com/world/asia-pacific/south-korean-president-unveil-massive-ai-chip-investment-drive-2026-06-29/). The government’s goal is to double South Korea’s production of dynamic random-access memory (DRAM) within five years.
+
+However, the new fabs in South Korea’s southwestern region may need more time to get up and running, with SK Hynix Chairman Chey Tae-won commenting that it took nine years for the company to build a cluster of chip manufacturing facilities in Yongjin within the Seoul metropolitan area.
+
+So it’s unclear how soon global consumers can expect relief from sky-high memory chip prices and elevated prices for [Apple’s Macs](https://arstechnica.com/apple/2026/06/apple-ratchets-up-prices-blames-the-cost-of-memory/) and [Valve’s Steam Machine](https://arstechnica.com/gaming/2026/06/valves-steam-machine-ships-june-29-for-1049-but-you-probably-wont-be-able-to-buy-one-yet/)—especially if the AI boom continues and tech companies continue to buy up memory for [AI data centers](https://arstechnica.com/tech-policy/2026/06/130-billion-in-data-center-projects-blocked-by-protests-so-far-this-year/).
+
+The second flagship megaproject involves a $357 billion investment by the South Korean tech companies SK Group, GS Group, and Naver to build large-scale AI data centers in more outlying provinces, including South Chungcheong Province in the west, Gangwon Province in the east, and the North and South Jeolla Provinces in the southwest corner of South Korea.
+
+However, the new semiconductor chip fabs and the AI data centers require substantial electricity and water to operate. South Korea’s Ministry of Climate, Energy and Environment said it was working to secure 6.3 gigawatts of electricity and 650,000 tons of water for the southwestern chip plants, along with an additional 8 gigawatts of power to support the new AI data centers, according to [The Korea Times](https://www.koreatimes.co.kr/southkorea/politics/20260629/govt-unveils-power-infrastructure-plans-to-back-megaprojects).
+
+Renewable power and nuclear power plants would help supply the electricity needed for chip fabs and AI data centers, alongside fossil fuels, government officials said. Nuclear power and coal power both accounted for more than 30 percent of South Korea’s [electricity generation](https://www.iea.org/countries/korea?__cf_chl_f_tk=7kYQVkvqckrUYBp0CpJJ8rzPvDIteA9O44LZSLEiSm0-1782761131-1.0.1.1-WIEmu04x6WL49Ojtgug..uMXo7W0OuVO.oEFCa6tWfA) in 2024, but the country’s reliance on natural gas for nearly 25 percent of electricity generation has left it vulnerable to supply shortages and surging prices during the ongoing [Strait of Hormuz](https://arstechnica.com/tag/strait-of-hormuz/) crisis.
+
+## Physical AI push and resistance to robots
+
+The third flagship megaproject revolves around the South Korean government’s assignment of a “national strategic industry” designation to physical AI—the AI systems that enable robots and self-driving vehicles to interact more autonomously with the real world. The government aims to develop a Korean “general-purpose foundation model” based on a [world model](https://arstechnica.com/ai/2025/09/big-ai-firms-pump-money-into-world-models-as-llm-advances-slow/) to support robots within three years, according to [The Chosun Daily](https://www.chosun.com/english/industry-en/2026/06/29/FVFRJHGFABF37PZDZACVLIJWZQ/).
+
+Hyundai Motor Company has also committed $5.8 billion to build a robot manufacturing facility and AI data center in the Saemangeum region of North Jeolla Province in the southwest, The Chosun Daily reported. The South Korean automaker has already been helping [Boston Dynamics](https://arstechnica.com/tag/boston-dynamics/)—the US robotics company it acquired in 2021—use the South Korean supply chain in scaling up manufacturing to [produce 30,000 Atlas humanoid robots](https://www.koreaherald.com/article/10791707) each year by 2028.
+
+Similarly, the South Korean government announced it would aim to commercialize humanoid robots in 10 major industries by 2028, along with training 10,000 human workers as “AI robotics specialists” over the next five years, Reuters reported.
+
+However, South Korean workers are not feeling so optimistic about the prospect of competing with more robots. On June 25, Hyundai Motor’s labor union overwhelmingly approved a potential strike as it negotiated with the South Korean automaker about profit-sharing and job protections to offset the company’s planned deployment of Atlas humanoid robots, according to [The Korea Times](https://www.koreatimes.co.kr/business/companies/20260625/hyundai-motor-union-set-to-leverage-strike-against-atlas-robot-deployment).
+
+A state labor mediation committee also granted the union the legal right to strike after suspending the arbitration process, with Hyundai Motor [appealing to the union](https://www.ajupress.com/view/20260629150204063) to return to the negotiating table.
+
+Other societal tensions have already arisen around South Korean chipmakers’ burgeoning profits from the AI boom. South Korean government officials have encouraged tech companies to [share some of their unprecedented profits](https://www.cnbc.com/2026/06/05/south-korea-labor-minister-calls-on-tech-firms-to-share-excess-ai-profits-with-suppliers-staff.html) with their workers and smaller supplier companies. In May, the South Korean presidential chief of staff for policy even offhandedly proposed a [“national dividend” for citizens](https://www.bloomberg.com/news/articles/2026-05-12/korea-stocks-gyrate-as-top-aide-floats-ai-dividend) based on excess tax revenue from South Korean’s companies’ AI-driven profits—though the government later described that as a personal view rather than an official proposal.
+
+[![Photo of Jeremy Hsu](https://cdn.arstechnica.net/wp-content/uploads/2026/04/linkedin-profile-picture-headshot-JPG.jpg)](https://arstechnica.com/author/jeremyhsu/)
+
+[Jeremy Hsu](https://arstechnica.com/author/jeremyhsu/) Tech Reporter
+
+[Jeremy Hsu](https://arstechnica.com/author/jeremyhsu/) Tech Reporter
+
+Jeremy Hsu is a reporter exploring a wide range of topics across deep tech and AI. He has previously written for New Scientist, Scientific American, IEEE Spectrum, Wired, Undark Magazine and MIT Tech Review, among many other publications, about topics such as deepfakes, data centers, drones, battery tech, robotics, and GPS jamming. He also has a Master of Arts in Journalism from NYU, and a bachelor's degree from University of Pennsylvania in History and Sociology of Science, with a minor in English.
+
+[77 Comments](https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/#comments "77 comments")
+
+{% endraw %}
