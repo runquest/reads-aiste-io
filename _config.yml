@@ -1,0 +1,15 @@
+title: Reads
+description: Daily newsletter digest, grouped by category like a magazine issue.
+url: "https://reads.aiste.io"
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+exclude:
+  - raw
+  - processed
+  - scripts
+  - worker
+  - package.json
+  - package-lock.json
+  - wrangler.toml
+  - node_modules

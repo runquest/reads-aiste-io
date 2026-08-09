@@ -1,0 +1,11 @@
+{
+  "name": "reads-aiste-io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/compile-issue.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  }
+}

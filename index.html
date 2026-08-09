@@ -1,0 +1,14 @@
+---
+layout: default
+title: Reads
+---
+<h1>Reads</h1>
+<p>A daily digest of newsletters, summarized and grouped by category.</p>
+
+<ul class="issue-list">
+{% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
