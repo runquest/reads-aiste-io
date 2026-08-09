@@ -1,0 +1,148 @@
+[
+  {
+    "title": "The Productivity-Experience Paradox",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUKvb9dwzjn1HQSwhuZBUxV35J1BSJz3kn0akZMiyPRaF29mELX0KsR-Mirjxie4PKoCehlS1PNzrA0nDcH8Z0ZVdKGW2F8uXU34Sin3r8Ww36r2b7pt0Qlw4KotvRwr1T3DCilZ8QjVqsL0iYcKNbuk2k6_HZUF6ThygwmXQCgRK/4sl/h7_ivzkxSm-YefoUD5CPxQ/h8/h001.fdfp__p78HOtni5uNaTR-pDbQfHLex5OfBSRiXqAfaE",
+    "category": "Leadership/DevEx",
+    "summary_bullets": [
+      "By Annie Vella",
+      "Explores whether AI is decoupling developer experience from productivity",
+      "Questions if leaders can still justify investing in DevEx if output gains are uncertain"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "The Art Of Dealing With Ambiguity",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUL3lUx0iyQpJsD117pLK3rUOHoL30-NgBCX00glQ-T5iVCD2y7WdiiSDoD5hE7FG_9YaZGKKyl62N12NAzveMXQQz5RCBsuCCpr3hpvok0Ijedx14aOuaFSeZB3tUhKmU3aRoViH6GgzzjSUIycNaSU2B6af6JqYsFPponhRmeIc1_e0IyzuCYBU-mIwgR47Lw/4sl/h7_ivzkxSm-YefoUD5CPxQ/h9/h001.yLyme7ZHYaeD0y2ZZRSqF5xjcHxty8fU7p64Y_nXfJU",
+    "category": "Leadership/Management",
+    "summary_bullets": [
+      "By Steve Huynh",
+      "Advocates reframing ambiguity as an opportunity to define the problem space",
+      "Establishing boundaries, success metrics, and constraints clarifies the path forward"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Defensible, But Not Good",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYdOm7DJmwzIcX2w6eS_B24yRD6kk5po7-pma3CAlINf9u29yuPeSKTcPu3vQinTh4vqgeA1k9Gda8QtEXWI7Fuxb3Ishl0u_xabooyf7ineZdInqCl4NzYM_ua5BcW6GfEUK8XyWj_Lz5zFGMoeR_o45FCyDD5Dflc-ROD3b6UYe/4sl/h7_ivzkxSm-YefoUD5CPxQ/h11/h001.12npniWQvMWwvg7id1_hylgbw37dWta3dnydKDuMlAQ",
+    "category": "Leadership/Decision-Making",
+    "summary_bullets": [
+      "By Wes Kao",
+      "Discusses the human tendency to optimize for 'not getting in trouble' over finding the truth",
+      "Even high-performing cultures can fall into surface-level adequacy"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Good Tools Are Invisible",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0iAGN22jFO-8nHpWIvm49ZqjlrEls6OTrc2vSzvinJPqdgPjs4qU_0W7Phw2eXqe6nZQ5Th8c5Bs0gLvWPDs5j2uvCFysLsXZ84WjO_gWcholKiyZmZllfFUuTPPC232po0-88Y7pEYYaS1aSgxfH2LGiFfY2E61wlSLyha6gJX5mvV14xo0jaHC6VS2I3jb9g/4sl/h7_ivzkxSm-YefoUD5CPxQ/h12/h001.y0kkonm4Big51dxMW6dGo2yMfLxrNnb5ziz2bnL5GEU",
+    "category": "Tools+Setup/DevEx",
+    "summary_bullets": [
+      "Argues that a good tool should be invisible, not 'fun' to use",
+      "Criticizes the trend of reframing tool shortcomings as engaging puzzles",
+      "Advocates for frictionless, transparent tooling design"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Prefactoring: Clear The Way For Your New Feature",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbR9ihDugbmr0sv--A_jFIRE3EayKXEu62IIdTGAjdYDuNoONyUgwxz5LlNC1hhF1KaH1TGAVJUk8lfCpAXJOkHqpPzye6KAGMdLe_UVrfzve8dfhhOsJhxnjs1x3sSbnqOXrCyEL0S9ETG8IW-fxNYxuN9srHRbQlBxrjoTRASu14OZ8qaYvw6s0joCSwXqCwxQ/4sl/h7_ivzkxSm-YefoUD5CPxQ/h14/h001.J56ZXSgwo2a2fBW64fh5ppm0jBSqO8vCJYtnFsbhNYs",
+    "category": "Testing/Guide",
+    "summary_bullets": [
+      "By Rahul Singal",
+      "Defines 'prefactoring' as preparatory refactoring before adding new functionality",
+      "Encourages restructuring code first rather than forcing new features into incompatible structures"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Everyone Should Know SIMD",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.u7AEjFG7xD7PeXgObD5uIxG0oTKnfTi2Mbt-iquwjPCmCWP6ikoOvR4kRdE6QZkUoa6oiPXl34UQgNGSw69SMfsXZlPLcbKE1jEqJc1zPWPb2Rsr_RosJBTfUW06L2oW76zog8pD8Ty38bLRChRn4UyquytZXuEtsXVu_SmL5Xzp0jrwidNCISsJlDv245n9/4sl/h7_ivzkxSm-YefoUD5CPxQ/h15/h001.NilWP4KMZLswV6daiLFQBG_xPBYGv9NmDsl6CL9wUg0",
+    "category": "Algorithms/Performance",
+    "summary_bullets": [
+      "By Mitchell Hashimoto",
+      "Challenges the perception that SIMD is too complex for everyday programming",
+      "Argues SIMD knowledge is broadly useful, not just for niche high-performance code"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "How Big Is A Git Commit?",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.71LCQkoHczeoiEaexlZjtikp-LYAe0nYTPl4jnMxfDmVDG4FIxDj0DOZHluVl2Ndr0LC0tx2h4aYBXY7gViXb1-mTl9AiZOoHIN8ympScFh1ghDMEjmc3pAWuXpy6hTgVGP875sawlHMWwpyzKTujxBk5kJ1imhH0fT18l32x8c/4sl/h7_ivzkxSm-YefoUD5CPxQ/h16/h001.d5Ow4ZgE9EgKosFPvnSQlkeOdbK-MC8B5OOKad9NMUU",
+    "category": "Git/Deep Dive",
+    "summary_bullets": [
+      "By Dave Gauer",
+      "Explains that Git stores objects as zlib-compressed data",
+      "Commit size depends on file compressibility and repetition"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Lucas' Laws of Project Management",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0iXWukwtzo0n-HZhmbKC-6IH6S2lm2PJQxO77ai2ImAicfw-LCr2fACBiKDFcS8OblcuB8yl3X1OVPDFHHPEtY82UboXu2Yv1DxYCAdolLirr1-5mwdH77oW451v7y-qh9Uv7KFnFxyCRduw_VtGhOCr2LJlvTOV0yQFlGXfq-68JLPBuvtGcHJmx2eFUtft5A/4sl/h7_ivzkxSm-YefoUD5CPxQ/h19/h001.UoThSE5BS2VhSSZLa5R3uTrgdf0vg4bF-bO4A6S8UYs",
+    "category": "Project Management",
+    "summary_bullets": [
+      "By Lucas Costa",
+      "Highlighted as the most popular article from the previous issue",
+      "Presents a set of principles/laws for project management"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Buzz",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfbMifVzJam1NYwNoL1ZxkVLS6pKcg8zXXjvJehMvaJYaqGvSidfvNbbrttVwY1FHkB11uYRMfv-LKP7PPRJkhuiXvV-zxqJFoGyQM975H-IeovJVHyfSFnnB6RmYgVLjBA/4sl/h7_ivzkxSm-YefoUD5CPxQ/h20/h001.mNoVDnTO7eb6wPQ8rrCccW63QT9maIXREAnBAMn2vaA",
+    "category": "Tools",
+    "summary_bullets": [
+      "A hive mind communication platform"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Hallmark",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfb7dgH9GMnIeg0cC4xKgZCLwVjwRchQ-gzrbM0dP6Uwgcpc311D4nRTWz0SfsedHs8tA1zyP--C7nFfzoxaNrJtCHrVoQjI1iPOOkGqrAFd-R7n4Gw_R-r6kxzs4iC4ZQuejwwiJck1j0NZmQu_MRMs/4sl/h7_ivzkxSm-YefoUD5CPxQ/h21/h001.8EMkQL96JGFgzE_OEAHjCB0PGi7mmpJdZBCxE2AWniI",
+    "category": "AI/Tools",
+    "summary_bullets": [
+      "An anti-AI-slop design skill for Claude Code"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Jcode",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001.Vg_zfBShUmhkzLEnabv-SCrjHHc8KlGy_ySBWXEdFvKDJfxdYzlw5b9K_C9MCPZ7D8khjTZiG5S_28L5_TsnzXOv3ug6zSKUAOZkXBRBMHAIxCtvNKas7Appu4tujnd4/4sl/h7_ivzkxSm-YefoUD5CPxQ/h22/h001.oW-H8ETKNn8sR9dKE0O5GWoo4IHEvfIECeZ0dYVuU0M",
+    "category": "AI/Tools",
+    "summary_bullets": [
+      "A terminal coding agent"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "OpenWiki",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfbfl9J2B1mIyM9puFgxMEz8N6ePES5y9tl1uhT5ujpd7SWdLSYI5MCe1ecnDB80EbY2TaZgDlojrKosLSmYII9Rhr7bb_2glcVTNuLEYFL25_A9nm1Iy32G7xuRF2hVkDzMFVBvM6mRshMDwBecEExc/4sl/h7_ivzkxSm-YefoUD5CPxQ/h23/h001.pcWTBA_4n4qn_Cd6GgyrENV8tKxFDoxkdO0t71LzE2o",
+    "category": "Tools",
+    "summary_bullets": [
+      "Writes and maintains documentation automatically"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  },
+  {
+    "title": "Petals",
+    "url": "https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfYMUWeRe9Sa6LQVZXjkZ8IaIdKxjeEfeaX-UWLC7cjzUzvNJ4hyJMq3guaN2a7g2lxL0UtCr9ksb31o1dzQSICBEYx7sInlGDsDrmqrI3FWFKhnubqAUSKhzy9Mecv9vfWLS_Y_eju8E4uHUP4c99tk/4sl/h7_ivzkxSm-YefoUD5CPxQ/h24/h001.WdNonspE1Xew7NF2jfQiEDEM0XS2m0t3YiLp1c462GI",
+    "category": "AI/Infrastructure",
+    "summary_bullets": [
+      "Runs LLMs in a BitTorrent-style distributed manner"
+    ],
+    "source": "aiste.ulozaite@gmail.com",
+    "full_text": null
+  }
+]
