@@ -2,8 +2,9 @@
 // Reads raw/<date>/*.json emails that don't yet have a processed/ counterpart,
 // splits each into its distinct stories (a forwarded email may bundle several,
 // as link-digest newsletters do), summarizes + categorizes each via the
-// Anthropic API, and writes today's Issue to _posts/. Idempotent: re-running
-// only processes what's new.
+// Anthropic API, writes each story as its own page under _stories/, and
+// writes today's Issue (an index linking to each story) to _posts/.
+// Idempotent: re-running only processes what's new.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -15,14 +16,11 @@ const RAW_DIR = "raw";
 const PROCESSED_DIR = "processed";
 const FETCHED_DIR = "fetched";
 const POSTS_DIR = "_posts";
+const STORIES_DIR = "_stories";
 
 const EXTRACTION_MODEL = "claude-haiku-4-5-20251001";
 const FETCH_TIMEOUT_MS = 10_000;
 const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fenced" });
-// Zero-width/invisible characters mail clients use as tracking pixels or
-// spacers — harmless to strip, but they pollute forwarded plain-text bodies.
-const INVISIBLE_CHARS = /[\u200B-\u200F\u2028-\u202F\u205F-\u206F\uFEFF\u00AD\u034F]/g;
-const GMAIL_FORWARD_HEADER = /-{5,}\s*Forwarded message\s*-{5,}\nFrom:.*\nDate:.*\nSubject:.*\nTo:.*\n+/;
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -46,7 +44,7 @@ function findUnprocessedRawFiles() {
 }
 
 // All processed items for a date, regardless of which run produced them —
-// used to rebuild the day's post from everything done so far, not just
+// used to rebuild the day's index from everything done so far, not just
 // what the current run happened to add.
 function loadProcessedItems(dateDir) {
   const dir = path.join(PROCESSED_DIR, dateDir);
@@ -60,7 +58,9 @@ function loadProcessedItems(dateDir) {
 }
 
 // Converts HTML to text while keeping paragraph breaks, so a fetched article
-// reads as paragraphs instead of one flattened line.
+// reads as paragraphs instead of one flattened line. Used only for parsing
+// an email's own body when there's no plain-text version to work with —
+// fetched external articles go through turndown() instead, for real Markdown.
 function htmlToText(html) {
   return html
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
@@ -80,17 +80,81 @@ function htmlToText(html) {
     .trim();
 }
 
-// Strips forwarding boilerplate and invisible tracking characters so word
-// counts and prompts aren't polluted by email plumbing rather than content.
-function normalizeText(text) {
+// Zero-width/invisible characters mail clients use as tracking pixels or
+// spacers — harmless to strip, but they pollute forwarded plain-text bodies.
+const INVISIBLE_CHARS_RANGES = [
+  [0x200b, 0x200f],
+  [0x2028, 0x202f],
+  [0x205f, 0x206f],
+  [0xfeff, 0xfeff],
+  [0x00ad, 0x00ad],
+  [0x034f, 0x034f],
+];
+const INVISIBLE_CHARS = new RegExp(
+  "[" + INVISIBLE_CHARS_RANGES.map(([a, b]) => `\\u{${a.toString(16)}}-\\u{${b.toString(16)}}`).join("") + "]",
+  "gu"
+);
+
+// Captures the newsletter's real "From" and your subscription's "To" address
+// out of Gmail's forward header before stripping it — without this, the only
+// "source" available is whichever of your addresses did the forwarding.
+const GMAIL_FORWARD_HEADER = /-{5,}\s*Forwarded message\s*-{5,}\nFrom:\s*(.*)\nDate:\s*.*\nSubject:\s*.*\nTo:\s*(.*)\n+/;
+
+function extractEmailAddress(line) {
+  const angleMatch = line.match(/<([^>]+)>/);
+  if (angleMatch) return angleMatch[1];
+  const bareMatch = line.match(/([^\s<>]+@[^\s<>]+)/);
+  return bareMatch ? bareMatch[1] : null;
+}
+
+// Strips Gmail's forwarding header and invisible tracking characters, while
+// pulling out the newsletter's real identity and which of your addresses
+// it's subscribed under before that header is thrown away.
+function parseForwardedEmail(text) {
   let t = text.replace(/\r\n/g, "\n");
-  const fwdMatch = t.match(GMAIL_FORWARD_HEADER);
-  if (fwdMatch) t = t.slice(fwdMatch.index + fwdMatch[0].length);
-  return t
+  let newsletterName = null;
+  let subscriptionEmail = null;
+
+  const match = t.match(GMAIL_FORWARD_HEADER);
+  if (match) {
+    const fromLine = match[1].trim();
+    const toLine = match[2].trim();
+    const newsletterEmail = extractEmailAddress(fromLine);
+    const angleIndex = fromLine.indexOf("<");
+    newsletterName = (angleIndex > -1 ? fromLine.slice(0, angleIndex).trim() : fromLine) || newsletterEmail;
+    subscriptionEmail = extractEmailAddress(toLine);
+    t = t.slice(match.index + match[0].length);
+  }
+
+  const cleanedText = t
     .replace(INVISIBLE_CHARS, "")
     .replace(/[ \t]+/g, " ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+
+  return { newsletterName, subscriptionEmail, cleanedText };
+}
+
+// Most ESPs put an "unsubscribe" link somewhere in the footer — find it so
+// each story can carry a direct way to leave that specific subscription.
+function extractUnsubscribeLink(html) {
+  if (!html) return null;
+  const anchorRegex = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(anchorRegex)) {
+    const href = match[1];
+    const linkText = match[2].replace(/<[^>]+>/g, "").trim();
+    // Often it's "unsubscribe" as plain text right before a generic "here"
+    // link, not the anchor's own text — check what precedes the link too.
+    const precedingText = html.slice(Math.max(0, match.index - 150), match.index).replace(/<[^>]+>/g, " ");
+    if (
+      /unsubscribe/i.test(href) ||
+      /unsubscribe/i.test(linkText) ||
+      /unsubscribe\s*$/i.test(precedingText.trim())
+    ) {
+      return href;
+    }
+  }
+  return null;
 }
 
 // The model sometimes wraps its JSON in a ```json fence despite being told
@@ -183,41 +247,93 @@ ${cleanedText.slice(0, 15000)}`,
   return extractJson(textBlock.text).items;
 }
 
-// Above this many stories in one email, it's a curated links roundup (e.g.
-// Pointer) rather than a handful of full pieces (e.g. Leadership in Tech) —
-// its editor already wrote a blurb per item, so we relay that instead of
-// fetching and re-summarizing 10+ external links ourselves.
-const ROUNDUP_THRESHOLD = 6;
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 60);
+}
 
-async function summarizeEmail(raw) {
-  const cleanedText = normalizeText(raw.text_body?.trim() || htmlToText(raw.html_body || ""));
+async function summarizeEmail(raw, rawFile) {
+  const { newsletterName, subscriptionEmail, cleanedText } = parseForwardedEmail(
+    raw.text_body?.trim() || htmlToText(raw.html_body || "")
+  );
+  const unsubscribeUrl = extractUnsubscribeLink(raw.html_body);
+  const source = newsletterName || raw.from;
+
   const items = await extractItems(raw, cleanedText);
-  const isRoundup = items.length > ROUNDUP_THRESHOLD;
 
-  for (const item of items) {
-    item.source = raw.from;
-    // Sponsored placements and roundup items are relayed as-is, not fetched
-    // and re-summarized — the former because they're ads, not picks worth
-    // the extra scrape; the latter because the editor's own blurb is right there.
-    item.lightweight = item.sponsored || isRoundup;
-    item.full_text = !item.lightweight && item.url ? await fetchArticleText(item.url) : null;
+  for (const [index, item] of items.entries()) {
+    item.source = source;
+    item.subscriptionEmail = subscriptionEmail;
+    item.unsubscribeUrl = unsubscribeUrl;
+    // Sponsored placements are relayed as-is, not fetched — they're ads,
+    // not picks worth reading in full. Everything else gets its full text,
+    // now that fetches are cheap (cached permanently, never repeated).
+    item.full_text = !item.sponsored && item.url ? await fetchArticleText(item.url) : null;
     // Single-story email with no fetchable link: the email body itself is
     // the only full text we have.
-    if (!item.full_text && !item.lightweight && items.length === 1) item.full_text = cleanedText;
+    if (!item.full_text && !item.sponsored && items.length === 1) item.full_text = cleanedText;
+
+    const uniquePart = crypto.createHash("sha1").update(`${rawFile}-${index}`).digest("hex").slice(0, 6);
+    item.slug = `${slugify(item.title)}-${uniquePart}`;
   }
 
   return items;
 }
 
-async function main() {
-  const unprocessed = findUnprocessedRawFiles();
-  if (unprocessed.length === 0) {
-    console.log("No new articles to compile.");
-    return;
+function frontMatterValue(value) {
+  return JSON.stringify(value);
+}
+
+function buildStoryMarkdown(item, dateDir) {
+  const fields = {
+    layout: "story",
+    title: item.title,
+    date: dateDir,
+    permalink: item.permalink,
+    source: item.source,
+    subscription_email: item.subscriptionEmail,
+    unsubscribe_url: item.unsubscribeUrl,
+    original_url: item.url,
+    category: item.category,
+  };
+
+  let front = "---\n";
+  for (const [key, value] of Object.entries(fields)) {
+    if (value == null) continue;
+    front += `${key}: ${frontMatterValue(value)}\n`;
+  }
+  front += "---\n\n";
+
+  const teaser = item.existing_summary || (item.summary_bullets || []).map((b) => `- ${b}`).join("\n");
+  let body = teaser ? `${teaser}\n\n` : "";
+
+  if (item.full_text) {
+    body += `---\n\n${item.full_text}\n`;
+  } else if (item.url) {
+    body += `*Couldn't fetch the full article — [read it on the original site ↗](${item.url}).*\n`;
   }
 
+  return front + body;
+}
+
+function writeStoryFile(item, dateDir) {
+  fs.mkdirSync(STORIES_DIR, { recursive: true });
+  const filePath = path.join(STORIES_DIR, `${dateDir}-${item.slug}.md`);
+  fs.writeFileSync(filePath, buildStoryMarkdown(item, dateDir));
+}
+
+async function main() {
+  const unprocessed = findUnprocessedRawFiles();
   const allItems = [];
   const failures = [];
+
+  if (unprocessed.length === 0) {
+    console.log("No new emails to extract — re-rendering today's index and stories from cached data.");
+  }
+
   for (const { rawFilePath, dateDir, file } of unprocessed) {
     const raw = JSON.parse(fs.readFileSync(rawFilePath, "utf8"));
     console.log(`Summarizing: ${raw.subject}`);
@@ -227,13 +343,19 @@ async function main() {
     // next run retries just that one.
     let items;
     try {
-      items = await summarizeEmail(raw);
+      items = await summarizeEmail(raw, file);
     } catch (err) {
       console.error(`  ↳ failed, will retry next run: ${err.message}`);
       failures.push(raw.subject);
       continue;
     }
     console.log(`  ↳ ${items.length} stor${items.length === 1 ? "y" : "ies"}`);
+
+    const [year, month, day] = dateDir.split("-");
+    for (const item of items) {
+      item.permalink = `/${year}/${month}/${day}/stories/${item.slug}/`;
+    }
+
     allItems.push(...items);
 
     const processedDir = path.join(PROCESSED_DIR, dateDir);
@@ -241,17 +363,29 @@ async function main() {
     fs.writeFileSync(path.join(processedDir, file), JSON.stringify(items, null, 2));
   }
 
-  if (allItems.length === 0 && failures.length > 0) {
+  if (unprocessed.length > 0 && allItems.length === 0 && failures.length > 0) {
     console.log("Nothing compiled successfully this run.");
     process.exitCode = 1;
     return;
   }
 
-  // Rebuild the post from every item processed today, not just what this
+  // Rebuild the index from every item processed today, not just what this
   // run added — a retry after a partial failure must not drop the items an
-  // earlier run in the same day already succeeded on.
+  // earlier run in the same day already succeeded on. Also covers the
+  // no-new-emails case: re-renders from whatever's already cached.
   const today = new Date().toISOString().slice(0, 10);
   const todaysItems = loadProcessedItems(today);
+  if (todaysItems.length === 0) {
+    console.log("Nothing processed for today yet.");
+    return;
+  }
+
+  // Regenerate every story file for the day, not just the ones this run
+  // added — pure local re-render from cached data, no network or API calls,
+  // so layout/rendering changes apply to everything without reprocessing.
+  for (const item of todaysItems) {
+    writeStoryFile(item, today);
+  }
 
   const byCategory = {};
   for (const item of todaysItems) {
@@ -260,25 +394,25 @@ async function main() {
 
   let body = `---\nlayout: issue\ntitle: "Issue — ${today}"\ndate: ${today}\n---\n\n`;
 
+  const categories = Object.keys(byCategory);
+  body += `**Jump to:** ${categories.map((c) => `[${c}](#${slugify(c)})`).join(" · ")}\n\n`;
+
   for (const [category, categoryItems] of Object.entries(byCategory)) {
     body += `## ${category}\n\n`;
     for (const item of categoryItems) {
-      const heading = item.url ? `[${item.title}](${item.url})` : item.title;
-      const byline = item.byline ? `${item.byline} · ${item.source}` : item.source;
-      const sponsoredTag = item.sponsored ? " · *Sponsored*" : "";
-      body += `### ${heading}\n_${byline}${sponsoredTag}_\n\n`;
+      const attributionParts = [item.source];
+      if (item.sponsored) attributionParts.push("*Sponsored*");
+      if (item.subscriptionEmail) attributionParts.push(`via ${item.subscriptionEmail}`);
+      if (item.unsubscribeUrl) attributionParts.push(`[unsubscribe](${item.unsubscribeUrl})`);
 
-      if (item.lightweight) {
-        const summary = item.existing_summary || item.summary_bullets?.join(" ") || "";
-        body += item.url ? `${summary} [↗](${item.url})\n\n` : `${summary}\n\n`;
-      } else {
-        for (const bullet of item.summary_bullets) {
-          body += item.url ? `- ${bullet} [↗](${item.url})\n` : `- ${bullet}\n`;
-        }
-        body += item.full_text
-          ? `\n<details markdown="1"><summary>Read full piece</summary>\n\n${item.full_text}\n\n</details>\n\n`
+      body += `### [${item.title}](${item.permalink})\n_${attributionParts.join(" · ")}_\n\n`;
+      const teaser = item.existing_summary || (item.summary_bullets || []).join(" ");
+      body += `${teaser}\n\n`;
+      body += item.full_text
+        ? `[Read full piece →](${item.permalink})\n\n`
+        : item.url
+          ? `[Read on original site ↗](${item.url})\n\n`
           : "\n";
-      }
     }
   }
 

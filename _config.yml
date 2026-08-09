@@ -4,6 +4,10 @@ url: "https://reads.aiste.io"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 
+collections:
+  stories:
+    output: true
+
 exclude:
   - raw
   - processed

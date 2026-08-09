@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="story">
+  <p class="story-nav"><a href="{{ '/' | relative_url }}">&larr; Back to Issues</a></p>
+  <h1>{{ page.title }}</h1>
+  <p class="attribution">
+    {% if page.source %}From <strong>{{ page.source }}</strong>{% endif %}
+    {% if page.subscription_email %} &middot; subscribed via {{ page.subscription_email }}{% endif %}
+    {% if page.original_url %} &middot; <a href="{{ page.original_url }}">original &#8599;</a>{% endif %}
+    {% if page.unsubscribe_url %} &middot; <a href="{{ page.unsubscribe_url }}">unsubscribe</a>{% endif %}
+  </p>
+  {{ content }}
+</article>
