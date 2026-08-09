@@ -2,7 +2,7 @@ name: Compile daily issue
 
 on:
   schedule:
-    - cron: "0 11 * * *" # 11:00 UTC daily — adjust to taste
+    - cron: "0 11 * * *" # 11:00 UTC daily, adjust to taste
   workflow_dispatch: {}
 
 permissions:
