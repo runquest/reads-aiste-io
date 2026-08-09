@@ -1,3 +1,6 @@
 name = "reads-aiste-io-intake"
 main = "src/index.js"
 compatibility_date = "2026-08-09"
+
+[vars]
+GITHUB_REPO = "runquest/reads-aiste-io"

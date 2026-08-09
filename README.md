@@ -33,4 +33,10 @@ then run `npm run compile`.
 
 ## Setup still needed
 
-See the setup wizard for: Postmark account + inbound route, DNS records at Namecheap, Cloudflare Worker deploy + secrets, and GitHub repo secrets. Not yet done — this repo currently only proves the compile → publish half of the pipeline.
+Intake (DNS, Postmark, the Cloudflare Worker, and the required secrets) isn't live yet — this repo currently only proves the compile → publish half of the pipeline. Run the guided setup for the rest:
+
+```sh
+./scripts/setup-intake.sh
+```
+
+It walks through: DNS records at Namecheap, deploying the Cloudflare Worker, a scoped GitHub PAT for it, Postmark's inbound domain + webhook, the `ANTHROPIC_API_KEY` GitHub secret, and a real end-to-end test.
