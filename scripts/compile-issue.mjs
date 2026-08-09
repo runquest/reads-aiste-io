@@ -117,7 +117,15 @@ ${cleanedText.slice(0, 12000)}`,
     ],
   });
 
-  const parsed = JSON.parse(message.content[0].text);
+  // The model sometimes wraps its JSON in a ```json fence despite being told
+  // not to; parse whatever's between the outermost braces instead of the raw text.
+  const responseText = message.content[0].text;
+  const jsonStart = responseText.indexOf("{");
+  const jsonEnd = responseText.lastIndexOf("}");
+  if (jsonStart === -1 || jsonEnd === -1) {
+    throw new Error(`No JSON object found in model response: ${responseText.slice(0, 200)}`);
+  }
+  const parsed = JSON.parse(responseText.slice(jsonStart, jsonEnd + 1));
 
   return {
     source: raw.from,
