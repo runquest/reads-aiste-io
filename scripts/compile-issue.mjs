@@ -11,6 +11,13 @@ const RAW_DIR = "raw";
 const PROCESSED_DIR = "processed";
 const POSTS_DIR = "_posts";
 
+// Newsletters that are mostly a "read more" teaser leave too little in the
+// email body to summarize well — below this, we try to fetch the linked
+// article instead of settling for the teaser.
+const THIN_ARTICLE_WORD_COUNT = 200;
+const FETCH_TIMEOUT_MS = 10_000;
+const SKIP_LINK_PATTERN = /unsubscribe|privacy|preferences|mailto:|twitter\.com|x\.com|facebook\.com|linkedin\.com|instagram\.com|\.(png|jpe?g|gif|svg)(\?|$)/i;
+
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 function findUnprocessedRawFiles() {
@@ -42,8 +49,55 @@ function stripHtml(html) {
     .trim();
 }
 
+function countWords(text) {
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
+// Picks the anchor most likely to be "the article" rather than nav/social/
+// unsubscribe chrome: longest anchor text (real headlines read as sentences;
+// boilerplate links read as single words), skipping known non-article hosts.
+function extractLikelyArticleLink(html) {
+  if (!html) return null;
+  const anchorRegex = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let best = null;
+  for (const match of html.matchAll(anchorRegex)) {
+    const href = match[1];
+    const text = stripHtml(match[2]);
+    if (!href.startsWith("http") || SKIP_LINK_PATTERN.test(href)) continue;
+    if (text.length < 15) continue;
+    if (!best || text.length > best.text.length) best = { href, text };
+  }
+  return best?.href ?? null;
+}
+
+async function fetchArticleText(url) {
+  try {
+    const response = await fetch(url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; reads-aiste-io/1.0)" },
+    });
+    if (!response.ok) return null;
+    const html = await response.text();
+    const articleMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    const text = stripHtml(articleMatch ? articleMatch[1] : html);
+    return text.length > 200 ? text : null;
+  } catch {
+    return null;
+  }
+}
+
 async function summarizeArticle(raw) {
-  const cleanedText = raw.text_body?.trim() || stripHtml(raw.html_body || "");
+  let cleanedText = raw.text_body?.trim() || stripHtml(raw.html_body || "");
+
+  if (countWords(cleanedText) < THIN_ARTICLE_WORD_COUNT) {
+    const link = extractLikelyArticleLink(raw.html_body || "");
+    if (link) {
+      console.log(`  ↳ email looks like a teaser, fetching ${link}`);
+      const fetched = await fetchArticleText(link);
+      if (fetched) cleanedText = fetched;
+      else console.log(`  ↳ fetch failed or too short, falling back to email body`);
+    }
+  }
 
   const message = await anthropic.messages.create({
     model: "claude-sonnet-5",

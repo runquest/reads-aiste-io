@@ -166,6 +166,20 @@ set_var() {
   warn "skipped GitHub variable $name — gh not ready; set it later"
 }
 
+# is_done NAME — true if this manual milestone was already marked complete
+# on a prior run. Lets re-runs skip stages instead of replaying them.
+is_done() { [[ "$(_existing "DONE_${1}")" == "1" ]]; }
+
+# mark_done NAME — record that a manual milestone is complete.
+mark_done() {
+  local key="DONE_$1" tmp
+  touch "$ENV_FILE"
+  tmp=$(mktemp)
+  grep -vE "^${key}=" "$ENV_FILE" > "$tmp" || true
+  printf '%s=1\n' "$key" >> "$tmp"
+  mv "$tmp" "$ENV_FILE"
+}
+
 # finish — clear, then a closing summary of everything configured.
 finish() {
   _clear
@@ -190,21 +204,27 @@ banner "reads.aiste.io — intake setup"
 
 # ── 1. DNS ──────────────────────────────────────────────────────────────
 stage "DNS — reads.aiste.io (site) + mail.reads.aiste.io (intake)"
-say "Two records on the aiste.io zone, both at Namecheap. A CNAME and an MX"
-say "can't coexist at the same name, which is why intake is nested one level"
-say "deeper than the site itself."
-open_url "https://ap.www.namecheap.com/domains/domaincontrolpanel/aiste.io/advancedns"
-step "Add New Record -> CNAME Record: Host = reads, Value = runquest.github.io, TTL = Automatic."
-step "Add New Record -> MX Record: Host = mail.reads, Value = inbound.postmarkapp.com, Priority = 10, TTL = Automatic."
-note "Propagation can take minutes to hours. The Postmark and GitHub Pages steps below both depend on this, so it's worth doing first and letting it settle in the background."
-pause "Press Enter once both records are saved."
+if is_done DNS; then
+  note "Already marked done — skipping (delete DONE_DNS from .env to redo)."
+else
+  say "Two records on the aiste.io zone, both at Namecheap. A CNAME and an MX"
+  say "can't coexist at the same name, which is why intake is nested one level"
+  say "deeper than the site itself."
+  open_url "https://ap.www.namecheap.com/domains/domaincontrolpanel/aiste.io/advancedns"
+  step "Add New Record -> CNAME Record: Host = reads, Value = runquest.github.io, TTL = Automatic."
+  step "Add New Record -> MX Record: Host = mail.reads, Value = inbound.postmarkapp.com, Priority = 10, TTL = Automatic."
+  note "Propagation can take minutes to hours. The Postmark and GitHub Pages steps below both depend on this, so it's worth doing first and letting it settle in the background."
+  pause "Press Enter once both records are saved."
+  mark_done DNS
+fi
 
 # ── 2. Cloudflare login ─────────────────────────────────────────────────
 stage "Cloudflare — log in to Wrangler"
 say "The intake Worker deploys via Wrangler, Cloudflare's CLI (free tier is enough)."
-npx wrangler whoami || true
-if confirm "Already logged in (shown above)? Skip login"; then
-  note "Skipping login."
+WHOAMI_OUTPUT=$(npx wrangler whoami 2>&1) || true
+printf '%s\n' "$WHOAMI_OUTPUT"
+if printf '%s' "$WHOAMI_OUTPUT" | grep -q "You are logged in"; then
+  note "Already authenticated — skipping login."
 else
   step "Running 'wrangler login' — opens a browser to authorize Cloudflare."
   npx wrangler login
@@ -228,64 +248,91 @@ note "Worker URL: $WORKER_URL"
 
 # ── 4. Webhook secret ───────────────────────────────────────────────────
 stage "Cloudflare — set the intake webhook secret"
-say "The Worker only accepts requests carrying ?secret=... matching this value —"
-say "anyone who doesn't know it gets a 401. This guards the endpoint since it's"
-say "otherwise a public URL."
-DEFAULT_SECRET=$(openssl rand -hex 24 2>/dev/null || head -c 32 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9' | head -c 48)
-say "Generated: $DEFAULT_SECRET"
-ask WEBHOOK_SECRET "Press Enter to use the generated one above, or paste your own:"
-[[ -z "$WEBHOOK_SECRET" ]] && WEBHOOK_SECRET="$DEFAULT_SECRET"
-write_env WEBHOOK_SECRET "$WEBHOOK_SECRET"
-(cd worker && printf '%s' "$WEBHOOK_SECRET" | npx wrangler secret put WEBHOOK_SECRET)
+if is_done WEBHOOK_SECRET; then
+  WEBHOOK_SECRET=$(_existing WEBHOOK_SECRET)
+  note "Using saved webhook secret — skipping (delete DONE_WEBHOOK_SECRET from .env to rotate)."
+else
+  say "The Worker only accepts requests carrying ?secret=... matching this value —"
+  say "anyone who doesn't know it gets a 401. This guards the endpoint since it's"
+  say "otherwise a public URL."
+  DEFAULT_SECRET=$(openssl rand -hex 24 2>/dev/null || head -c 32 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9' | head -c 48)
+  say "Generated: $DEFAULT_SECRET"
+  ask WEBHOOK_SECRET "Press Enter to use the generated one above, or paste your own:"
+  [[ -z "$WEBHOOK_SECRET" ]] && WEBHOOK_SECRET="$DEFAULT_SECRET"
+  write_env WEBHOOK_SECRET "$WEBHOOK_SECRET"
+  (cd worker && printf '%s' "$WEBHOOK_SECRET" | npx wrangler secret put WEBHOOK_SECRET)
+  mark_done WEBHOOK_SECRET
+fi
 
 # ── 5. GitHub PAT for the Worker ────────────────────────────────────────
 stage "GitHub — PAT so the Worker can commit raw emails"
-say "The Worker writes new raw/ files to this repo via the GitHub API, so it"
-say "needs its own token — scoped to just this repo, contents only."
-open_url "https://github.com/settings/personal-access-tokens/new"
-step "Token name: reads-aiste-io-intake-worker"
-step "Expiration: your choice (e.g. 1 year)"
-step "Repository access -> Only select repositories -> runquest/reads-aiste-io"
-step "Permissions -> Repository permissions -> Contents -> Read and write"
-step "Generate token, then copy it (starts with github_pat_)."
-ask_secret GITHUB_PAT "Paste the token:"
-write_env GITHUB_PAT "$GITHUB_PAT"
-(cd worker && printf '%s' "$GITHUB_PAT" | npx wrangler secret put GITHUB_TOKEN)
+if is_done GITHUB_PAT; then
+  note "Using saved GitHub PAT — skipping (delete DONE_GITHUB_PAT from .env to rotate)."
+else
+  say "The Worker writes new raw/ files to this repo via the GitHub API, so it"
+  say "needs its own token — scoped to just this repo, contents only."
+  open_url "https://github.com/settings/personal-access-tokens/new"
+  step "Token name: reads-aiste-io-intake-worker"
+  step "Expiration: your choice (e.g. 1 year)"
+  step "Repository access -> Only select repositories -> runquest/reads-aiste-io"
+  step "Permissions -> Repository permissions -> Contents -> Read and write"
+  step "Generate token, then copy it (starts with github_pat_)."
+  ask_secret GITHUB_PAT "Paste the token:"
+  write_env GITHUB_PAT "$GITHUB_PAT"
+  (cd worker && printf '%s' "$GITHUB_PAT" | npx wrangler secret put GITHUB_TOKEN)
+  mark_done GITHUB_PAT
+fi
 
 # ── 6. Postmark server + inbound domain ─────────────────────────────────
 stage "Postmark — server + inbound domain"
-say "Postmark receives the forwarded newsletters and POSTs each one to the"
-say "Worker as JSON."
-open_url "https://account.postmarkapp.com/servers"
-step "Create a Server (or pick an existing one) — e.g. name it 'reads-aiste-io'."
-step "Open the server -> Streams tab -> the default Inbound stream -> Settings."
-step "Set the 'Inbound Domain' field to: mail.reads.aiste.io"
-note "Docs call this field InboundDomain — exact wording may have shifted since, but it's on the inbound stream's settings page."
-warn "Needs the MX record from stage 1 to have propagated — if you didn't wait, this may not verify yet."
-pause "Press Enter once the Inbound Domain is set and saved."
-ask INBOUND_LOCAL_PART "Local part of the intake address? (e.g. 'newsletters' for newsletters@mail.reads.aiste.io):"
-write_env INBOUND_LOCAL_PART "$INBOUND_LOCAL_PART"
-note "Forward newsletters to: ${INBOUND_LOCAL_PART}@mail.reads.aiste.io"
+if is_done POSTMARK_DOMAIN; then
+  INBOUND_LOCAL_PART=$(_existing INBOUND_LOCAL_PART)
+  note "Using saved inbound setup (${INBOUND_LOCAL_PART}@mail.reads.aiste.io) — skipping (delete DONE_POSTMARK_DOMAIN from .env to redo)."
+else
+  say "Postmark receives the forwarded newsletters and POSTs each one to the"
+  say "Worker as JSON."
+  open_url "https://account.postmarkapp.com/servers"
+  step "Create a Server (or pick an existing one) — e.g. name it 'reads-aiste-io'."
+  step "Open the server -> Streams tab -> the default Inbound stream -> Settings."
+  step "Set the 'Inbound Domain' field to: mail.reads.aiste.io"
+  note "Docs call this field InboundDomain — exact wording may have shifted since, but it's on the inbound stream's settings page."
+  warn "Needs the MX record from stage 1 to have propagated — if you didn't wait, this may not verify yet."
+  pause "Press Enter once the Inbound Domain is set and saved."
+  ask INBOUND_LOCAL_PART "Local part of the intake address? (e.g. 'newsletters' for newsletters@mail.reads.aiste.io):"
+  write_env INBOUND_LOCAL_PART "$INBOUND_LOCAL_PART"
+  note "Forward newsletters to: ${INBOUND_LOCAL_PART}@mail.reads.aiste.io"
+  mark_done POSTMARK_DOMAIN
+fi
 
 # ── 7. Postmark webhook URL ─────────────────────────────────────────────
 stage "Postmark — point the inbound webhook at the Worker"
-say "Still on that same Inbound stream's Settings page."
-step "Find the 'Webhook URL' (InboundHookUrl) field."
 FULL_WEBHOOK_URL="${WORKER_URL}/?secret=${WEBHOOK_SECRET}"
-note "Set it to exactly: $FULL_WEBHOOK_URL"
-step "Paste that exact URL in, then Save."
-pause "Press Enter once saved."
+if is_done POSTMARK_WEBHOOK; then
+  note "Already pointed at: $FULL_WEBHOOK_URL — skipping (delete DONE_POSTMARK_WEBHOOK from .env to redo)."
+else
+  say "Still on that same Inbound stream's Settings page."
+  step "Find the 'Webhook URL' (InboundHookUrl) field."
+  note "Set it to exactly: $FULL_WEBHOOK_URL"
+  step "Paste that exact URL in, then Save."
+  pause "Press Enter once saved."
+  mark_done POSTMARK_WEBHOOK
+fi
 
 # ── 8. Anthropic API key for the daily compile ──────────────────────────
 stage "GitHub Actions — Anthropic API key"
-say "The daily compile workflow (.github/workflows/compile-issue.yml) needs"
-say "this to summarize/categorize articles. Unrelated to intake itself, but"
-say "the pipeline doesn't do anything useful without it."
-open_url "https://console.anthropic.com/settings/keys"
-step "Create (or copy an existing) API key."
-ask_secret ANTHROPIC_API_KEY "Paste the API key:"
-write_env ANTHROPIC_API_KEY "$ANTHROPIC_API_KEY"
-set_secret ANTHROPIC_API_KEY "$ANTHROPIC_API_KEY"
+if is_done ANTHROPIC_API_KEY; then
+  note "Using saved Anthropic API key — skipping (delete DONE_ANTHROPIC_API_KEY from .env to rotate)."
+else
+  say "The daily compile workflow (.github/workflows/compile-issue.yml) needs"
+  say "this to summarize/categorize articles. Unrelated to intake itself, but"
+  say "the pipeline doesn't do anything useful without it."
+  open_url "https://console.anthropic.com/settings/keys"
+  step "Create (or copy an existing) API key."
+  ask_secret ANTHROPIC_API_KEY "Paste the API key:"
+  write_env ANTHROPIC_API_KEY "$ANTHROPIC_API_KEY"
+  set_secret ANTHROPIC_API_KEY "$ANTHROPIC_API_KEY"
+  mark_done ANTHROPIC_API_KEY
+fi
 
 # ── 9. End-to-end test ───────────────────────────────────────────────────
 stage "Test — send a real newsletter through"
