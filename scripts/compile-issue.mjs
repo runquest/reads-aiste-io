@@ -108,7 +108,7 @@ async function fetchArticleText(url) {
 async function extractItems(raw, cleanedText) {
   const message = await anthropic.messages.create({
     model: "claude-sonnet-5",
-    max_tokens: 2048,
+    max_tokens: 4096,
     messages: [
       {
         role: "user",
@@ -126,7 +126,13 @@ ${cleanedText.slice(0, 15000)}`,
     ],
   });
 
-  return extractJson(message.content[0].text).items;
+  // content[0] isn't reliably the text block (a thinking block can precede
+  // it), so find the text block explicitly rather than assuming its index.
+  const textBlock = message.content.find((block) => block.type === "text");
+  if (!textBlock) {
+    throw new Error(`No text block in model response (stop_reason: ${message.stop_reason})`);
+  }
+  return extractJson(textBlock.text).items;
 }
 
 async function summarizeEmail(raw) {
