@@ -1,0 +1,11 @@
+{
+  "source": "support@postmarkapp.com",
+  "subject": "Test subject",
+  "category": "Test",
+  "summary_bullets": [
+    "This is a test text body.",
+    "No additional content was provided in the article.",
+    "No further details available."
+  ],
+  "cleaned_text": "This is a test text body."
+}
