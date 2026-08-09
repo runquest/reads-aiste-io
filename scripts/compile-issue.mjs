@@ -7,13 +7,18 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import Anthropic from "@anthropic-ai/sdk";
+import TurndownService from "turndown";
 
 const RAW_DIR = "raw";
 const PROCESSED_DIR = "processed";
+const FETCHED_DIR = "fetched";
 const POSTS_DIR = "_posts";
 
+const EXTRACTION_MODEL = "claude-haiku-4-5-20251001";
 const FETCH_TIMEOUT_MS = 10_000;
+const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fenced" });
 // Zero-width/invisible characters mail clients use as tracking pixels or
 // spacers — harmless to strip, but they pollute forwarded plain-text bodies.
 const INVISIBLE_CHARS = /[\u200B-\u200F\u2028-\u202F\u205F-\u206F\uFEFF\u00AD\u034F]/g;
@@ -99,17 +104,44 @@ function extractJson(text) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
+function urlCachePath(url) {
+  const hash = crypto.createHash("sha1").update(url).digest("hex");
+  return path.join(FETCHED_DIR, `${hash}.html`);
+}
+
+// Published articles don't change, so a URL only ever needs fetching once —
+// the raw HTML is stored permanently alongside raw/ and processed/, not as
+// an evictable cache. This means future changes to how we convert HTML to
+// Markdown (or anything else about rendering) replay from disk, with no
+// network calls and no re-summarizing.
+async function fetchHtml(url) {
+  const cachePath = urlCachePath(url);
+  if (fs.existsSync(cachePath)) {
+    return fs.readFileSync(cachePath, "utf8");
+  }
+  const response = await fetch(url, {
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    headers: { "User-Agent": "Mozilla/5.0 (compatible; reads-aiste-io/1.0)" },
+  });
+  if (!response.ok) return null;
+  const html = await response.text();
+  fs.mkdirSync(FETCHED_DIR, { recursive: true });
+  fs.writeFileSync(cachePath, `<!-- source: ${url} -->\n${html}`);
+  return html;
+}
+
 async function fetchArticleText(url) {
   try {
-    const response = await fetch(url, {
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; reads-aiste-io/1.0)" },
-    });
-    if (!response.ok) return null;
-    const html = await response.text();
+    const html = await fetchHtml(url);
+    if (!html) return null;
     const articleMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    const text = htmlToText(articleMatch ? articleMatch[1] : html);
-    return text.length > 200 ? text : null;
+    const markdown = turndown
+      .turndown(articleMatch ? articleMatch[1] : html)
+      // Empty "copy link to heading" anchors many sites attach to every
+      // heading turn into noisy empty markdown links; drop them.
+      .replace(/\[]\(#[^)]*\)/g, "")
+      .trim();
+    return markdown.length > 200 ? markdown : null;
   } catch {
     return null;
   }
@@ -121,15 +153,17 @@ async function fetchArticleText(url) {
 // if it were a single article.
 async function extractItems(raw, cleanedText) {
   const message = await anthropic.messages.create({
-    model: "claude-sonnet-5",
+    model: EXTRACTION_MODEL,
     max_tokens: 8192,
     messages: [
       {
         role: "user",
-        content: `This is a forwarded newsletter email. Sometimes it's a single article; sometimes it's a link digest bundling several distinct stories, each with its own headline, byline, and link. Identify every distinct story. Ignore forwarding headers, email signatures, "read online" links, unsubscribe/social links, and sponsored ad blurbs (unless the ad IS the newsletter's only content).
+        content: `This is a forwarded newsletter email. Sometimes it's a single article; sometimes it's a link digest bundling several distinct stories, each with its own headline, byline, and link. Identify every distinct story, including sponsored/promoted placements (mark those with "sponsored": true rather than dropping them). Ignore forwarding headers, email signatures, and "read online"/unsubscribe/social links, which are not stories.
+
+Some newsletters (curated link roundups) already include their own written blurb or tl;dr for each story — capture that verbatim (lightly trimmed) as "existing_summary". Others don't, and there's nothing to capture there.
 
 Respond with ONLY strict JSON, no prose:
-{"items": [{"title": "<story headline>", "url": "<the story's own link exactly as it appears in the text, or null if none>", "category": "<one short topical category, e.g. 'Tech', 'AI', 'Health', 'Product'>", "summary_bullets": ["<bullet 1>", "<bullet 2>", "<bullet 3>"]}]}
+{"items": [{"title": "<story headline>", "url": "<the story's own link exactly as it appears in the text, or null if none>", "category": "<one short topical category, e.g. 'Tech', 'AI', 'Health', 'Product'>", "byline": "<the story's own credited author, if the newsletter names one, else null>", "existing_summary": "<the newsletter's own verbatim blurb/tl;dr for this story, if it has one, else null>", "sponsored": <true if this is a paid/promoted placement rather than an editorial pick, else false>, "summary_bullets": ["<bullet 1>", "<bullet 2>", "<bullet 3>"]}]}
 
 Newsletter source: ${raw.from}
 Subject: ${raw.subject}
@@ -149,16 +183,27 @@ ${cleanedText.slice(0, 15000)}`,
   return extractJson(textBlock.text).items;
 }
 
+// Above this many stories in one email, it's a curated links roundup (e.g.
+// Pointer) rather than a handful of full pieces (e.g. Leadership in Tech) —
+// its editor already wrote a blurb per item, so we relay that instead of
+// fetching and re-summarizing 10+ external links ourselves.
+const ROUNDUP_THRESHOLD = 6;
+
 async function summarizeEmail(raw) {
   const cleanedText = normalizeText(raw.text_body?.trim() || htmlToText(raw.html_body || ""));
   const items = await extractItems(raw, cleanedText);
+  const isRoundup = items.length > ROUNDUP_THRESHOLD;
 
   for (const item of items) {
     item.source = raw.from;
-    item.full_text = item.url ? await fetchArticleText(item.url) : null;
+    // Sponsored placements and roundup items are relayed as-is, not fetched
+    // and re-summarized — the former because they're ads, not picks worth
+    // the extra scrape; the latter because the editor's own blurb is right there.
+    item.lightweight = item.sponsored || isRoundup;
+    item.full_text = !item.lightweight && item.url ? await fetchArticleText(item.url) : null;
     // Single-story email with no fetchable link: the email body itself is
     // the only full text we have.
-    if (!item.full_text && items.length === 1) item.full_text = cleanedText;
+    if (!item.full_text && !item.lightweight && items.length === 1) item.full_text = cleanedText;
   }
 
   return items;
@@ -219,13 +264,21 @@ async function main() {
     body += `## ${category}\n\n`;
     for (const item of categoryItems) {
       const heading = item.url ? `[${item.title}](${item.url})` : item.title;
-      body += `### ${heading}\n_${item.source}_\n\n`;
-      for (const bullet of item.summary_bullets) {
-        body += item.url ? `- ${bullet} [↗](${item.url})\n` : `- ${bullet}\n`;
+      const byline = item.byline ? `${item.byline} · ${item.source}` : item.source;
+      const sponsoredTag = item.sponsored ? " · *Sponsored*" : "";
+      body += `### ${heading}\n_${byline}${sponsoredTag}_\n\n`;
+
+      if (item.lightweight) {
+        const summary = item.existing_summary || item.summary_bullets?.join(" ") || "";
+        body += item.url ? `${summary} [↗](${item.url})\n\n` : `${summary}\n\n`;
+      } else {
+        for (const bullet of item.summary_bullets) {
+          body += item.url ? `- ${bullet} [↗](${item.url})\n` : `- ${bullet}\n`;
+        }
+        body += item.full_text
+          ? `\n<details markdown="1"><summary>Read full piece</summary>\n\n${item.full_text}\n\n</details>\n\n`
+          : "\n";
       }
-      body += item.full_text
-        ? `\n<details><summary>Read full piece</summary>\n\n${item.full_text}\n\n</details>\n\n`
-        : "\n";
     }
   }
 

@@ -6,6 +6,7 @@
     "compile": "node scripts/compile-issue.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "latest"
+    "@anthropic-ai/sdk": "latest",
+    "turndown": "^7.2.4"
   }
 }
