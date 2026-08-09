@@ -1,0 +1,7 @@
+{
+  "from": "support@postmarkapp.com",
+  "subject": "Test subject",
+  "html_body": "<html><body><p>This is a test html body.</p></body></html>",
+  "text_body": "This is a test text body.",
+  "received_at": "2026-08-09T19:00:05.130Z"
+}
