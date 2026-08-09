@@ -40,6 +40,20 @@ function findUnprocessedRawFiles() {
   return results;
 }
 
+// All processed items for a date, regardless of which run produced them —
+// used to rebuild the day's post from everything done so far, not just
+// what the current run happened to add.
+function loadProcessedItems(dateDir) {
+  const dir = path.join(PROCESSED_DIR, dateDir);
+  if (!fs.existsSync(dir)) return [];
+  const items = [];
+  for (const file of fs.readdirSync(dir)) {
+    if (!file.endsWith(".json")) continue;
+    items.push(...JSON.parse(fs.readFileSync(path.join(dir, file), "utf8")));
+  }
+  return items;
+}
+
 // Converts HTML to text while keeping paragraph breaks, so a fetched article
 // reads as paragraphs instead of one flattened line.
 function htmlToText(html) {
@@ -108,7 +122,7 @@ async function fetchArticleText(url) {
 async function extractItems(raw, cleanedText) {
   const message = await anthropic.messages.create({
     model: "claude-sonnet-5",
-    max_tokens: 4096,
+    max_tokens: 8192,
     messages: [
       {
         role: "user",
@@ -158,10 +172,22 @@ async function main() {
   }
 
   const allItems = [];
+  const failures = [];
   for (const { rawFilePath, dateDir, file } of unprocessed) {
     const raw = JSON.parse(fs.readFileSync(rawFilePath, "utf8"));
     console.log(`Summarizing: ${raw.subject}`);
-    const items = await summarizeEmail(raw);
+    // One email failing to summarize (a truncated model response, an
+    // unreachable link, etc.) shouldn't discard everything already
+    // processed in this run — skip it and leave it unprocessed so the
+    // next run retries just that one.
+    let items;
+    try {
+      items = await summarizeEmail(raw);
+    } catch (err) {
+      console.error(`  ↳ failed, will retry next run: ${err.message}`);
+      failures.push(raw.subject);
+      continue;
+    }
     console.log(`  ↳ ${items.length} stor${items.length === 1 ? "y" : "ies"}`);
     allItems.push(...items);
 
@@ -170,12 +196,23 @@ async function main() {
     fs.writeFileSync(path.join(processedDir, file), JSON.stringify(items, null, 2));
   }
 
+  if (allItems.length === 0 && failures.length > 0) {
+    console.log("Nothing compiled successfully this run.");
+    process.exitCode = 1;
+    return;
+  }
+
+  // Rebuild the post from every item processed today, not just what this
+  // run added — a retry after a partial failure must not drop the items an
+  // earlier run in the same day already succeeded on.
+  const today = new Date().toISOString().slice(0, 10);
+  const todaysItems = loadProcessedItems(today);
+
   const byCategory = {};
-  for (const item of allItems) {
+  for (const item of todaysItems) {
     (byCategory[item.category] ??= []).push(item);
   }
 
-  const today = new Date().toISOString().slice(0, 10);
   let body = `---\nlayout: issue\ntitle: "Issue — ${today}"\ndate: ${today}\n---\n\n`;
 
   for (const [category, categoryItems] of Object.entries(byCategory)) {
@@ -195,7 +232,13 @@ async function main() {
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   const postPath = path.join(POSTS_DIR, `${today}-issue.md`);
   fs.writeFileSync(postPath, body);
-  console.log(`Compiled ${allItems.length} item(s) from ${unprocessed.length} email(s) into ${postPath}`);
+  const processedCount = unprocessed.length - failures.length;
+  console.log(
+    `Compiled ${todaysItems.length} item(s) total (${allItems.length} new from ${processedCount}/${unprocessed.length} email(s) this run) into ${postPath}`
+  );
+  if (failures.length > 0) {
+    console.log(`Skipped ${failures.length} email(s), will retry next run: ${failures.join("; ")}`);
+  }
 }
 
 main().catch((err) => {
