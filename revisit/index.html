@@ -1,0 +1,61 @@
+---
+layout: default
+title: "Revisit"
+permalink: /revisit/
+---
+<h1>Revisit list</h1>
+<p>Articles you've saved to come back to, across every issue.</p>
+<ul id="revisit-list">
+  <li>Loading…</li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var listEl = document.getElementById("revisit-list");
+
+    Promise.all([
+      fetch("{{ '/stories.json' | relative_url }}").then(function (r) { return r.json(); }),
+      window.ReadsState.fetchAllState(),
+    ]).then(function (results) {
+      var stories = results[0];
+      var state = results[1];
+      var revisitSlugs = {};
+      Object.keys(state).forEach(function (slug) {
+        if (state[slug].revisit) revisitSlugs[slug] = true;
+      });
+      var items = stories.filter(function (s) { return revisitSlugs[s.slug]; });
+
+      listEl.innerHTML = "";
+      if (items.length === 0) {
+        listEl.innerHTML = '<li>Nothing saved yet — use "Save to revisit" on any story.</li>';
+        return;
+      }
+
+      items.forEach(function (story) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = story.url;
+        a.textContent = story.title;
+
+        var removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "reads-btn";
+        removeBtn.textContent = "✕ remove";
+        removeBtn.addEventListener("click", function () {
+          fetch(window.ReadsState.apiUrl("/state/" + encodeURIComponent(story.slug)), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ revisit: false }),
+          }).then(function () {
+            li.remove();
+          });
+        });
+
+        li.appendChild(a);
+        li.appendChild(document.createTextNode(" — " + story.source + " · " + story.date + " "));
+        li.appendChild(removeBtn);
+        listEl.appendChild(li);
+      });
+    });
+  });
+</script>

@@ -8,6 +8,12 @@ collections:
   stories:
     output: true
 
+# state_token isn't real access control — it's embedded in the public JS
+# below, so anyone can read it. It only deters random bots from spamming
+# the read/revisit endpoint; the data behind it isn't sensitive.
+state_api: "https://reads-aiste-io-intake.hidden-bush-8826.workers.dev"
+state_token: "b3bf96a97bdfe00bc4b47bff4a56c9fc"
+
 exclude:
   - raw
   - processed

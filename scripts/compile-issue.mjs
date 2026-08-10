@@ -301,6 +301,7 @@ function buildStoryMarkdown(item, dateDir) {
     title: item.title,
     date: dateDir,
     permalink: item.permalink,
+    slug: item.slug,
     source: item.source,
     subscription_email: item.subscriptionEmail,
     unsubscribe_url: item.unsubscribeUrl,
@@ -341,13 +342,63 @@ function writeStoryFile(item, dateDir) {
   fs.writeFileSync(filePath, buildStoryMarkdown(item, dateDir));
 }
 
+// Rebuilds one day's story files and index post from whatever's in
+// processed/<dateDir>/ — pure local re-render, no network or API calls, so
+// it's cheap enough to run for every day on every invocation. That's what
+// makes a rendering/layout change apply everywhere without reprocessing,
+// including days before the one currently running.
+function renderIssueDate(dateDir) {
+  const items = loadProcessedItems(dateDir);
+  if (items.length === 0) return 0;
+
+  for (const item of items) {
+    writeStoryFile(item, dateDir);
+  }
+
+  const byCategory = {};
+  for (const item of items) {
+    (byCategory[item.category] ??= []).push(item);
+  }
+
+  let body = `---\nlayout: issue\ntitle: "Issue — ${dateDir}"\ndate: ${dateDir}\n---\n\n`;
+
+  const categories = Object.keys(byCategory);
+  body += `**Jump to:** ${categories.map((c) => `[${c}](#${slugify(c)})`).join(" · ")}\n\n`;
+
+  for (const [category, categoryItems] of Object.entries(byCategory)) {
+    body += `## ${category}\n\n`;
+    for (const item of categoryItems) {
+      const attributionParts = [item.source];
+      if (item.sponsored) attributionParts.push("*Sponsored*");
+      if (item.subscriptionEmail) attributionParts.push(`via ${item.subscriptionEmail}`);
+      if (item.unsubscribeUrl) attributionParts.push(`[unsubscribe](${item.unsubscribeUrl})`);
+
+      // Title/teaser come from other people's emails (or a model reading
+      // them) — wrap in raw so a stray "{{"/"{%" can't be parsed as Liquid
+      // and break the whole site build.
+      body += `### [{% raw %}${item.title}{% endraw %}](${item.permalink}) <span class="reads-controls" data-reads-slug="${item.slug}"></span>\n_${attributionParts.join(" · ")}_\n\n`;
+      const teaser = item.existing_summary || (item.summary_bullets || []).join(" ");
+      body += `{% raw %}${teaser}{% endraw %}\n\n`;
+      body += item.full_text
+        ? `[Read full piece →](${item.permalink})\n\n`
+        : item.url
+          ? `[Read on original site ↗](${item.url})\n\n`
+          : "\n";
+    }
+  }
+
+  fs.mkdirSync(POSTS_DIR, { recursive: true });
+  fs.writeFileSync(path.join(POSTS_DIR, `${dateDir}-issue.md`), body);
+  return items.length;
+}
+
 async function main() {
   const unprocessed = findUnprocessedRawFiles();
   const allItems = [];
   const failures = [];
 
   if (unprocessed.length === 0) {
-    console.log("No new emails to extract — re-rendering today's index and stories from cached data.");
+    console.log("No new emails to extract — re-rendering every day's index and stories from cached data.");
   }
 
   for (const { rawFilePath, dateDir, file } of unprocessed) {
@@ -385,62 +436,22 @@ async function main() {
     return;
   }
 
-  // Rebuild the index from every item processed today, not just what this
-  // run added — a retry after a partial failure must not drop the items an
-  // earlier run in the same day already succeeded on. Also covers the
-  // no-new-emails case: re-renders from whatever's already cached.
+  // Rebuild every day's story files and index post, not just today's — a
+  // rendering/layout change should apply everywhere without reprocessing,
+  // and this is cheap (pure local re-render, no network or API calls).
+  const dateDirs = fs.existsSync(PROCESSED_DIR)
+    ? fs.readdirSync(PROCESSED_DIR).filter((f) => fs.statSync(path.join(PROCESSED_DIR, f)).isDirectory())
+    : [];
+  let totalItems = 0;
+  for (const dateDir of dateDirs) {
+    totalItems += renderIssueDate(dateDir);
+  }
+
   const today = new Date().toISOString().slice(0, 10);
-  const todaysItems = loadProcessedItems(today);
-  if (todaysItems.length === 0) {
-    console.log("Nothing processed for today yet.");
-    return;
-  }
-
-  // Regenerate every story file for the day, not just the ones this run
-  // added — pure local re-render from cached data, no network or API calls,
-  // so layout/rendering changes apply to everything without reprocessing.
-  for (const item of todaysItems) {
-    writeStoryFile(item, today);
-  }
-
-  const byCategory = {};
-  for (const item of todaysItems) {
-    (byCategory[item.category] ??= []).push(item);
-  }
-
-  let body = `---\nlayout: issue\ntitle: "Issue — ${today}"\ndate: ${today}\n---\n\n`;
-
-  const categories = Object.keys(byCategory);
-  body += `**Jump to:** ${categories.map((c) => `[${c}](#${slugify(c)})`).join(" · ")}\n\n`;
-
-  for (const [category, categoryItems] of Object.entries(byCategory)) {
-    body += `## ${category}\n\n`;
-    for (const item of categoryItems) {
-      const attributionParts = [item.source];
-      if (item.sponsored) attributionParts.push("*Sponsored*");
-      if (item.subscriptionEmail) attributionParts.push(`via ${item.subscriptionEmail}`);
-      if (item.unsubscribeUrl) attributionParts.push(`[unsubscribe](${item.unsubscribeUrl})`);
-
-      // Title/teaser come from other people's emails (or a model reading
-      // them) — wrap in raw so a stray "{{"/"{%" can't be parsed as Liquid
-      // and break the whole site build.
-      body += `### [{% raw %}${item.title}{% endraw %}](${item.permalink})\n_${attributionParts.join(" · ")}_\n\n`;
-      const teaser = item.existing_summary || (item.summary_bullets || []).join(" ");
-      body += `{% raw %}${teaser}{% endraw %}\n\n`;
-      body += item.full_text
-        ? `[Read full piece →](${item.permalink})\n\n`
-        : item.url
-          ? `[Read on original site ↗](${item.url})\n\n`
-          : "\n";
-    }
-  }
-
-  fs.mkdirSync(POSTS_DIR, { recursive: true });
-  const postPath = path.join(POSTS_DIR, `${today}-issue.md`);
-  fs.writeFileSync(postPath, body);
+  const todaysCount = loadProcessedItems(today).length;
   const processedCount = unprocessed.length - failures.length;
   console.log(
-    `Compiled ${todaysItems.length} item(s) total (${allItems.length} new from ${processedCount}/${unprocessed.length} email(s) this run) into ${postPath}`
+    `Compiled ${totalItems} item(s) across ${dateDirs.length} day(s) (${todaysCount} today, ${allItems.length} new from ${processedCount}/${unprocessed.length} email(s) this run)`
   );
   if (failures.length > 0) {
     console.log(`Skipped ${failures.length} email(s), will retry next run: ${failures.join("; ")}`);

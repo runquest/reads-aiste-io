@@ -4,3 +4,7 @@ compatibility_date = "2026-08-09"
 
 [vars]
 GITHUB_REPO = "runquest/reads-aiste-io"
+
+[[kv_namespaces]]
+binding = "READS_STATE"
+id = "71bf4d72dd674b81827356c86a56e535"

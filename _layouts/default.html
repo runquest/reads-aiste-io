@@ -9,9 +9,15 @@
 <body>
   <header class="site-header">
     <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a href="{{ '/revisit/' | relative_url }}" class="revisit-nav-link">Revisit list</a>
   </header>
   <main>
     {{ content }}
   </main>
+  <script>
+    window.READS_STATE_API = {{ site.state_api | jsonify }};
+    window.READS_STATE_TOKEN = {{ site.state_token | jsonify }};
+  </script>
+  <script src="{{ '/assets/reading-state.js' | relative_url }}" defer></script>
 </body>
 </html>
