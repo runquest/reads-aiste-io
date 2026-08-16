@@ -4,6 +4,7 @@
 //  - GET/POST /state    Per-story read/revisit flags, backed by KV, so the state
 //                       is shared across every device instead of living in one
 //                       browser's localStorage.
+//  - GET/POST /state/<slug>/note   Per-story free-text notes, backed by KV.
 // Deploy with `wrangler deploy` from the worker/ directory.
 
 // localhost is allowed alongside production so `bundle exec jekyll serve`
@@ -98,6 +99,24 @@ async function handleGetState(request, env) {
   return jsonResponse(request, state);
 }
 
+// Shared by handlePostState (read/revisit toggles) and handlePostNote (which
+// only ever patches hasNote) so both go through one merge-and-persist path
+// instead of duplicating the "read existing metadata, overlay the patch"
+// logic. Any field omitted from `patch` keeps its existing value, defaulting
+// to false for a slug seen for the first time.
+async function mergeState(env, slug, patch) {
+  const key = `state:${slug}`;
+  const existing = await env.READS_STATE.getWithMetadata(key);
+  const merged = {
+    read: typeof patch.read === "boolean" ? patch.read : existing.metadata?.read ?? false,
+    revisit: typeof patch.revisit === "boolean" ? patch.revisit : existing.metadata?.revisit ?? false,
+    hasNote: typeof patch.hasNote === "boolean" ? patch.hasNote : existing.metadata?.hasNote ?? false,
+    updated: new Date().toISOString(),
+  };
+  await env.READS_STATE.put(key, "", { metadata: merged });
+  return merged;
+}
+
 async function handlePostState(request, env, slug) {
   let update;
   try {
@@ -106,16 +125,43 @@ async function handlePostState(request, env, slug) {
     return jsonResponse(request, { error: "invalid JSON body" }, { status: 400 });
   }
 
-  const key = `state:${slug}`;
-  const existing = await env.READS_STATE.getWithMetadata(key);
-  const merged = {
-    read: typeof update.read === "boolean" ? update.read : existing.metadata?.read ?? false,
-    revisit: typeof update.revisit === "boolean" ? update.revisit : existing.metadata?.revisit ?? false,
-    updated: new Date().toISOString(),
-  };
-
-  await env.READS_STATE.put(key, "", { metadata: merged });
+  const merged = await mergeState(env, slug, update);
   return jsonResponse(request, merged);
+}
+
+// Notes are free text, potentially well over KV's 1024-byte metadata limit,
+// so they live in their own "note:<slug>" key's value instead of riding
+// along in the read/revisit metadata. That also means the bulk GET /state
+// list (which reads metadata only, no per-key value fetch) stays cheap as
+// story count grows — notes are only ever fetched one slug at a time.
+// The one exception is *whether* a note exists: handlePostNote mirrors that
+// into the state metadata's `hasNote` flag, so index pages can show a "has
+// notes" indicator using the bulk /state fetch they already make, without a
+// second endpoint or per-slug requests.
+async function handleGetNote(request, env, slug) {
+  const note = await env.READS_STATE.get(`note:${slug}`);
+  return jsonResponse(request, { note: note || "" });
+}
+
+async function handlePostNote(request, env, slug) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse(request, { error: "invalid JSON body" }, { status: 400 });
+  }
+
+  const note = typeof body.note === "string" ? body.note : "";
+  const key = `note:${slug}`;
+  const hasNote = note.trim() !== "";
+  if (hasNote) {
+    await env.READS_STATE.put(key, note);
+  } else {
+    await env.READS_STATE.delete(key);
+  }
+
+  await mergeState(env, slug, { hasNote });
+  return jsonResponse(request, { note });
 }
 
 async function handleState(request, env) {
@@ -124,13 +170,19 @@ async function handleState(request, env) {
   }
 
   const url = new URL(request.url);
-  const parts = url.pathname.split("/").filter(Boolean); // ["state"] or ["state", slug]
+  const parts = url.pathname.split("/").filter(Boolean); // ["state"], ["state", slug], or ["state", slug, "note"]
 
   if (request.method === "GET" && parts.length === 1) {
     return handleGetState(request, env);
   }
   if (request.method === "POST" && parts.length === 2) {
     return handlePostState(request, env, parts[1]);
+  }
+  if (request.method === "GET" && parts.length === 3 && parts[2] === "note") {
+    return handleGetNote(request, env, parts[1]);
+  }
+  if (request.method === "POST" && parts.length === 3 && parts[2] === "note") {
+    return handlePostNote(request, env, parts[1]);
   }
   return jsonResponse(request, { error: "not found" }, { status: 404 });
 }
