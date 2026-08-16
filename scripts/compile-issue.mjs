@@ -263,6 +263,120 @@ function slugify(text) {
     .slice(0, 60);
 }
 
+// The issue page is generated as raw HTML blocks (not markdown headers) so
+// it can match the magazine layout's exact grid/index-number structure —
+// kramdown passes a block-level HTML element through byte-for-byte rather
+// than parsing markdown inside it. That means, unlike plain markdown text
+// (which kramdown HTML-escapes automatically), anything interpolated here
+// from newsletter content needs escaping ourselves, or a malicious/
+// compromised sender could inject arbitrary HTML/script into the page.
+function escapeHtml(value) {
+  if (value == null) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function teaserText(item) {
+  return item.existing_summary || (item.summary_bullets || []).join(" ");
+}
+
+// Which link (and label) a story's headline/CTA points at: the internal
+// story page when we have full text worth reading there, straight to the
+// original site when we only ever had a link, or nothing for a linkless
+// sponsored blurb.
+function ctaFor(item) {
+  if (item.full_text) return { href: item.permalink, label: "Read full piece →" };
+  if (item.url) return { href: item.url, label: "Read on original site ↗" };
+  return null;
+}
+
+function attributionHtml(item) {
+  const parts = [escapeHtml(item.source)];
+  if (item.sponsored) parts.push("Sponsored");
+  if (item.subscriptionEmail) parts.push(`via ${escapeHtml(item.subscriptionEmail)}`);
+  // Not escapeHtml() here: unsubscribeUrl comes from extractUnsubscribeLink,
+  // a regex over raw HTML source, so it's already HTML-attribute-encoded
+  // (e.g. literal "&amp;" for a query string "&") exactly as the source
+  // markup had it — escaping again would double-encode it and break the URL.
+  if (item.unsubscribeUrl) parts.push(`<a href="${item.unsubscribeUrl}">unsubscribe</a>`);
+  return parts.join(" &middot; ");
+}
+
+// Picks the longest word (≥4 alnum chars, punctuation trimmed) in a title as
+// the one phrase to render in italic serif, per the design spec ("pick the
+// most evocative word"). A real editorial choice would beat this, but that's
+// a judgment call better made by a human later, not worth a dedicated model
+// call for every story every day — this is a cheap, deterministic stand-in.
+function pickEmphasisPhrase(title) {
+  const words = title.split(/\s+/).filter(Boolean);
+  let best = null;
+  for (const word of words) {
+    const clean = word.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "");
+    if (clean.length < 4) continue;
+    if (!best || clean.length > best.length) best = clean;
+  }
+  return best;
+}
+
+// Escaping happens around the chosen phrase, not on the whole string first
+// — escaping can change string length (e.g. "&" → "&amp;"), which would
+// throw off a naive index-based split if done the other way around.
+function renderEmphasizedTitle(title) {
+  const phrase = pickEmphasisPhrase(title);
+  if (!phrase) return escapeHtml(title);
+  const idx = title.indexOf(phrase);
+  const before = title.slice(0, idx);
+  const after = title.slice(idx + phrase.length);
+  return `${escapeHtml(before)}<em class="issue-emphasis">${escapeHtml(phrase)}</em>${escapeHtml(after)}`;
+}
+
+function renderStoryGridItem(item) {
+  const cta = ctaFor(item);
+  const titleHtml = escapeHtml(item.title);
+  const titleInner = cta ? `<a href="${escapeHtml(cta.href)}">${titleHtml}</a>` : titleHtml;
+  return `<div class="issue-story">
+<h3 class="issue-story-heading">${titleInner} <span class="reads-controls" data-reads-slug="${item.slug}"></span></h3>
+<div class="issue-story-blurb">${escapeHtml(teaserText(item))}</div>
+<div class="issue-story-meta">${attributionHtml(item)}</div>
+</div>`;
+}
+
+function renderStoryGrid(items) {
+  const singleClass = items.length === 1 ? " issue-story-grid-single" : "";
+  return `<div class="issue-story-grid${singleClass}">\n${items.map(renderStoryGridItem).join("\n")}\n</div>`;
+}
+
+function renderCategoryBlock(index, category, items) {
+  return `<div class="issue-category-rule"></div>
+<div class="issue-index-num">${String(index).padStart(2, "0")}</div>
+<div class="issue-category-body">
+<h2 class="issue-category-label">${escapeHtml(category)}</h2>
+${renderStoryGrid(items)}
+</div>`;
+}
+
+// The first category's first story gets the big lead treatment; any other
+// stories that same category has follow immediately as a plain grid (no
+// second index number/rule — they're still part of "01", not a new one).
+function renderLead(item) {
+  const cta = ctaFor(item);
+  const ctaHtml = cta ? `<a class="issue-cta-btn" href="${escapeHtml(cta.href)}">${escapeHtml(cta.label)}</a>` : "";
+  return `<div class="issue-lead">
+<h2 class="issue-category-label">01 &middot; ${escapeHtml(item.category)}</h2>
+<h1 class="issue-story-heading issue-lead-headline">${renderEmphasizedTitle(item.title)}</h1>
+<div class="issue-lead-body">${escapeHtml(teaserText(item))}</div>
+<div class="issue-lead-cta">
+${ctaHtml}
+<span class="issue-credit">${attributionHtml(item)}</span>
+<span class="reads-controls" data-reads-slug="${item.slug}"></span>
+</div>
+</div>`;
+}
+
 async function summarizeEmail(raw, rawFile) {
   const { newsletterName, subscriptionEmail, cleanedText } = parseForwardedEmail(
     raw.text_body?.trim() || htmlToText(raw.html_body || "")
@@ -360,32 +474,28 @@ function renderIssueDate(dateDir) {
     (byCategory[item.category] ??= []).push(item);
   }
 
+  const categoryEntries = Object.entries(byCategory);
+  const [leadCategoryName, leadCategoryItems] = categoryEntries[0];
+  const [leadItem, ...restOfLeadCategory] = leadCategoryItems;
+  const remainingCategories = categoryEntries.slice(1);
+
   let body = `---\nlayout: issue\ntitle: "Issue — ${dateDir}"\ndate: ${dateDir}\n---\n\n`;
-
-  const categories = Object.keys(byCategory);
-  body += `**Jump to:** ${categories.map((c) => `[${c}](#${slugify(c)})`).join(" · ")}\n\n`;
-
-  for (const [category, categoryItems] of Object.entries(byCategory)) {
-    body += `## ${category}\n\n`;
-    for (const item of categoryItems) {
-      const attributionParts = [item.source];
-      if (item.sponsored) attributionParts.push("*Sponsored*");
-      if (item.subscriptionEmail) attributionParts.push(`via ${item.subscriptionEmail}`);
-      if (item.unsubscribeUrl) attributionParts.push(`[unsubscribe](${item.unsubscribeUrl})`);
-
-      // Title/teaser come from other people's emails (or a model reading
-      // them) — wrap in raw so a stray "{{"/"{%" can't be parsed as Liquid
-      // and break the whole site build.
-      body += `### [{% raw %}${item.title}{% endraw %}](${item.permalink}) <span class="reads-controls" data-reads-slug="${item.slug}"></span>\n_${attributionParts.join(" · ")}_\n\n`;
-      const teaser = item.existing_summary || (item.summary_bullets || []).join(" ");
-      body += `{% raw %}${teaser}{% endraw %}\n\n`;
-      body += item.full_text
-        ? `[Read full piece →](${item.permalink})\n\n`
-        : item.url
-          ? `[Read on original site ↗](${item.url})\n\n`
-          : "\n";
-    }
+  // Everything below is text from other people's emails/websites, not ours,
+  // and rendered as raw HTML blocks rather than markdown (see escapeHtml
+  // above) — wrap the lot so a stray "{{"/"{%" can't be parsed as Liquid
+  // and break the whole site build, the way one already did.
+  body += "{% raw %}\n";
+  body += renderLead(leadItem) + "\n";
+  if (restOfLeadCategory.length > 0) {
+    body += renderStoryGrid(restOfLeadCategory) + "\n";
   }
+
+  if (remainingCategories.length > 0) {
+    body += `<div class="issue-categories">\n`;
+    body += remainingCategories.map(([category, catItems], i) => renderCategoryBlock(i + 2, category, catItems)).join("\n");
+    body += `\n</div>\n`;
+  }
+  body += "{% endraw %}\n";
 
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   fs.writeFileSync(path.join(POSTS_DIR, `${dateDir}-issue.md`), body);
