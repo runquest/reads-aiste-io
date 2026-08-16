@@ -51,9 +51,37 @@ article.issue summary {
   align-items: baseline;
 }
 
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
 .revisit-nav-link {
   font-size: 0.85rem;
   font-weight: normal;
+}
+
+.articles-filter {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.articles-filter select {
+  font: inherit;
+  padding: 0.2rem 0.4rem;
+}
+
+#articles-list,
+#revisit-list {
+  list-style: none;
+  padding: 0;
+}
+
+#articles-list li,
+#revisit-list li {
+  margin-bottom: 0.6rem;
 }
 
 .reads-notes {

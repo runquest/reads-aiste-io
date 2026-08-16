@@ -139,7 +139,7 @@
       .catch(() => {});
   }
 
-  window.ReadsState = { fetchAllState, apiUrl };
+  window.ReadsState = { fetchAllState, apiUrl, renderControls };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

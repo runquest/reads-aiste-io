@@ -1,0 +1,76 @@
+---
+layout: default
+title: "All Articles"
+permalink: /articles/
+---
+<h1>All articles</h1>
+<p>Every story across every issue — filter by subscription.</p>
+
+<div class="articles-filter">
+  <label for="subscription-filter">Subscription</label>
+  <select id="subscription-filter">
+    <option value="">All</option>
+  </select>
+</div>
+
+<ul id="articles-list">
+  <li>Loading…</li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var listEl = document.getElementById("articles-list");
+    var filterEl = document.getElementById("subscription-filter");
+    var allStories = [];
+    var allState = {};
+
+    function render() {
+      var selected = filterEl.value;
+      var items = selected
+        ? allStories.filter(function (s) { return s.source === selected; })
+        : allStories;
+
+      listEl.innerHTML = "";
+      if (items.length === 0) {
+        listEl.innerHTML = "<li>No articles for this subscription.</li>";
+        return;
+      }
+
+      items.forEach(function (story) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = story.url;
+        a.textContent = story.title;
+
+        var controls = document.createElement("span");
+        controls.className = "reads-controls";
+
+        li.appendChild(a);
+        li.appendChild(document.createTextNode(" — " + story.source + " · " + story.date + " "));
+        li.appendChild(controls);
+        listEl.appendChild(li);
+
+        window.ReadsState.renderControls(controls, story.slug, allState[story.slug] || { read: false, revisit: false, hasNote: false });
+      });
+    }
+
+    Promise.all([
+      fetch("{{ '/stories.json' | relative_url }}").then(function (r) { return r.json(); }),
+      window.ReadsState.fetchAllState(),
+    ]).then(function (results) {
+      allStories = results[0].sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+      allState = results[1];
+
+      var sources = Array.from(new Set(allStories.map(function (s) { return s.source; }))).sort();
+      sources.forEach(function (source) {
+        var opt = document.createElement("option");
+        opt.value = source;
+        opt.textContent = source;
+        filterEl.appendChild(opt);
+      });
+
+      filterEl.addEventListener("change", render);
+      render();
+    });
+  });
+</script>

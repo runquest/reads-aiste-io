@@ -9,7 +9,10 @@
 <body>
   <header class="site-header">
     <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <a href="{{ '/revisit/' | relative_url }}" class="revisit-nav-link">Revisit list</a>
+    <nav class="site-nav">
+      <a href="{{ '/articles/' | relative_url }}" class="revisit-nav-link">All articles</a>
+      <a href="{{ '/revisit/' | relative_url }}" class="revisit-nav-link">Revisit list</a>
+    </nav>
   </header>
   <main>
     {{ content }}
