@@ -212,6 +212,44 @@ article.issue summary {
   font-style: italic;
 }
 
+.notes-index-story {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.notes-index-story h2 {
+  margin-bottom: 0.15rem;
+  font-size: 1.15rem;
+}
+
+.notes-index-meta {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.6rem;
+}
+
+.notes-index-note {
+  white-space: pre-wrap;
+}
+
+.notes-index-highlights {
+  list-style: none;
+  padding: 0;
+}
+
+.notes-index-highlights li {
+  padding: 0.4rem 0;
+}
+
+.notes-index-highlights blockquote {
+  margin: 0 0 0.3rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid #fff3b0;
+  color: #555;
+  font-style: italic;
+}
+
 .reads-quicknote-text {
   white-space: pre-wrap;
 }

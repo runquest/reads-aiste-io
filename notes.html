@@ -1,0 +1,107 @@
+---
+layout: default
+title: "Notes"
+permalink: /notes/
+---
+<h1>Notes</h1>
+<p>Everything you've noted or highlighted, across every issue.</p>
+
+<div id="notes-index">
+  <p>Loading…</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var container = document.getElementById("notes-index");
+
+    function renderEmpty() {
+      container.innerHTML = "<p>Nothing noted yet — notes and highlights you add to any article will show up here.</p>";
+    }
+
+    Promise.all([
+      fetch("{{ '/stories.json' | relative_url }}").then(function (r) { return r.json(); }),
+      window.ReadsState.fetchAllState(),
+    ]).then(function (results) {
+      var stories = results[0];
+      var state = results[1];
+      var storyBySlug = {};
+      stories.forEach(function (s) { storyBySlug[s.slug] = s; });
+
+      var annotatedSlugs = Object.keys(state).filter(function (slug) {
+        return state[slug].hasNote && storyBySlug[slug];
+      });
+
+      if (annotatedSlugs.length === 0) {
+        renderEmpty();
+        return;
+      }
+
+      // Most-recently-updated story first.
+      annotatedSlugs.sort(function (a, b) {
+        return (state[b].updated || "").localeCompare(state[a].updated || "");
+      });
+
+      var fetches = annotatedSlugs.map(function (slug) {
+        return Promise.all([
+          fetch(window.ReadsState.apiUrl("/state/" + encodeURIComponent(slug) + "/note")).then(function (r) { return r.json(); }),
+          fetch(window.ReadsState.apiUrl("/state/" + encodeURIComponent(slug) + "/highlights")).then(function (r) { return r.json(); }),
+        ]).then(function (parts) {
+          return { slug: slug, note: parts[0].note, highlights: parts[1].highlights || [] };
+        });
+      });
+
+      Promise.all(fetches).then(function (results2) {
+        container.innerHTML = "";
+
+        results2.forEach(function (result) {
+          if (!result.note && result.highlights.length === 0) return;
+          var story = storyBySlug[result.slug];
+
+          var section = document.createElement("section");
+          section.className = "notes-index-story";
+
+          var heading = document.createElement("h2");
+          var link = document.createElement("a");
+          link.href = story.url;
+          link.textContent = story.title;
+          heading.appendChild(link);
+          section.appendChild(heading);
+
+          var meta = document.createElement("div");
+          meta.className = "notes-index-meta";
+          meta.textContent = story.source + " · " + story.date;
+          section.appendChild(meta);
+
+          if (result.note) {
+            var noteEl = document.createElement("p");
+            noteEl.className = "notes-index-note";
+            noteEl.textContent = result.note;
+            section.appendChild(noteEl);
+          }
+
+          if (result.highlights.length > 0) {
+            var list = document.createElement("ul");
+            list.className = "notes-index-highlights";
+            result.highlights.forEach(function (h) {
+              var li = document.createElement("li");
+              if (h.quote) {
+                var quoteEl = document.createElement("blockquote");
+                quoteEl.textContent = h.quote;
+                li.appendChild(quoteEl);
+              }
+              var textEl = document.createElement("div");
+              textEl.textContent = h.note;
+              li.appendChild(textEl);
+              list.appendChild(li);
+            });
+            section.appendChild(list);
+          }
+
+          container.appendChild(section);
+        });
+
+        if (container.children.length === 0) renderEmpty();
+      });
+    });
+  });
+</script>
