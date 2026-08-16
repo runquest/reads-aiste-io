@@ -1,0 +1,399 @@
+---
+layout: "story"
+title: "Historian Jill Lepore says Silicon Valley misreads science fiction and undermines democracy"
+date: "2026-08-16"
+permalink: "/2026/08/16/stories/historian-jill-lepore-says-silicon-valley-misreads-science-f-f3d3c9/"
+slug: "historian-jill-lepore-says-silicon-valley-misreads-science-f-f3d3c9"
+source: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.techcrunch.com/oc/6871770a273e032f335072f3ry6g4.63s/6d0246ee"
+original_url: "https://techcrunch.com/2026/08/09/historian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy/"
+category: "Tech"
+excerpt_separator: ""
+---
+
+{% raw %}
+On the latest episode of Equity, we spoke to Jill Lepore about "government by machines" and why Elon Musk is a bad science fiction reader.
+
+---
+
+Historian Jill Lepore says Silicon Valley misreads science fiction and undermines democracy | TechCrunch                                                                         
+
+ [![](https://techcrunch.com/wp-content/uploads/2026/05/tc-lockup-hp.svg) TechCrunch Desktop Logo](https://techcrunch.com)
+
+ [![](https://techcrunch.com/wp-content/uploads/2024/09/tc-logo-mobile.svg) TechCrunch Mobile Logo](https://techcrunch.com)
+
+*   [Latest](/latest/)
+*   [Startups](/category/startups/)
+*   [Venture](/category/venture/)
+*   [Apple](/tag/apple/)
+*   [Security](/category/security/)
+*   [AI](/category/artificial-intelligence/)
+*   [Apps](/category/apps/)
+*   [Disrupt 2026](https://techcrunch.com/events/techcrunch-disrupt/)
+
+*   [Events](/events/)
+*   [Podcasts](/podcasts/)
+*   [Newsletters](/newsletters/)
+
+Search
+
+Submit
+
+Site Search Toggle
+
+Mega Menu Toggle
+
+### Topics
+
+[Latest](/latest/)
+
+[AI](/category/artificial-intelligence/)
+
+[Amazon](/tag/amazon/)
+
+[Apps](/category/apps/)
+
+[Biotech & Health](/category/biotech-health/)
+
+[Climate](/category/climate/)
+
+[Cloud Computing](/tag/cloud-computing/)
+
+[Commerce](/category/commerce/)
+
+[Crypto](/category/cryptocurrency/)
+
+[Enterprise](/category/enterprise/)
+
+[EVs](/tag/evs/)
+
+[Fintech](/category/fintech/)
+
+[Fundraising](/category/fundraising/)
+
+[Gadgets](/category/gadgets/)
+
+[Gaming](/category/gaming/)
+
+[Google](/tag/google/)
+
+[Government & Policy](/category/government-policy/)
+
+[Hardware](/category/hardware/)
+
+[Instagram](/tag/instagram/)
+
+[Layoffs](/tag/layoffs/)
+
+[Media & Entertainment](/category/media-entertainment/)
+
+[Meta](/tag/meta/)
+
+[Microsoft](/tag/microsoft/)
+
+[Privacy](/category/privacy/)
+
+[Robotics](/category/robotics/)
+
+[Security](/category/security/)
+
+[Social](/category/social/)
+
+[Space](/category/space/)
+
+[Startups](/category/startups/)
+
+[TikTok](/tag/tiktok/)
+
+[Transportation](/category/transportation/)
+
+[Venture](/category/venture/)
+
+### More from TechCrunch
+
+[Staff](/about-techcrunch/)
+
+[Events](/events/)
+
+[Startup Battlefield](/startup-battlefield/)
+
+[StrictlyVC](https://strictlyvc.com/)
+
+[Newsletters](/newsletters/)
+
+[Podcasts](/podcasts/)
+
+[Videos](/video/)
+
+[Partner Content](/sponsored/)
+
+[TechCrunch Brand Studio](/brand-studio/)
+
+[Crunchboard](https://www.crunchboard.com/)
+
+[Contact Us](/contact-us/)
+
+![The New Yorker staff writer Jill Lepore speaks onstage at The Hillary Question during The New Yorker Festival 2015 at SVA Theater on October 4, 2015 in New York City.](https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-491300440.jpg?w=1024)
+
+**Image Credits:**Thos Robinson / Getty Images
+
+[Government & Policy](https://techcrunch.com/category/government-policy/)
+
+[](https://www.facebook.com/sharer.php?u=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://twitter.com/intent/tweet?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&text=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&via=techcrunch)[](https://www.linkedin.com/shareArticle?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&summary=On+the+latest+episode+of+Equity%2C+we+spoke+to+Jill+Lepore+about+%22government+by+machines%22+and+why+Elon+Musk+is+a+bad+science+fiction+reader.&mini=1&source=TechCrunch)[](https://www.reddit.com/submit?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy)[](mailto:?subject=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&body=Article%3A+https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://techcrunch.com/2026/08/09/historian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy/)
+
+# Historian Jill Lepore says Silicon Valley misreads science fiction and undermines democracy
+
+[Anthony Ha](https://techcrunch.com/author/anthony-ha/)
+
+8:00 AM PDT · August 9, 2026
+
+[](https://www.facebook.com/sharer.php?u=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://twitter.com/intent/tweet?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&text=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&via=techcrunch)[](https://www.linkedin.com/shareArticle?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&summary=On+the+latest+episode+of+Equity%2C+we+spoke+to+Jill+Lepore+about+%22government+by+machines%22+and+why+Elon+Musk+is+a+bad+science+fiction+reader.&mini=1&source=TechCrunch)[](https://www.reddit.com/submit?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy)[](mailto:?subject=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&body=Article%3A+https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://techcrunch.com/2026/08/09/historian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy/)
+
+[Listen on Apple Podcasts](https://podcasts.apple.com/us/podcast/equity/id1215439780) [Listen on Spotify](https://open.spotify.com/show/5IEYLip3eDppcOmy5DmphC?si=rZDFHv2sQUul_g94iCRgpQ&nd=1&dlsi=467965469f3e484e)
+
+In her upcoming book [“The Rise and Fall of the Artificial State,”](https://wwnorton.com/books/9781324098423) Jill Lepore warns that tech companies are increasingly replacing the functions of democratic government. This shift, she said, marks “a return to tyranny and mystification in the form of rule by algorithms, corporations, machines.”
+
+On the latest episode of [TechCrunch’s Equity podcast](https://techcrunch.com/podcasts/equity/), I spoke to Lepore — a Harvard historian and New Yorker staff writer who recently [won a Pulitzer Prize](https://www.pulitzer.org/winners/jill-lepore) for her history of the U.S. Constitution — about the evolution of what she described as “the idea that we should live under an artificial state or government by machines.”
+
+“I’m not an anti-technologist,” Lepore insisted. Instead, she said, “My beef is the ways in which private corporations have increasingly taken on the functions of the state.”
+
+While Lepore’s book examines technocratic philosophies that go back centuries, she argued that many of Silicon Valley’s “charismatic or not-so-charismatic leaders” — especially Elon Musk — seem to be ushering in a future pulled from misread pulp science fiction and comic books.
+
+“But what’s funny about Musk is, the stuff he likes actually completely defeats and defies all of his political beliefs,” she said.
+
+[Our conversation](https://www.youtube.com/watch?v=g6y5tQ0-dpc) also covered Apple’s famous “1984” Macintosh ad, why it’s “bananas” to call Twitter a digital town hall, and the current data center backlash. Keep reading for highlights, edited for length and clarity.
+
+**So you’ve probably had to do this a lot already, but can you explain what you mean by the “artificial state”?** 
+
+By the artificial state, I mean a kind of state that is replacing the liberal democratic nation-state in the United States and around the world. It’s both a real thing, a construct, but it’s also an idea. 
+
+And so, in this book “The Rise and Fall of the Artificial State,” I trace the rise of the idea that we should live under an artificial state or government by machines. I also trace the notion that this is an inevitable failure, that the artificial state cannot survive, and I trace that idea through science fiction. 
+
+**At one point, you say the rise of the artificial state marks the end of centuries of democracy and equal rights, and it’s “a return to tyranny and mystification in the form of rule by algorithms, corporations, machines.” Can you just say a little bit more about why you see it in such stark terms?** 
+
+Yeah, I do have a pretty negative view of it, and I think it’s important to distinguish the artificial state from technology itself or modes of technology. I’m not an anti-technologist. I’m married to a computer scientist. I’m really excited about all kinds of intellectual revolutions that we’re in the midst of right now.
+
+That’s not my beef, right? My beef is the ways in which private corporations have increasingly taken on the functions of the state. No one consented to that. This has been a kind of gradual, largely accidental transformation of how many nation-states around the world work — it’s happened first in the United States. 
+
+I think often these innovations in bringing new technologies to the operations of government have been extremely well intentioned; they originate with an interest in efficiency and speed and cheapness. And then, I think, only in the last 20, 25 years or so have these decisions been purposeful and deliberate as a kind of usurpation of the role of the nation-state.
+
+And that’s not my speculation. You hear a lot of a lot of very prominent tech entrepreneurs [talk about wanting to move beyond the era of the nation-state.](https://techcrunch.com/2026/08/02/malaysia-is-reportedly-shutting-down-balaji-srinivasans-network-school/) \[…\] A lot of futurists in the ’90s were libertarians, and they had a specific interest in using the advance of the internet and the successive innovations that followed as a means to eradicate the nation-state.
+
+**You talk about, on the one hand, the technologies themselves, and then also the philosophies behind them, the role the corporation has increasingly played. I’m curious to what extent we can separate them. Can we actually have a version of the internet and of social media that doesn’t necessarily lead to this future that it seems like we’re \[currently\] hurtling towards?**
+
+Absolutely. I’m a historian. I’m not a tech writer. I’m not a tech journalist. I’m not a computer scientist. I’m a historian, and I’m chiefly a political historian, though I’m also a literary historian. And so, one of the things that I’m really interested in unraveling for readers in this book is all the what-ifs, all the alternatives, the paths along the road that were not taken and why. 
+
+There was, of course, a really avid discussion in the 1990s about what the internet should look like when it was opened up, and what we ended up with, the 1996 Telecommunications Act — I think, a lot of people would say \[that\] just was a mistake, not an act of sinister intent, right?
+
+But it was a product of a particular political moment, really was deeply influenced by Newt Gingrich and his Contract with America, and it’s been very difficult to revisit. I think it’s worth thinking about what were the alternatives that were in play at the time.
+
+And you could say the same thing about the personal computer. So, to the degree that we can locate an origin point for the promise that better computer technology would make for better democracies, I think the moment you would first look to would be January 1984, [that Super Bowl ad](https://www.youtube.com/watch?v=ErwS24cBZPc) that Apple ran for the release of the Macintosh, with the the sort of George Orwell, 1984 \[theme\]. Apple was really big on the idea that mainframe computers represented totalitarianism. They were trying to dismantle the giant gray IBM machines, as in representing them in that ad as a totalitarian state. And the lithe, beautiful, quick, adorable, personal Macintosh would be the ax that would destroy that machine and would usher in a new era in which “1984 would not be ‘1984.’”
+
+That was clever advertising. I doubt that anybody at Apple really believed the personal computer was going to be an instrument of personal liberation. I mean, it was going to make possible a lot of cool things. I remember when I got my first Macintosh — it certainly wasn’t 1984, but it was really cool, it was really fun, it was really exciting, I did a lot of things on it. It would never occur to me that it was improving my capacity for citizenship or my ability to function better in civil society. It was a cool tool.
+
+But if you wind the reel forward in time, down to 2026 — stops along the way include the 2016 election when Facebook News, in response to its critics, [establishes a Supreme Court](https://techcrunch.com/tag/oversight-board/). You get to last year, when Anthropic hired a moral philosopher to [write a constitution](https://techcrunch.com/2026/01/21/anthropic-revises-claudes-constitution-and-hints-at-chatbot-consciousness/). You get to recently, when [Sam Altman was on Joe Rogan](https://www.youtube.com/watch?v=mUEva_n5W7o) and said \[in response to a question from Rogan\], “Oh, an AI president would be a great idea.”
+
+In some ways, they’re silly examples. But you see the ways in which these corporations, these tech companies from Silicon Valley, and especially their charismatic or not-so-charismatic leaders, are just taking on the trappings of the nation-state and the functions of democracy. 
+
+They’re not people with a sophisticated political philosophy, but it’s like a cartoon version of that 1984 Macintosh ad, except that it takes itself so seriously. And these companies have so much power.
+
+But that said, the book doesn’t begin in 1984. I just think that’s a good example of our modern era and the way a fun advertising campaign turns into a kind of delusional fantasy on the part of people like Sam Altman.
+
+**You \[also\] talk about the promise of the quote-unquote “Twitter revolution,” and this idea that it would bring democracy everywhere. I can’t help but let that color the way I \[react\] when Sam Altman or some other AI CEO now says that AI is going to bring all these incredible gifts — and therefore, if you stand in the way, you’re standing in the way of progress, in the way of history.**
+
+**To what extent should we just dismiss all these claims out-of-hand, or are there ways that it might come true?**
+
+I mean, Twitter is actually a good example, right? When it was launched, [when Jack Dorsey started it](https://techcrunch.com/2026/03/21/its-been-20-years-since-the-first-tweet/), it didn’t announce itself as, “We’re going to save humanity, we’re going to rescue human civilization from extinction.” It was kind of a goof, and I think people that used Twitter really early on were like, “You know what? It was actually really fun.” It was like, “I made a tuna fish sandwich today. What did you have for lunch?” Twitter as a company did not launch itself on a stage saying, “We’re here to save democracy.”
+
+And really, what happened was that politicians, elected officials began using Twitter in ways that enhanced their political power, in ways that amplified their messages, in ways that allowed them to reach a younger audience, in ways that allowed them to have a constant connection with an audience. Politicians and political campaigns really kind of convinced Twitter — at least insofar as I see them, I don’t have an inside account of the company — but somewhat begrudgingly, Twitter came around to like, “Twitter’s gotten so big, and people post about politics so often that it’s almost like Twitter is a town hall.”
+
+By the time you get to, I think it’s 2012 — many years into Twitter’s fairly short history — they publish this thing called the Twitter Politics and Elections Handbook, which is really a guide for political candidates and elected officials and how to most effectively use Twitter. And then they begin the rollout of, “It’s a town hall in your pocket, and it’s improving our democracies because we’re restoring the defunct New England town meeting,” and that’s all just bananas.
+
+Objectively, nothing could be further from the truth. At that time, one in five Americans had a Twitter account. Most people who had Twitter accounts had never used them, and above 90% of all tweets about politics were posted by fewer than 10% of the people that did use Twitter all the time. There was no way in which Twitter was a representation of the electorate. Twitter was a representation of the most extreme, politically active, hyper-partisan among Americans, who were following politics really avidly. Looking at it now, we can see, “Well, that’s really just a distortion machine. And if politicians are using it to gauge the electorate, they’re getting really bad information.”
+
+Again, you can say Twitter was not trying to participate in the artificial state or undermine democracy. Twitter is trying to do business and get more users and sell more whatever. But it had these unintended consequences that then it sort of settles into and becomes comfortable with. 
+
+**I want to talk a little bit more about the structure of the book. Like you said, it starts with this history of technology, history of ideas, and the second half is about science fiction. Can you say more about how that structure came to you and why you wanted to address things that way?** 
+
+I became really interested, on the one hand, in how often science fiction stories predict the arrival of what I then came to call the artificial state, and so I really wanted to identify a literary tradition that I think of as the parable of the artificial state, in which machines get more and more sophisticated, they take over more and more of the functions of humans, including the functions of government, and eventually they come to rule the humans, and then maybe they destroy all the humans because they don’t really need them anymore.
+
+Maybe they just enslave them, it kind of depends. Are we in “The Terminator” or are we in “Battlestar Galactica”? There’s different versions, and these stories go way back. They go back to the 1850s and the early decades of rumination about the consequences of industrialism.
+
+I think a lot of people — this is certainly true of my students, my undergraduates — really believe that technological change equals progress. And not only that, but the _only_ kind of progress is technological change. That’s a novelty in human history. That’s an intellectual invention of the 19th century, and it is partly because technological change was accelerating right at the time that Charles Darwin was devising and then publishing his theory of evolution.
+
+So there’s kind of a weird marriage between evolution as progress and technological change as progress, and what drops out of that are all other, earlier notions of progress, which chiefly involve moral progress — like, things are getting better because people are becoming better, or things are getting better because people are more free. 
+
+There are a lot of other ways we might think about progress, but what dominates today is this 19th-century notion of technological progress as the only kind of progress, and therefore all technological change is progress, as opposed to — objectively, it’s only progress if things are getting better.
+
+But in any event, that confluence in the 19th century of the idea of technological progress and the idea of evolution meant that people who were thinking clearly were like, “Well, if the machines keep getting better and faster and able to do more things — not just labor, but maybe talk or think or move around — what if they evolve to become better at everything than we are? Not just better at running a loom, not just faster at moving through time and space like a railroad car?” And with that grew an incredible anxiety that found form in science fiction again and again and again and again and again.
+
+My favorite one of these stories was published, I think, in 1909 by E. M. Forster, right around when he was writing “A Room with a View.” He wrote this story called [“The Machine Stops,”](https://en.wikipedia.org/wiki/The_Machine_Stops) which could be subtitled, “The Room Without a View.” He imagines a near future in which everybody just lives in these rooms, these little cells. You never see other people because everything you need comes right to your room. It’s like DoorDash, your food is delivered, you have a screen where you can communicate with other people. All your needs are met. 
+
+The thing that people fear most is the natural world. No one wants to ever see the sun, it’s a little “Matrix”-y, and they all worship the machine that organizes their lives and brings to them in their cubby-like rooms all the things that they need. The story is about, “Humans have become essentially slaves of the machine, which is stronger, more powerful, and has more capacity than humans do, and humans have lost what capacity they had.” And then the climax of the story is when the machine stops. 
+
+If readers were to go look at that story, it feels like it could be written today, except that it’s less science fiction-y today than it is the diary of a very unhappy YouTuber.
+
+**You connect that thread to some of the folks running companies and arguably running aspects of our government today, like Elon Musk. Essentially, you suggest that** [**they’re very bad science fiction readers**](https://techcrunch.com/2025/03/30/author-china-mieville-says-we-shouldnt-blame-science-fiction-for-its-bad-readers/)**. They read a lot of warning stories, or at least ambivalent stories, as if they were manuals for the future.** 
+
+**This is something I wrestle with a reader of science fiction — [someone who loves Isaac Asimov](https://techcrunch.com/2020/01/02/reading-isaac-asimov-at-100/), for example. I think it’s true that when Musk or Altman is just unambiguously being like, “Yes, this story is a template for what I should do with my company,” that’s bonkers. But there is \[also\] this technocratic libertarian thread in science fiction that they _ar_e picking up on. It’s not something that they’re making up out of whole cloth, right?**
+
+Although weirdly, that’s Heinlein. That’s not Asimov, that’s not Douglas Adams. 
+
+Sure, there is that thread in science fiction. I don’t know, I guess \[Jeff\] Bezos is a big Robert Heinlein fan. You could say, “Okay, that lines up well. They’re reading it literally, but at least they’re getting the political message that any rational person could find within that literary work.”
+
+But what’s funny about Musk is, the stuff he likes actually completely defeats and defies all of his political beliefs. 
+
+**You also say, repeatedly, that the artificial state in its current form is incomplete and doomed to failure. Why is it doomed to failure?**
+
+This is something that’s foreseen in all the science fiction that I discuss.
+
+It’s not an Asimov story, but it’s one of Asimov’s \[favorite\] stories from his boyhood \[“The Man Who Awoke” by Laurence Manning\] about a future in which the foresters have defeated the wasters. \[…\] The war that the future humans had was between the wasters, who just figured you could just use everything up and waste it, and the foresters, who really believed in — we would call reforestation and rewilding.
+
+That’s generally the tension in these stories. It’s between the artificial state and the natural world. To erect an artificial state and rule humans within it, you must alienate them from the natural world because you are destroying it. The artificial state will destroy the natural world, and yet it needs the resources of the natural world to run. 
+
+So, it is doomed in the sense that there is not a possibility that the natural world, a habitable planet — habitable for humans — can survive the full construction and reliance on the devices of the artificial state. That’s how the science fiction works, in any event.
+
+**Like you said, you’re a historian, not a politician or a futurist. But what do you think the defeat of the artificial state looks like? Is it basically just dismantling all these companies, tearing down the data centers? Or is there a future that’s more about bringing it under control?**
+
+I mean, I don’t have a playbook here, except for the recommendation that we live in a democracy where decisions have to be made in consultation with the governed, and these decisions are not popular.
+
+You see this in all the little data center crises, town to town, county to county, state to state —  which are partly a consequence of the decline of local newspapers and the destruction of journalism that has been one of the many consequences of social media, and in the case of \[Mark\] Zuckerberg, I think a somewhat intentional consequence.
+
+What you see is a lot of people show up at these town meetings and say, “We don’t even have housing. We don’t have healthcare. We don’t have jobs. Who said we’re building this data center? I need to know a lot more about it. I need to know what its energy costs are going to be. Tell me about the water consumption. Are there going to be jobs? Are the jobs going to be long lasting? Are they just going to be for six months? What’s going to happen to the egrets that live in this area?” Whatever it is that people want to know.
+
+More and more, you see people are — like in [the Salt Lake example](https://www.theguardian.com/us-news/2026/may/13/utah-approves-datacenter-backlash), where well over 70% of the people really were opposed to this data center, and their representatives supported it. That’s not representing the people. I think there are political costs, and we’ll begin to see those at elections.
+
+Or maybe we won’t. Enough of democratic functioning has to be intact for people to actually be able to respond to malfeasance on the part of their representatives.
+
+**Part of your thinking about \[the artificial state\] started with [this great piece you wrote more than a decade ago](https://www.newyorker.com/magazine/2014/06/23/the-disruption-machine) for The New Yorker, about Clayton Christensen, critiquing his idea of the innovator’s dilemma and disruptive innovation — which is very closely associated with TechCrunch, because we have a big conference called Disrupt.**
+
+**Ten years on, how do you feel about that idea of disruptive innovation?**
+
+I stand by everything in that piece. \[At the time, Lepore wrote, “Disruptive innovation is a theory about why businesses fail. It’s not more than that. It doesn’t explain change. It’s not a law of nature.” [Christensen responded](https://slate.com/technology/2014/06/clayton-christensen-jill-lepore-agree-disruptive-innovation-has-become-a-cliche.html) that Lepore broke “all the rules of scholarship that she accused me of breaking.”\]
+
+I reread it last summer when I was working on this book. What I would say here is, trying to be a peaceable human being, I think it really is a problem that historians have not engaged with these ideas. One of the reasons I wrote that article about disruptive innovation — which was not an idea of mine, it was an assignment \[…\] — was because I just felt like, “Disruptive innovation is a theory of history. It’s a theory of historical change, and it’s based on evidence from the archives.” And I just thought, as a historian, it makes no sense. His use of evidence is completely unacceptable by any proper understanding of historical method. Its argument is in conversation with no meaningful understanding of how change happens.
+
+So I went and redid the research, and it just did not stand up at all. I felt like I had to write it. And I wish that I felt like there were more engagement, in the years since, of academic historians thinking through the nature of change — which are questions that genuinely and authentically interest people who are involved in developing new technologies. 
+
+People really want to think \[about\], “What is this? What am I doing? What are going to be the consequences? Is there anything I could learn from history? What happened when the automobile replaced the horse? What happened to the law? How did we end up with driver’s licenses? How did we end up with traffic law? We didn’t have traffic rules before the automobile. We didn’t have certain kinds of insurance systems. We didn’t have driver’s tests. How did those things emerge? How did \[we develop\] those guardrails on a technology that was tremendously exciting, improved people’s lives in many many ways, utterly changed the landscape, revolutionized tort law? Maybe I should think about that.”
+
+I just wish that historians were more in conversation with technologists over these years, and with entrepreneurs. Not just because we can stand around and say, “You know, I have a lecture to offer you on history,” but I think there’s a real conversation to be had. 
+
+All of which is just to say, thanks for having me on.
+
+Topics
+
+[AI](https://techcrunch.com/category/artificial-intelligence/), [AI policy](https://techcrunch.com/tag/ai-policy/), [AI regulation](https://techcrunch.com/tag/ai-regulation/), [Elon Musk](https://techcrunch.com/tag/elon-musk/), [Equity podcast](https://techcrunch.com/tag/equity-podcast/), [Government & Policy](https://techcrunch.com/category/government-policy/), [Jill Lepore](https://techcrunch.com/tag/jill-lepore/), [Media & Entertainment](https://techcrunch.com/category/media-entertainment/), [sam altman](https://techcrunch.com/tag/sam-altman/)
+
+_When you purchase through links in our articles, [we may earn a small commission](https://techcrunch.com/techcrunch-affiliate-monetization-standards/). This doesn’t affect our editorial independence._
+
+[](https://www.facebook.com/sharer.php?u=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://twitter.com/intent/tweet?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&text=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&via=techcrunch)[](https://www.linkedin.com/shareArticle?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&summary=On+the+latest+episode+of+Equity%2C+we+spoke+to+Jill+Lepore+about+%22government+by+machines%22+and+why+Elon+Musk+is+a+bad+science+fiction+reader.&mini=1&source=TechCrunch)[](https://www.reddit.com/submit?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F&title=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy)[](mailto:?subject=Historian+Jill+Lepore+says+Silicon+Valley+misreads+science+fiction+and+undermines+democracy&body=Article%3A+https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F09%2Fhistorian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy%2F)[](https://techcrunch.com/2026/08/09/historian-jill-lepore-says-the-tech-industry-is-led-by-bad-readers-who-are-undermining-democracy/)
+
+![Anthony Ha](https://techcrunch.com/wp-content/uploads/2021/01/vtobb68s1b8yujb2lsfk.jpg?w=150)
+
+Anthony Ha
+
+[](https://bsky.app/profile/anthonyha.bsky.social)[](http://www.linkedin.com/in/anthonyha)
+
+Anthony Ha is TechCrunch’s weekend editor. Previously, he worked as a tech reporter at Adweek, a senior editor at VentureBeat, a local government reporter at the Hollister Free Lance, and vice president of content at a VC firm. He lives in New York City.
+
+You can contact or verify outreach from Anthony by emailing [anthony.ha@techcrunch.com](mailto:anthony.ha@techcrunch.com).
+
+[View Bio](https://techcrunch.com/author/anthony-ha/)
+
+![Event Logo](https://techcrunch.com/wp-content/uploads/2025/04/Disrupt2026-Color.png)
+
+October 13 – 15
+
+San Francisco
+
+  
+Scale faster. Grow your portfolio. Gain practical expertise. No matter your goal, Disrupt can empower you.  
+  
+**Save up to $300 toda**y!
+
+[**REGISTER NOW**](https://techcrunch.com/events/tc-disrupt-2026/?utm_source=tc&utm_medium=ad&utm_campaign=disrupt2026&utm_content=ticketsales&promo=rightrail_disrupt2025_rb&display=)
+
+## Most Popular
+
+*   ### 
+    
+    [ChatGPT brings unlimited text chats to free users](https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/)  
+    
+    *   [Ivan Mehta](https://techcrunch.com/author/ivan-mehta/)
+    
+*   ### 
+    
+    [Tesla and SpaceX will invest $16.8B to start building ‘Terafab’ chip factory in Texas](https://techcrunch.com/2026/08/06/tesla-and-spacex-will-invest-16-8b-to-start-building-terafab-chip-factory-in-texas/)  
+    
+    *   [Sean O'Kane](https://techcrunch.com/author/sean-okane/)
+    
+*   ### 
+    
+    [Amid legal battles, Suno says it will start watermarking songs](https://techcrunch.com/2026/08/06/amid-legal-battles-suno-says-it-will-start-watermarking-songs/)  
+    
+    *   [Ivan Mehta](https://techcrunch.com/author/ivan-mehta/)
+    
+*   ### 
+    
+    [Ford’s new electric truck, ‘Fathom,’ starts at $28,350](https://techcrunch.com/2026/08/06/fords-new-electric-truck-fathom-starts-at-28350/)  
+    
+    *   [Sean O'Kane](https://techcrunch.com/author/sean-okane/)
+    
+*   ### 
+    
+    [Bending Spoons to buy Airtable for $1.28B](https://techcrunch.com/2026/08/04/bending-spoons-to-buy-airtable-for-1-28b/)  
+    
+    *   [Ivan Mehta](https://techcrunch.com/author/ivan-mehta/)
+    
+*   ### 
+    
+    [Influencers draw backlash for attending OpenAI’s first luxury trip](https://techcrunch.com/2026/08/03/influencers-draw-backlash-for-attending-openais-first-luxury-trip/)  
+    
+    *   [Dominic-Madori Davis](https://techcrunch.com/author/dominic-madori-davis/)
+    
+*   ### 
+    
+    [Sequoia’s Shaun Maguire leads $1B round for nuclear startup Valar Atomics](https://techcrunch.com/2026/08/03/sequoias-shaun-maguire-leads-1b-round-for-nuclear-startup-valar-atomics/)  
+    
+    *   [Julie Bort](https://techcrunch.com/author/julie-bort/)
+    
+
+Loading the next article
+
+Error loading the next article
+
+[![TechCrunch Logo](https://techcrunch.com/wp-content/themes/tc-24/dist/svg/tc-logo.svg)](https://techcrunch.com)
+
+*   [X](https://twitter.com/techcrunch)
+*   [LinkedIn](https://www.linkedin.com/company/techcrunch)
+*   [Facebook](https://www.facebook.com/techcrunch)
+*   [Instagram](https://instagram.com/techcrunch)
+*   [youTube](https://www.youtube.com/user/techcrunch)
+*   [Mastodon](https://mstdn.social/@TechCrunch)
+*   [Threads](https://www.threads.net/@techcrunch)
+*   [Bluesky](https://bsky.app/profile/techcrunch.com)
+
+*   [TechCrunch](https://techcrunch.com/)
+*   [Staff](https://techcrunch.com/about-techcrunch/)
+*   [Contact Us](https://techcrunch.com/contact-us/)
+*   [Advertise](https://techcrunch.com/advertise/)
+*   [Crunchboard Jobs](https://www.crunchboard.com/)
+*   [Site Map](https://techcrunch.com/site-map/)
+
+*   [Terms of Service](https://techcrunch.com/terms-of-service/)
+*   [Privacy Policy](https://techcrunch.com/privacy-policy/)
+*   [RSS Terms of Use](https://techcrunch.com/rss-terms-of-use/)
+*   [Code of Conduct](https://techcrunch.com/code-of-conduct/)
+
+*   [OpenAI vs Apple](https://techcrunch.com/2026/07/13/the-wildest-allegations-in-apples-trade-secrets-lawsuit-against-openai/)
+*   [Nous Research](https://techcrunch.com/2026/07/13/hermes-agent-maker-nous-research-in-talks-for-new-funding-at-1-5b-valuation/)
+*   [Space Data Centers](https://techcrunch.com/2026/07/13/sam-altmans-space-data-center-trash-talk-is-what-most-experts-already-believe/)
+*   [Staya Nadella](https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/)
+*   [SpaceX Starship](https://techcrunch.com/2026/07/13/spacex-cleared-to-fly-starship-again-after-booster-failure-in-may/)
+*   [Tech Layoffs](https://techcrunch.com/2025/02/28/tech-layoffs-2024-list/)
+*   [ChatGPT](https://techcrunch.com/2025/01/28/chatgpt-everything-to-know-about-the-ai-chatbot/)
+
+© 2026 TechCrunch Media LLC.
+
+{% endraw %}

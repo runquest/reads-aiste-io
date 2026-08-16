@@ -1,0 +1,255 @@
+---
+layout: "story"
+title: "Just Be For Real: On Impersonators, Scammers & Stolen Identities!"
+date: "2026-08-16"
+permalink: "/2026/08/16/stories/just-be-for-real-on-impersonators-scammers-stolen-identities-0550f5/"
+slug: "just-be-for-real-on-impersonators-scammers-stolen-identities-0550f5"
+source: "Lo Carmen's Loose Connections"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvME1EUXlOVFl4TENKd2IzTjBYMmxrSWpveU1EYzNORFV5T1Rjc0ltbGhkQ0k2TVRjNE5qSXpOVFF6TWl3aVpYaHdJam94T0RFM056Y3hORE15TENKcGMzTWlPaUp3ZFdJdE16STROamd5SWl3aWMzVmlJam9pWkdsellXSnNaVjlsYldGcGJDSjkudE81YnhLeHRsazVPT1FuU2dIMDRRdy13VHR0bzJ4bUlFVDhLYmpBaUl3byIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.czBAaPtlbXDjCJ-tLZqmkag6ws6P0uPMg_HQ-yfb4Kc?"
+original_url: "https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=2en9d"
+category: "Culture"
+excerpt_separator: ""
+---
+
+{% raw %}
+- The author's Substack profile was impersonated by a scammer (@locarmenn) who followed subscribers attempting to deceive people
+- Musicians' identities are increasingly being stolen for romance scams, catfishing, and fraudulent impersonation on social media platforms
+- Historical and contemporary examples of identity theft include fake Bruno Mars profiles that scammed a woman out of $100k, fake guitar websites, and AI-generated music theft targeting indie artists
+- The 1968 case of fake Zombies bands created by a Michigan booking agent is explored, including how two members went on to form ZZ Top
+- AI identity theft scams are now targeting the indie music community, with artists unable to prove ownership or remove false copyright claims
+
+---
+
+On Impersonators, Scammers & Stolen Identities!
+                     
+                     
+                      
+                     
+                     
+                      
+                     
+                     
+                      
+                     
+                     
+                      
+                     
+                     
+                      
+                     
+                     
+                      
+                 
+Forwarded this email? Subscribe here
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXN1YnNjcmliZSZyPTJlbjlkJm5leHQ9aHR0cHMlM0ElMkYlMkZsb2Nhcm1lbi5zdWJzdGFjay5jb20lMkZwJTJGanVzdC1iZS1mb3ItcmVhbCIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.sIdtXgpsjRPWICHumXr5Rq70bkttBJ8Z88tpk4UQ2B0?>
+for more
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vcC9qdXN0LWJlLWZvci1yZWFsP3V0bV9jYW1wYWlnbj1lbWFpbC1oYWxmLXBvc3Qmcj0yZW45ZCZ0b2tlbj1leUoxYzJWeVgybGtJam8wTURReU5UWXhMQ0p3YjNOMFgybGtJam95TURjM05EVXlPVGNzSW1saGRDSTZNVGM0TmpJek5UUXpNaXdpWlhod0lqb3hOemc0T0RJM05ETXlMQ0pwYzNNaU9pSndkV0l0TXpJNE5qZ3lJaXdpYzNWaUlqb2ljRzl6ZEMxeVpXRmpkR2x2YmlKOS5FRWZOQ3Rqc2NyeDFPX212LWxYd0Joei1mVEpBUWVuUTRuN1BNVEs1dUpNIiwicCI6MjA3NzQ1Mjk3LCJzIjozMjg2ODIsImYiOnRydWUsInUiOjQwNDI1NjEsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoyMTAxODExNDMyLCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.KEYUKVrwPP_RupknoXUGZzCC1UbHGiGLnws61Cf2Im8?>
+
+*You are now entering the world of Loose Connections! I am so happy that
+you’re here. My weekly newsletter is free, but for the same price as a
+buying me a glass of cheap vino a month you could pledge your support & be
+a true patron of the arts! Sharing it with a friend is also super helpful.*
+
+Share Loose Connections
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1zaGFyZSZhY3Rpb249c2hhcmUiLCJwIjoyMDc3NDUyOTcsInMiOjMyODY4MiwiZiI6dHJ1ZSwidSI6NDA0MjU2MSwiaWF0IjoxNzg2MjM1NDMyLCJleHAiOjIxMDE4MTE0MzIsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.jLUlKell2lvXKXViXF06x_OEV76GbwaQHNY-FlzZkU0?>
+
+------------------------------
+Just Be For Real
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM>On
+Impersonators, Scammers & Stolen Identities!
+
+Lo Carmen <https://substack.com/@locarmen>
+Aug 9
+<https://substack.com/@locarmen>
+
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&isFreemail=true&submitLike=true&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsInJlYWN0aW9uIjoi4p2kIiwiaWF0IjoxNzg2MjM1NDMyLCJleHAiOjE3ODg4Mjc0MzIsImlzcyI6InB1Yi0zMjg2ODIiLCJzdWIiOiJyZWFjdGlvbiJ9.GpcWmNy99KnSI_HxtpL5N9Rz6bZDp2W6u7FV4gJ2QvE&utm_medium=email&utm_campaign=email-reaction&r=2en9d>
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&utm_medium=email&isFreemail=true&comments=true&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM&r=2en9d&utm_campaign=email-half-magic-comments&action=post-comment&utm_source=substack&utm_medium=email>
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&utm_medium=email&utm_content=share&utm_campaign=email-share&action=share&triggerShare=true&isFreemail=true&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM>
+<https://open.substack.com/pub/locarmen/p/just-be-for-real?utm_source=substack&utm_medium=email&utm_campaign=email-restack-comment&action=restack-comment&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM&utm_source=substack&utm_medium=email>
+
+READ IN APP
+<https://open.substack.com/pub/locarmen/p/just-be-for-real?utm_source=email&redirect=app-store&utm_campaign=email-read-in-app>
+
+Every decade has had its own world of scammers’n’fakes but right now feels
+especially fucked up.
+Some very believable advertisements
+
+My social media algorithm is currently sending me non-stop ‘opportunities’
+for artists of all stripes, funding, grants, bequests, competitions,
+scholarships, fellowships, residencies and retreats and obviously I linger
+on these long enough that that they send me more and more of them,
+especially complicated by the fact that I have my fingers in so many pies,
+making stuff-wise. But each time I allow myself to consider for a moment
+that one of these fortuitous prospects might be a good fit for me to apply
+for, some survival instinct kicks in, I decide its probably a scam,
+designed to get our entry fees, personal or bank details - its so easy to
+rip-off the hopeful and the desperate - and I keep on scrolling.
+
+Last week, I was alerted to the fact that someone had created a fake
+version of my Substack profile and was following all my subscribers
+(thanks Chris
+Papps
+<https://open.substack.com/users/145661831-chris-papps?utm_source=mentions>
+).
+
+It truly pissed me off.
+
+I write and work hard at making Loose Connections because I love to; its
+satisfying for my soul, gives me a weird sense of stability in a very
+unstable life and I enjoy challenging myself to keep coming up with ideas
+and exploring them, even though each post generally takes me hours and
+hours, and just the whole concept of building my own little Loose
+Connections world is meaningful to me really, and the idea that some
+cynical *fucker* could come along and trick people into believing they were
+me and stealing their money seemed really offensive.
+
+However, not being a very angry person generally, and in fact being cursed
+with probably far too much empathy for people who do messed-up, bad things
+due to being misguided by their own hardships and miseries, I wasn’t
+exactly sure what to do beyond reporting them, which I did, as did some of
+you - thank you so much.
+
+I was blocked by the perpetrator from being able to view the account at
+first, but then gave it another try and they must have unblocked me for
+probably nefarious reasons such as being able to copy more of my content,
+and I was able to send a self-righteous, aggrieved little message to the
+fake me, in which I found myself becoming strangely emotional about the
+invasion of my selfhood. Or something.
+<https://substack.com/redirect/7cbc858d-6168-4b83-9162-7f6b6cdac03f?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+I’m sure the scammer (@locarmenn with a lower case ‘l’ and a double ‘n’)
+had a good hard think and vowed to be an upright, honest citizen from here
+on before heading off to attempt to swindle someone else. My work here is
+done.
+
+Subscribing to Loose Connections is the best way to be for real, warm the
+cockles of my slightly deranged heart and get future missives straight to
+your inbox…
+Upgrade to paid
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9cG9zdCZ1dG1fY2FtcGFpZ249ZW1haWwtY2hlY2tvdXQmbmV4dD1odHRwcyUzQSUyRiUyRmxvY2FybWVuLnN1YnN0YWNrLmNvbSUyRnAlMkZqdXN0LWJlLWZvci1yZWFsJnI9MmVuOWQmdG9rZW49ZXlKMWMyVnlYMmxrSWpvME1EUXlOVFl4TENKcFlYUWlPakUzT0RZeU16VTBNeklzSW1WNGNDSTZNVGM0T0RneU56UXpNaXdpYVhOeklqb2ljSFZpTFRNeU9EWTRNaUlzSW5OMVlpSTZJbU5vWldOcmIzVjBJbjAudjRkMGxJdVFhZk9WQlY1a3lPZi1lTWdRd29yMHlQekM2cTRBd3RxSmhzQSIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.pNc8KsR2MyTKIwdtf4GX-8ore5mXvg6VlVqGNQVIdy0?&utm_medium=email&utm_source=subscribe-widget-preamble&utm_content=207745297>
+
+Last night I started watching ‘Song Sung Blue’, the sweet and funny Neil
+Diamond-inspired biopic set in the world of musicians who pretend to be
+other, far more famous musicians, featuring a fabulous cameo from my buddy
+Jayson Warner-Smith as Earl, "the one and only Elvis impersonator in all
+Milwaukee". The lead protagonists (played by Hugh Jackman and Kate Hudson)
+make the important distinction that they are going to be ‘interpreters’ of
+Neil Diamond songs rather than ‘impersonators’.
+<https://substack.com/redirect/96832328-c21d-40a5-926b-b4f5d19bf773?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+Jayson
+Warner Smith as ‘the only Elvis impersonator in Milwaukee’
+
+Though they say *imitation is the sincerest form of flattery*, in these
+dark, *fake news* days, keeping a hold of your self, your likeness, your
+sound, your music. your voice is increasingly challenging. My social media
+feed is also full of musicians I know (or know of) warning their followers
+to beware of fakes and scammers. Over the last few years I have also shut
+down multiple social media accounts pretending to be me, though why someone
+would bother with such small fry as me I do not know. Musician’s identities
+are stolen to catfish and entangle unsuspecting fans in romance scams.
+A scammer
+named Chinwendu Azuonwu tricked a Bruno Mars fan
+<https://substack.com/redirect/219415d9-0039-41f7-8818-a2cfeacbf1a2?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+in her 60s into believing she was engaged in an online love affair with the
+singer while he was on tour, and that he wanted to quit the tour to be with
+her. She gave him over $100k for various ‘tour expenses’.
+<https://substack.com/redirect/d7e73f5c-ded8-4a82-ada1-3c6553b01e2b?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+Fake profiles targeting musicians pretend to be high profile managers,
+journalists, A&R label scouts, podcast producers, gig bookers etc.
+Generally its easy to spot, but as its getting easier and easier to fake
+things well, all communications should be regarding with a high degree of
+scepticism.
+<https://substack.com/redirect/33e0cf76-deab-4ce2-8c29-0b7f1f360bc9?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+<https://substack.com/redirect/2b728cb7-f969-4df4-8140-67f00f57a9d7?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+<https://substack.com/redirect/c0c7817b-5cb0-438e-b790-c7b9769fd750?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+There is an entire fake website, Wylde Audio
+<https://substack.com/redirect/d87dacf2-bb30-4ec4-b139-97d78a1944ec?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>,
+dedicated to selling fake guitars designed by heavy metal guitarist Zakk
+Wylde, taking advantage of the fact that he sells his actual official
+custom guitars via the Schecter
+<https://substack.com/redirect/ef1e587a-c6bf-48fa-984f-4bce88e172a7?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+site, leaving his name vulnerable to misappropriation. Weirdly none of the
+links go anywhere that works but the claims that Brad Paisley and John
+Mayer are big fans of the brand make for enjoyable reading.
+
+In one of the wilder rock tales of stolen identities, a small timebooking
+agent in Bay City, Michigan, created three fake versions of UK band The
+Zombies in 1968, and set them to work all around the country masquerading
+as the real thing, complete with half-hearted English accents. The real
+Zombies, broke and disheartened, had disbanded after their album failed to
+do any business at home, and didn’t even know that their single ‘Time of
+the Season’ was roaring up the charts in America. Members of one of the
+imitation bands - Dusty Hill and Frank Beard - went on to become ZZ Top,
+although they don’t mention their brief period as fake Zombies in any of
+their official histories. ‘The True Story of The Fake Zombies
+<https://substack.com/redirect/8884fec4-143d-4c60-a921-cb2abd7c77e8?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>’,
+the podcast that meticulously investigates this incredible act of deception
+is brilliant.
+<https://substack.com/redirect/f06cc8b4-0f40-46b8-8e23-651646916df0?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+It’s still a maddening, sickening Wild West out there in terms of owning,
+keeping and claiming your rightful identity. There’s now outrageous AI
+identity theft scams targeting the indie music community. One folk artist,
+Murphy Campbell, has had her own videos of her own versions of
+public-domain traditional songs scraped and copyright claimed by fraudsters
+calling themselves ‘Murphy Rider’ who also fed her voice into AI generators
+and created ‘new’ ‘Murphy Campbell’ music. There’s nothing she can do about
+it - proving ownership of music is often a matter of who got there first in
+terms of making a claim and an ouroboros in terms of getting false claims
+corrected - a situation I am personally only too aware of having being
+involved in fighting fake claims made on my father’s music for many years
+with little satisfaction. Yet. I still believe in my heart of hearts that
+truth will prevail, but maybe thats the result of being brought up on happy
+endings.
+<https://substack.com/redirect/a10a3d5d-1667-499e-93ff-6bb5ed2574b4?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+Recently I find myself constantly humming the main refrain of the beautiful
+Leonard Cohen song ‘Be For Real
+<https://substack.com/redirect/1ff4cfa5-9f0d-4d4c-8f61-1248ca7acff3?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>’,
+from his 1992 album *The Future* - back when the concept of such a
+destination undoubtedly could not have been envisioned as quite this
+dystopian.
+
+The X Files were right - *Trust No-one*! And also *I want to believe*. Stay
+sharp out there kids! x
+
+Leave a comment
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&utm_medium=email&isFreemail=true&comments=true&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM&r=2en9d&utm_campaign=email-half-magic-comments&action=post-comment>
+
+Sharing, commenting & leaving me a little heart on this post really help
+the algorithm gods send me new readers - thank you for spending time with
+me here on Loose Connections!
+
+Share
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&utm_medium=email&utm_content=share&utm_campaign=email-share&action=share&triggerShare=true&isFreemail=true&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM>
+
+*Thanks for reading Loose Connections! *
+
+About Lo Carmen
+<https://substack.com/redirect/f9c675ec-94fc-4516-950e-77f11b32e30b?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+Learn More/Listen Here
+<https://substack.com/redirect/1872a44a-b430-4bef-88de-bfc8a47cc3e7?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo>
+
+Upgrade to paid
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9cG9zdCZ1dG1fY2FtcGFpZ249ZW1haWwtY2hlY2tvdXQmbmV4dD1odHRwcyUzQSUyRiUyRmxvY2FybWVuLnN1YnN0YWNrLmNvbSUyRnAlMkZqdXN0LWJlLWZvci1yZWFsJnI9MmVuOWQmdG9rZW49ZXlKMWMyVnlYMmxrSWpvME1EUXlOVFl4TENKcFlYUWlPakUzT0RZeU16VTBNeklzSW1WNGNDSTZNVGM0T0RneU56UXpNaXdpYVhOeklqb2ljSFZpTFRNeU9EWTRNaUlzSW5OMVlpSTZJbU5vWldOcmIzVjBJbjAudjRkMGxJdVFhZk9WQlY1a3lPZi1lTWdRd29yMHlQekM2cTRBd3RxSmhzQSIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.pNc8KsR2MyTKIwdtf4GX-8ore5mXvg6VlVqGNQVIdy0?&utm_medium=email&utm_source=subscribe-widget&utm_content=207745297>
+
+Like
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&isFreemail=true&submitLike=true&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsInJlYWN0aW9uIjoi4p2kIiwiaWF0IjoxNzg2MjM1NDMyLCJleHAiOjE3ODg4Mjc0MzIsImlzcyI6InB1Yi0zMjg2ODIiLCJzdWIiOiJyZWFjdGlvbiJ9.GpcWmNy99KnSI_HxtpL5N9Rz6bZDp2W6u7FV4gJ2QvE&utm_medium=email&utm_campaign=email-reaction&r=2en9d>
+Comment
+<https://substack.com/app-link/post?publication_id=328682&post_id=207745297&utm_source=substack&utm_medium=email&isFreemail=true&comments=true&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM&r=2en9d&utm_campaign=email-half-magic-comments&action=post-comment&utm_source=substack&utm_medium=email>
+Restack
+<https://open.substack.com/pub/locarmen/p/just-be-for-real?utm_source=substack&utm_medium=email&utm_campaign=email-restack-comment&action=restack-comment&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMDc3NDUyOTcsImlhdCI6MTc4NjIzNTQzMiwiZXhwIjoxNzg4ODI3NDMyLCJpc3MiOiJwdWItMzI4NjgyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.EEfNCtjscrx1O_mv-lXwBhz-fTJAQenQ4n7PMTK5uJM&utm_source=substack&utm_medium=email>
+
+© 2026 Lo Carmen
+PO Box 774, Five Dock NSW 2046, Sydney, Australia
+Unsubscribe
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9sb2Nhcm1lbi5zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvME1EUXlOVFl4TENKd2IzTjBYMmxrSWpveU1EYzNORFV5T1Rjc0ltbGhkQ0k2TVRjNE5qSXpOVFF6TWl3aVpYaHdJam94T0RFM056Y3hORE15TENKcGMzTWlPaUp3ZFdJdE16STROamd5SWl3aWMzVmlJam9pWkdsellXSnNaVjlsYldGcGJDSjkudE81YnhLeHRsazVPT1FuU2dIMDRRdy13VHR0bzJ4bUlFVDhLYmpBaUl3byIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.czBAaPtlbXDjCJ-tLZqmkag6ws6P0uPMg_HQ-yfb4Kc?>
+
+[image: Start writing]
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJmZyZWVTaWdudXBFbWFpbD1haXN0ZS51bG96YWl0ZUBnbWFpbC5jb20mcj0yZW45ZCIsInAiOjIwNzc0NTI5NywicyI6MzI4NjgyLCJmIjp0cnVlLCJ1Ijo0MDQyNTYxLCJpYXQiOjE3ODYyMzU0MzIsImV4cCI6MjEwMTgxMTQzMiwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.5gZQrBX2Cra-99NzJ6Z-4tFl3claFZiB_8SYBH3nlHg?>
+
+{% endraw %}

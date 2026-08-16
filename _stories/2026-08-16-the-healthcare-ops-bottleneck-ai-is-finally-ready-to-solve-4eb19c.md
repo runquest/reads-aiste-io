@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "The Healthcare Ops Bottleneck AI Is Finally Ready to Solve"
+date: "2026-08-16"
+permalink: "/2026/08/16/stories/the-healthcare-ops-bottleneck-ai-is-finally-ready-to-solve-4eb19c/"
+slug: "the-healthcare-ops-bottleneck-ai-is-finally-ready-to-solve-4eb19c"
+source: "Jared Dashevsky, MD"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://elink686.healthcarehuddle.com/ss/c/u001.aTCzVRxQso-8W5fTZOfW58fzu6KX1CuPEm8GbEKGFNFMezLGZ33GxmIGerISXxc1IQ3VWITj7b14n34zoZvlQh2VYJcNg6XQEVY-ZX5sMqkM3P1NuIL41NUoWXJByyhpve4u9nvFO9Bkk7dfR8lOFAfYQ6yC6UqTh2C7egXbxjf4gDXjVlamiOsyHPO5sM63_Idl_7aQD5Y_FlWycIfkzPP9-oxm6KfthiRZGyQbksqQjC_IhKUCXeKtndmIMwZWhxY_dsyDo1Y-7CoK1vbGDprc4V6xFQN1S7RKAm_6w0qH5Tq_fmHt3x2v2fQp-JRZO0DkgOeJZvgcwU7e6sTELay3Qfqtdv-mn4-oe7_OG9i7R4JpK-C44a8vymR0ee5Ia0Pt6LOanByCnjAV9JuRNpQBOkJVFoDUJRXiaroKGceG9hHRukeIdOR3sH8KUgmLo49rOrsNR1LS4RMweMkDF5mnOpb4LYUG_6Ji1i57VhX4zjI6qM-ZHz4LGD5qqmm5Towe5UJpLMkZE8YdN0oC9VslG7O5c_u3TsuRZR39Pvy5gm7uk-zCEWqkGThFQeGlP4sayc49E5pn9rK9_-1SRRX8tiumXwNbur1QEml_qls1U5sMFCE37CxUaqjdd9u5Mr43wplkTTowwLXm_ckBnEvKyRPooE5xXpo_gWrirLKmp3Uf2Dre7aFfVAlPaidPLez3Pvdh7m03GNFjLkx8PZdbkIszhRCLXjzzFSwGOSokeU3jadE9SkTrafFQKlQOeJDG9MNdoZuuahA-6jB3rfwf6oUCe-J9IOBn5d_Qi1hjZ4XKqBwc9Lhhelw46QPlTia2HAzP335XUyxuXY_G54pctOxCa5uSC3Ev8OfqKnuG8YXnxHJ6gaxQM3bjHAxUYIuZSmRLwQg8s7Dt3kE43sPY5VmK0_UpkeffbytipsHqeRI7jx0zrjFyBCf3-bXjD0Z_z2YfRd-DMteCiIzsXiLXItr8A-ZtnOzEjS2A84BJ6HDiXRu3Aar4zafqqIfZAcvI20g32WMRTtS3vFt3pVsysiMR0UMXhmrq2BNecIyxHAb4a96X_R22Qoo086Ny/4t1/ONrWT9cQSaCo8G0VjoWnHw/h29/h001.DmK0JvEvBmaSo0PCqkZBB4jQaL9rAUolYJBxs9oeru8"
+original_url: "https://elink686.healthcarehuddle.com/ss/c/u001.aTCzVRxQso-8W5fTZOfW54b2v-LMDEEozlC-PEA-3_dobNoXVZ-48uQKTh0pHI4l-OAJ3cPlf84uiSPRtnSgiadHBHAnQ3-HtgBuCBcMPFCCYR_n1Oh4EpbHYibMjtchndJgJpv4WhYT5Bz2zuc1W1I8VTjRt_lLmKuIWG8ZP4CNB0mhyie4oYiuWZ3m2ZSJw2_hPNhg141i9zfjIMEpzw/4t1/ONrWT9cQSaCo8G0VjoWnHw/h2/h001.lZlhtkAvVmGG7WovBqTOQqfiqhXCcMwKHrSfcEN0PX8"
+category: "Healthcare Tech"
+excerpt_separator: ""
+---
+
+{% raw %}
+Breaking why healthcare ops still needs armies moving info across portals, PDFs, phones, EHRs—and how Champ AI automates the messy middle where work between systems is stubbornly manual.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://elink686.healthcarehuddle.com/ss/c/u001.aTCzVRxQso-8W5fTZOfW54b2v-LMDEEozlC-PEA-3_dobNoXVZ-48uQKTh0pHI4l-OAJ3cPlf84uiSPRtnSgiadHBHAnQ3-HtgBuCBcMPFCCYR_n1Oh4EpbHYibMjtchndJgJpv4WhYT5Bz2zuc1W1I8VTjRt_lLmKuIWG8ZP4CNB0mhyie4oYiuWZ3m2ZSJw2_hPNhg141i9zfjIMEpzw/4t1/ONrWT9cQSaCo8G0VjoWnHw/h2/h001.lZlhtkAvVmGG7WovBqTOQqfiqhXCcMwKHrSfcEN0PX8).*
+
+{% endraw %}
