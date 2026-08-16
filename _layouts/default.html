@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
-    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <div class="site-wordmark">
+      <a href="{{ '/' | relative_url }}">aiste.io <span class="site-wordmark-sub">/ reads</span></a>
+    </div>
     <nav class="site-nav">
-      <a href="{{ '/articles/' | relative_url }}" class="revisit-nav-link">All articles</a>
-      <a href="{{ '/revisit/' | relative_url }}" class="revisit-nav-link">Revisit list</a>
-      <a href="{{ '/notes/' | relative_url }}" class="revisit-nav-link">Notes</a>
+      <a href="{{ '/articles/' | relative_url }}">All Articles</a>
+      <a href="{{ '/revisit/' | relative_url }}">Revisit List</a>
+      <a href="{{ '/notes/' | relative_url }}">Notes</a>
+      {% if page.layout == "issue" %}
+        <span class="site-issue-badge">Issue &middot; {{ page.date | date: "%b %-d" }}</span>
+      {% endif %}
     </nav>
   </header>
   <main>
