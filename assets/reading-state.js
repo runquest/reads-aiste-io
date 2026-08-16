@@ -400,99 +400,117 @@
 
   // --- Rendering ---------------------------------------------------------
 
-  function attachHighlightClickHandler(mark, slug, entry) {
-    mark.addEventListener("click", (e) => {
-      e.preventDefault();
-      openPopover(mark.getBoundingClientRect(), buildViewPopoverContent(entry, {
-        canEdit: isFineMouseDevice(),
-        onSave: (value) => {
-          entry.note = value;
-          updateHighlight(slug, entry.id, value);
-        },
-        onDelete: () => {
-          deleteHighlight(slug, entry.id);
-          mark.replaceWith(...mark.childNodes);
-        },
-      }));
-    });
-  }
+  // Renders one annotation in both places it can appear — an inline <mark>
+  // in the article (anchored entries only) and a row in the notes list
+  // (every entry, anchored or not) — sharing one applyEdit/applyDelete pair
+  // so acting on either keeps the other in sync. A quote that can no longer
+  // be found (content changed) still gets its list row; it just has no mark.
+  //
+  // canEdit follows the entry, not where it's rendered: anchored entries
+  // stay view+delete-only on touch devices even in the list, since that
+  // restriction is about not having a great UX for re-selecting text on
+  // mobile, which the list doesn't change. Quick-capture entries (no quote)
+  // get full edit everywhere, in the list and via their absence of a mark.
+  function renderAnnotation(container, listEl, slug, entry) {
+    const canEdit = entry.quote ? isFineMouseDevice() : true;
+    let mark = null;
+    let li = null;
+    let textEl = null;
 
-  function renderHighlightMark(container, slug, entry) {
-    const range = findRangeForHighlight(container, entry);
-    if (!range) return; // quote no longer found — skip rather than break the page
-    const mark = document.createElement("mark");
-    mark.className = "reads-highlight";
-    mark.dataset.highlightId = entry.id;
-    wrapRange(range, mark);
-    attachHighlightClickHandler(mark, slug, entry);
-  }
+    function applyEdit(value) {
+      entry.note = value;
+      updateHighlight(slug, entry.id, value);
+      if (textEl) textEl.textContent = value;
+    }
 
-  function renderQuickNote(listEl, slug, entry) {
-    const li = document.createElement("li");
-    li.className = "reads-quicknote";
-
-    const textEl = document.createElement("div");
-    textEl.className = "reads-quicknote-text";
-    textEl.textContent = entry.note;
-
-    const meta = document.createElement("div");
-    meta.className = "reads-quicknote-meta";
-    meta.textContent = new Date(entry.created).toLocaleString();
-
-    const actions = document.createElement("div");
-    actions.className = "reads-quicknote-actions";
-
-    const editBtn = document.createElement("button");
-    editBtn.type = "button";
-    editBtn.className = "reads-btn";
-    editBtn.textContent = "Edit";
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.type = "button";
-    deleteBtn.className = "reads-btn reads-btn-delete";
-    deleteBtn.textContent = "Delete";
-
-    editBtn.addEventListener("click", () => {
-      const textarea = document.createElement("textarea");
-      textarea.className = "reads-popover-input";
-      textarea.value = entry.note;
-      textarea.rows = 3;
-      li.replaceChild(textarea, textEl);
-      textarea.focus();
-
-      const saveBtn = document.createElement("button");
-      saveBtn.type = "button";
-      saveBtn.className = "reads-btn";
-      saveBtn.textContent = "Save";
-      saveBtn.addEventListener("click", () => {
-        const value = textarea.value.trim();
-        if (!value) return;
-        entry.note = value;
-        textEl.textContent = value;
-        li.replaceChild(textEl, textarea);
-        actions.replaceChild(editBtn, saveBtn);
-        updateHighlight(slug, entry.id, value);
-      });
-      actions.replaceChild(saveBtn, editBtn);
-    });
-
-    deleteBtn.addEventListener("click", () => {
+    function applyDelete() {
       deleteHighlight(slug, entry.id);
-      li.remove();
-    });
+      if (mark) mark.replaceWith(...mark.childNodes);
+      if (li) li.remove();
+    }
 
-    actions.appendChild(editBtn);
-    actions.appendChild(deleteBtn);
+    if (entry.quote) {
+      const range = findRangeForHighlight(container, entry);
+      if (range) {
+        mark = document.createElement("mark");
+        mark.className = "reads-highlight";
+        mark.dataset.highlightId = entry.id;
+        wrapRange(range, mark);
+        mark.addEventListener("click", (e) => {
+          e.preventDefault();
+          openPopover(mark.getBoundingClientRect(), buildViewPopoverContent(entry, { canEdit, onSave: applyEdit, onDelete: applyDelete }));
+        });
+      }
+    }
 
-    li.appendChild(textEl);
-    li.appendChild(meta);
-    li.appendChild(actions);
-    listEl.appendChild(li);
+    if (listEl) {
+      li = document.createElement("li");
+      li.className = "reads-quicknote";
+
+      if (entry.quote) {
+        const quoteEl = document.createElement("blockquote");
+        quoteEl.className = "reads-quicknote-quote";
+        quoteEl.textContent = entry.quote;
+        li.appendChild(quoteEl);
+      }
+
+      textEl = document.createElement("div");
+      textEl.className = "reads-quicknote-text";
+      textEl.textContent = entry.note;
+      li.appendChild(textEl);
+
+      const meta = document.createElement("div");
+      meta.className = "reads-quicknote-meta";
+      meta.textContent = new Date(entry.created).toLocaleString();
+      li.appendChild(meta);
+
+      const actions = document.createElement("div");
+      actions.className = "reads-quicknote-actions";
+
+      if (canEdit) {
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        editBtn.className = "reads-btn";
+        editBtn.textContent = "Edit";
+        editBtn.addEventListener("click", () => {
+          const textarea = document.createElement("textarea");
+          textarea.className = "reads-popover-input";
+          textarea.value = entry.note;
+          textarea.rows = 3;
+          li.replaceChild(textarea, textEl);
+          textarea.focus();
+
+          const saveBtn = document.createElement("button");
+          saveBtn.type = "button";
+          saveBtn.className = "reads-btn";
+          saveBtn.textContent = "Save";
+          saveBtn.addEventListener("click", () => {
+            const value = textarea.value.trim();
+            if (!value) return;
+            li.replaceChild(textEl, textarea);
+            actions.replaceChild(editBtn, saveBtn);
+            applyEdit(value);
+          });
+          actions.replaceChild(saveBtn, editBtn);
+        });
+        actions.appendChild(editBtn);
+      }
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.type = "button";
+      deleteBtn.className = "reads-btn reads-btn-delete";
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", applyDelete);
+      actions.appendChild(deleteBtn);
+
+      li.appendChild(actions);
+      listEl.appendChild(li);
+    }
   }
 
   // --- Creation ------------------------------------------------------------
 
-  function initQuickCaptureButton(slug, listEl) {
+  function initQuickCaptureButton(container, slug, listEl) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "reads-quicknote-fab";
@@ -501,7 +519,7 @@
       openPopover(btn.getBoundingClientRect(), buildComposePopoverContent({
         onSave: (value) => {
           createHighlight(slug, { quote: null, note: value }).then((entry) => {
-            if (listEl) renderQuickNote(listEl, slug, entry);
+            renderAnnotation(container, listEl, slug, entry);
           });
         },
       }));
@@ -523,7 +541,7 @@
   // the browser's own click handling clears the selection. Desktop-only for
   // now — touch selection UX (handles, no hover, different event timing) is
   // enough of a different problem that it's deferred rather than bolted on.
-  function initHighlightSelection(container, slug) {
+  function initHighlightSelection(container, slug, listEl) {
     if (!isFineMouseDevice()) return;
 
     document.addEventListener("mouseup", () => {
@@ -554,12 +572,13 @@
 
         openPopover(rect, buildComposePopoverContent({
           onSave: (value) => {
+            // Re-anchor by search (renderAnnotation's own path) rather than
+            // reusing capturedRange directly — one code path for "render an
+            // entry" whether it's freshly created or loaded from the API,
+            // and the content hasn't changed since the selection was made,
+            // so the search is guaranteed to find exactly what was selected.
             createHighlight(slug, { ...context, note: value }).then((entry) => {
-              const mark = document.createElement("mark");
-              mark.className = "reads-highlight";
-              mark.dataset.highlightId = entry.id;
-              wrapRange(capturedRange, mark);
-              attachHighlightClickHandler(mark, slug, entry);
+              renderAnnotation(container, listEl, slug, entry);
             });
           },
         }));
@@ -578,17 +597,11 @@
     const slug = container.getAttribute("data-reads-highlights-slug");
     const quicknotesList = document.querySelector(".reads-quicknotes-list");
 
-    initQuickCaptureButton(slug, quicknotesList);
-    initHighlightSelection(container, slug);
+    initQuickCaptureButton(container, slug, quicknotesList);
+    initHighlightSelection(container, slug, quicknotesList);
 
     fetchHighlights(slug).then((highlights) => {
-      highlights.forEach((entry) => {
-        if (entry.quote) {
-          renderHighlightMark(container, slug, entry);
-        } else if (quicknotesList) {
-          renderQuickNote(quicknotesList, slug, entry);
-        }
-      });
+      highlights.forEach((entry) => renderAnnotation(container, quicknotesList, slug, entry));
     });
   }
 

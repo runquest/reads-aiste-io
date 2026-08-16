@@ -194,7 +194,7 @@ article.issue summary {
 }
 
 .reads-quicknotes-list:empty::before {
-  content: "No quick notes yet — jot a random idea any time with the button in the corner.";
+  content: "Nothing yet — select text in the article to note a specific passage, or jot a quick idea any time with the button in the corner.";
   color: #888;
   font-size: 0.85rem;
 }
@@ -202,6 +202,14 @@ article.issue summary {
 .reads-quicknote {
   padding: 0.5rem 0;
   border-bottom: 1px solid #eee;
+}
+
+.reads-quicknote-quote {
+  margin: 0 0 0.4rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid #fff3b0;
+  color: #555;
+  font-style: italic;
 }
 
 .reads-quicknote-text {
