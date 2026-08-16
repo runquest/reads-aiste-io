@@ -11,7 +11,13 @@ layout: default
     {% if page.unsubscribe_url %} &middot; <a href="{{ page.unsubscribe_url }}">unsubscribe</a>{% endif %}
   </p>
   <div class="reads-controls" data-reads-slug="{{ page.slug }}"></div>
-  {{ content }}
+  <div class="story-body" data-reads-highlights-slug="{{ page.slug }}">
+    {{ content }}
+  </div>
+  <div class="reads-quicknotes">
+    <h2>Quick notes</h2>
+    <ul class="reads-quicknotes-list"></ul>
+  </div>
   <div class="reads-notes" data-reads-notes-slug="{{ page.slug }}">
     <h2>Notes</h2>
   </div>
