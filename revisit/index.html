@@ -31,8 +31,14 @@ permalink: /revisit/
         return;
       }
 
-      items.forEach(function (story) {
+      items.forEach(function (story, index) {
         var li = document.createElement("li");
+
+        var num = document.createElement("span");
+        num.className = "list-index-num";
+        num.textContent = String(index + 1).padStart(2, "0");
+        li.appendChild(num);
+
         var a = document.createElement("a");
         a.href = story.url;
         a.textContent = story.title;

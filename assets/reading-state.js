@@ -23,8 +23,11 @@
     el.classList.toggle("is-read", !!state.read);
     el.classList.toggle("is-revisit", !!state.revisit);
     // On the issue index, dim the whole heading for already-read stories so
-    // it's obvious at a glance what's left.
-    const heading = el.closest("h3");
+    // it's obvious at a glance what's left. Class-based rather than a tag
+    // selector since the lead story's heading is an <h1> (one per page,
+    // for outline correctness) while every other story's is an <h3> —
+    // both carry this class specifically so this hook doesn't care which.
+    const heading = el.closest(".issue-story-heading");
     if (heading) heading.classList.toggle("is-read", !!state.read);
 
     if (state.hasNote) {

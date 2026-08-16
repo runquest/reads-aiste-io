@@ -53,14 +53,20 @@ permalink: /notes/
       Promise.all(fetches).then(function (results2) {
         container.innerHTML = "";
 
+        var shownIndex = 0;
         results2.forEach(function (result) {
           if (!result.note && result.highlights.length === 0) return;
           var story = storyBySlug[result.slug];
+          shownIndex += 1;
 
           var section = document.createElement("section");
           section.className = "notes-index-story";
 
           var heading = document.createElement("h2");
+          var num = document.createElement("span");
+          num.className = "list-index-num";
+          num.textContent = String(shownIndex).padStart(2, "0");
+          heading.appendChild(num);
           var link = document.createElement("a");
           link.href = story.url;
           link.textContent = story.title;
