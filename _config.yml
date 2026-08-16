@@ -4,6 +4,8 @@ url: "https://reads.aiste.io"
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 
+editors_note: "I keep this digest scoped on purpose — save what matters to your Revisit list, skip the rest."
+
 collections:
   stories:
     output: true
@@ -24,3 +26,4 @@ exclude:
   - package-lock.json
   - wrangler.toml
   - node_modules
+  - design_handoff_reads_magazine

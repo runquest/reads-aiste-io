@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,500&family=Libre+Franklin:wght@400;500;600;700;900&family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700;800&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#e9e6df;font-family:system-ui,sans-serif}
+  .dv-turn{padding:40px 44px 60px}
+  .dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+  .dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+  .dv-tname{font:600 15px/1.2 system-ui,sans-serif;color:#1a1a1a}
+  .dv-sub{font:400 13px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.55);margin:0 0 24px;max-width:640px}
+  .dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+  .dv-opt{flex:none;display:flex;flex-direction:column;gap:10px}
+  .dv-oid{font:600 11px ui-monospace,Menlo,monospace;padding:3px 8px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+  .dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.6)}
+  .dv-oldesc{font:400 11.5px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5);max-width:820px;margin:2px 0 0}
+  .frames{display:flex;gap:20px;align-items:flex-start}
+  .fwrap{display:flex;flex-direction:column;gap:6px}
+  .flabel{font:600 10px ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;color:rgba(0,0,0,.4)}
+  .deskbox{width:460px;height:600px;overflow:hidden;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.18);background:#fff}
+  .deskscale{width:900px;transform:scale(0.5111);transform-origin:top left}
+  .mobbox{width:220px;height:600px;overflow:hidden;border-radius:22px;box-shadow:0 8px 30px rgba(0,0,0,.18);background:#fff;border:6px solid #1a1a1a}
+  .mobscale{width:392px;transform:scale(0.5612);transform-origin:top left}
+  a{text-decoration:none}
+  .dv-next{margin:28px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+</style>
+</helmet>
+<section class="dv-turn" id="t2">
+  <div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Brand-matched: styled after aiste.io</span></div>
+  <p class="dv-sub">Carries the aiste.io look over to Reads &mdash; warm cream ground, mustard accent, italic serif emphasis on key phrases, numbered index labels, and the highlighter-style quote treatment from the "why I work this way" pull-quote.</p>
+  <div class="dv-opts">
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Aiste.io house style</div>
+      <p class="dv-oldesc">Same warm palette and italic-serif-in-sans headline pattern as the homepage, applied to the issue layout: numbered category index down the left, one wide lead story, highlighter-yellow tag chips.</p>
+      <div class="frames">
+        <div class="fwrap"><span class="flabel">Desktop · 1760px</span>
+          <div class="deskbox"><div class="deskscale">
+
+            <div style="font-family:'Work Sans',sans-serif;color:#1c1c1a;background:#ffffff;min-height:1180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 40px;border-bottom:1px solid #ece7da">
+                <div style="font-weight:700;font-size:16px;letter-spacing:-.01em">aiste.io <span style="font-weight:400;color:#8a8270">/ reads</span></div>
+                <div style="display:flex;gap:24px;font-size:13px;font-weight:600;align-items:center">
+                  <span>All Articles</span><span>Revisit List</span>
+                  <span style="background:#e8b84b;color:#1c1c1a;padding:6px 14px;border-radius:24px">Issue &middot; Aug 16</span>
+                </div>
+              </div>
+              <div style="padding:32px 40px 24px;max-width:920px">
+                <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a;margin-bottom:10px">01 &middot; Culture</div>
+                <div style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-.01em">Just be for real: on <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#a3833a">impersonators</span>, scammers &amp; stolen identities.</div>
+                <div style="font-size:14.5px;line-height:1.6;color:#4a4638;margin-top:14px;max-width:680px">The author's Substack profile was impersonated by a scammer who followed subscribers attempting to deceive people &mdash; part of a wider wave of AI-era identity theft targeting musicians and indie artists.</div>
+                <div style="display:flex;gap:16px;margin-top:16px;align-items:center">
+                  <span style="background:#1c1c1a;color:#fff;padding:9px 18px;border-radius:24px;font-size:13px;font-weight:600">Read full piece &rarr;</span>
+                  <span style="font-size:13px;color:#8a8270;font-style:italic">Lo Carmen's Loose Connections</span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:28px 1fr;gap:0 24px;padding:0 40px 8px">
+                <div style="grid-column:1/3;height:1px;background:#ece7da;margin-bottom:20px"></div>
+                <div style="font-size:12px;font-weight:700;color:#a3833a">02</div>
+                <div style="padding-bottom:20px">
+                  <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a;margin-bottom:8px">Events</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+                    <div>
+                      <div style="font-size:19px;font-weight:700;line-height:1.3">Tech Days Vol. 2</div>
+                      <div style="font-size:13.5px;line-height:1.6;color:#4a4638;margin-top:6px">Back for round two &mdash; Vol. 1 sold out in five days and went over capacity.</div>
+                    </div>
+                    <div>
+                      <div style="font-size:19px;font-weight:700;line-height:1.3">BC Founders Day wants you to talk to strangers in leis</div>
+                      <div style="font-size:13.5px;line-height:1.6;color:#4a4638;margin-top:6px">Ahead of the Aug 20 event, organizer Chris Neumann on what "exceptional" looks like this year.</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="grid-column:1/3;height:1px;background:#ece7da;margin-bottom:20px"></div>
+                <div style="font-size:12px;font-weight:700;color:#a3833a">03</div>
+                <div style="padding-bottom:8px">
+                  <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a;margin-bottom:8px">Security</div>
+                  <div style="font-size:19px;font-weight:700;line-height:1.3;max-width:640px">Computer maker Framework notifies "all customers" of a <span style="background:#e8b84b;padding:0 4px">data breach</span></div>
+                  <div style="font-size:13.5px;line-height:1.6;color:#4a4638;margin-top:6px">Hackers accessed names, email addresses, phone numbers, and physical addresses.</div>
+                </div>
+              </div>
+              <div style="margin:0 40px 20px;border-top:1px solid #ece7da;padding-top:12px">
+                <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a">Editor's Notes &middot; </span>
+                <span style="font-size:14px;line-height:1.6;font-style:italic;color:#4a4638">"I keep this digest scoped on purpose &mdash; save what matters to your Revisit list, skip the rest."</span>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+        <div class="fwrap"><span class="flabel">Mobile · 392px</span>
+          <div class="mobbox"><div class="mobscale">
+
+            <div style="font-family:'Work Sans',sans-serif;color:#1c1c1a;background:#ffffff;min-height:1060px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #ece7da">
+                <div style="font-weight:700;font-size:14px">aiste.io <span style="font-weight:400;color:#8a8270">/ reads</span></div>
+                <span style="background:#e8b84b;color:#1c1c1a;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600">Aug 16</span>
+              </div>
+              <div style="padding:16px 16px 12px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a;margin-bottom:8px">01 &middot; Culture</div>
+                <div style="font-size:23px;line-height:1.15;font-weight:700">Just be for real: on <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#a3833a">impersonators</span> &amp; stolen identities</div>
+                <div style="font-size:13px;line-height:1.55;color:#4a4638;margin-top:10px">The author's Substack profile was impersonated by a scammer who followed subscribers to deceive people.</div>
+                <div style="margin-top:12px;display:inline-block;background:#1c1c1a;color:#fff;padding:8px 16px;border-radius:24px;font-size:12.5px;font-weight:600">Read full piece &rarr;</div>
+              </div>
+              <div style="height:1px;background:#ece7da;margin:2px 16px"></div>
+              <div style="padding:14px 16px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a;margin-bottom:6px">02 &middot; Events</div>
+                <div style="font-size:18px;font-weight:700;line-height:1.3">Tech Days Vol. 2</div>
+                <div style="font-size:13px;line-height:1.55;color:#4a4638;margin-top:6px">Back for round two &mdash; Vol. 1 sold out in five days.</div>
+              </div>
+              <div style="margin:0 16px 12px;border-top:1px solid #ece7da;padding-top:10px">
+                <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a3833a">Editor's Notes &middot; </span>
+                <span style="font-size:12.5px;line-height:1.6;font-style:italic;color:#4a4638">Save what matters, skip the rest.</span>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "build <a class="dv-oid" href="#2a">2a</a> out as the real Jekyll templates" &middot; "try a dark version of <a class="dv-oid" href="#2a">2a</a>" &middot; "add the full category list to <a class="dv-oid" href="#2a">2a</a>"</p>
+</section>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Reads &mdash; magazine redesign concepts</span></div>
+  <p class="dv-sub">Right now reads.aiste.io is an unstyled list &mdash; a giant wall of jump-links and text, no visual hierarchy, no responsive layout. Three editorial directions below, each shown at desktop and mobile widths using real content from the Aug&nbsp;16 issue.</p>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Broadsheet</div>
+      <p class="dv-oldesc">Classic newspaper: serif headlines, rules, a red masthead accent. Categories run as named sections down the page; mobile collapses to a single stacked column with a sticky section-jump bar.</p>
+      <div class="frames">
+        <div class="fwrap"><span class="flabel">Desktop · 1760px</span>
+          <div class="deskbox"><div class="deskscale">
+
+            <div style="font-family:'Libre Franklin',sans-serif;color:#191713;background:#f7f4ee">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 48px;border-bottom:1px solid #191713;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b6558">
+                <span>Thu, Aug 16 2026</span><span>Issue No. 47</span>
+              </div>
+              <div style="text-align:center;padding:14px 20px 10px;border-bottom:3px double #191713">
+                <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;letter-spacing:-.01em">Reads</div>
+                <div style="font-size:11.5px;color:#6b6558;margin-top:4px;font-style:italic;font-family:'Source Serif 4',serif">A daily digest of newsletters, summarized &amp; grouped by category</div>
+              </div>
+              <div style="display:flex;gap:0;justify-content:center;padding:12px 20px;border-bottom:1px solid #191713;font-size:12px;font-weight:600;letter-spacing:.03em">
+                <span style="padding:0 16px;border-right:1px solid #191713">All Articles</span>
+                <span style="padding:0 16px;border-right:1px solid #191713">Revisit List</span>
+                <span style="padding:0 16px;color:#b5342c">Today's Issue</span>
+              </div>
+
+              <div style="display:grid;grid-template-columns:2fr 1px 1fr;gap:0;padding:32px 48px">
+                <div style="padding-right:36px">
+                  <div style="font-family:'Source Serif 4',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b5342c;margin-bottom:10px;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:4px">Culture</div>
+                  <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:30px;line-height:1.15;margin:14px 0 8px">Just Be For Real: On Impersonators, Scammers &amp; Stolen Identities</div>
+                  <div style="font-size:12px;color:#6b6558;margin-bottom:10px;font-style:italic">Lo Carmen's Loose Connections</div>
+                  <div style="font-size:14.5px;line-height:1.6;color:#3a352d;column-count:2;column-gap:24px">The author's Substack profile was impersonated by a scammer who followed subscribers attempting to deceive people. Musicians' identities are increasingly being stolen for romance scams, catfishing, and fraudulent impersonation.</div>
+                  <div style="margin-top:14px;font-size:12px;font-weight:700;color:#b5342c">Read full piece &rarr;</div>
+
+                  <div style="height:1px;background:#191713;margin:28px 0"></div>
+                  <div style="font-family:'Source Serif 4',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b5342c;margin-bottom:10px;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:4px">Events</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px">
+                    <div>
+                      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:19px;line-height:1.25">Tech Days Vol. 2</div>
+                      <div style="font-size:12px;color:#6b6558;margin:6px 0;font-style:italic">Vancouver Tech Journal</div>
+                      <div style="font-size:13px;line-height:1.55;color:#3a352d">Vancouver Tech Days is back for round two. Vol. 1 sold out in five days and went over capacity.</div>
+                    </div>
+                    <div>
+                      <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:19px;line-height:1.25">BC Founders Day wants you to talk to strangers in leis</div>
+                      <div style="font-size:12px;color:#6b6558;margin:6px 0;font-style:italic">Vancouver Tech Journal</div>
+                      <div style="font-size:13px;line-height:1.55;color:#3a352d">Ahead of the Aug 20 event at South Flats, organizer Chris Neumann on what "exceptional" looks like this year.</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="background:#191713"></div>
+                <div style="padding-left:36px">
+                  <div style="font-family:'Source Serif 4',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b5342c;margin-bottom:14px;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:4px">Startups</div>
+                  <div style="display:flex;flex-direction:column;gap:18px">
+                    <div>
+                      <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;line-height:1.3">Tech Days recap: Five ways Hiive has thrived in Vancouver</div>
+                      <div style="font-size:11.5px;color:#6b6558;margin-top:4px;font-style:italic">Vancouver Tech Journal</div>
+                    </div>
+                    <div>
+                      <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;line-height:1.3">Top 25 Spotlight: IvoryOS Technologies</div>
+                      <div style="font-size:11.5px;color:#6b6558;margin-top:4px;font-style:italic">Vancouver Tech Journal</div>
+                    </div>
+                  </div>
+                  <div style="height:1px;background:#191713;margin:24px 0"></div>
+                  <div style="font-family:'Source Serif 4',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b5342c;margin-bottom:14px;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:4px">Security</div>
+                  <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;line-height:1.3">Computer maker Framework notifies "all customers" of a data breach</div>
+                  <div style="font-size:13px;line-height:1.55;color:#3a352d;margin-top:8px">Hackers accessed names, email addresses, phone numbers, and physical addresses.</div>
+
+                  <div style="height:1px;background:#191713;margin:24px 0"></div>
+                  <div style="font-family:'Source Serif 4',serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b5342c;margin-bottom:10px;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:4px">Editor's Notes</div>
+                  <div style="font-size:12.5px;line-height:1.6;color:#3a352d;font-style:italic">Save any article to your Revisit list with one click &mdash; a running margin note of things to come back to, right alongside the issue.</div>
+                </div>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+        <div class="fwrap"><span class="flabel">Mobile · 392px</span>
+          <div class="mobbox"><div class="mobscale">
+
+            <div style="font-family:'Libre Franklin',sans-serif;color:#191713;background:#f7f4ee;min-height:1060px">
+              <div style="text-align:center;padding:22px 16px 14px;border-bottom:3px double #191713">
+                <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:36px">Reads</div>
+                <div style="font-size:11px;color:#6b6558;margin-top:4px;font-style:italic;font-family:'Source Serif 4',serif">Aug 16 2026 &middot; Issue No. 47</div>
+              </div>
+              <div style="display:flex;overflow-x:auto;gap:14px;padding:12px 16px;border-bottom:1px solid #191713;font-size:11px;font-weight:600;white-space:nowrap">
+                <span>Culture</span><span>Events</span><span style="color:#b5342c">Startups</span><span>Security</span><span>AI</span>
+              </div>
+              <div style="padding:20px 16px">
+                <div style="font-family:'Source Serif 4',serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b5342c;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:3px">Culture</div>
+                <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;line-height:1.2;margin:12px 0 8px">Just Be For Real: On Impersonators &amp; Stolen Identities</div>
+                <div style="font-size:11px;color:#6b6558;font-style:italic;margin-bottom:8px">Lo Carmen's Loose Connections</div>
+                <div style="font-size:13px;line-height:1.6;color:#3a352d">The author's Substack profile was impersonated by a scammer who followed subscribers to deceive people.</div>
+                <div style="margin-top:10px;font-size:12px;font-weight:700;color:#b5342c">Read full piece &rarr;</div>
+                <div style="height:1px;background:#191713;margin:22px 0"></div>
+                <div style="font-family:'Source Serif 4',serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b5342c;border-bottom:2px solid #b5342c;display:inline-block;padding-bottom:3px">Events</div>
+                <div style="font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;line-height:1.25;margin:12px 0 6px">Tech Days Vol. 2</div>
+                <div style="font-size:11px;color:#6b6558;font-style:italic;margin-bottom:8px">Vancouver Tech Journal</div>
+                <div style="font-size:13px;line-height:1.6;color:#3a352d">Vancouver Tech Days is back for round two after Vol. 1 sold out in five days.</div>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Modern digest</div>
+      <p class="dv-oldesc">Contemporary magazine: color-coded category tags, card grid, generous whitespace. Mobile reflows the grid into a single-column feed with a horizontally-scrolling category picker up top.</p>
+      <div class="frames">
+        <div class="fwrap"><span class="flabel">Desktop · 1760px</span>
+          <div class="deskbox"><div class="deskscale">
+
+            <div style="font-family:'Work Sans',sans-serif;color:#14161a;background:#fafaf8;min-height:1180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 48px;border-bottom:1px solid #e5e3dc">
+                <div style="font-family:'Instrument Serif',serif;font-size:28px;font-style:italic">Reads</div>
+                <div style="display:flex;gap:28px;font-size:13px;font-weight:600">
+                  <span>All Articles</span><span>Revisit List</span>
+                  <span style="background:#1c2b4a;color:#fff;padding:6px 14px;border-radius:20px">Aug 16 Issue</span>
+                </div>
+              </div>
+              <div style="padding:44px 48px 20px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff5a36;margin-bottom:10px">Today's digest &middot; 51 stories</div>
+                <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.05;max-width:820px">Silicon Valley's science-fiction problem, Shopify's blowout quarter, and the return of Myspace</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:12px 48px 40px">
+                <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:22px">
+                  <span style="background:#fdece6;color:#ff5a36;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em">Tech</span>
+                  <div style="font-weight:700;font-size:19px;line-height:1.3;margin:14px 0 8px">Historian Jill Lepore says Silicon Valley misreads science fiction</div>
+                  <div style="font-size:13px;line-height:1.55;color:#5a5c63">Why Elon Musk is "a bad science fiction reader," and what that means for AI governance.</div>
+                </div>
+                <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:22px">
+                  <span style="background:#e8edfb;color:#1c2b4a;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em">Deals</span>
+                  <div style="font-weight:700;font-size:19px;line-height:1.3;margin:14px 0 8px">Shopify's blowout earnings show AI tools are paying off</div>
+                  <div style="font-size:13px;line-height:1.55;color:#5a5c63">Stock surged 25% after beating Q2 growth expectations &mdash; its fifth straight 30%+ quarter.</div>
+                </div>
+                <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:22px">
+                  <span style="background:#fdece6;color:#ff5a36;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em">Security</span>
+                  <div style="font-weight:700;font-size:19px;line-height:1.3;margin:14px 0 8px">Framework notifies all customers of a data breach</div>
+                  <div style="font-size:13px;line-height:1.55;color:#5a5c63">Hackers accessed names, emails, phone numbers, and physical addresses.</div>
+                </div>
+              </div>
+              <div style="padding:0 48px 40px">
+                <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;margin-bottom:16px">Culture &amp; Events</div>
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px">
+                  <div style="background:#1c2b4a;color:#fff;border-radius:14px;padding:28px">
+                    <span style="background:rgba(255,255,255,.15);font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase">Culture</span>
+                    <div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.25;margin:16px 0 10px">Just Be For Real: On Impersonators, Scammers &amp; Stolen Identities</div>
+                    <div style="font-size:13px;line-height:1.6;opacity:.85">Musicians' identities are increasingly being stolen for romance scams, catfishing, and fraud on social platforms.</div>
+                  </div>
+                  <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:20px">
+                    <span style="background:#eef0e3;color:#3d5c2e;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase">Events</span>
+                    <div style="font-weight:700;font-size:16px;line-height:1.3;margin:12px 0 6px">Tech Days Vol. 2</div>
+                    <div style="font-size:12.5px;color:#5a5c63;line-height:1.5">Round two after Vol. 1 sold out in five days.</div>
+                  </div>
+                  <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:20px">
+                    <span style="background:#eef0e3;color:#3d5c2e;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase">Events</span>
+                    <div style="font-weight:700;font-size:16px;line-height:1.3;margin:12px 0 6px">BC Founders Day</div>
+                    <div style="font-size:12.5px;color:#5a5c63;line-height:1.5">Strangers, leis, and a founders-only meetup on Aug 20.</div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin:0 48px 40px;background:#fff;border:1px dashed #c9c6bc;border-radius:14px;padding:22px">
+                <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;color:#1c2b4a;margin-bottom:6px">Editor's Notes</div>
+                <div style="font-size:13px;line-height:1.6;color:#5a5c63">Tap the bookmark on any card to send it to your Revisit list &mdash; a running set of notes on what to read again later.</div>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+        <div class="fwrap"><span class="flabel">Mobile · 392px</span>
+          <div class="mobbox"><div class="mobscale">
+
+            <div style="font-family:'Work Sans',sans-serif;color:#14161a;background:#fafaf8;min-height:1060px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #e5e3dc">
+                <div style="font-family:'Instrument Serif',serif;font-size:22px;font-style:italic">Reads</div>
+                <span style="background:#1c2b4a;color:#fff;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600">Aug 16</span>
+              </div>
+              <div style="display:flex;overflow-x:auto;gap:8px;padding:14px 18px;white-space:nowrap">
+                <span style="background:#fdece6;color:#ff5a36;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px">Tech</span>
+                <span style="background:#e8edfb;color:#1c2b4a;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px">Deals</span>
+                <span style="background:#eef0e3;color:#3d5c2e;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px">Events</span>
+                <span style="background:#f3e8fb;color:#5c2e8a;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px">AI</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:14px;padding:6px 18px 20px">
+                <div style="background:#1c2b4a;color:#fff;border-radius:14px;padding:20px">
+                  <span style="background:rgba(255,255,255,.15);font-size:10px;font-weight:700;padding:4px 9px;border-radius:20px;text-transform:uppercase">Culture</span>
+                  <div style="font-family:'Instrument Serif',serif;font-size:21px;line-height:1.25;margin:12px 0 8px">Just Be For Real: On Impersonators &amp; Stolen Identities</div>
+                  <div style="font-size:12px;line-height:1.55;opacity:.85">Musicians' identities are increasingly stolen for romance scams and fraud on social platforms.</div>
+                </div>
+                <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:18px">
+                  <span style="background:#fdece6;color:#ff5a36;font-size:10px;font-weight:700;padding:4px 9px;border-radius:20px">Tech</span>
+                  <div style="font-weight:700;font-size:16px;line-height:1.3;margin:10px 0 6px">Jill Lepore: Silicon Valley misreads science fiction</div>
+                  <div style="font-size:12px;color:#5a5c63;line-height:1.5">Why Elon Musk is a bad science fiction reader.</div>
+                </div>
+                <div style="background:#fff;border:1px solid #e5e3dc;border-radius:14px;padding:18px">
+                  <span style="background:#e8edfb;color:#1c2b4a;font-size:10px;font-weight:700;padding:4px 9px;border-radius:20px">Deals</span>
+                  <div style="font-weight:700;font-size:16px;line-height:1.3;margin:10px 0 6px">Shopify's blowout earnings</div>
+                  <div style="font-size:12px;color:#5a5c63;line-height:1.5">Stock surged 25% on a fifth straight 30%+ growth quarter.</div>
+                </div>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Bold zine</div>
+      <p class="dv-oldesc">Dark, high-contrast, poster-scale headlines with a mono-spaced trade-desk feel &mdash; leans into the tech/AI subject matter. Mobile keeps the huge type but drops to one column with a bottom tab bar.</p>
+      <div class="frames">
+        <div class="fwrap"><span class="flabel">Desktop · 1760px</span>
+          <div class="deskbox"><div class="deskscale">
+
+            <div style="font-family:'Space Mono',monospace;color:#f2f0e8;background:#0d0d0d;min-height:1180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 48px;border-bottom:1px solid #2a2a2a">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em">READS_</div>
+                <div style="display:flex;gap:24px;font-size:12px;text-transform:uppercase;letter-spacing:.05em">
+                  <span>All Articles</span><span>Revisit</span><span style="color:#d4ff3f">Issue // 08.16</span>
+                </div>
+              </div>
+              <div style="padding:44px 48px 24px;border-bottom:1px solid #2a2a2a">
+                <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">01 &middot; Culture</div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:0.95;letter-spacing:.01em;max-width:1100px">JUST BE FOR REAL: ON IMPERSONATORS, SCAMMERS &amp; STOLEN IDENTITIES</div>
+                <div style="display:flex;gap:32px;margin-top:18px;font-size:13px;color:#8a8a82;align-items:baseline">
+                  <span>Lo Carmen's Loose Connections</span>
+                  <span style="color:#d4ff3f">Read full piece &rarr;</span>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2a2a2a">
+                <div style="background:#0d0d0d;padding:28px">
+                  <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">02 &middot; Events</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1.05">TECH DAYS VOL. 2</div>
+                  <div style="font-size:12.5px;color:#a8a89e;line-height:1.6;margin-top:10px">Vancouver Tech Days is back for round two &mdash; Vol. 1 sold out in five days.</div>
+                </div>
+                <div style="background:#0d0d0d;padding:28px">
+                  <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">03 &middot; Deals</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1.05">SHOPIFY'S BLOWOUT EARNINGS</div>
+                  <div style="font-size:12.5px;color:#a8a89e;line-height:1.6;margin-top:10px">Stock surged 25% after beating Q2 revenue growth expectations.</div>
+                </div>
+                <div style="background:#0d0d0d;padding:28px">
+                  <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">04 &middot; Security</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1.05">FRAMEWORK DATA BREACH</div>
+                  <div style="font-size:12.5px;color:#a8a89e;line-height:1.6;margin-top:10px">Hackers accessed names, emails, phone numbers, and addresses.</div>
+                </div>
+              </div>
+              <div style="padding:28px 48px 40px;display:flex;gap:40px">
+                <div style="flex:1">
+                  <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">05 &middot; AI</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1.15">NVIDIA LINES UP $500B IN FINANCING</div>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">06 &middot; Startups</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1.15">TOP 25 SPOTLIGHT: IVORYOS TECHNOLOGIES</div>
+                </div>
+              </div>
+              <div style="margin:0 48px 40px;border:1px solid #2a2a2a;padding:20px 24px">
+                <div style="font-size:11px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">// EDITOR'S NOTES</div>
+                <div style="font-size:13px;line-height:1.6;color:#a8a89e">Flag any story to REVISIT &mdash; notes persist across issues, pinned to the bottom tab bar.</div>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+        <div class="fwrap"><span class="flabel">Mobile · 392px</span>
+          <div class="mobbox"><div class="mobscale">
+
+            <div style="font-family:'Space Mono',monospace;color:#f2f0e8;background:#0d0d0d;min-height:1060px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #2a2a2a">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:24px">READS_</div>
+                <span style="color:#d4ff3f;font-size:11px">08.16</span>
+              </div>
+              <div style="padding:24px 18px;border-bottom:1px solid #2a2a2a">
+                <div style="font-size:10px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">01 &middot; Culture</div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:0.98">JUST BE FOR REAL: ON IMPERSONATORS &amp; STOLEN IDENTITIES</div>
+                <div style="font-size:12px;color:#8a8a82;margin-top:12px">Lo Carmen's Loose Connections</div>
+                <div style="font-size:12px;color:#d4ff3f;margin-top:6px">Read full piece &rarr;</div>
+              </div>
+              <div style="padding:20px 18px;border-bottom:1px solid #2a2a2a">
+                <div style="font-size:10px;color:#d4ff3f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">02 &middot; Events</div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1.05">TECH DAYS VOL. 2</div>
+                <div style="font-size:12px;color:#a8a89e;line-height:1.5;margin-top:8px">Back for round two after Vol. 1 sold out in five days.</div>
+              </div>
+              <div style="padding:20px 18px;display:flex;justify-content:space-around;border-top:1px solid #2a2a2a;position:sticky;bottom:0;background:#0d0d0d">
+                <span style="font-size:10px;color:#d4ff3f">ISSUE</span>
+                <span style="font-size:10px;color:#8a8a82">ALL</span>
+                <span style="font-size:10px;color:#8a8a82">REVISIT</span>
+              </div>
+            </div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "make <a class="dv-oid" href="#1b">1b</a> full site with all categories" &middot; "combine the masthead of <a class="dv-oid" href="#1a">1a</a> with the cards of <a class="dv-oid" href="#1b">1b</a>" &middot; "build out <a class="dv-oid" href="#1c">1c</a> as the real homepage"</p>
+</section>
+
+</x-dc>
+</body>
+</html>
