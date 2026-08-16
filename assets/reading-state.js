@@ -27,6 +27,14 @@
     const heading = el.closest("h3");
     if (heading) heading.classList.toggle("is-read", !!state.read);
 
+    if (state.hasNote) {
+      const noteMark = document.createElement("span");
+      noteMark.className = "reads-note-indicator";
+      noteMark.textContent = "📝";
+      noteMark.title = "Has notes";
+      el.appendChild(noteMark);
+    }
+
     const readBtn = document.createElement("button");
     readBtn.type = "button";
     readBtn.className = "reads-btn reads-btn-read";
@@ -65,15 +73,70 @@
 
   function init() {
     const controls = document.querySelectorAll("[data-reads-slug]");
-    if (controls.length === 0) return;
-
-    fetchAllState().then((allState) => {
-      controls.forEach((el) => {
-        const slug = el.getAttribute("data-reads-slug");
-        renderControls(el, slug, allState[slug] || { read: false, revisit: false });
+    if (controls.length > 0) {
+      fetchAllState().then((allState) => {
+        controls.forEach((el) => {
+          const slug = el.getAttribute("data-reads-slug");
+          renderControls(el, slug, allState[slug] || { read: false, revisit: false, hasNote: false });
+        });
+        document.dispatchEvent(new CustomEvent("reads-state-loaded", { detail: { state: allState } }));
       });
-      document.dispatchEvent(new CustomEvent("reads-state-loaded", { detail: { state: allState } }));
+    }
+
+    initNotes();
+  }
+
+  // Notes live on the story page only, one per page, so there's no bulk
+  // fetch to do — just load and save the single slug present.
+  function initNotes() {
+    const el = document.querySelector("[data-reads-notes-slug]");
+    if (!el) return;
+
+    const slug = el.getAttribute("data-reads-notes-slug");
+    const textarea = document.createElement("textarea");
+    textarea.className = "reads-notes-input";
+    textarea.placeholder = "Notes on this article…";
+    textarea.rows = 4;
+
+    const status = document.createElement("span");
+    status.className = "reads-notes-status";
+
+    el.appendChild(textarea);
+    el.appendChild(status);
+
+    let saveTimer = null;
+    function save() {
+      status.textContent = "Saving…";
+      fetch(apiUrl(`/state/${encodeURIComponent(slug)}/note`), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ note: textarea.value }),
+      })
+        .then((r) => r.json())
+        .then(() => {
+          status.textContent = "Saved";
+        })
+        .catch(() => {
+          status.textContent = "Failed to save";
+        });
+    }
+
+    textarea.addEventListener("input", () => {
+      status.textContent = "";
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(save, 800);
     });
+    textarea.addEventListener("blur", () => {
+      clearTimeout(saveTimer);
+      save();
+    });
+
+    fetch(apiUrl(`/state/${encodeURIComponent(slug)}/note`))
+      .then((r) => r.json())
+      .then((data) => {
+        textarea.value = data.note || "";
+      })
+      .catch(() => {});
   }
 
   window.ReadsState = { fetchAllState, apiUrl };
