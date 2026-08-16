@@ -1,0 +1,548 @@
+<!-- source: https://hivekit.io/blog/why-you-might-want-to-build-your-webapp-in-canvas-instead-of-html/ -->
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <title>Why you might want to build your WebApp in Canvas instead of HTML</title>
+    <meta name="description" content="" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
+    <link href="https://fonts.cdnfonts.com/css/bahnschrift" rel="stylesheet">
+    
+    <link href="/scss/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script defer data-domain="hivekit.io" src="https://plausible.io/js/script.js"></script>
+    <script type="text/javascript">
+        window._vue = Vue;
+    </script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16749779897"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16749779897');
+    </script>
+</head>
+<body class="blogpost"><nav class="main-nav">
+    <div class="nav-toggle ">
+        <span class="material-symbols-sharp open">menu</span>
+        <span class="material-symbols-sharp close">close</span>
+    </div>
+    <a href="/" class="home mobile">hivekit</a>
+    
+    <div class="inner wrapper">
+        <a href="/" class="home">hivekit</a>
+        <div class="gap-after-home"></div>
+        
+        <div class="drop-down">
+            <div class="visible">
+                <label>Solutions</label>
+                <div class="caret"></div>
+            </div>
+            <div class="panel link-list">
+                <div class="tip">
+                    <div></div>
+                </div>
+                <a href="/solutions/surface-open-pit-mining/" class="description">
+                    <span class="material-symbols-sharp filled icon">landscape</span>
+                    <div class="content">
+                        <h4>Surface & Open Pit Mining</h4>
+                        <p>Peak efficiency for surface metals
+                            and coal.</p>
+                    </div>
+                </a>
+                <a href="/solutions/underground-mining" class="description">
+                    <span class="material-symbols-sharp filled icon">front_loader</span>
+                    <div class="content">
+                        <h4>Underground Mining</h4>
+                        <p>Efficient operations for underground mining.</p>
+                    </div>
+                </a>
+                <a href="/solutions/logistics/" class="description">
+                    <span class="material-symbols-sharp filled icon">local_shipping</span>
+                    <div class="content">
+                        <h4>Logistics</h4>
+                        <p>Visibility, Tracking & Optimization for logistics.</p>
+                    </div>
+                </a>
+                <a href="/solutions/processing/" class="description">
+                    <span class="material-symbols-sharp filled icon">flowchart</span>
+                    <div class="content">
+                        <h4>Processing</h4>
+                        <p>Mill & Plant visibility and alerting.</p>
+                    </div>
+                </a>
+                <a href="/developers/" class="description">
+                    <span class="material-symbols-sharp filled icon">code</span>
+                    <div class="content">
+                        <h4>API & Development</h4>
+                        <p>Spatial Realtime Feeds, Geofencing & Rules</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="drop-down">
+            <div class="visible">
+                <label>Support</label>
+                <div class="caret"></div>
+            </div>
+            <div class="panel link-list">
+                <div class="tip">
+                    <div></div>
+                </div>
+                <a href="/#consultancy" class="description">
+                    <span class="material-symbols-sharp filled icon">support_agent</span>
+                    <div class="content">
+                        <h4>Consultancy</h4>
+                        <p>Planning, Integration &amp; Development</p>
+                    </div>
+                </a>
+                <a href="/user-guides/scheduling/schedule-panel-and-controls" class="description">
+                    <span class="material-symbols-sharp filled icon">menu_book</span>
+                    <div class="content">
+                        <h4>Documentation</h4>
+                        <p>Hivekit User Guides &amp; Tutorials</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="drop-down">
+            <div class="visible">
+                <label>Developers</label>
+                <div class="caret"></div>
+            </div>
+            <div class="panel developers ">
+                <div class="tip">
+                    <div></div>
+                </div>
+                
+                <div class="top">
+                    <a href="/developers/">
+                        <img src="/img/developers/hivekit-api.svg" width="100" alt="Hivekit API" />
+                    </a>
+                </div>
+                <div class="center">
+                    <div>
+                        <a href="/guides/core/core-concepts" class="title">
+                            <span class="material-symbols-sharp filled icon"> menu_book</span>
+                            API Docs
+                        </a>
+                        <a href="/docs/js-client-sdk/installation">
+                            Js/Node SDK
+                        </a>
+                        <a href="#" class="coming-soon">
+                            iOS SDK <span class="hint">coming soon</span>
+                        </a>
+                        <a href="#" class="coming-soon">
+                            Android SDK <span class="hint">coming soon</span>
+                        </a>
+                        <a href="/docs/http-api/usage">
+                            HTTP API
+                        </a>
+                        <a href="/guides/hivescript/introduction">
+                            HiveScript
+                        </a>
+                        <a href="/docs/api-protocol/structure">
+                            Raw Protocol
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/guides/core/core-concepts/" class="title">
+                            <span class="material-symbols-sharp filled icon">school</span>
+                            Guides
+                        </a>
+                        <a href="/tutorials-and-examples/usage-with/google-maps" class="title">
+                            <span class="material-symbols-sharp filled icon">science</span>
+                            Tutorials
+                        </a>
+                        <a href="/enterprise-docs/guides/getting-started" class="title">
+                            <span class="material-symbols-sharp filled icon">apartment</span>
+                            Enterprise
+                        </a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="https://github.com/hivekit">
+                        <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                                transform="scale(64)" />
+                        </svg>
+                        Browse our code on Github
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="drop-down">
+            <div class="visible">
+                <label>About us</label>
+                <div class="caret"></div>
+            </div>
+            <div class="panel link-list">
+                <div class="tip">
+                    <div></div>
+                </div>
+                <a href="/about/company/" class="description">
+                    <span class="material-symbols-sharp filled icon">group</span>
+                    <div class="content">
+                        <h4>Company</h4>
+                        <p>Learn more about Hivekit Inc. and its founder.</p>
+                    </div>
+                </a>
+                <a href="/about/our-vision/" class="description">
+                    <span class="material-symbols-sharp filled icon">visibility</span>
+                    <div class="content">
+                        <h4>Our Vision for Hivekit</h4>
+                        <p>Creating Artificial Intelligence for the Physical World.</p>
+                    </div>
+                </a>
+                <a href="/press/" class="description">
+                    <span class="material-symbols-sharp filled icon">newsmode</span>
+                    <div class="content">
+                        <h4>Press Section</h4>
+                        <p>Press Releases, Images and background info</p>
+                    </div>
+                </a>
+                <a href="/blog/" class="description">
+                    <span class="material-symbols-sharp filled icon">menu_book</span>
+                    <div class="content">
+                        <h4>Blog</h4>
+                        <p>Our blog on geospace, AI and computing.</p>
+                    </div>
+                </a>
+
+                <a href="/contact" class="description">
+                    <span class="material-symbols-sharp filled icon">chat</span>
+                    <div class="content">
+                        <h4>Contact Us</h4>
+                        <p>Book a demo, contact sales or get support.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="drop-down account hide-if-logged-out">
+            <div class="visible">
+                <label class="email-label" v-text="user.email"></label>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div class="caret"></div>
+            </div>
+            <div class="panel link-list">
+                <div class="tip">
+                    <div></div>
+                </div>
+                <div class="orgs" v-if="orgs.length > 0">
+                    <h4>My Organizations</h4>
+                    <ul>
+                        <li @click="setOrg(personalOrg.tenant_id)"
+                            :class="{selected: user.tenantId === personalOrg.tenant_id}">
+                            <span class="material-symbols-sharp filled icon">account_circle</span>
+                            <span class="org-name">My Personal Account</span>
+                        </li>
+                        <li v-for="org in orgs" @click="setOrg(org.tenant_id)"
+                            :class="{selected: user.tenantId === org.tenant_id}">
+                            <span class="material-symbols-sharp filled icon"
+                                :style="{color: getHexColorFromString(org.tenant_id)}">communities</span>
+                            <span class="org-name" v-text="org.name"></span>&nbsp;
+                            (<span class="org-role" v-text="org.role"></span>)
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="/account/#/realms" class="description">
+                    <span class="material-symbols-sharp filled icon">map</span>
+                    <div class="content">
+                        <h4>My Realms</h4>
+                        <p>Edit realms and see live views of your data</p>
+                    </div>
+                </a>
+                <a href="/account/#/account" class="description">
+                    <span class="material-symbols-sharp filled icon">account_circle</span>
+                    <div class="content">
+                        <h4>My Account</h4>
+                        <p>Account, Access Management & Billing</p>
+                    </div>
+                </a>
+
+                <a href="#" class="description logout-button" @click="logout">
+                    <span class="material-symbols-sharp filled icon">logout</span>
+                    <div class="content">
+                        <h4>Log Out</h4>
+                        <p>End your current session</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a href="/contact" class="contact btn">
+            Contact
+        </a>
+        <a href="/login" class="hide-if-logged-in">
+            <label>Login</label>
+        </a>
+        
+
+    </div>
+</nav>
+<script type="application/javascript">
+    window.onscroll = e => {
+        if (window.scrollY > 20) {
+            document.body.classList.add('scrolled');
+        } else {
+            document.body.classList.remove('scrolled');
+        }
+    }
+    const navToggle = document.querySelector('.main-nav .nav-toggle');
+    function onNavToggleClick() {
+        document.querySelector('.main-nav').classList.toggle('open');
+    }
+    navToggle.addEventListener('click', onNavToggleClick);
+    
+
+    document.querySelectorAll('.main-nav .drop-down').forEach(dropDown => {
+        dropDown.addEventListener('click', () => {
+            dropDown.classList.toggle('force-show');
+        })
+    });
+
+    (async function () {
+        const host = document.location.href.includes('localhost') ? 'http://localhost:3000' : 'https://account.hivekit.io';
+        const response = await fetch(host + '/account-api/user/info', { credentials: 'include' });
+        if (response.status !== 200) {
+            return;
+        }
+        const user = await response.json();
+        document.querySelector('.main-nav').classList.add('logged-in');
+
+        new window._vue({
+            el: '.main-nav .account',
+            data: {
+                user,
+                personalOrg: { tenant_id: 'unset' },
+                orgs: []
+            },
+            async mounted() {
+                const response = await fetch(host + '/account-api/tenant/', { credentials: 'include' });
+                (await response.json()).forEach(org => {
+                    if (org.is_personal) {
+                        this.personalOrg = org;
+                    } else {
+                        this.orgs.push(org);
+                    }
+                })
+            },
+            methods: {
+                async logout() {
+                    await fetch(host + '/account-api/user/logout', { method: 'POST', credentials: 'include' })
+                    document.location.href = "https://hivekit.io/";
+                },
+                getHexColorFromString(str) {
+                    let hash = 0;
+                    for (let i = 0; i < str.length; i++) {
+                        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+                    }
+                    let color = '#';
+                    for (let i = 0; i < 3; i++) {
+                        let value = (hash >> (i * 8)) & 0xFF;
+                        color += ('00' + value.toString(16)).substr(-2);
+                    }
+                    return color;
+                },
+                async setOrg(tenantId) {
+                    await fetch(host + '/account-api/user/set_tenant', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ tenant: tenantId })
+                    })
+                    document.location.reload();
+                }
+            }
+        })
+    })();
+
+</script><div id="content">
+        <h1 id="why-you-might-want-to-build-your-webapp-in-canvas-instead-of-html">Why you might want to build your WebApp in Canvas instead of HTML</h1>
+<p>I’m always curious how Google, Microsoft and Co. build their web apps - given that they need to work well on any computer, from a top-shelf speed machine to a potato with wires.</p>
+<p>Of course, there are many answers to this question - but one that I find particularly interesting is their use of the Canvas element for functionality that&rsquo;s usually implemented in HTML.</p>
+<p>The document in Google Docs is a Canvas. So is the sheet in Google Sheets or in the web version of Excel. Unsurprisingly, Canva is a Canvas - but so is the board in Miro. Our own scheduling interface in Hivekit is also a Canvas.</p>
+<video autoplay muted loop playsinline poster="./hivekit-scheduler.png">
+    <source src="./hivekit-scheduler.webm" type="video/webm">
+    <source src="./hivekit-scheduler.mp4" type="video/mp4">
+</video>
+<div class="img-hint">
+    Hivekit's scheduler can be zoomed (changes displayed timespan), panned in x and y direction and has lots of interactive aspects that needed managing.
+</div>
+<p>I helped build it, and in this post, I want to explain why we chose Canvas over DOM elements, what we learned along the way, when I think that Canvas is or isn’t a good choice for web apps, and why I think Canvas is used by all these big companies for performance-critical apps.</p>
+<h2 id="what-was-canvas-again">What was Canvas again?</h2>
+<p>Canvas has been around for more than 20 years now. It provides a blank space within an HTML document that can be drawn on. To do that, you use a JavaScript API with higher-level methods like <code>fillRect()</code> to fill a rectangle and lower-level methods like <code>getImageData()</code> to access the raw RGBA values of your pixels.</p>
+<p>Whatever approach you take, you end up with what&rsquo;s basically a static image. For Web Developers, that feels a bit odd. After all, they&rsquo;re used to a complex Document Object Model, HTML parsed into element trees, click handlers and event bubbling, dynamic rendering and reflows - all managed for you and perfectly tuned for the user&rsquo;s device.</p>
+<p>With Canvas, all of this is gone now.</p>
+<h2 id="so---why-on-earth-would-you-use-canvas">So - why on earth would you use Canvas?</h2>
+<p>There are some things only Canvas can do. Pixel image manipulation is the obvious one. But why would you choose Canvas to build a web app that could also be built in HTML?</p>
+<p>A few reasons:</p>
+<ul>
+<li>
+<p><strong>Speed:</strong> Parsing HTML, creating a DOM, applying CSS styles, and handling the myriad of features related to user interaction all take time. If your web app becomes complex, the browser can end up doing some seriously heavy lifting. A “dumb” drawing API means less work. Less work means more speed.</p>
+</li>
+<li>
+<p><strong>Control:</strong> If you’re building a whiteboarding app with an infinite workspace, a grid with countless rows, or a planning tool with a zoomable workspace, you need to take control of rendering anyway. You can (kind of) do that in HTML - for example, through “virtual scrolling,” where you swap the content of grid rows instead of using the browser’s native scrolling, or by cleverly adding and removing elements from the DOM as the user zooms and pans. But at that point, you might be better off owning the rendering altogether.</p>
+</li>
+<li>
+<p><strong>Consistency:</strong> With canvas, you output exactly what you specify across devices. This used to be more of an issue when browser implementations differed, but even now, responsive designs, CSS gradients, and transition effects can look quite different across operating systems and screens. With canvas, you get the same result - for better or worse.</p>
+</li>
+<li>
+<p><strong>Portability:</strong> Canvas is used to render output from other visual frameworks. Flutter Web and certain WebAssembly implementations output their screen buffers to canvas. But this also works the other way around: tools such as Ejecta and NativeScript wrap C++ drawing APIs in Canvas calls that let you output your graphics on other systems.</p>
+</li>
+</ul>
+<h2 id="and-why-wouldnt-you-use-canvas">And why wouldn’t you use Canvas?</h2>
+<p>There are far more reasons not to use Canvas than to use it. And for most web apps, you’re much better off with good old DOM elements. Take the humble <code>&lt;input type=&quot;text&quot;&gt;</code> element, for example. With it, you get crispy rendering at any resolution, support for tab, focus, selection, mouse interactions and arrow key navigation, internationalization for right-to-left text and Asian compound characters, accessibility for screen readers&hellip; the list goes on.</p>
+<p>Browsers give you a lot of functionality out of the box and there are plenty of great frameworks that make it easy to use, scale and work on in an organized and standardized way across teams.</p>
+<h2 id="when-is-canvas-the-better-choice">When is Canvas the better choice?</h2>
+<p>There&rsquo;s a certain set of use cases where Canvas can be the better choice.</p>
+<ul>
+<li>
+<p><strong>When you have a lot of absolutely positioned elements, irregular shapes or complex render order/z-index requirements.</strong> Whether you&rsquo;re building a vision board app or a 2D platformer, if your app is outside the usual HTML layout flow, Canvas might make your life easier.</p>
+</li>
+<li>
+<p><strong>When you only need to render specific things.</strong> If your app can be zoomed, panned, uses camera transforms, clipping, tiling, level-of-detail rendering, or virtualisation, Canvas makes it easy to make sure you only render what you need to.</p>
+</li>
+<li>
+<p><strong>If your application already has a strong internal model.</strong> If your app already has a strong concept of state, geometry, focus and interaction and all you need is a way to visualize it, Canvas makes it easier than HTML.</p>
+</li>
+</ul>
+<p>But if you do decide on a Canvas implementation, here are some of the key things you want to look out for:</p>
+<ul>
+<li><strong>Manage when to Render:</strong> The pattern that worked best for us is to have one central renderer that calls other classes that render specific aspects, such as <code>backgroundRenderer</code>, <code>rowRenderer</code>, <code>taskRenderer</code>. Each of the other classes can call <code>scheduleRender</code> on the renderer. This schedules a single render pass for the next animation frame. Note that we clear the entire Canvas for every frame and render everything from scratch. This is wasteful and more sophisticated implementations might only clear and rerender specific regions. But - doing that also adds complexity - and rerendering the entire Canvas for every frame really never caused issues for us.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Renderer</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">constructor</span><span style="color:#1f2328">(</span><span style="color:#1f2328">canvas</span><span style="color:#1f2328">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">renderScheduled</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">false</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">canvas</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">context</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getContext</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;2d&#39;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">backgroundRenderer</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">BackgroundRenderer</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">rowRenderer</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">RowRenderer</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">scheduleRender</span><span style="color:#1f2328">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">renderScheduled</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">return</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">renderScheduled</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">requestAnimationFrame</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">render</span><span style="color:#1f2328">.</span><span style="color:#1f2328">bind</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">render</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">renderScheduled</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">false</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">context</span><span style="color:#1f2328">.</span><span style="color:#1f2328">clearRect</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">width</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">height</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// Render the individual layers in order
+</span></span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">backgroundRenderer</span><span style="color:#1f2328">.</span><span style="color:#1f2328">render</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">context</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">rowRenderer</span><span style="color:#1f2328">.</span><span style="color:#1f2328">render</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">context</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Layer Multiple Canvas Elements:</strong> For our planning interface, the fundamental plan stays fairly static while the user interacts with the mouse. But there are a lot of highlight and hover effects. For these, we utilize a second Canvas element with the same dimensions as the original Canvas. This <code>InteractionRenderer</code> refreshes much more frequently than the actual Canvas, but only renders a few bounding frames, which is much more lightweight.</p>
+</li>
+<li>
+<p><strong>Keep styles separate.</strong> Keeping CSS separate from HTML makes your life easier - so why not do this with Canvas? Keep a separate file for styles, e.g.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#1f2328">gapDiagonalLineSpacing</span><span style="color:#0550ae">:</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">textColor</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;#ecf0f5&#39;</span><span style="color:#1f2328">,</span> 
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">textColorSecondary</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;#4d6585&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fontStyle</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;13px &#39;Lato&#39;, sans-serif&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">fontStyleBold</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;bold 13px &#39;Lato&#39;, sans-serif&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">...</span>
+</span></span></code></pre></div><ul>
+<li><strong>Manage device resolution and pixel density</strong> To get crisp render results, make sure your Canvas element is scaled to the device&rsquo;s pixel ratio. Then, counterintuitively, set the context&rsquo;s scale to offset the element&rsquo;s scale. This way, you get crisp render output without your code having to be conscious of scale and pixel density all the time.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#1f2328">getPixelScale</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">max</span><span style="color:#1f2328">(</span><span style="color:#6639ba">window</span><span style="color:#1f2328">.</span><span style="color:#1f2328">devicePixelRatio</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">scaleCanvas</span><span style="color:#1f2328">(</span><span style="color:#1f2328">canvas</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ctx</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">const</span> <span style="color:#1f2328">pixelScale</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getPixelScale</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">width</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">offsetWidth</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">pixelScale</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">height</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">offsetHeight</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">pixelScale</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#1f2328">scale</span><span style="color:#1f2328">(</span><span style="color:#1f2328">pixelScale</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pixelScale</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Have central functions that translate domain coordinates to pixels:</strong> If you are building an infinite-workspace-type app, elements on this workspace likely have X and Y coordinates. If you are building a spreadsheet, you&rsquo;ll have row and column indices. These will be different from the actual pixel coordinates, based on the user&rsquo;s resolution, zoom and pan position, and a host of other factors.
+You&rsquo;ll make your life a lot easier by having simple functions like <code>getXForColumn(colIndex)</code> or <code>getPositionForDomainCoordinates(x,y)</code>.</p>
+</li>
+<li>
+<p><strong>Maintain a simple box model:</strong> As the user hovers over or clicks elements, you&rsquo;ll want to know what they interacted with. To do this fast, build up an index of bounding boxes in screen space beforehand. For each, store its x1, x2, y1, and y2 coordinates, along with its z-index and some identifier that tells your implementation what element it belongs to. If you manage a lot of bounding boxes, you might also want to create simple indices based on x and y coordinates for faster lookups or even consider an R-Tree for spatial indexing.</p>
+</li>
+<li>
+<p><strong>Manage Event Handler Life Cycles</strong> Have a global listener for mouse and keyboard events and a simple way to register and deregister callbacks for specific events and elements.</p>
+</li>
+</ul>
+<h2 id="so-should-you-use-canvas">So, should you use Canvas?</h2>
+<p>Canvas isn’t a faster replacement for HTML. It’s a lower-level rendering tool that gives you more control—and makes you responsible for much more of the browser’s work.</p>
+<p>For most web apps, the DOM remains the better choice. It gives you accessibility, responsive layouts, text selection, input handling, and countless other features for free. But if the heart of your application is a large, spatial workspace with complex positioning, zooming, panning, or thousands of visual elements, Canvas may be a better fit.</p>
+<p>That was the case for us. Owning the rendering pipeline made the planning interface easier to reason about and gave us predictable performance across a wide range of devices. It also meant building our own systems for interaction, hit testing, scaling, and rendering—work that shouldn’t be underestimated.</p>
+<p>So don’t choose Canvas simply because it sounds fast. Choose it when your interface no longer behaves like a document and starts behaving more like a scene.</p>
+
+    </div><footer>
+    <p class="copyright">&copy; <span id="year"></span> Hivekit Inc</p>
+    <div class="inner">
+        <address class="col address">
+            <span>Hivekit, Inc</span>
+            <span>651 N Broad St Suite 201</span>
+            <span>Middletown, New Castle</span>
+            <span>19709 Delaware, USA</span>
+        </address>
+        <div class="col">
+            <a href="https://twitter.com/hivekit_io">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+                @hivekit_io
+            </a>
+            <a href="mailto:team@hivekit.io">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path
+                        d="M256 352c-16.53 0-33.06-5.422-47.16-16.41L0 173.2V400C0 426.5 21.49 448 48 448h416c26.51 0 48-21.49 48-48V173.2l-208.8 162.5C289.1 346.6 272.5 352 256 352zM16.29 145.3l212.2 165.1c16.19 12.6 38.87 12.6 55.06 0l212.2-165.1C505.1 137.3 512 125 512 112C512 85.49 490.5 64 464 64h-416C21.49 64 0 85.49 0 112C0 125 6.01 137.3 16.29 145.3z" />
+                </svg>
+                team@hivekit.io
+            </a>
+        </div>
+        <div class="col">
+            <a href="/legal/user-agreement/">user agreement</a>
+            <a href="/legal/privacy-policy/">privacy policy</a>
+            <a href="/legal/cookie-policy/">cookie policy</a>
+        </div>
+        <div class="col cookie-warning">
+            By continuing to use this website, you consent to the use of cookies in accordance with our <a
+                href="/legal/cookie-policy/">cookie policy</a>.
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    document.getElementById('year').innerText = (new Date).getFullYear();
+</script></body>
+
+</html>

@@ -1,0 +1,1429 @@
+<!-- source: https://spin.atomicobject.com/rebuilding-development-workstation/ -->
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KT4K2FF');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <meta name="git_revision" content="">
+    <meta name="ecs_revision" content="">
+    <title>How I Rebuilt My Development Workstation for Agentic Work</title>
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch"><link rel="preload" data-rocket-preload as="image" href="https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg" imagesrcset="https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg 2048w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-590x393.jpg 590w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1024x683.jpg 1024w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-150x100.jpg 150w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-768x512.jpg 768w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1536x1024.jpg 1536w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-600x400.jpg 600w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1200x800.jpg 1200w" imagesizes="(max-width: 2048px) 100vw, 2048px" fetchpriority="high">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://spin.atomicobject.com/xmlrpc.php">
+    <link rel="icon" type="image/x-icon" href="https://spin.atomicobject.com/wp-content/themes/spin/images/favicon.ico" />
+
+    <!-- Styles -->
+    <link data-minify="1" rel="stylesheet" href="https://spin.atomicobject.com/wp-content/cache/min/1/yhb2hqk.css?ver=1786563010">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <!-- WP Head -->
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<meta name="description" content="My previous workstation optimized for focusing on one task at a time. My new setup optimizes for coordinating multiple parallel threads." />
+	<link rel="canonical" href="https://spin.atomicobject.com/rebuilding-development-workstation/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="How I Rebuilt My Development Workstation for Agentic Work" />
+	<meta property="og:description" content="My previous workstation optimized for focusing on one task at a time. My new setup optimizes for coordinating multiple parallel threads." />
+	<meta property="og:url" content="https://spin.atomicobject.com/rebuilding-development-workstation/" />
+	<meta property="og:site_name" content="Atomic Spin" />
+	<meta property="article:publisher" content="https://www.facebook.com/atomicobject" />
+	<meta property="article:published_time" content="2026-08-08T12:00:29+00:00" />
+	<meta property="og:image" content="https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg" />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="1365" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Brian May" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@atomicobject" />
+	<meta name="twitter:site" content="@atomicobject" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Brian May" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="9 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#article","isPartOf":{"@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/"},"author":{"name":"Brian May","@id":"https:\/\/spin.atomicobject.com\/#\/schema\/person\/cb8ce5a7f24164a986d685b235efdbd8"},"headline":"How I Rebuilt My Development Workstation for Agentic Work","datePublished":"2026-08-08T12:00:29+00:00","mainEntityOfPage":{"@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/"},"wordCount":2001,"commentCount":0,"publisher":{"@id":"https:\/\/atomicobject.com\/"},"image":{"@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#primaryimage"},"thumbnailUrl":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg","keywords":["workspace","ai agent"],"articleSection":["Developer Tools"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#respond"]}]},{"@type":"WebPage","@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/","url":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/","name":"How I Rebuilt My Development Workstation for Agentic Work","isPartOf":{"@id":"https:\/\/spin.atomicobject.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#primaryimage"},"image":{"@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#primaryimage"},"thumbnailUrl":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg","datePublished":"2026-08-08T12:00:29+00:00","description":"My previous workstation optimized for focusing on one task at a time. My new setup optimizes for coordinating multiple parallel threads.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/spin.atomicobject.com\/rebuilding-development-workstation\/#primaryimage","url":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg","contentUrl":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg","width":2048,"height":1365,"caption":"Post author Brian May at his workstation."},{"@type":"WebSite","@id":"https:\/\/spin.atomicobject.com\/#website","url":"https:\/\/spin.atomicobject.com\/","name":"Atomic Spin","description":"Atomic Object’s blog on everything we find fascinating.","publisher":{"@id":"https:\/\/atomicobject.com\/"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/spin.atomicobject.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/spin.atomicobject.com\/#organization","name":"Atomic Object","url":"https:\/\/spin.atomicobject.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/spin.atomicobject.com\/#\/schema\/logo\/image\/","url":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/AO-Logo-Emblem-Color.png","contentUrl":"https:\/\/spin.atomicobject.com\/wp-content\/uploads\/AO-Logo-Emblem-Color.png","width":258,"height":244,"caption":"Atomic Object"},"image":{"@id":"https:\/\/spin.atomicobject.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/atomicobject","https:\/\/x.com\/atomicobject"]},{"@type":"Person","@id":"https:\/\/spin.atomicobject.com\/#\/schema\/person\/cb8ce5a7f24164a986d685b235efdbd8","name":"Brian May","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/a4cb03cc173cd1b3317e99092177cdcef05cbe273386d839ea6e40780324f016?s=96&d=blank&r=pg","url":"https:\/\/secure.gravatar.com\/avatar\/a4cb03cc173cd1b3317e99092177cdcef05cbe273386d839ea6e40780324f016?s=96&d=blank&r=pg","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/a4cb03cc173cd1b3317e99092177cdcef05cbe273386d839ea6e40780324f016?s=96&d=blank&r=pg","caption":"Brian May"},"description":"Software Consultant &amp; Developer at Atomic Object Grand Rapids. Member of Cell Two. Curious how that thing works.","url":"https:\/\/spin.atomicobject.com\/author\/brian-may\/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel="alternate" type="application/rss+xml" title="Atomic Spin &raquo; Feed" href="https://spin.atomicobject.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Atomic Spin &raquo; Comments Feed" href="https://spin.atomicobject.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Atomic Spin &raquo; How I Rebuilt My Development Workstation for Agentic Work Comments Feed" href="https://spin.atomicobject.com/rebuilding-development-workstation/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://spin.atomicobject.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fspin.atomicobject.com%2Frebuilding-development-workstation%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://spin.atomicobject.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fspin.atomicobject.com%2Frebuilding-development-workstation%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='mci-footnotes-jquery-tooltips-pagelayout-none-css' href='https://spin.atomicobject.com/wp-content/plugins/footnotes/css/footnotes-jqttbrpl0.min.css?ver=2.7.3' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='custom-typekit-css-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/yhb2hqk.css?ver=1786563010' media='all' />
+<link data-minify="1" rel='stylesheet' id='wpa-css-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/plugins/honeypot/includes/css/wpa.css?ver=1786563010' media='all' />
+<link data-minify="1" rel='stylesheet' id='spin_styles-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/themes/spin/style.css?ver=1786563010' media='all' />
+<link data-minify="1" rel='stylesheet' id='fontawesome-theme-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/ajax/libs/font-awesome/6.1.1/css/all.min.css?ver=1786563010' media='all' />
+<link data-minify="1" rel='stylesheet' id='allmedia-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/themes/spin/css/allmedia.css?ver=1786563010' media='all' />
+<link data-minify="1" rel='stylesheet' id='custom-css' href='https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/themes/spin/css/custom.css?ver=1786563010' media='all' />
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://spin.atomicobject.com/wp-content/plugins/rocket-lazy-load/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script id="jquery-core-js" src="https://spin.atomicobject.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script id="jquery-migrate-js" src="https://spin.atomicobject.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<script id="mci-footnotes-jquery-tools-js" src="https://spin.atomicobject.com/wp-content/plugins/footnotes/js/jquery.tools.min.js?ver=1.2.7.redacted.2" data-rocket-defer defer></script>
+<script data-minify="1" id="spin_prism-js" src="https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/themes/spin/js/prism.js?ver=1786563010" data-rocket-defer defer></script>
+<script data-minify="1" id="spin_scripts-js" src="https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/themes/spin/scripts.js?ver=1786563010" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://spin.atomicobject.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://spin.atomicobject.com/wp-json/wp/v2/posts/3674903" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://spin.atomicobject.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://spin.atomicobject.com/?p=3674903' />
+<link rel="icon" href="https://spin.atomicobject.com/wp-content/uploads/cropped-AO-Favicon-512-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://spin.atomicobject.com/wp-content/uploads/cropped-AO-Favicon-512-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://spin.atomicobject.com/wp-content/uploads/cropped-AO-Favicon-512-180x180.png" />
+<meta name="msapplication-TileImage" content="https://spin.atomicobject.com/wp-content/uploads/cropped-AO-Favicon-512-270x270.png" />
+<style id="wp-custom-css">
+.nav-link-holder.hiring {
+	opacity: 0;
+	visibility: hidden;
+}
+li.ai-design-color a::before {
+	background-color: #A5488B;
+}
+.subscribe-section {
+    display: none;
+}
+/* Mobile blog grid/links */
+@media only screen and (max-width: 767px) {
+  .category .category-archive-grid .content-part {
+    order: 1;
+  }
+	.category .category-archive-grid .category-list-side {
+		order: 2;
+		margin-top: 60px;
+	}
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<style type="text/css" media="all">
+.footnotes_reference_container {margin-top: 24px !important; margin-bottom: 0px !important;}
+.footnote_container_prepare > p {border-bottom: 1px solid #aaaaaa !important;}
+.footnote_tooltip { font-size: 13px !important; background-color: #ffffff !important; border-width: 1px !important; border-style: solid !important; border-color: #ffffff !important; -webkit-box-shadow: 2px 2px 11px #dbdbdb; -moz-box-shadow: 2px 2px 11px #dbdbdb; box-shadow: 2px 2px 11px #dbdbdb;}
+.footnote_plugin_tooltip_text {
+    top: 0.4em !important;
+}
+
+</style>
+
+    <style>
+           @media screen and (min-width: 960px) and (max-width: 1390px) {
+            #main-nav #top-nav > .main-nav-inner {
+                width: 94% !important;
+            }
+        }
+        @media screen and (min-width: 960px) and (max-width: 1621px) {
+            #main-nav #top-nav > .main-nav-inner {
+                width: 84%;
+            }
+            #top-nav > .main-nav-inner .nav-link-holder {
+                width: auto;
+                min-width: 80px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            #top-nav > .main-nav-inner .nav-link-holder.blog {
+                width: 12.5%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        @media screen and (min-width: 960px) {
+            body #fixed-nav .blog--secondary,
+            body #main-nav .blog--secondary {
+                margin-left: 5px !important;
+                padding-left: 7px;
+                padding-right: 7px;
+                width: auto;
+                min-width: 90px;
+            }
+            body #fixed-nav .blog,
+            body #main-nav .blog {
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+        }
+        .nav-link-w-subnav {
+            position: relative;
+        }
+        .nav-link-w-subnav .nav-link-w-subnav-wrap {
+            position: relative;
+            padding-right: 20px;
+        }
+        .nav-link-w-subnav .sub-nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px #59595963;
+            position: absolute;
+            left: -10rem;
+            top: 47px;
+            display: none;
+            width: 533px;
+        }
+        .nav-link-w-subnav.active .sub-nav {
+            display: block;
+        }
+        .nav-link-w-subnav:hover .sub-nav {
+            display: block;
+        }
+        .nav-link-w-subnav #spin-services-dropdown-btn {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            position: absolute;
+            top: 4px;
+            right: 0;
+        }
+        .nav-link-w-subnav .sub-nav li {
+            text-align: left;
+        }
+        .nav-link-w-subnav .sub-nav__wrap {
+            grid-column-gap: 2.5rem;
+            grid-row-gap: .5rem;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-columns: 1fr;
+            padding: 1.6rem;
+            display: grid;
+        }
+        .nav-link-w-subnav .sub-nav__wrap ul {
+            min-width: auto;
+            margin: 0;
+        }
+        .nav-link-w-subnav .sub-nav__wrap ul:first-child {
+            min-width: 200px;
+        }
+        .nav-link-w-subnav .sub-nav__wrap span { 
+            padding: 8px 16px 8px 0;
+        }
+        .nav-link-w-subnav .sub-nav__wrap a {
+            padding: 8px 16px 8px 0;
+            font-weight: 400;
+            line-height: 1;
+        }
+        .nav-link-w-subnav .sub-nav__wrap a:focus {
+            color: #f0595c !important;
+            text-decoration: underline;
+        }
+        .nav-link-w-subnav > a svg {
+            padding-top: 4px;
+            margin-left: 3px;
+        }
+        .nav-link-w-subnav .sub-nav__wrap li {
+            margin-bottom: 8px;
+            padding: 0;
+        }
+        .nav-link-w-subnav .sub-nav__wrap li:first-child a {
+            text-decoration: underline;
+        }
+        .nav-link-w-subnav .sub-nav__wrap a:after {
+            content: none !important;
+        }
+
+        /* mobile nav */ 
+        #mobile-nav .nav-link-holder--dropdown ul {
+            padding: 0;
+            margin: 0 auto 10px auto;
+            max-width: 500px;
+        }
+        #mobile-nav .nav-link-holder--dropdown ul li {
+            text-align: center;
+            font-weight: 400;
+            padding-left: 0;
+        }
+        #mobile-nav .nav-link-holder--dropdown ul li a {
+            display: inline-block;
+        }
+        #mobile-nav button.nav-link-holder--dropdown-button {
+            background-color: transparent;
+            box-shadow: none;
+            border: 0;
+            color: #ffffff;
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            height: 80px;
+            vertical-align: middle;
+            width: 100%;
+        }
+        .nav-link-holder--dropdown ul {
+            display: none;
+        }
+        .nav-link-holder--dropdown.active ul {
+            display: block;
+        }
+    </style>
+
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.23.1.1" data-wpr-features="wpr_defer_js wpr_minify_js wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_mobile" /></head>
+
+
+<body class="wp-singular post-template-default single single-post postid-3674903 single-format-standard wp-theme-spin group-blog category-slug-development category-child-slug-developer-tools" data-has-drawer="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT4K2FF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div  id="border-top" class="borders border-h"></div>
+    <div  id="border-left" class="borders border-v"></div>
+    <div  id="border-right" class="borders border-v"></div>
+    <div  id="border-bottom" class="borders border-h"></div>
+
+
+    <div  id="mobile-header">
+        <a href="https://atomicobject.com/">
+            <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/ao-wordmark-logo.svg" alt="Atomic Object" class="mobile-wordmark-logo" width="235" height="71" />
+        </a>
+        <a href="#mobile-nav" id="mobile-nav-trigger" data-toggle="#mobile-nav">
+            <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/icon-mobile-menu.svg" alt="Show Nav" width="20" height="15" />
+        </a>
+    </div>
+
+    <nav id="mobile-nav">
+        <div class="mobile-nav-close-wrap">
+            <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/icon-mobile-close.svg" alt="Close Menu" id="icon-mobile-close" class="mobile-nav-close" data-toggle="#mobile-nav" width="15" height="15" />
+        </div>
+
+        <div class='nav-link-holder'>
+            <a href="/" class="backlink">
+                &lt; Blog Home
+            </a>
+        </div>
+        <div class="nav-link-holder">
+            <a href="https://atomicobject.com/">
+                Atomic Object
+            </a>
+        </div>
+        <div class="nav-link-holder">
+            <a href="https://atomicobject.com/agentic-engineering">
+                Build with AI
+            </a>
+        </div>
+
+        <div class="nav-link-holder nav-link-holder--dropdown">
+            <button type="button" class="nav-link-holder--dropdown-button" id="mobile-dropdown-btn--offerings" aria-expanded="false" aria-controls="mobile-dropdown--offerings">
+                Offerings <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg>
+            </button>
+            <ul class="mobile-dropdown" id="mobile-dropdown--offerings" aria-labelledby="mobile-dropdown-btn--offerings">
+                <li>
+                    <a href="https://atomicobject.com/offerings/ai-software-development">
+                        AI Software Development
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/offerings/new-product-development">
+                        New Product Development
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/offerings/product-enhancement">
+                        Product Enhancement
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/offerings/product-modernization">
+                        Product Modernization
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-link-holder nav-link-holder--dropdown"> 
+            <button type="button" class="nav-link-holder--dropdown-button" id="mobile-dropdown-btn--platforms" aria-expanded="false" aria-controls="mobile-dropdown--platforms">
+                Platforms <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg>
+            </button>
+            <ul class="mobile-dropdown" id="mobile-dropdown--platforms" aria-labelledby="mobile-dropdown-btn--platforms">
+                <li>
+                    <a href="https://atomicobject.com/platforms/web-app-development">
+                        Web App
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/platforms/mobile-app-development">
+                        Mobile App
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/platforms/iot-software-development">
+                        IoT Software
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/platforms/desktop-app-development">
+                        Desktop App
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/platforms/cloud-powered-software">
+                        Cloud
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-link-holder nav-link-holder--dropdown">
+            <button type="button" class="nav-link-holder--dropdown-button" id="mobile-dropdown-btn--industries" aria-expanded="false" aria-controls="mobile-dropdown--industries">
+                Industries <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg>
+            </button>
+            <ul class="mobile-dropdown" id="mobile-dropdown--industries" aria-labelledby="mobile-dropdown-btn--industries">
+                <li>
+                    <a href="https://atomicobject.com/industries/custom-healthcare-software">
+                        Healthcare
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/industries/custom-financial-services-software">
+                        Financial Services
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/industries/custom-edtech-software">
+                        Education
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/industries/custom-insurance-software">
+                        Insurance
+                    </a>
+                </li>
+                <li>
+                    <a href="https://atomicobject.com/industries">
+                        <em>See more...</em>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+                    <div class="nav-link-holder">
+                <a href="https://atomicobject.com/portfolio">
+                    Portfolio                </a>
+            </div>
+                    <div class="nav-link-holder">
+                <a href="https://atomicobject.com/team">
+                    Team                </a>
+            </div>
+                    <div class="nav-link-holder">
+                <a href="https://atomicobject.com/culture">
+                    Culture                </a>
+            </div>
+                    <div class="nav-link-holder">
+                <a href="https://atomicobject.com/contact">
+                    Contact                </a>
+            </div>
+                
+        <!-- <div class="nav-link-holder hiring">
+            <a href="https://atomicobject.com/careers">
+                We're Hiring
+            </a>
+        </div> -->
+    </nav>
+
+    <nav id="main-nav" class="main-nav">
+        <div id="top-nav">
+            <div class="main-nav-inner">
+                <a href="https://atomicobject.com/" class="logo wordmark">
+                    <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/ao-wordmark-white.svg" alt="Atomic Object" class="white" width="300" height="91" />
+                    <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/ao-wordmark-logo.svg" alt="Atomic Object" class="color" width="150" height="45" />
+                </a>
+
+                                <div class="nav-link-holder nav-link-w-subnav">
+                    <div class="nav-link-w-subnav-wrap">
+                        <a class="nav-link-w-subnav__link" href="https://atomicobject.com/services">
+                            Services
+                        </a>
+                        <button type="button" id="spin-services-dropdown-btn" aria-expanded="false" aria-controls="spin-services-dropdown">
+                            <span class="screen-reader-text">Services links</span> 
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg>
+                        </button>
+                    </div>
+                    <div class="sub-nav" aria-labelledby="spin-services-dropdown-btn" id="spin-services-dropdown">
+                        <div class="sub-nav__wrap">
+                            <ul class="navbar_dropdown-wrapper">
+                                <li>
+                                    <span><strong>Offerings</strong></span>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/offerings/ai-software-development">
+                                        AI Software Development
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/offerings/new-product-development">
+                                        New Product Development
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/offerings/product-enhancement">
+                                        Product Enhancement
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/offerings/product-modernization">
+                                        Product Modernization
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar_dropdown-wrapper">
+                                <li>
+                                    <a href="https://atomicobject.com/platforms">
+                                        <strong>Platforms</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/platforms/web-app-development">
+                                        Web App
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/platforms/mobile-app-development">
+                                        Mobile App
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/platforms/iot-software-development">
+                                        IoT Software
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/platforms/desktop-app-development">
+                                        Desktop App
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/platforms/cloud-powered-software">
+                                        Cloud
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar_dropdown-wrapper">
+                                <li>
+                                    <a href="https://atomicobject.com/industries">
+                                        <strong>Industries</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/industries/custom-healthcare-software">
+                                        Healthcare
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/industries/custom-financial-services-software">
+                                        Financial Services
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/industries/custom-edtech-software">
+                                        Education
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/industries/custom-insurance-software">
+                                        Insurance
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://atomicobject.com/industries">
+                                        <em>See more...</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-link-holder">
+                    <a href="https://atomicobject.com/portfolio">
+                        Portfolio
+                    </a>
+                </div>
+                <div class="nav-link-holder">
+                    <a href="https://atomicobject.com/team">
+                        Team
+                    </a>
+                </div>
+                <div class="nav-link-holder">
+                    <a href="https://atomicobject.com/culture">
+                        Culture
+                    </a>
+                </div>
+
+                <div class="nav-link-holder blog">
+                    <a href="https://atomicobject.com/agentic-engineering">
+                        Build with AI
+                    </a>
+                </div>
+
+                <div class="nav-link-holder blog blog--secondary">
+                    <a href="https://atomicobject.com/careers">
+                        We're Hiring
+                    </a>
+                </div>
+
+                <div class="nav-link-holder blog blog--secondary">
+                    <a href="/" class="current">
+                        Blog
+                    </a>
+                </div>
+
+                <div class="nav-link-holder contact">
+                    <a href="https://atomicobject.com/contact" class="button">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div><!-- /#top-nav -->
+
+       <div id="fixed-nav" class="animated">
+            <div class="main-nav-inner">
+                <a href="https://atomicobject.com/" class="logo symbol">
+                    <img src="https://spin.atomicobject.com/wp-content/themes/spin/images/ao-symbol-red.svg" alt="Atomic Object" width="60" height="60" />
+                </a>
+
+                                    <div class="nav-link-holder">
+                        <a href="https://atomicobject.com/services">
+                            Services                        </a>
+                    </div>
+                                    <div class="nav-link-holder">
+                        <a href="https://atomicobject.com/portfolio">
+                            Portfolio                        </a>
+                    </div>
+                                    <div class="nav-link-holder">
+                        <a href="https://atomicobject.com/team">
+                            Team                        </a>
+                    </div>
+                                    <div class="nav-link-holder">
+                        <a href="https://atomicobject.com/culture">
+                            Culture                        </a>
+                    </div>
+                
+                <div class="nav-link-holder blog">
+                    <a href="https://atomicobject.com/careers">
+                        We're Hiring
+                    </a>
+                </div>
+
+                <div class="nav-link-holder blog blog--secondary">
+                    <a href="https://atomicobject.com/agentic-engineering">
+                        Build with AI
+                    </a>
+                </div>
+
+                <div class="nav-link-holder blog blog--secondary">
+                    <a href="/" class="current">
+                        Blog
+                    </a>
+                </div>
+
+                <div class="nav-link-holder contact">
+                    <a href="https://atomicobject.com/contact" class="button">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div><!-- /#fixed-nav -->
+    </nav><!-- /#main-nav --> 
+
+
+    <div  id="page" class="hfeed site">
+        
+
+        <div  id="content" class="site-content">
+
+        <script>
+            window.addEventListener('load', function () {
+                if(document.querySelector('.nav-link-holder--dropdown-button')) {
+                    const mobileDropdownBtns = document.querySelectorAll('.nav-link-holder--dropdown-button');
+
+                    mobileDropdownBtns.forEach((btn) => {
+                        btn.addEventListener('click', function() {
+                            const parent = this.parentElement;
+                            const isActive = parent.classList.contains('active');
+                            if(isActive) {
+                                btn.querySelector('svg').style.transform = 'rotate(0deg)';
+                                parent.classList.remove('active');
+                                btn.setAttribute('aria-expanded', false);
+                            } else {
+                                parent.classList.add('active');
+                                btn.querySelector('svg').style.transform = 'rotate(180deg)';
+                                btn.setAttribute('aria-expanded', true);
+                            }
+                        });
+                    });
+                }
+                if(document.getElementById('spin-services-dropdown-btn')) {
+                    const desktopDropdownBtn = document.getElementById('spin-services-dropdown-btn');
+
+                    function handleEvent(e) {
+                        if(desktopDropdownBtn.classList.contains('active')) {
+                            desktopDropdownBtn.parentElement.parentElement.classList.remove('active');
+                            desktopDropdownBtn.classList.remove('active');
+                            desktopDropdownBtn.setAttribute('aria-expanded', false);
+                        } else {
+                            desktopDropdownBtn.parentElement.parentElement.classList.add('active');
+                            desktopDropdownBtn.classList.add('active');
+                            desktopDropdownBtn.setAttribute('aria-expanded', true);
+                        }
+                    }
+
+                    desktopDropdownBtn.addEventListener('click', handleEvent);
+
+                    if(document.querySelector('.nav-link-w-subnav__link')) {
+                        document.querySelector('.nav-link-w-subnav__link').addEventListener('focus', handleEvent);
+                        document.querySelector('.nav-link-w-subnav__link').addEventListener('blur', () => handleEvent);
+                    }   
+                }
+            });
+        </script>
+
+	
+<div  id="primary" class="primary content-area">
+
+	
+	<main id="main" class="site-main" role="main">
+
+
+		<article id="post-3674903" class="entry single-article post-3674903 post type-post status-publish format-standard has-post-thumbnail hentry category-developer-tools tag-workspace tag-ai-agent">
+
+			<header class="entry-header">
+
+				<div class="back-link-container">
+					<a href="/">← Back to Blog Home</a>
+				</div>
+
+				<h1 itemprop="name headline" class="entry-title">
+					How I Rebuilt My Development Workstation for Agentic Work				</h1>
+
+				<div class="entry-top-bar">
+
+					<div class="entry-top-bar-left">
+						<div itemprop="category" content="" class="post-date"><span class="category-meta category-slug-development"><a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a></span></div>
+
+						<div class="authors">
+							
+		<div class="post-author">
+			by: <a href="/author/brian-may/"><span><span>Brian May</span></span></a>
+		</div>
+																						<div itemprop="datePublished" content="2026-08-08" class="post-date">August 8, 2026</div>
+						</div>
+
+
+					</div>
+					<div class="entry-top-bar-right">
+						<div class="top-entry-share"><ul class="social-icon-list entry-share-links"><li class="social-icon-list-item entry-share-link twitter"><a href="//twitter.com/intent/tweet?text=How I Rebuilt My Development Workstation for Agentic Work&url=https://spin.atomicobject.com/rebuilding-development-workstation/%23.VNUemPABEaM.twitter&related=" data-popup="social-share">Twitter</a></li><li class="social-icon-list-item entry-share-link facebook"><a href="//www.facebook.com/sharer/sharer.php?u=https://spin.atomicobject.com/rebuilding-development-workstation/%23.VNUemgHMI00.facebook" data-popup="social-share">Facebook</a></li><li class="social-icon-list-item entry-share-link linkedin"><a href="//www.linkedin.com/shareArticle?mini=true&url=https://spin.atomicobject.com/rebuilding-development-workstation/%23.VNUeuSKf2A4.linkedin&title=How I Rebuilt My Development Workstation for Agentic Work&ro=false&summary=&source=" data-popup="social-share">Linkedin</a></li><li class="social-icon-list-item entry-share-link hackernews"><a href="//news.ycombinator.com/submitlink?u=https://spin.atomicobject.com/rebuilding-development-workstation/%23.VNUdMcs6UCk.hackernews&t=How I Rebuilt My Development Workstation for Agentic Work" data-popup="social-share">Hackernews</a></li></ul></div>					</div>
+				</div>
+				<!-- .entry-meta -->
+
+			</header>
+			<!-- .entry-header -->
+
+							<div class="single-featured-image">
+					<img width="2048" height="1365" src="https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg" class="attachment-full size-full wp-post-image" alt="Post author Brian May at his workstation." decoding="async" fetchpriority="high" srcset="https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1.jpg 2048w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-590x393.jpg 590w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1024x683.jpg 1024w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-150x100.jpg 150w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-768x512.jpg 768w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1536x1024.jpg 1536w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-600x400.jpg 600w, https://spin.atomicobject.com/wp-content/uploads/Hot-Reloading-Kubernetes-with-Skaffold-1-1200x800.jpg 1200w" sizes="(max-width: 2048px) 100vw, 2048px" />				</div>
+			
+
+			<div itemprop="articleBody" class="entry-content">
+
+				
+				<div class="single-article-summary">
+
+					<div class="as-summary-list">
+													<h3>Article summary</h3>
+						
+						<ul>
+															<li><a href="#summary-0">The Terminal as a Shared Foundation</a></li>
+																							<li><a href="#summary-1">WezTerm</a></li>
+																							<li><a href="#summary-2">Cleaning Up zsh</a></li>
+																							<li><a href="#summary-3">tmux is Where Work Lives</a></li>
+																							<li><a href="#summary-4">A Worktree per Thread</a></li>
+																							<li><a href="#summary-5">Moving from Vim to Neovim</a></li>
+																							<li><a href="#summary-6">Different Git Tools for Different Kinds of Review</a></li>
+																							<li><a href="#summary-7">Optimizing for Coordination</a></li>
+																							<li><a href="#summary-8">Redesigning a Workstation</a></li>
+																					</ul>
+					</div>
+
+									</div>
+
+				<div class="inner-content">
+
+					<p>&#8216;For most of my eight-year career, my development environment was never really designed. It accumulated.</p>
+<p>Every new project, language, and workflow added another alias, plugin, editor setting, or command-line utility. Some of those additions became indispensable. Others solved a problem I had once and then lingered in my configuration for years. Eventually, parts of the setup referenced tools that were unused, unsupported, or no longer even installed.</p>
+<p>It was time for a reset.</p>
+<p>The motivation was not just cleaning up old configuration. The way I develop software is changing. My previous workstation optimized for finding the best tool for each job and focusing on one task at a time. My new setup optimizes for coordinating multiple parallel threads of work—often with one or more agents working in each thread.</p>
+<p>Managing several agents across different projects is already mentally expensive. Spreading them across separate applications, windows, editors, and chat interfaces adds even more overhead. I wanted a shared environment where the project, branch, shell, editor, agent, and review workflow could stay together.</p>
+<p>The result is a workstation that is terminal-native, agentic-first, and built around composable tools.</p>
+<p>Agentic-first does not mean agent-only. I still write code, investigate problems, and make decisions myself. It means the environment treats an agent as a normal participant in the development workflow rather than something bolted onto the side of it.</p>
+<h2>The Terminal as a Shared Foundation</h2>
+<p>The terminal is the common layer beneath the entire setup.</p>
+<p>That does not mean every development task must happen in a terminal. Browsers, debuggers, and specialized tools still have their place. The terminal is useful here because it gives both me and an agent access to the same set of primitives: files, processes, Git repositories, search tools, scripts, and sessions.</p>
+<p>The TL;DR of my stack is WezTerm, zsh, tmux, Neovim, and Codex. I also rely heavily on additional tools like ripgrep, fzf, LazyGit, and RevDiff.</p>
+<h2>WezTerm</h2>
+<p>I am not completely sold on <a href="https://wezterm.org/index.html">WezTerm</a> as my terminal foundation yet.</p>
+<p>My terminal is intentionally barebones: a font, a color scheme, some padding, and a small visual distinction for inactive panes. That is about it. Coming from the feature rich of world of Warp, this feels like a hard reset.</p>
+<pre><code class="language-lua">local wezterm = require("wezterm")
+local config = wezterm.config_builder()
+
+config.color_scheme = "SpaceGray Eighties"
+config.font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" })
+config.font_size = 18.0
+
+config.inactive_pane_hsb = {
+  saturation = 0.0,
+  brightness = 0.5,
+}
+
+return config
+</code></pre>
+<p>What I do like is that WezTerm is configurable with Lua scripts. If I eventually want the terminal itself to react to projects, sessions, or other state, I have a real scripting language available instead of endless settings menus and unknown configuration formats.</p>
+<p>For now, WezTerm mostly stays out of the way. The rest of the stack is responsible for organizing what happens inside it.</p>
+<h2>Cleaning Up zsh</h2>
+<p>I have used zsh and <a href="https://ohmyz.sh/">Oh My Zsh</a> for a long time, so this part of the rebuild was more subtraction than experimentation.</p>
+<p>Years of shell configuration had left behind commented examples, duplicated initialization, environment-specific paths, and plugins I no longer needed. The goal was to clean that up while keeping the parts of the shell I actually use.</p>
+<p>The remaining setup includes vim keybindings, a small custom prompt, shared history, syntax highlighting, fzf-powered history search, tab completion for several tools, and a handful of functions and aliases.</p>
+<p>I also cache the output of shell initialization commands that would otherwise run every time a new shell starts:</p>
+<pre><code class="language-bash">#.zshrc
+plugins=(evalcache git)
+
+typeset -U path PATH
+
+_evalcache direnv hook zsh
+_evalcache ~/.local/bin/mise activate zsh
+_evalcache zoxide init zsh
+</code></pre>
+<p>Shell startup time is not the most important performance metric on my workstation, but tmux and parallel workflows make me create shells more frequently. Small delays become much more noticeable when repeated throughout the day.</p>
+<p><a href="https://github.com/burntsushi/ripgrep">ripgrep</a> and <a href="https://github.com/junegunn/fzf">fzf</a> also fit the broader theme of the setup. They are fast, focused tools that work independently but become more valuable when composed with other tools.</p>
+<h2>tmux is Where Work Lives</h2>
+<p><a href="https://github.com/tmux/tmux/wiki">tmux</a> is the layer that turns my terminal from a window containing a shell into a workspace.</p>
+<p>Each substantial unit of work can have its own session. I use session to group processes, working directory, editor, and agent together. I can move between projects or work streams without reconstructing the state of each one or trying to remember which terminal tab belongs to which branch.</p>
+<p>My tmux usage is still relatively modest. I use sessions, windows, panes, keyboard navigation, copy mode, and a few visual indicators. I am not attempting to turn it into an operating system.</p>
+<p>Most of the configuration is made up of sensible defaults that work for me:</p>
+<pre><code class="language-config"># Bind prefix to Control-Space
+unbind C-b
+set -g prefix C-Space
+
+# Visually coherent pane splitting
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+# Navigate panes with vim-like movements
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+</code></pre>
+<p>New panes inherit the current working directory, and the navigation uses the same directional keys I already use in Vim. Pane borders display the window name, while inactive panes are visually muted.</p>
+<p>The higher-leverage features are often even simpler. Using my tmux prefix followed by `w` gives me a tree of the sessions and windows I currently have open. That has become one of the main ways I move between parallel threads of work. Instead of locating the right application window and then reconstructing its purpose, I navigate directly to a named session.</p>
+<pre><code class="language-config"># Session navigation
+bind w choose-tree -Zw
+</code></pre>
+<p>I would not recommend that everyone immediately jump into tmux. It has a steep learning curve, and many of its concepts and defaults are unfamiliar until the mental model clicks. Even with my deliberately minimal usage, though, I am finding a lot of power in it.</p>
+<p>The important feature is not that tmux lets me split a terminal. Any modern terminal can do that. The important feature is that sessions are durable, addressable, and controllable from the command line. That makes them useful building blocks for automation.</p>
+<h2>A Worktree per Thread</h2>
+<p>Running several agents in parallel creates a Git problem before it creates an AI problem.</p>
+<p>Git worktrees are already a familiar solution for many developers working across multiple branches at once. They allow each branch to have its own working directory without requiring a separate clone of the repository.</p>
+<p>I keep a dedicated worktree directory for each project. It is usually just called `worktrees` and sits next to the main project repository:</p>
+<pre><code class="language-tree">project/
+worktrees/
+  feature-one/
+  fix-something/
+  experiment/
+</code></pre>
+<p>This gives every thread of work an isolated branch and filesystem while keeping those working directories in a predictable place.</p>
+<p>This also means it is more important than ever to have a local development environment that can run multiple instances without collisions. Ports, databases, container names, queues, and other shared resources all become potential sources of interference once several branches are running at the same time. But that is a topic for another blog post.</p>
+<p>I wrote a custom utility that orchestrates Git worktrees, tmux, and Codex in the way that works for me. It gives me a quick way to turn a branch into an isolated workspace with a corresponding tmux session and an agent ready to work inside it.</p>
+<p>The implementation is specific to my preferences, but the larger idea is more important than the script itself:</p>
+<pre><code class="language-tree">branch
+  └── Git worktree
+        └── tmux session
+              ├── shell
+              └── agent
+</code></pre>
+<p>This small amount of orchestration removes enough friction that creating a fresh workspace becomes the default. There is little incentive to let unrelated work share a branch, directory, or terminal context.</p>
+<h2>Moving from Vim to Neovim</h2>
+<p>I have been a Vim user for a long time, but this is my first real experiment with <a href="https://neovim.io/">Neovim</a>.</p>
+<p>The transition to Neovim wasn&#8217;t too dramatic considering it is completely compatible with vanilla vim. But it gave me an opportunity to reconsider my assumptions about what an editor should and shouldn&#8217;t provide. I am using Lua for configuration and include the following plugins:</p>
+<ul>
+<li><a href="https://github.com/nvim-telescope/telescope.nvim">Telescope</a> for finding files, buffers, and text</li>
+<li><a href="https://github.com/stevearc/oil.nvim">Oil</a> for navigating and editing directories</li>
+<li><a href="https://github.com/nvim-treesitter/nvim-treesitter">Treesitter</a> for parsing, highlighting, and indentation</li>
+<li>the built-in LSP client with a few third-party language servers</li>
+<li>text completion through <a href="https://github.com/saghen/blink.cmp">blink.cmp</a></li>
+<li>Gitsigns, Fugitive, Diffview, and LazyGit integration</li>
+<li>shared directional navigation between Neovim and tmux</li>
+</ul>
+<p>I still occasionally miss IDE interactions like the ability to preview all references to a symbol or add breakpoints inline. I&#8217;m sure I will find plugins and mappings that close more of those gaps over time. I am also trying not to re-create an entire IDE immediately. Part of this experiment is discovering which IDE features I genuinely depend on and which ones were simply available.</p>
+<p>Neovim’s biggest advantage in this setup is not that it is categorically better than an IDE. It is that the editor can live inside the same tmux session as the shell, running processes, and agent responsible for that task while still providing some quality of life improvements over vanilla vim.</p>
+<h2>Different Git Tools for Different Kinds of Review</h2>
+<p>I still use command-line Git for most Git operations. It is fast, predictable, scriptable, and deeply embedded in my muscle memory. In most cases, the CLI is still the clearest way for me to express exactly what I want to do.</p>
+<p>That does not mean every Git interaction is best represented as a sequence of commands.</p>
+<p><a href="https://lazygit.dev/">lazygit</a> is useful when I want a visual overview of repository state or need to perform an interactive Git operation. It is particularly good for human-driven work where seeing branches, commits, files, and hunks together is more useful than constructing the equivalent CLI command.</p>
+<p><a href="https://github.com/umputun/revdiff">revdiff</a> is something I discovered recently and am still trying out. I have been using it to review agent-produced changesets and provide feedback across an entire diff. Instead of stopping at the first issue, sending a comment, waiting for a change, and repeating the process, I can review the complete result and return an aggregated set of feedback.</p>
+<p>In practice, the tools have settled into different roles:</p>
+<ul>
+<li>lazygit helps with human review and visual git operations.</li>
+<li>revdiff helps me review an agent’s work and communicate what should change.</li>
+<li>CLI git remains the default for most direct repository operations.</li>
+</ul>
+<p>There is lots of overlap between these tools, along with Neovim integrations such as Diffview and Gitsigns. I am fine with that. The goal is not to choose one Git interface and force every Git-shaped task through it. The goal is to have a small number of tools with clear roles.</p>
+<h2>Optimizing for Coordination</h2>
+<p>My previous workstation optimized for doing one thing at a time with the best available tool.</p>
+<p>That made sense when most work had a single foreground thread. In an agentic workflow, the scarce resource shifts. Producing another implementation is relatively cheap. Keeping several implementations isolated, understanding their status, reviewing their output, and giving each one useful feedback is harder.</p>
+<p>The new setup optimizes more for that coordination problem.</p>
+<p>A branch can become an isolated worktree. The worktree can become a tmux session. The session contains the human and agent tools needed for the task. The output can be inspected with normal Git tooling and reviewed with a tool designed for structured agent feedback.</p>
+<p>Because the pieces expose command-line interfaces and operate on ordinary files and processes, they are available to both me and the agents. I do not need a separate automation story for each graphical application.</p>
+<p>The setup is also intentionally unfinished. I may decide WezTerm is not the right terminal. My Neovim configuration will certainly evolve. I expect my tmux usage to change as I learn which patterns remain useful under real workloads. I will definitely add more custom utilities as I find new opportunities to orchestrate the tools around repetitive parts of the workflow.</p>
+<h2>Redesigning a Workstation</h2>
+<p>Deliberately redesigning my workstation has also given me a greater appreciation for what these tools are doing for me. When configuration grows gradually over years, it is easy to stop seeing the individual decisions inside it. Useful behavior becomes invisible, obsolete behavior stays in place, and muscle memory hides how much the environment has accumulated.</p>
+<p>Rebuilding the setup forced me to examine those decisions again. I had to decide which conveniences were genuinely valuable, which tools still matched the way I work, and which pieces existed only because they had always been there.</p>
+<p>The goal is not a perfect or permanent collection of tools. It is a workstation whose structure matches the way I now work: several independent threads, a mixture of human and agent effort, and a need to move between them without losing the plot.</p>
+
+					
+
+<footer class="single-post-footer">
+
+	<div class="single-post-footer-tags"><a href="https://spin.atomicobject.com/tag/workspace/" rel="tag">workspace</a><a href="https://spin.atomicobject.com/tag/ai-agent/" rel="tag">ai agent</a></div> 
+
+
+	
+	<div class="post-author">
+		<div class="author-box">
+			<div class="author-box-left">
+			<div class="author-avatar">
+				<a href="https://spin.atomicobject.com/author/brian-may/">
+					<img src="https://spin.atomicobject.com/wp-content/authors/brian.may-156.jpg" class="avatar photo" alt="Brian May" width="60" height="60" />				</a>
+			</div>
+			</div>
+
+			<div class="author-box-right">
+				<div class="author-content">
+					<a href="https://spin.atomicobject.com/author/brian-may/">
+						Brian May					</a>
+					<span>Software Consultant &amp; Developer at Atomic Object Grand Rapids. Member of Cell Two. Curious how that thing works.</span>
+				</div>
+				<div class="auther-url" >
+					<a href="https://spin.atomicobject.com/author/brian-may/">
+						<span>All Posts  →</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+		
+</footer>
+
+				</div>
+
+				<div class="single-category-list">
+					<h3>Related Posts</h3>
+					<ul>
+															<li>
+										<span class="category-meta"><a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a></span>
+										<h2><a href="https://spin.atomicobject.com/4-terminal-tools/">4 Terminal Tools I Recommend to New Developers</a></h2>
+									</li>
+																		<li>
+										<span class="category-meta"><a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a></span>
+										<h2><a href="https://spin.atomicobject.com/swagger-codegen-npm-package/">Swagger In A Box: NPM, APIs, and Swagger Codegen</a></h2>
+									</li>
+																		<li>
+										<span class="category-meta"><a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a></span>
+										<h2><a href="https://spin.atomicobject.com/zellij-terminal-workspace/">Here&#8217;s Why I&#8217;m Using Zellij &#8211; A Terminal Workspace</a></h2>
+									</li>
+									
+					</ul>
+
+				</div>
+				</div>
+
+
+				<div class="subscribe-section">
+    <div class="subscribe-row">
+                <div class="subscribe-col-one">
+                        <h2 class="h2">Keep up with our latest posts.</h2>
+                    </div>
+        <div class="subscribe-col-two">
+                        <p>We’ll send our latest tips, learnings, and case studies from the Atomic braintrust on a monthly basis.</p>
+                    </div>
+                <div class="subscribe-col-three subscribe-form">
+                        [mailpoet_form id="1"]                    </div>
+    </div>
+
+</div>
+				<div class="comment-section">
+					<div class="comment-section-inner">
+						
+<div class="section-hr">
+	<span class="section-hr-title">Conversation</span>
+	<hr>
+</div>
+
+
+	<div id="comments" class="comments-area">
+
+		
+			
+										
+
+													<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Join the conversation <small><a rel="nofollow" id="cancel-comment-reply-link" href="/rebuilding-development-workstation/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://spin.atomicobject.com/wp-comments-post.php?wpe-comment-post=atomicspin" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit Comment" /> <input type='hidden' name='comment_post_ID' value='3674903' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b7ca6cc2af" /></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="219"/><script>
+document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+</script>
+</p></form>	</div><!-- #respond -->
+	
+	</div>
+	<!-- #comments -->
+					</div>
+
+
+
+				
+			</div>
+			<!-- .entry-content -->
+
+
+
+			<aside class="suggested-posts">
+				<div class="suggested-posts-inner">
+
+									<div class="suggested-posts-left">
+						<div class="bottom-topic-list">
+							<h3>
+							Development							Category </h3>
+
+						<ul>
+																	<li>
+											<a href="https://spin.atomicobject.com/development/iot/">IoT</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/test-driven-development/">Test Driven Development</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/unit-testing/">Unit Testing</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/event-sourcing/">Event Sourcing</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/software-science/">Software Science</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/development-practices/">Development Practices</a>
+										</li>
+																				<li>
+											<a href="https://spin.atomicobject.com/development/developer-tools/">Developer Tools</a>
+										</li>
+																</ul>
+					</div>
+
+				</div>
+
+				<div class="suggested-posts-right">
+					<div class="section-hr">
+						<span class="section-hr-title">Related Posts</span>
+						<hr>
+					</div>
+
+					<div class="suggested-posts-container">
+
+						
+	<article class='suggested-posts-article'>
+				<a href='https://spin.atomicobject.com/4-terminal-tools/'>
+			<div class='suggested-posts-article-image' style="background-image: url('https://spin.atomicobject.com/wp-content/uploads/postural-habits-JillDeVriesPhotography-AtomicNov18-223-scaled-1-1-2048x1366-1.jpg')"></div>
+		</a>
+
+		<div class='suggested-posts-article-body'>
+
+			<span class="category-meta category-slug-development">
+				<a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a>			</span>
+
+			<p class='suggested-posts-article-title'>
+				<a href="https://spin.atomicobject.com/4-terminal-tools/">
+					4 Terminal Tools I Recommend to New Developers				</a>
+			</p>
+
+		</div>
+	</article>
+
+		
+	<article class='suggested-posts-article'>
+				<a href='https://spin.atomicobject.com/swagger-codegen-npm-package/'>
+			<div class='suggested-posts-article-image' style="background-image: url('https://spin.atomicobject.com/wp-content/uploads/AO2025-JillDeVriesPhotography-167-scaled.jpg')"></div>
+		</a>
+
+		<div class='suggested-posts-article-body'>
+
+			<span class="category-meta category-slug-development">
+				<a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a>			</span>
+
+			<p class='suggested-posts-article-title'>
+				<a href="https://spin.atomicobject.com/swagger-codegen-npm-package/">
+					Swagger In A Box: NPM, APIs, and Swagger Codegen				</a>
+			</p>
+
+		</div>
+	</article>
+
+		
+	<article class='suggested-posts-article'>
+				<a href='https://spin.atomicobject.com/zellij-terminal-workspace/'>
+			<div class='suggested-posts-article-image' style="background-image: url('https://spin.atomicobject.com/wp-content/uploads/postural-habits-JillDeVriesPhotography-AtomicNov18-223-scaled-1-1.jpg')"></div>
+		</a>
+
+		<div class='suggested-posts-article-body'>
+
+			<span class="category-meta category-slug-development">
+				<a href="https://spin.atomicobject.com/development/developer-tools/" rel="category tag">Developer Tools</a>			</span>
+
+			<p class='suggested-posts-article-title'>
+				<a href="https://spin.atomicobject.com/zellij-terminal-workspace/">
+					Here&#039;s Why I&#039;m Using Zellij - A Terminal Workspace				</a>
+			</p>
+
+		</div>
+	</article>
+
+							</div>
+				</div>
+
+				</div>
+
+			</aside>
+
+		</article>
+		<!-- #post-## -->
+
+	</main>
+
+</div>
+	<div data-wpr-lazyrender="1" class="ao-post-cta">
+      <div class="ao-post-cta-col1">
+                    <h3>Tell Us About Your Project</h3>
+            </div>
+    <div class="ao-post-cta-col2">
+        <p>We’d love to talk with you about your next great software project. Fill out this form and we’ll get back to you within two business days.</p>
+    </div>
+    <div class="ao-post-cta-action">
+<!--        <button data-micromodal-trigger="modal-primary">< ?php // echo get_field('contact_form_cta_button_text', 'option'); ?></button>-->
+        <a class="cta--button" href="https://atomicobject.com/contact">Share Your Project</a>
+    </div>
+</div>
+
+
+
+	</div>
+
+	
+		</div>
+		<!-- closing #page -->
+		
+		<footer data-wpr-lazyrender="1" class="footer-margin" id="main-footer">
+			<div  id="footer-container">
+
+				<p class="atomic-slug">
+					<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/ao-wordmark-white.svg" width="160" height="48" /> Atomic is a software design + development consultancy.
+					<br/>
+				</p>
+
+				<small class="copyright">&copy; 2026 Atomic Object LLC</small>
+
+				<div  class="footer-links" id="footer-explore">
+					<h5>Explore</h5>
+					<ul>
+						<li><a href="https://atomicobject.com/client-resources">Insights</a></li>
+						<li><a href="https://atomicobject.com/careers">Careers</a></li>
+						<li><a href="https://atomicobject.com/diversity">Diversity</a></li>
+						<li><a href="https://atomicobject.com/resources">Resources</a></li>
+						<li><a href="https://spin.atomicobject.com">Atomic Blog</a></li>
+						<li><a href="https://atomicobject.com/resources">Developer Resources</a></li>
+					</ul>
+				</div>
+
+				<div  class="footer-links" id="footer-offices">
+					<h5>Offices</h5>
+					<ul>
+						<li><a href="https://atomicobject.com/offices/custom-software-development-ann-arbor">Ann Arbor</a></li>
+						<li><a href="https://atomicobject.com/offices/custom-software-development-chicago">Chicago</a></li>
+						<li><a href="https://atomicobject.com/offices/custom-software-development-grand-rapids">Grand Rapids</a></li>
+						<li><a href="https://atomicobject.com/offices/custom-software-raleigh-durham">Raleigh-Durham</a></li>
+					</ul>
+				</div>
+
+				<div  class="footer-links" id="footer-details">
+					<h5>Details</h5>
+					<ul>
+						<li><a href="https://atomicobject.com/contact">Contact</a></li>
+						<li><a href="https://atomicobject.com/media">Media</a></li>
+						<li><a href="https://atomicobject.com/privacy-policy">Privacy Policy</a></li>
+					</ul>
+				</div>
+
+				<div  class="social footer-links">
+					<ul>
+						<li>
+							<a href="https://twitter.com/atomicobject" target="_blank">
+						<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/circle-twitter.svg" width="20" height="20" />
+					</a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/atomicobject" target="_blank">
+						<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/circle-facebook.svg" width="20" height="20" />
+					</a>
+						</li>
+						<li>
+							<a href="https://github.com/atomicobject" target="_blank">
+						<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/circle-github.svg" width="20" height="20" />
+					</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/company/atomic-object" target="_blank">
+						<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/circle-linkedin.svg" width="20" height="20" />
+					</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/atomicobject/" target="_blank">
+						<img src="https://spin.atomicobject.com/wp-content/themes/spin/images/circle-instagram.svg" width="20" height="20" />
+					</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</footer>
+
+						<script type='text/javascript'><!--
+			var seriesdropdown = document.getElementById("orgseries_dropdown");
+			if (seriesdropdown) {
+			 function onSeriesChange() {
+					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
+						location.href = "https://spin.atomicobject.com/series/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+					}
+				}
+				seriesdropdown.onchange = onSeriesChange;
+			}
+			--></script>
+			<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/spin/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="jquery-ui-core-js" src="https://spin.atomicobject.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" data-rocket-defer defer></script>
+<script id="jquery-ui-tooltip-js" src="https://spin.atomicobject.com/wp-includes/js/jquery/ui/tooltip.min.js?ver=1.13.3" data-rocket-defer defer></script>
+<script data-minify="1" id="wpascript-js" src="https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/plugins/honeypot/includes/js/wpa.js?ver=1786563010" data-rocket-defer defer></script>
+<script id="wpascript-js-after">
+wpa_field_info = JSON.parse(atob("eyJ3cGFfZmllbGRfbmFtZSI6ImZ6a3hvazE0MTUiLCJ3cGFfZmllbGRfdmFsdWUiOjk3NTQ0MCwid3BhX2FkZF90ZXN0Ijoibm8ifQ=="));
+//# sourceURL=wpascript-js-after
+</script>
+<script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://spin.atomicobject.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="https://spin.atomicobject.com/wp-includes/js/comment-reply.min.js?ver=7.0.4"></script>
+<script data-minify="1" defer id="akismet-frontend-js" src="https://spin.atomicobject.com/wp-content/cache/min/1/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1786563025"></script>
+<script>window.lazyLoadOptions = {
+                elements_selector: "iframe[data-lazy-src]",
+                data_src: "lazy-src",
+                data_srcset: "lazy-srcset",
+                data_sizes: "lazy-sizes",
+                class_loading: "lazyloading",
+                class_loaded: "lazyloaded",
+                threshold: 300,
+                callback_loaded: function(element) {
+                    if ( element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible" ) {
+                        if (element.classList.contains("lazyloaded") ) {
+                            if (typeof window.jQuery != "undefined") {
+                                if (jQuery.fn.fitVids) {
+                                    jQuery(element).parent().fitVids();
+                                }
+                            }
+                        }
+                    }
+                }};
+        window.addEventListener('LazyLoad::Initialized', function (e) {
+            var lazyLoadInstance = e.detail.instance;
+
+            if (window.MutationObserver) {
+                var observer = new MutationObserver(function(mutations) {
+                    var image_count = 0;
+                    var iframe_count = 0;
+                    var rocketlazy_count = 0;
+
+                    mutations.forEach(function(mutation) {
+                        for (var i = 0; i < mutation.addedNodes.length; i++) {
+                            if (typeof mutation.addedNodes[i].getElementsByTagName !== 'function') {
+                                continue;
+                            }
+
+                            if (typeof mutation.addedNodes[i].getElementsByClassName !== 'function') {
+                                continue;
+                            }
+
+                            images = mutation.addedNodes[i].getElementsByTagName('img');
+                            is_image = mutation.addedNodes[i].tagName == "IMG";
+                            iframes = mutation.addedNodes[i].getElementsByTagName('iframe');
+                            is_iframe = mutation.addedNodes[i].tagName == "IFRAME";
+                            rocket_lazy = mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');
+
+                            image_count += images.length;
+			                iframe_count += iframes.length;
+			                rocketlazy_count += rocket_lazy.length;
+
+                            if(is_image){
+                                image_count += 1;
+                            }
+
+                            if(is_iframe){
+                                iframe_count += 1;
+                            }
+                        }
+                    } );
+
+                    if(image_count > 0 || iframe_count > 0 || rocketlazy_count > 0){
+                        lazyLoadInstance.update();
+                    }
+                } );
+
+                var b      = document.getElementsByTagName("body")[0];
+                var config = { childList: true, subtree: true };
+
+                observer.observe(b, config);
+            }
+        }, false);</script><script data-no-minify="1" async src="https://spin.atomicobject.com/wp-content/plugins/rocket-lazy-load/assets/js/16.1/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360">',a='<button class="play" aria-label="play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>			<!--
+			Polyfill to make sure that old code samples get properly highlighted with Prism instead
+			of the old WP syntax highlighting plugin
+			-->
+			<script>window.addEventListener('DOMContentLoaded', function() {
+				var codeBlocks = jQuery('pre[lang]');
+				if (codeBlocks.length) {
+					for (var i = 0; i < codeBlocks.length; i++) {
+						jQuery(codeBlocks[i]).wrapInner('<code></code>');
+						jQuery(codeBlocks[i]).addClass('line-numbers');
+						jQuery(codeBlocks[i]).children('code').addClass('language-' + jQuery(codeBlocks[i]).prop('lang'));
+					}
+					Prism.highlight();
+				}
+				// var singleLiners = jQuery('code:not([class])');
+				// if (singleLiners.length) {
+				// 	for (var i = 0; i < singleLiners.length; i++) {
+				// 		jQuery(singleLiners[i]).parent().addClass('lang-none');
+				// 		jQuery(singleLiners[i]).parent().addClass('line-numbers');
+				// 		// jQuery(singleLiners[i]).children('code').addClass('language-' + jQuery(singleLiners[i]).prop('lang'));
+				// 	}
+				// 	Prism.highlight();
+				// }
+			});</script>
+			</body>
+
+			</html>
+<script>window.addEventListener('DOMContentLoaded', function() {
+( function( $ ) {
+
+	var headings = $(".inner-content").find("h2");
+	headings.attr('id', function(i, id){
+		return id || 'summary-' + i
+	})
+	/*$('.inner-content').find('h2').each(function () {
+	  var id_text = $(this).text().toLowerCase().replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, '-').replace(/^(-)+|(-)+$/g,'').replace(['’','“','”'], '') ;
+	  $(this).attr('id', id_text); 
+	});*/	
+
+	$(document).ready(function() {
+			$('.as-summary-list ul li a').bind('click', function(e) {
+					e.preventDefault(); 
+
+					var target = $(this).attr("href"); 
+                	$('html, body').stop().animate({
+							scrollTop: $(target).offset().top  - 82
+					}, 600);
+					//$(this).addClass('active').siblings().removeClass('active');
+					return false;
+					
+			});
+	});
+
+	$(window).scroll(function() {
+			var scrollDistance = $(window).scrollTop();
+		    var i = 0;
+			$('.inner-content').find('h2').each(function(i) {
+				//alert(i);
+					if ($(this).position().top - 100  <= scrollDistance) {
+							$('.as-summary-list ul li a.active').removeClass('active');
+							$('.as-summary-list ul li a').eq(i).addClass('active');
+					}
+					});
+	}).scroll();
+	
+} )( jQuery );
+});</script>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

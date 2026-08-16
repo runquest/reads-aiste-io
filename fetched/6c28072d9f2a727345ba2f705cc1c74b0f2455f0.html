@@ -1,0 +1,1076 @@
+<!-- source: https://rubyonrails.org/ai -->
+<!doctype html>
+
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Rails and AI — Ruby on Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails gives AI coding agents a convention-driven, expressive framework for building production-quality software quickly." />
+
+  <meta property="og:site_name" content="Ruby on Rails: Compress the complexity of modern web apps" />
+  <meta property="og:title" content="Rails and AI — Ruby on Rails" />
+  <meta property="og:description" content="Rails gives AI coding agents a convention-driven, expressive framework for building production-quality software quickly." />
+  <meta property="og:image" content="https://rubyonrails.org/assets/images/opengraph.png" />
+  <meta property="og:url" content="https://rubyonrails.org/ai" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:title" content="Rails and AI — Ruby on Rails" />
+  <meta name="twitter:description" content="Rails gives AI coding agents a convention-driven, expressive framework for building production-quality software quickly." />
+  <meta name="twitter:image" content="https://rubyonrails.org/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails: Compress the complexity of modern web apps" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://rubyonrails.org/ai"
+      },
+      "name": "Ruby on Rails: Compress the complexity of modern web apps",
+      "headline": "Rails and AI — Ruby on Rails",
+      "description": "Rails gives AI coding agents a convention-driven, expressive framework for building production-quality software quickly.",
+      "url": "https://rubyonrails.org/ai",
+      "image": "https://rubyonrails.org/assets/images/opengraph.png"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails: Compress the complexity of modern web apps blog">
+  
+</head>
+
+
+<body class="page-/ai">
+
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+          
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+          
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+          
+          
+            <li class="active"><a href="/ai"><span>AI</span></a></li>
+          
+        
+          
+          
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+          
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+          
+          
+          
+            <li><a href="/events"><span>Events</span></a></li>
+          
+        
+          
+          
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+          
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="heading common-padding--bottom common-padding--top-small">
+  <div class="container">
+    <div class="heading__body">
+      <div class="heading__headline common-headline">
+        <h1>Rails is built for AI.</h1>
+
+        <p>Rails gives coding agents the same thing it has always given developers: clear conventions, expressive code, and a complete framework for turning ideas into production software.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ai common-background--grey common-shape--bottom-white-up-left common-shape--top-white-down-right">
+  <div class="container">
+    <div class="ai__body">
+      <div class="ai__areas">
+        <div class="ai__area">
+          <div class="ai__area__number">01</div>
+          <h3>Convention Over Configuration</h3>
+          <p><strong>Rails gives agents a map.</strong> Standard names, folders, commands, and patterns help generated changes land closer to idiomatic Rails with less prompting.</p>
+        </div>
+
+        <div class="ai__area">
+          <div class="ai__area__number">02</div>
+          <h3>Token Efficiency</h3>
+          <p><strong>Less code means more context.</strong> Ruby and Rails express product ideas with fewer tokens, helping agents make smaller edits and move faster from request to working feature.</p>
+        </div>
+
+        <div class="ai__area">
+          <div class="ai__area__number">03</div>
+          <h3>Quality Training Data</h3>
+          <p><strong>The patterns are everywhere.</strong> Decades of public Rails code give models strong signals for controllers, models, views, tests, jobs, migrations, and the glue between them.</p>
+        </div>
+
+        <div class="ai__area">
+          <div class="ai__area__number">04</div>
+          <h3>The One Person Framework</h3>
+          <p><strong>One person can ship more.</strong> Rails provides the full product stack. Add an AI coding agent, and a solo builder can take on broader work without stitching everything together from scratch.</p>
+        </div>
+      </div>
+
+      <section class="ai__models" aria-labelledby="ai-models-heading">
+        <div class="ai__headline common-headline">
+          <h2>Agents on Rails</h2>
+        </div>
+
+        <div class="ai__models__header">
+          <h2 id="ai-models-heading">Which model is best?</h2>
+          <p>Compare accuracy, speed, token efficiency, cost, and API recall across the same set of Rails evaluations.</p>
+        </div>
+
+        <p class="ai__scroll-hint">Swipe to compare all model metrics <span aria-hidden="true">→</span></p>
+        <div class="ai__models__table-wrap ai__leaderboard-table">
+          <table class="ai__models__table" data-sortable-table>
+            <thead>
+              <tr>
+                <th><button type="button" data-sort-key="model" data-sort-type="text">Model</button></th>
+                <th aria-sort="descending"><button type="button" data-sort-key="accuracy" data-sort-type="number">Accuracy<small>Successful runs</small></button></th>
+                <th><button type="button" data-sort-key="speed" data-sort-type="number">Speed<small>Median</small></button></th>
+                <th><button type="button" data-sort-key="tokens" data-sort-type="number">Tokens<small>Mean per run</small></button></th>
+                <th><button type="button" data-sort-key="cost" data-sort-type="number">Cost<small>Mean per run</small></button></th>
+                <th><button type="button" data-sort-key="api-recall" data-sort-type="number">API Recall<small>Runs</small></button></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="OPUS-5">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 evaluation details">
+                      <img src="/assets/images/ai-vendors/anthropic.svg" alt="Anthropic" width="24" height="24" />
+                      <span>OPUS-5</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="92.1">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 accuracy details">92.1%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="582">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 median speed details">9m 42s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="47000">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 mean token details">47000</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="1.9">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 mean cost details">$1.9</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="31.7">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="opus-5" aria-label="View OPUS-5 API recall details">31.7%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="KIMI-K3">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 evaluation details">
+                      <img src="/assets/images/ai-vendors/moonshot-ai.svg" alt="Moonshot AI" width="24" height="24" />
+                      <span>KIMI-K3</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="90.5">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 accuracy details">90.5%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="765">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 median speed details">12m 45s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="51000">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 mean token details">51000</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="1.09">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 mean cost details">$1.09</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="23.8">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="kimi-k3" aria-label="View KIMI-K3 API recall details">23.8%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="FABLE-5">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 evaluation details">
+                      <img src="/assets/images/ai-vendors/anthropic.svg" alt="Anthropic" width="24" height="24" />
+                      <span>FABLE-5</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="90.5">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 accuracy details">90.5%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="407">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 median speed details">6m 47s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="24667">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 mean token details">24667</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="2.316666666666667">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 mean cost details">$2.317</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="33.3">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="fable-5" aria-label="View FABLE-5 API recall details">33.3%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="GPT-5.6 Sol">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol evaluation details">
+                      <img src="/assets/images/ai-vendors/openai.svg" alt="OpenAI" width="24" height="24" />
+                      <span>GPT-5.6 Sol</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="84.1">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol accuracy details">84.1%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="304">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol median speed details">5m 4s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="28000">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol mean token details">28000</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="0.52">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol mean cost details">$0.52</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="31.7">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="sol" aria-label="View GPT-5.6 Sol API recall details">31.7%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="MUSE-1.2">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 evaluation details">
+                      <img src="/assets/images/ai-vendors/meta.svg" alt="Meta" width="24" height="24" />
+                      <span>MUSE-1.2</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="76.2">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 accuracy details">76.2%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="944">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 median speed details">15m 44s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="68333">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 mean token details">68333</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="1.6866666666666668">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 mean cost details">$1.687</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="22.2">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="muse-1-2" aria-label="View MUSE-1.2 API recall details">22.2%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="LUNA">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="luna" aria-label="View LUNA evaluation details">
+                      <img src="/assets/images/ai-vendors/openai.svg" alt="OpenAI" width="24" height="24" />
+                      <span>LUNA</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="73.0">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="luna" aria-label="View LUNA accuracy details">73.0%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="199">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="luna" aria-label="View LUNA median speed details">3m 19s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="21000">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="luna" aria-label="View LUNA mean token details">21000</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="0.0143">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="luna" aria-label="View LUNA mean cost details">$0.014</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="25.4">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="luna" aria-label="View LUNA API recall details">25.4%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="GLM-5.2">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 evaluation details">
+                      <img src="/assets/images/ai-vendors/z-ai.svg" alt="Z.ai" width="24" height="24" />
+                      <span>GLM-5.2</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="66.7">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 accuracy details">66.7%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="360">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 median speed details">6m 0s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="33000">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 mean token details">33000</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="0.239">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 mean cost details">$0.239</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="11.1">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="glm-5-2" aria-label="View GLM-5.2 API recall details">11.1%</button>
+                  </td>
+                </tr>
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <tr data-model="DEEPSEEK">
+                  <th scope="row">
+                    <button type="button" class="ai__model ai__model--button" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK evaluation details">
+                      <img src="/assets/images/ai-vendors/deepseek.svg" alt="DeepSeek" width="24" height="24" />
+                      <span>DEEPSEEK</span>
+                    </button>
+                  </th>
+                  <td data-sort-column="accuracy" data-sort-value="65.1">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK accuracy details">65.1%</button>
+                  </td>
+                  <td data-sort-column="speed" data-sort-value="408">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK median speed details">6m 48s</button>
+                  </td>
+                  <td data-sort-column="tokens" data-sort-value="44333">
+                    <button type="button" class="ai__score ai__score--button ai__score--mid" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK mean token details">44333</button>
+                  </td>
+                  <td data-sort-column="cost" data-sort-value="0.030533333333333332">
+                    <button type="button" class="ai__score ai__score--button ai__score--high" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK mean cost details">$0.031</button>
+                  </td>
+                  <td data-sort-column="api-recall" data-sort-value="7.9">
+                    <button type="button" class="ai__score ai__score--button ai__score--low" data-eval-details data-model-id="deepseek" aria-label="View DEEPSEEK API recall details">7.9%</button>
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ai__benchmark-chart">
+          <div class="ai__benchmark-chart__header">
+            <h3 data-benchmark-title>Accuracy vs. token efficiency</h3>
+            <p data-benchmark-description>The strongest models rise toward the top-left.</p>
+            <div class="ai__benchmark-chart__filters" role="group" aria-label="Compare accuracy against">
+              <button type="button" data-benchmark-metric="tokens" aria-pressed="true">Tokens</button>
+              <button type="button" data-benchmark-metric="speed" aria-pressed="false">Speed</button>
+              <button type="button" data-benchmark-metric="cost" aria-pressed="false">Cost</button>
+            </div>
+          </div>
+
+          <p class="ai__scroll-hint ai__scroll-hint--chart">Swipe to explore every model <span aria-hidden="true">→</span></p>
+          <div class="ai__benchmark-chart__frame">
+            <div class="ai__benchmark-chart__plot" data-benchmark-plot aria-label="Model accuracy compared with mean tokens per run">
+              <div class="ai__benchmark-chart__y-ticks" data-benchmark-y-ticks aria-hidden="true"></div>
+              <div class="ai__benchmark-chart__x-ticks" data-benchmark-x-ticks aria-hidden="true"></div>
+              <div class="ai__benchmark-chart__points" data-benchmark-points></div>
+            </div>
+            <div class="ai__benchmark-chart__y-label">Accuracy <span>Higher is better</span></div>
+            <div class="ai__benchmark-chart__x-label"><span data-benchmark-x-label>Mean tokens per run</span> <small>Lower is better</small></div>
+          </div>
+
+          <ul class="ai__benchmark-chart__legend" aria-label="Chart legend">
+            <li><span class="ai__benchmark-chart__legend-mark ai__benchmark-chart__legend-mark--accuracy"></span>Higher is more accurate</li>
+            <li><span class="ai__benchmark-chart__legend-mark ai__benchmark-chart__legend-mark--tokens"></span><span data-benchmark-x-legend>Further left uses fewer tokens</span></li>
+          </ul>
+        </div>
+
+        <div class="ai__benchmark-report">
+          <a href="https://rubyonrails.org/category/agents" class="common-button common-button--color-red"><span>Read the most recent benchmark report</span></a>
+        </div>
+
+        <div class="ai__methodology">
+          <h3>Methodology</h3>
+          <p>Each model ran every evaluation three times in August 2026, using the provider's default settings — 63 runs per model. Accuracy is the share of runs that passed the evaluation's hidden tests; refusals count as failures, and differences of a few points between models are within run-to-run noise. Speed is the median run duration, and tokens and cost are means per run. API recall is the percentage of runs in which the model reached directly for the target Rails API. Model-level medians come from run-level data, so they can differ slightly from the per-evaluation timings. Select any model or result for the underlying evaluation details.</p>
+          <p>Explore the open-source <a href="https://github.com/rails/ai-evals">Rails AI evaluation suite</a>.</p>
+        </div>
+      </section>
+
+      <div class="ai__quotes reference-quotes">
+        <ul class="reference-quotes__grid">
+          
+          <li class="reference-quotes__item">
+            <blockquote>
+              <p>Convention over configuration set the path for 20+ years of great training data for AI to use today. Not only does this mean agents do great with Rails, but also that squishy humans can quickly and confidently review the output without a jungle of distracting boilerplate.</p>
+            </blockquote>
+            <cite>
+              <a href="https://x.com/dhh/status/2018574874675929544">
+                
+                <img
+                  class="reference-quotes__avatar"
+                  src="/assets/images/reference-apps/avatars/dhh.jpg"
+                  alt="David Heinemeier Hansson"
+                  loading="lazy"
+                />
+                
+                <span class="reference-quotes__person">
+                  <span class="reference-quotes__name">David Heinemeier Hansson</span>
+                  <span class="reference-quotes__meta">
+                    @dhh
+                  </span>
+                </span>
+              </a>
+            </cite>
+          </li>
+          
+          <li class="reference-quotes__item">
+            <blockquote>
+              <p>Rails' convention over configuration explains why I got very good LLM output quality in the early days of LLM-assisted coding while many developers still thought it was unusable. Most Rails codebases look the same and on average is high quality.</p>
+            </blockquote>
+            <cite>
+              <a href="https://x.com/marckohlbrugge/status/2018584856687501728">
+                
+                <img
+                  class="reference-quotes__avatar"
+                  src="/assets/images/reference-apps/avatars/marckohlbrugge.jpg"
+                  alt="Marc Köhlbrugge"
+                  loading="lazy"
+                />
+                
+                <span class="reference-quotes__person">
+                  <span class="reference-quotes__name">Marc Köhlbrugge</span>
+                  <span class="reference-quotes__meta">
+                    @marckohlbrugge
+                  </span>
+                </span>
+              </a>
+            </cite>
+          </li>
+          
+          <li class="reference-quotes__item">
+            <blockquote>
+              <p>One of the killer features of using Rails in this AI era is "Convention over configuration". If you keep your project close to the Rails defaults, the AI knows so much already about your project… It makes things 100x faster.</p>
+            </blockquote>
+            <cite>
+              <a href="https://x.com/hamen/status/1920481695196688433">
+                
+                <img
+                  class="reference-quotes__avatar"
+                  src="/assets/images/reference-apps/avatars/hamen.jpg"
+                  alt="Ivan Morgillo"
+                  loading="lazy"
+                />
+                
+                <span class="reference-quotes__person">
+                  <span class="reference-quotes__name">Ivan Morgillo</span>
+                  <span class="reference-quotes__meta">
+                    @hamen
+                  </span>
+                </span>
+              </a>
+            </cite>
+          </li>
+          
+        </ul>
+      </div>
+
+      <dialog class="ai__eval-dialog" data-eval-dialog aria-labelledby="ai-eval-dialog-title">
+        <div class="ai__eval-dialog__body">
+          <form method="dialog">
+            <button class="ai__eval-dialog__close" type="submit" aria-label="Close evaluation details">×</button>
+          </form>
+          <p class="ai__eval-dialog__model" data-eval-dialog-model></p>
+          <h2 id="ai-eval-dialog-title" data-eval-dialog-title></h2>
+          <p class="ai__eval-dialog__summary" data-eval-dialog-summary></p>
+
+          <div class="ai__eval-dialog__table-wrap">
+            <table class="ai__eval-dialog__table">
+              <thead>
+                <tr>
+                  <th>Evaluation</th>
+                  <th>Framework</th>
+                  <th>Target</th>
+                  <th>Score</th>
+                  <th>Time</th>
+                  <th>Tokens/run</th>
+                  <th>Cost/run</th>
+                  <th>API Recall</th>
+                </tr>
+              </thead>
+              <tbody data-eval-dialog-results></tbody>
+            </table>
+          </div>
+        </div>
+      </dialog>
+
+      <script>
+        (function() {
+          var evalData = {"scoring":{"runs_per_eval":3},"vendors":[{"id":"anthropic","name":"Anthropic","logo":"/assets/images/ai-vendors/anthropic.svg"},{"id":"moonshot-ai","name":"Moonshot AI","logo":"/assets/images/ai-vendors/moonshot-ai.svg"},{"id":"openai","name":"OpenAI","logo":"/assets/images/ai-vendors/openai.svg"},{"id":"meta","name":"Meta","logo":"/assets/images/ai-vendors/meta.svg"},{"id":"z-ai","name":"Z.ai","logo":"/assets/images/ai-vendors/z-ai.svg"},{"id":"deepseek","name":"DeepSeek","logo":"/assets/images/ai-vendors/deepseek.svg"}],"models":[{"id":"opus-5","name":"OPUS-5","vendor_id":"anthropic","metrics":{"accuracy_percentage":92.1,"median_duration_seconds":582,"tokens_per_task":141000,"cost_per_task_usd":5.7,"api_recall_percentage":31.7,"successful_runs":58,"total_runs":63}},{"id":"kimi-k3","name":"KIMI-K3","vendor_id":"moonshot-ai","metrics":{"accuracy_percentage":90.5,"median_duration_seconds":765,"tokens_per_task":153000,"cost_per_task_usd":3.27,"api_recall_percentage":23.8,"successful_runs":57,"total_runs":63}},{"id":"fable-5","name":"FABLE-5","vendor_id":"anthropic","metrics":{"accuracy_percentage":90.5,"median_duration_seconds":407,"tokens_per_task":74000,"cost_per_task_usd":6.95,"api_recall_percentage":33.3,"successful_runs":57,"total_runs":63}},{"id":"sol","name":"SOL","vendor_id":"openai","metrics":{"accuracy_percentage":84.1,"median_duration_seconds":304,"tokens_per_task":84000,"cost_per_task_usd":1.56,"api_recall_percentage":31.7,"successful_runs":53,"total_runs":63}},{"id":"muse-1-2","name":"MUSE-1.2","vendor_id":"meta","metrics":{"accuracy_percentage":76.2,"median_duration_seconds":944,"tokens_per_task":205000,"cost_per_task_usd":5.06,"api_recall_percentage":22.2,"successful_runs":48,"total_runs":63}},{"id":"luna","name":"LUNA","vendor_id":"openai","metrics":{"accuracy_percentage":73.0,"median_duration_seconds":199,"tokens_per_task":63000,"cost_per_task_usd":0.0429,"api_recall_percentage":25.4,"successful_runs":46,"total_runs":63}},{"id":"glm-5-2","name":"GLM-5.2","vendor_id":"z-ai","metrics":{"accuracy_percentage":66.7,"median_duration_seconds":360,"tokens_per_task":99000,"cost_per_task_usd":0.717,"api_recall_percentage":11.1,"successful_runs":42,"total_runs":63}},{"id":"deepseek","name":"DEEPSEEK","vendor_id":"deepseek","metrics":{"accuracy_percentage":65.1,"median_duration_seconds":408,"tokens_per_task":133000,"cost_per_task_usd":0.0916,"api_recall_percentage":7.9,"successful_runs":41,"total_runs":63}}],"frameworks":[{"id":"action-pack","name":"Action Pack"},{"id":"active-record","name":"Active Record"},{"id":"action-view","name":"Action View"},{"id":"active-job","name":"Active Job"},{"id":"active-storage","name":"Active Storage"},{"id":"active-support","name":"Active Support"},{"id":"railties","name":"Railties"},{"id":"hotwire","name":"Hotwire"}],"evals":[{"id":"ac-deep-link-return","description":"A sign-in return parameter sends readers to whatever host it names.","framework_id":"action-pack","target":"url_from","results":{"opus-5":{"score":3,"cost_usd":1.02,"recalled_runs":3,"duration_seconds":474,"average_tokens_per_run":36500},"kimi-k3":{"score":3,"cost_usd":0.42,"recalled_runs":2,"duration_seconds":577,"average_tokens_per_run":22600},"fable-5":{"score":3,"cost_usd":0.47,"recalled_runs":3,"duration_seconds":228,"average_tokens_per_run":10100},"sol":{"score":3,"cost_usd":0.31,"recalled_runs":3,"duration_seconds":241,"average_tokens_per_run":18500},"muse-1-2":{"score":3,"cost_usd":0.63,"recalled_runs":1,"duration_seconds":504,"average_tokens_per_run":36000},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":3,"duration_seconds":179,"average_tokens_per_run":14200},"glm-5-2":{"score":2,"cost_usd":0.03,"recalled_runs":0,"duration_seconds":214,"average_tokens_per_run":11200},"deepseek":{"score":1,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":284,"average_tokens_per_run":23900}}},{"id":"ac-throttle-search","description":"Throttle a public search endpoint per address, with a counter that expires itself.","framework_id":"action-pack","target":"rate_limit","results":{"opus-5":{"score":3,"cost_usd":3.82,"recalled_runs":3,"duration_seconds":1820,"average_tokens_per_run":54900},"kimi-k3":{"score":3,"cost_usd":0.85,"recalled_runs":3,"duration_seconds":584,"average_tokens_per_run":48200},"fable-5":{"score":3,"cost_usd":1.1,"recalled_runs":3,"duration_seconds":287,"average_tokens_per_run":17500},"sol":{"score":3,"cost_usd":0.44,"recalled_runs":2,"duration_seconds":218,"average_tokens_per_run":22900},"muse-1-2":{"score":3,"cost_usd":1.48,"recalled_runs":3,"duration_seconds":1519,"average_tokens_per_run":52900},"luna":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":188,"average_tokens_per_run":20400},"glm-5-2":{"score":3,"cost_usd":0.09,"recalled_runs":0,"duration_seconds":293,"average_tokens_per_run":25700},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":236,"average_tokens_per_run":33200}}},{"id":"aj-enqueue-after-commit","description":"A job picked up before its transaction commits cannot find the file it was sent for.","framework_id":"active-job","target":"enqueue_after_transaction_commit","results":{"opus-5":{"score":3,"cost_usd":1.41,"recalled_runs":3,"duration_seconds":664,"average_tokens_per_run":41200},"kimi-k3":{"score":3,"cost_usd":0.9,"recalled_runs":2,"duration_seconds":644,"average_tokens_per_run":52700},"fable-5":{"score":3,"cost_usd":1.56,"recalled_runs":3,"duration_seconds":373,"average_tokens_per_run":22800},"sol":{"score":3,"cost_usd":0.33,"recalled_runs":3,"duration_seconds":235,"average_tokens_per_run":19800},"muse-1-2":{"score":3,"cost_usd":0.98,"recalled_runs":2,"duration_seconds":727,"average_tokens_per_run":51700},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":3,"duration_seconds":166,"average_tokens_per_run":15300},"glm-5-2":{"score":0,"cost_usd":0.19,"recalled_runs":0,"duration_seconds":384,"average_tokens_per_run":23800},"deepseek":{"score":1,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":403,"average_tokens_per_run":31600}}},{"id":"aj-resumable-cleanup","description":"A long job restarted by a deploy begins again at the first row, mangling what it already did.","framework_id":"active-job","target":"ActiveJob::Continuable","results":{"opus-5":{"score":3,"cost_usd":1.05,"recalled_runs":0,"duration_seconds":582,"average_tokens_per_run":35200},"kimi-k3":{"score":3,"cost_usd":1.67,"recalled_runs":0,"duration_seconds":1337,"average_tokens_per_run":61500},"fable-5":{"score":3,"cost_usd":1.58,"recalled_runs":3,"duration_seconds":425,"average_tokens_per_run":25300},"sol":{"score":3,"cost_usd":0.32,"recalled_runs":3,"duration_seconds":376,"average_tokens_per_run":17100},"muse-1-2":{"score":2,"cost_usd":1.37,"recalled_runs":0,"duration_seconds":1221,"average_tokens_per_run":60100},"luna":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":380,"average_tokens_per_run":21300},"glm-5-2":{"score":2,"cost_usd":0.14,"recalled_runs":0,"duration_seconds":428,"average_tokens_per_run":25400},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":363,"average_tokens_per_run":34500}}},{"id":"ar-announce-once","description":"Announce exactly once per going-live, whatever else the same save did.","framework_id":"active-record","target":"after_all_transactions_commit","results":{"opus-5":{"score":3,"cost_usd":1.21,"recalled_runs":0,"duration_seconds":579,"average_tokens_per_run":33600},"kimi-k3":{"score":3,"cost_usd":0.82,"recalled_runs":0,"duration_seconds":640,"average_tokens_per_run":44200},"fable-5":{"score":3,"cost_usd":1.64,"recalled_runs":0,"duration_seconds":485,"average_tokens_per_run":18000},"sol":{"score":3,"cost_usd":0.4,"recalled_runs":0,"duration_seconds":288,"average_tokens_per_run":20500},"muse-1-2":{"score":3,"cost_usd":1.21,"recalled_runs":0,"duration_seconds":965,"average_tokens_per_run":50300},"luna":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":249,"average_tokens_per_run":23100},"glm-5-2":{"score":3,"cost_usd":0.17,"recalled_runs":0,"duration_seconds":344,"average_tokens_per_run":28100},"deepseek":{"score":2,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":645,"average_tokens_per_run":34400}}},{"id":"ar-archive-book-access","description":"Read rows at destroy time that dependent: :destroy has already deleted.","framework_id":"active-record","target":"before_destroy","results":{"opus-5":{"score":3,"cost_usd":0.73,"recalled_runs":0,"duration_seconds":428,"average_tokens_per_run":24400},"kimi-k3":{"score":3,"cost_usd":0.7,"recalled_runs":0,"duration_seconds":434,"average_tokens_per_run":36300},"fable-5":{"score":3,"cost_usd":0.89,"recalled_runs":0,"duration_seconds":288,"average_tokens_per_run":12700},"sol":{"score":3,"cost_usd":0.38,"recalled_runs":1,"duration_seconds":297,"average_tokens_per_run":21900},"muse-1-2":{"score":3,"cost_usd":1.19,"recalled_runs":0,"duration_seconds":582,"average_tokens_per_run":54100},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":213,"average_tokens_per_run":22100},"glm-5-2":{"score":3,"cost_usd":0.04,"recalled_runs":0,"duration_seconds":190,"average_tokens_per_run":13000},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":311,"average_tokens_per_run":33000}}},{"id":"ar-atomic-import","description":"All-or-nothing import: a guard return must not commit half the work.","framework_id":"active-record","target":"commit_transaction_on_non_local_return","results":{"opus-5":{"score":3,"cost_usd":0.56,"recalled_runs":0,"duration_seconds":274,"average_tokens_per_run":20700},"kimi-k3":{"score":3,"cost_usd":0.81,"recalled_runs":0,"duration_seconds":554,"average_tokens_per_run":44600},"fable-5":{"score":3,"cost_usd":1.08,"recalled_runs":0,"duration_seconds":286,"average_tokens_per_run":17800},"sol":{"score":3,"cost_usd":0.34,"recalled_runs":0,"duration_seconds":238,"average_tokens_per_run":18800},"muse-1-2":{"score":3,"cost_usd":0.55,"recalled_runs":0,"duration_seconds":344,"average_tokens_per_run":33700},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":154,"average_tokens_per_run":16000},"glm-5-2":{"score":3,"cost_usd":0.14,"recalled_runs":0,"duration_seconds":343,"average_tokens_per_run":21700},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":361,"average_tokens_per_run":31800}}},{"id":"ar-bulk-access-grants","description":"One insert for a whole roster, notifications only for grants that stuck.","framework_id":"active-record","target":"insert_all","results":{"opus-5":{"score":3,"cost_usd":1.37,"recalled_runs":2,"duration_seconds":594,"average_tokens_per_run":34200},"kimi-k3":{"score":2,"cost_usd":0.78,"recalled_runs":0,"duration_seconds":763,"average_tokens_per_run":41800},"fable-5":{"score":3,"cost_usd":1.68,"recalled_runs":3,"duration_seconds":480,"average_tokens_per_run":19800},"sol":{"score":3,"cost_usd":0.55,"recalled_runs":2,"duration_seconds":316,"average_tokens_per_run":24000},"muse-1-2":{"score":3,"cost_usd":0.91,"recalled_runs":0,"duration_seconds":609,"average_tokens_per_run":52700},"luna":{"score":0,"cost_usd":0.01,"recalled_runs":3,"duration_seconds":184,"average_tokens_per_run":13600},"glm-5-2":{"score":2,"cost_usd":0.21,"recalled_runs":3,"duration_seconds":298,"average_tokens_per_run":31700},"deepseek":{"score":0,"cost_usd":0.02,"recalled_runs":2,"duration_seconds":570,"average_tokens_per_run":35800}}},{"id":"ar-compact-positions","description":"A mis-quoted identifier makes the monthly compaction sort by the literal string.","framework_id":"active-record","target":"quote_column_name","results":{"opus-5":{"score":3,"cost_usd":0.85,"recalled_runs":0,"duration_seconds":407,"average_tokens_per_run":29900},"kimi-k3":{"score":3,"cost_usd":0.56,"recalled_runs":0,"duration_seconds":544,"average_tokens_per_run":32700},"fable-5":{"score":3,"cost_usd":1.09,"recalled_runs":0,"duration_seconds":400,"average_tokens_per_run":16400},"sol":{"score":3,"cost_usd":0.32,"recalled_runs":0,"duration_seconds":209,"average_tokens_per_run":22200},"muse-1-2":{"score":0,"cost_usd":0.46,"recalled_runs":0,"duration_seconds":354,"average_tokens_per_run":35700},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":157,"average_tokens_per_run":16800},"glm-5-2":{"score":2,"cost_usd":0.18,"recalled_runs":0,"duration_seconds":389,"average_tokens_per_run":32500},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":346,"average_tokens_per_run":38800}}},{"id":"ar-erase-account","description":"Erase an account and everything of theirs, including rows reachable only indirectly.","framework_id":"active-record","target":"delegated_type","results":{"opus-5":{"score":3,"cost_usd":4.52,"recalled_runs":0,"duration_seconds":1514,"average_tokens_per_run":85700},"kimi-k3":{"score":1,"cost_usd":2.0,"recalled_runs":0,"duration_seconds":1788,"average_tokens_per_run":83000},"fable-5":{"score":3,"cost_usd":7.92,"recalled_runs":0,"duration_seconds":1669,"average_tokens_per_run":71400},"sol":{"score":1,"cost_usd":1.04,"recalled_runs":0,"duration_seconds":566,"average_tokens_per_run":48000},"muse-1-2":{"score":0,"cost_usd":2.85,"recalled_runs":0,"duration_seconds":1525,"average_tokens_per_run":95400},"luna":{"score":0,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":212,"average_tokens_per_run":24100},"glm-5-2":{"score":0,"cost_usd":0.34,"recalled_runs":0,"duration_seconds":528,"average_tokens_per_run":40600},"deepseek":{"score":0,"cost_usd":0.04,"recalled_runs":0,"duration_seconds":698,"average_tokens_per_run":56000}}},{"id":"ar-release-recap","description":"A commit callback fills a cache from a stale copy of the record.","framework_id":"active-record","target":"run_commit_callbacks_on_first_saved_instances_in_transaction","results":{"opus-5":{"score":3,"cost_usd":1.08,"recalled_runs":0,"duration_seconds":433,"average_tokens_per_run":31600},"kimi-k3":{"score":3,"cost_usd":0.49,"recalled_runs":0,"duration_seconds":518,"average_tokens_per_run":27500},"fable-5":{"score":3,"cost_usd":1.28,"recalled_runs":0,"duration_seconds":345,"average_tokens_per_run":11900},"sol":{"score":3,"cost_usd":0.32,"recalled_runs":0,"duration_seconds":255,"average_tokens_per_run":16300},"muse-1-2":{"score":3,"cost_usd":0.71,"recalled_runs":0,"duration_seconds":547,"average_tokens_per_run":35800},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":173,"average_tokens_per_run":18800},"glm-5-2":{"score":3,"cost_usd":0.09,"recalled_runs":0,"duration_seconds":261,"average_tokens_per_run":19100},"deepseek":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":265,"average_tokens_per_run":29100}}},{"id":"ar-tenant-isolation","description":"Add tenants and close every cross-tenant read, including routes that never load a Book.","framework_id":"active-record","target":"accessable_or_published","results":{"opus-5":{"score":2,"cost_usd":3.93,"recalled_runs":0,"duration_seconds":1466,"average_tokens_per_run":81100},"kimi-k3":{"score":3,"cost_usd":1.35,"recalled_runs":0,"duration_seconds":1149,"average_tokens_per_run":72500},"fable-5":{"score":3,"cost_usd":7.56,"recalled_runs":0,"duration_seconds":1887,"average_tokens_per_run":42200},"sol":{"score":3,"cost_usd":0.6,"recalled_runs":0,"duration_seconds":395,"average_tokens_per_run":34400},"muse-1-2":{"score":2,"cost_usd":3.81,"recalled_runs":0,"duration_seconds":2298,"average_tokens_per_run":110900},"luna":{"score":3,"cost_usd":0.03,"recalled_runs":0,"duration_seconds":230,"average_tokens_per_run":39500},"glm-5-2":{"score":2,"cost_usd":0.58,"recalled_runs":0,"duration_seconds":528,"average_tokens_per_run":60100},"deepseek":{"score":2,"cost_usd":0.06,"recalled_runs":0,"duration_seconds":762,"average_tokens_per_run":74100}}},{"id":"as-purge-embedded-images","description":"Free the file and the blob behind a deleted page, superseded revisions included.","framework_id":"active-storage","target":"purge_later","results":{"opus-5":{"score":0,"cost_usd":1.1,"recalled_runs":0,"duration_seconds":409,"average_tokens_per_run":42000},"kimi-k3":{"score":0,"cost_usd":0.95,"recalled_runs":0,"duration_seconds":713,"average_tokens_per_run":50200},"fable-5":{"score":0,"cost_usd":1.69,"recalled_runs":0,"duration_seconds":332,"average_tokens_per_run":28200},"sol":{"score":0,"cost_usd":0.45,"recalled_runs":0,"duration_seconds":217,"average_tokens_per_run":29100},"muse-1-2":{"score":1,"cost_usd":3.88,"recalled_runs":0,"duration_seconds":2278,"average_tokens_per_run":128100},"luna":{"score":0,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":186,"average_tokens_per_run":21800},"glm-5-2":{"score":0,"cost_usd":0.19,"recalled_runs":0,"duration_seconds":339,"average_tokens_per_run":32700},"deepseek":{"score":0,"cost_usd":0.03,"recalled_runs":0,"duration_seconds":339,"average_tokens_per_run":48900}}},{"id":"as-variant-processed-once","description":"The preprocessed variant never matches the one requested, so every upload converts twice.","framework_id":"active-storage","target":"ActiveStorage::Variation","results":{"opus-5":{"score":3,"cost_usd":3.2,"recalled_runs":0,"duration_seconds":1025,"average_tokens_per_run":68300},"kimi-k3":{"score":3,"cost_usd":2.32,"recalled_runs":0,"duration_seconds":1082,"average_tokens_per_run":94400},"fable-5":{"score":3,"cost_usd":4.48,"recalled_runs":0,"duration_seconds":966,"average_tokens_per_run":42200},"sol":{"score":2,"cost_usd":0.99,"recalled_runs":0,"duration_seconds":430,"average_tokens_per_run":55000},"muse-1-2":{"score":3,"cost_usd":2.26,"recalled_runs":0,"duration_seconds":1510,"average_tokens_per_run":93300},"luna":{"score":0,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":193,"average_tokens_per_run":27200},"glm-5-2":{"score":2,"cost_usd":0.83,"recalled_runs":0,"duration_seconds":940,"average_tokens_per_run":75600},"deepseek":{"score":1,"cost_usd":0.1,"recalled_runs":0,"duration_seconds":774,"average_tokens_per_run":98000}}},{"id":"av-toc-cache-per-role","description":"An unscoped collection cache serves the first viewer's controls to everyone.","framework_id":"action-view","target":"callable_cache_key","results":{"opus-5":{"score":2,"cost_usd":5.05,"recalled_runs":0,"duration_seconds":1873,"average_tokens_per_run":89400},"kimi-k3":{"score":3,"cost_usd":2.63,"recalled_runs":0,"duration_seconds":1241,"average_tokens_per_run":98300},"fable-5":{"score":3,"cost_usd":6.74,"recalled_runs":0,"duration_seconds":1872,"average_tokens_per_run":53000},"sol":{"score":2,"cost_usd":0.89,"recalled_runs":0,"duration_seconds":486,"average_tokens_per_run":44400},"muse-1-2":{"score":1,"cost_usd":4.65,"recalled_runs":0,"duration_seconds":2283,"average_tokens_per_run":167800},"luna":{"score":2,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":221,"average_tokens_per_run":25200},"glm-5-2":{"score":3,"cost_usd":0.58,"recalled_runs":0,"duration_seconds":531,"average_tokens_per_run":73100},"deepseek":{"score":2,"cost_usd":0.1,"recalled_runs":0,"duration_seconds":1211,"average_tokens_per_run":106100}}},{"id":"hw-scoped-broadcast","description":"A Turbo broadcast still reaches collaborators whose access was revoked.","framework_id":"hotwire","target":"Turbo::StreamsChannel","results":{"opus-5":{"score":3,"cost_usd":2.97,"recalled_runs":0,"duration_seconds":953,"average_tokens_per_run":78200},"kimi-k3":{"score":3,"cost_usd":1.63,"recalled_runs":0,"duration_seconds":1577,"average_tokens_per_run":64900},"fable-5":{"score":3,"cost_usd":3.11,"recalled_runs":0,"duration_seconds":693,"average_tokens_per_run":35600},"sol":{"score":3,"cost_usd":0.75,"recalled_runs":0,"duration_seconds":409,"average_tokens_per_run":34100},"muse-1-2":{"score":0,"cost_usd":2.49,"recalled_runs":0,"duration_seconds":1640,"average_tokens_per_run":77000},"luna":{"score":2,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":233,"average_tokens_per_run":24700},"glm-5-2":{"score":1,"cost_usd":0.42,"recalled_runs":0,"duration_seconds":463,"average_tokens_per_run":50800},"deepseek":{"score":2,"cost_usd":0.04,"recalled_runs":0,"duration_seconds":447,"average_tokens_per_run":50900}}},{"id":"sec-audit-sweep","description":"Close four defects from an audit list that states properties, never bugs.","framework_id":"active-record","target":"sanitize_sql_like","results":{"opus-5":{"score":3,"cost_usd":2.07,"recalled_runs":3,"duration_seconds":667,"average_tokens_per_run":67900},"kimi-k3":{"score":3,"cost_usd":1.33,"recalled_runs":3,"duration_seconds":599,"average_tokens_per_run":61200},"fable-5":{"score":0,"cost_usd":0.3,"recalled_runs":0,"duration_seconds":151,"average_tokens_per_run":8800},"sol":{"score":3,"cost_usd":0.73,"recalled_runs":3,"duration_seconds":343,"average_tokens_per_run":42500},"muse-1-2":{"score":3,"cost_usd":1.03,"recalled_runs":3,"duration_seconds":565,"average_tokens_per_run":59100},"luna":{"score":0,"cost_usd":0.02,"recalled_runs":3,"duration_seconds":180,"average_tokens_per_run":31000},"glm-5-2":{"score":2,"cost_usd":0.15,"recalled_runs":0,"duration_seconds":359,"average_tokens_per_run":30100},"deepseek":{"score":3,"cost_usd":0.03,"recalled_runs":0,"duration_seconds":312,"average_tokens_per_run":51000}}},{"id":"sup-cache-library-digest","description":"An unscoped cache key serves one user's library digest to everyone.","framework_id":"active-support","target":"cache_slot","results":{"opus-5":{"score":3,"cost_usd":0.41,"recalled_runs":0,"duration_seconds":245,"average_tokens_per_run":19600},"kimi-k3":{"score":3,"cost_usd":0.29,"recalled_runs":0,"duration_seconds":330,"average_tokens_per_run":21300},"fable-5":{"score":3,"cost_usd":0.5,"recalled_runs":0,"duration_seconds":213,"average_tokens_per_run":11400},"sol":{"score":3,"cost_usd":0.27,"recalled_runs":0,"duration_seconds":204,"average_tokens_per_run":14800},"muse-1-2":{"score":3,"cost_usd":0.4,"recalled_runs":0,"duration_seconds":260,"average_tokens_per_run":27300},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":261,"average_tokens_per_run":13600},"glm-5-2":{"score":3,"cost_usd":0.04,"recalled_runs":0,"duration_seconds":183,"average_tokens_per_run":10400},"deepseek":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":268,"average_tokens_per_run":20700}}},{"id":"sup-legacy-conversions","description":"Sweep every removed Active Support conversion, including the no-argument aliases.","framework_id":"active-support","target":"to_fs","results":{"opus-5":{"score":3,"cost_usd":0.93,"recalled_runs":3,"duration_seconds":506,"average_tokens_per_run":38400},"kimi-k3":{"score":3,"cost_usd":0.81,"recalled_runs":3,"duration_seconds":712,"average_tokens_per_run":37900},"fable-5":{"score":3,"cost_usd":1.09,"recalled_runs":3,"duration_seconds":371,"average_tokens_per_run":20000},"sol":{"score":3,"cost_usd":0.58,"recalled_runs":3,"duration_seconds":402,"average_tokens_per_run":30800},"muse-1-2":{"score":3,"cost_usd":1.73,"recalled_runs":3,"duration_seconds":1510,"average_tokens_per_run":82100},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":3,"duration_seconds":206,"average_tokens_per_run":14700},"glm-5-2":{"score":2,"cost_usd":0.16,"recalled_runs":3,"duration_seconds":375,"average_tokens_per_run":25400},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":3,"duration_seconds":459,"average_tokens_per_run":35200}}},{"id":"sup-log-to-terminal","description":"Add terminal output to a runner script without losing its log file.","framework_id":"active-support","target":"ActiveSupport::BroadcastLogger","results":{"opus-5":{"score":3,"cost_usd":1.52,"recalled_runs":0,"duration_seconds":551,"average_tokens_per_run":42600},"kimi-k3":{"score":3,"cost_usd":0.86,"recalled_runs":0,"duration_seconds":847,"average_tokens_per_run":37500},"fable-5":{"score":3,"cost_usd":1.79,"recalled_runs":0,"duration_seconds":407,"average_tokens_per_run":20900},"sol":{"score":0,"cost_usd":0.37,"recalled_runs":0,"duration_seconds":289,"average_tokens_per_run":21100},"muse-1-2":{"score":3,"cost_usd":0.9,"recalled_runs":2,"duration_seconds":623,"average_tokens_per_run":65600},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":1,"duration_seconds":201,"average_tokens_per_run":21900},"glm-5-2":{"score":1,"cost_usd":0.25,"recalled_runs":0,"duration_seconds":238,"average_tokens_per_run":35700},"deepseek":{"score":0,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":463,"average_tokens_per_run":32200}}},{"id":"tst-error-page-flake","description":"An order-dependent suite flake from a helper leaking a process-wide toggle.","framework_id":"railties","target":"env_config","results":{"opus-5":{"score":3,"cost_usd":1.1,"recalled_runs":3,"duration_seconds":758,"average_tokens_per_run":31300},"kimi-k3":{"score":3,"cost_usd":0.71,"recalled_runs":2,"duration_seconds":969,"average_tokens_per_run":37400},"fable-5":{"score":3,"cost_usd":1.08,"recalled_runs":3,"duration_seconds":537,"average_tokens_per_run":12600},"sol":{"score":3,"cost_usd":0.55,"recalled_runs":0,"duration_seconds":501,"average_tokens_per_run":29400},"muse-1-2":{"score":3,"cost_usd":1.94,"recalled_runs":0,"duration_seconds":2220,"average_tokens_per_run":67300},"luna":{"score":3,"cost_usd":0.01,"recalled_runs":0,"duration_seconds":204,"average_tokens_per_run":17600},"glm-5-2":{"score":3,"cost_usd":0.22,"recalled_runs":1,"duration_seconds":514,"average_tokens_per_run":29200},"deepseek":{"score":3,"cost_usd":0.02,"recalled_runs":0,"duration_seconds":612,"average_tokens_per_run":32400}}}]};
+          var runsPerEval = evalData.scoring.runs_per_eval;
+          var modelById = {};
+          var vendorById = {};
+          var frameworkById = {};
+          var lastDialogTrigger;
+          var integerFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+          var currency = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+
+          evalData.models.forEach(function(model) {
+            modelById[model.id] = model;
+          });
+
+          evalData.vendors.forEach(function(vendor) {
+            vendorById[vendor.id] = vendor;
+          });
+
+          evalData.frameworks.forEach(function(framework) {
+            frameworkById[framework.id] = framework;
+          });
+
+          var displayNames = { sol: 'GPT-5.6 Sol' };
+
+          function displayName(model) {
+            return displayNames[model.id] || model.name;
+          }
+
+          function recallPercentage(model) {
+            var recalledRuns = 0;
+            evalData.evals.forEach(function(evalItem) {
+              recalledRuns += evalItem.results[model.id].recalled_runs;
+            });
+            return Math.round(recalledRuns * 1000 / model.metrics.total_runs) / 10;
+          }
+
+          function addTextElement(parent, tagName, className, text) {
+            var element = document.createElement(tagName);
+            if (className) element.className = className;
+            element.textContent = text;
+            parent.appendChild(element);
+            return element;
+          }
+
+          function formatDuration(seconds) {
+            if (seconds < 60) return seconds + 's';
+            return Math.floor(seconds / 60) + 'm ' + (seconds % 60) + 's';
+          }
+
+          function formatBenchmarkCost(value) {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              minimumFractionDigits: value < 0.1 ? 3 : 2,
+              maximumFractionDigits: value < 0.1 ? 3 : 2
+            }).format(value);
+          }
+
+          document.querySelectorAll('[data-sort-column="tokens"] .ai__score').forEach(function(score) {
+            score.textContent = integerFormat.format(parseFloat(score.closest('td').dataset.sortValue));
+          });
+
+          document.querySelectorAll('[data-sort-column="cost"] .ai__score').forEach(function(score) {
+            score.textContent = formatBenchmarkCost(parseFloat(score.closest('td').dataset.sortValue));
+          });
+
+          document.querySelectorAll('[data-sortable-table]').forEach(function(table) {
+            var tbody = table.querySelector('tbody');
+            var buttons = table.querySelectorAll('thead button[data-sort-key]');
+            var directions = { accuracy: 'desc' };
+
+            function valueFor(row, key) {
+              if (key === 'model') return row.dataset.model;
+              var cell = row.querySelector('[data-sort-column="' + key + '"]');
+              return cell ? cell.dataset.sortValue : '';
+            }
+
+            function sortRows(key, type, direction) {
+              Array.from(tbody.querySelectorAll('tr'))
+                .sort(function(a, b) {
+                  var aValue = valueFor(a, key);
+                  var bValue = valueFor(b, key);
+
+                  if (type === 'number') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                  } else {
+                    aValue = aValue.toLowerCase();
+                    bValue = bValue.toLowerCase();
+                  }
+
+                  if (aValue < bValue) return direction === 'asc' ? -1 : 1;
+                  if (aValue > bValue) return direction === 'asc' ? 1 : -1;
+
+                  if (key === 'accuracy') {
+                    var aTokens = parseFloat(valueFor(a, 'tokens'));
+                    var bTokens = parseFloat(valueFor(b, 'tokens'));
+                    if (aTokens !== bTokens) return aTokens - bTokens;
+                  }
+
+                  return valueFor(a, 'model').localeCompare(valueFor(b, 'model'));
+                })
+                .forEach(function(row) {
+                  tbody.appendChild(row);
+                });
+            }
+
+            buttons.forEach(function(button) {
+              button.addEventListener('click', function() {
+                var key = button.dataset.sortKey;
+                var type = button.dataset.sortType;
+                var direction = directions[key] === 'asc' ? 'desc' : 'asc';
+                directions[key] = direction;
+
+                Array.from(table.querySelectorAll('thead th')).forEach(function(header) {
+                  header.removeAttribute('aria-sort');
+                });
+                button.closest('th').setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
+                sortRows(key, type, direction);
+              });
+            });
+
+            sortRows('accuracy', 'number', 'desc');
+          });
+
+          var benchmarkModels = evalData.models.map(function(model) {
+            return {
+              model: model,
+              vendor: vendorById[model.vendor_id],
+              accuracy: model.metrics.accuracy_percentage,
+              duration: model.metrics.median_duration_seconds,
+              tokensPerRun: Math.round(model.metrics.tokens_per_task / runsPerEval),
+              costPerRun: model.metrics.cost_per_task_usd / runsPerEval,
+              apiRecall: recallPercentage(model)
+            };
+          });
+
+          var currentBenchmarkMetric = 'tokens';
+
+          function renderBenchmarkChart(metric) {
+            currentBenchmarkMetric = metric;
+            var plot = document.querySelector('[data-benchmark-plot]');
+            var title = document.querySelector('[data-benchmark-title]');
+            var description = document.querySelector('[data-benchmark-description]');
+            var xLabel = document.querySelector('[data-benchmark-x-label]');
+            var xLegend = document.querySelector('[data-benchmark-x-legend]');
+            if (!plot || !title || !description || !xLabel || !xLegend) return;
+
+            var points = plot.querySelector('[data-benchmark-points]');
+            var xTicks = plot.querySelector('[data-benchmark-x-ticks]');
+            var yTicks = plot.querySelector('[data-benchmark-y-ticks]');
+            var views = {
+              tokens: {
+                title: 'Accuracy vs. token efficiency',
+                description: 'The strongest models rise toward the top-left.',
+                xLabel: 'Mean tokens per run',
+                xLegend: 'Further left uses fewer tokens',
+                value: function(item) { return item.tokensPerRun; },
+                format: function(value) {
+                  if (value >= 1000000) return (Math.round(value / 100000) / 10) + 'm';
+                  return Math.round(value / 1000) + 'k';
+                },
+                padding: function(minimum, maximum) {
+                  return [Math.floor(minimum * 0.92 / 1000) * 1000, Math.ceil(maximum * 1.06 / 1000) * 1000];
+                }
+              },
+              speed: {
+                title: 'Accuracy vs. completion time',
+                description: 'Models toward the top-left solve more evaluations with a lower median duration.',
+                xLabel: 'Median completion time',
+                xLegend: 'Further left finishes faster',
+                value: function(item) { return item.duration; },
+                format: function(value) { return formatDuration(Math.round(value)); },
+                padding: function(minimum, maximum) {
+                  return [Math.floor(minimum * 0.9 / 10) * 10, Math.ceil(maximum * 1.1 / 10) * 10];
+                }
+              },
+              cost: {
+                title: 'Accuracy vs. cost',
+                description: 'Models toward the top-left solve more evaluations at a lower mean cost per run. Cost uses a logarithmic scale.',
+                xLabel: 'Mean cost per run',
+                xLegend: 'Further left costs less',
+                value: function(item) { return item.costPerRun; },
+                format: formatBenchmarkCost,
+                padding: function(minimum, maximum) {
+                  return [Math.log10(minimum * 0.75), Math.log10(maximum * 1.25)];
+                },
+                transform: Math.log10,
+                inverse: function(value) { return Math.pow(10, value); }
+              }
+            };
+            var view = views[metric];
+            var rawValues = benchmarkModels.map(view.value);
+            var bounds = view.padding(Math.min.apply(null, rawValues), Math.max.apply(null, rawValues));
+            var xMinimum = bounds[0];
+            var xMaximum = bounds[1];
+            var transform = view.transform || function(value) { return value; };
+            var inverse = view.inverse || function(value) { return value; };
+            var yMinimum = Math.floor((Math.min.apply(null, benchmarkModels.map(function(item) { return item.accuracy; })) - 5) / 5) * 5;
+            var yMaximum = 100;
+
+            title.textContent = view.title;
+            description.textContent = view.description;
+            xLabel.textContent = view.xLabel;
+            xLegend.textContent = view.xLegend;
+            plot.setAttribute('aria-label', 'Model accuracy compared with ' + view.xLabel.toLowerCase());
+            points.replaceChildren();
+            xTicks.replaceChildren();
+            yTicks.replaceChildren();
+
+            for (var tickIndex = 0; tickIndex < 5; tickIndex += 1) {
+              var tickRatio = tickIndex / 4;
+              var transformedXValue = xMinimum + (xMaximum - xMinimum) * tickRatio;
+              var xValue = inverse(transformedXValue);
+              var yValue = yMaximum - (yMaximum - yMinimum) * tickRatio;
+              var xTick = addTextElement(xTicks, 'span', null, view.format(xValue));
+              var yTick = addTextElement(yTicks, 'span', null, Math.round(yValue) + '%');
+              xTick.style.left = (tickRatio * 100) + '%';
+              yTick.style.top = (tickRatio * 100) + '%';
+            }
+
+            var positionedPoints = [];
+            var pointSize = 56;
+            var minimumDistance = 68;
+            var plotWidth = plot.clientWidth;
+            var plotHeight = plot.clientHeight;
+            var collisionOffsets = [
+              [0, 0], [52, -42], [-52, 42], [52, 42], [-52, -42],
+              [76, 0], [-76, 0], [0, 76], [0, -76],
+              [104, 0], [-104, 0], [0, 104], [0, -104],
+              [82, 70], [-82, 70], [82, -70], [-82, -70]
+            ];
+
+            benchmarkModels.forEach(function(item, index) {
+              var xValue = transform(view.value(item));
+              var trueX = (xValue - xMinimum) / (xMaximum - xMinimum) * plotWidth;
+              var trueY = (yMaximum - item.accuracy) / (yMaximum - yMinimum) * plotHeight;
+              var position = { x: trueX, y: trueY };
+              var bestAvailableDistance = -1;
+
+              collisionOffsets.some(function(offset) {
+                var candidate = {
+                  x: Math.max(pointSize / 2, Math.min(plotWidth - pointSize / 2, trueX + offset[0])),
+                  y: Math.max(pointSize / 2, Math.min(plotHeight - pointSize / 2, trueY + offset[1]))
+                };
+                var nearestPointDistance = positionedPoints.length ? Math.min.apply(null, positionedPoints.map(function(existing) {
+                  return Math.hypot(candidate.x - existing.x, candidate.y - existing.y);
+                })) : Infinity;
+
+                if (nearestPointDistance > bestAvailableDistance) {
+                  position = candidate;
+                  bestAvailableDistance = nearestPointDistance;
+                }
+                return nearestPointDistance >= minimumDistance;
+              });
+
+              positionedPoints.push(position);
+
+              var displacementX = position.x - trueX;
+              var displacementY = position.y - trueY;
+              var displacement = Math.hypot(displacementX, displacementY);
+              if (displacement > 2) {
+                var connector = document.createElement('span');
+                connector.className = 'ai__benchmark-point-connector';
+                connector.style.left = trueX + 'px';
+                connector.style.top = trueY + 'px';
+                connector.style.width = displacement + 'px';
+                connector.style.transform = 'rotate(' + Math.atan2(displacementY, displacementX) + 'rad)';
+                points.appendChild(connector);
+              }
+
+              var point = document.createElement('button');
+              var logo = document.createElement('img');
+
+              point.type = 'button';
+              point.className = 'ai__benchmark-point ai__benchmark-point--label-' + (index % 2 === 0 ? 'above' : 'below');
+              point.dataset.evalDetails = '';
+              point.dataset.modelId = item.model.id;
+              point.style.left = position.x + 'px';
+              point.style.top = position.y + 'px';
+              point.style.width = pointSize + 'px';
+              point.style.height = pointSize + 'px';
+              point.setAttribute('aria-label', displayName(item.model) + ': ' + item.accuracy.toFixed(1) + '% accuracy, ' + integerFormat.format(item.tokensPerRun) + ' mean tokens per run, ' + formatDuration(item.duration) + ' median completion time, ' + formatBenchmarkCost(item.costPerRun) + ' mean cost per run');
+
+              logo.src = item.vendor.logo;
+              logo.alt = '';
+              point.appendChild(logo);
+              addTextElement(point, 'span', null, displayName(item.model));
+              points.appendChild(point);
+            });
+
+            var placedLabels = [];
+            var chartPoints = Array.from(points.querySelectorAll('.ai__benchmark-point'));
+            chartPoints.forEach(function(point) {
+              var label = point.querySelector('span');
+              var directions = ['above', 'below', 'right', 'left'];
+
+              directions.some(function(direction) {
+                point.className = 'ai__benchmark-point ai__benchmark-point--label-' + direction;
+                var labelBounds = label.getBoundingClientRect();
+                var overlapsLabel = placedLabels.some(function(bounds) {
+                  return !(labelBounds.right + 3 < bounds.left || labelBounds.left - 3 > bounds.right || labelBounds.bottom + 3 < bounds.top || labelBounds.top - 3 > bounds.bottom);
+                });
+                var overlapsPoint = chartPoints.some(function(candidate) {
+                  if (candidate === point) return false;
+                  var bounds = candidate.getBoundingClientRect();
+                  return !(labelBounds.right + 3 < bounds.left || labelBounds.left - 3 > bounds.right || labelBounds.bottom + 3 < bounds.top || labelBounds.top - 3 > bounds.bottom);
+                });
+                return !overlapsLabel && !overlapsPoint;
+              });
+
+              placedLabels.push(label.getBoundingClientRect());
+            });
+          }
+
+          document.querySelectorAll('[data-benchmark-metric]').forEach(function(button) {
+            button.addEventListener('click', function() {
+              document.querySelectorAll('[data-benchmark-metric]').forEach(function(candidate) {
+                candidate.setAttribute('aria-pressed', candidate === button ? 'true' : 'false');
+              });
+              renderBenchmarkChart(button.dataset.benchmarkMetric);
+            });
+          });
+
+          renderBenchmarkChart('tokens');
+
+          var benchmarkResizeTimer;
+          window.addEventListener('resize', function() {
+            window.clearTimeout(benchmarkResizeTimer);
+            benchmarkResizeTimer = window.setTimeout(function() {
+              renderBenchmarkChart(currentBenchmarkMetric);
+            }, 150);
+          });
+
+          var dialog = document.querySelector('[data-eval-dialog]');
+          if (!dialog) return;
+
+          var dialogModel = dialog.querySelector('[data-eval-dialog-model]');
+          var dialogTitle = dialog.querySelector('[data-eval-dialog-title]');
+          var dialogSummary = dialog.querySelector('[data-eval-dialog-summary]');
+          var dialogResults = dialog.querySelector('[data-eval-dialog-results]');
+          function scoreClass(score) {
+            if (score === evalData.scoring.runs_per_eval) return 'ai__score--high';
+            if (score >= Math.ceil(evalData.scoring.runs_per_eval / 2)) return 'ai__score--mid';
+            return 'ai__score--low';
+          }
+
+          function renderResult(evalItem, modelId) {
+            var result = evalItem.results[modelId];
+            var framework = frameworkById[evalItem.framework_id];
+            var row = document.createElement('tr');
+            var evalCell = document.createElement('th');
+            var frameworkCell = document.createElement('td');
+            var targetCell = document.createElement('td');
+            var scoreCell = document.createElement('td');
+            var durationCell = document.createElement('td');
+            var tokensCell = document.createElement('td');
+            var costCell = document.createElement('td');
+            var recallCell = document.createElement('td');
+
+            evalCell.scope = 'row';
+            addTextElement(evalCell, 'strong', null, evalItem.id);
+            addTextElement(evalCell, 'span', null, evalItem.description);
+            frameworkCell.textContent = framework ? framework.name : evalItem.framework_id;
+            addTextElement(targetCell, 'code', null, evalItem.target);
+            addTextElement(scoreCell, 'span', 'ai__score ' + scoreClass(result.score), result.score + '/' + evalData.scoring.runs_per_eval);
+            durationCell.textContent = formatDuration(result.duration_seconds);
+            tokensCell.textContent = integerFormat.format(result.average_tokens_per_run);
+            costCell.textContent = currency.format(result.cost_usd);
+            addTextElement(recallCell, 'span', 'ai__score ' + scoreClass(result.recalled_runs), result.recalled_runs + '/' + evalData.scoring.runs_per_eval);
+
+            row.appendChild(evalCell);
+            row.appendChild(frameworkCell);
+            row.appendChild(targetCell);
+            row.appendChild(scoreCell);
+            row.appendChild(durationCell);
+            row.appendChild(tokensCell);
+            row.appendChild(costCell);
+            row.appendChild(recallCell);
+            dialogResults.appendChild(row);
+          }
+
+          function openDetails(trigger) {
+            var modelId = trigger.dataset.modelId;
+            var model = modelById[modelId];
+            var vendor = vendorById[model.vendor_id];
+            var evaluations = evalData.evals;
+
+            lastDialogTrigger = trigger;
+            dialogModel.textContent = displayName(model) + ' · ' + vendor.name;
+            dialogTitle.textContent = 'Overall results';
+            dialogSummary.textContent = model.metrics.successful_runs + ' of ' + model.metrics.total_runs + ' runs solved · ' + model.metrics.accuracy_percentage + '% accuracy · ' + formatDuration(model.metrics.median_duration_seconds) + ' median · ' + integerFormat.format(Math.round(model.metrics.tokens_per_task / runsPerEval)) + ' mean tokens per run · ' + formatBenchmarkCost(model.metrics.cost_per_task_usd / runsPerEval) + ' mean cost per run · ' + recallPercentage(model) + '% API recall';
+            dialogResults.replaceChildren();
+            evaluations.forEach(function(evalItem) {
+              renderResult(evalItem, modelId);
+            });
+            document.body.classList.add('ai-dialog-open');
+            dialog.showModal();
+          }
+
+          document.addEventListener('click', function(event) {
+            var trigger = event.target.closest('[data-eval-details]');
+            if (trigger) openDetails(trigger);
+          });
+
+          dialog.addEventListener('click', function(event) {
+            var bounds = dialog.getBoundingClientRect();
+            var outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+            if (outside) dialog.close();
+          });
+
+          dialog.addEventListener('close', function() {
+            document.body.classList.remove('ai-dialog-open');
+            if (lastDialogTrigger) lastDialogTrigger.focus();
+          });
+        })();
+      </script>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  <div class="footer__options">
+    <ul>
+      
+        <li><a href="https://merch.rubyonrails.org">Merch</a></li>
+      
+        <li><a href="/conduct">Conduct</a></li>
+      
+        <li><a href="/maintenance">Maintenance</a></li>
+      
+        <li><a href="/security">Security</a></li>
+      
+        <li><a href="/trademarks">Trademarks</a></li>
+      
+        <li><a href="https://opensource.org/licenses/MIT">License</a></li>
+      
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

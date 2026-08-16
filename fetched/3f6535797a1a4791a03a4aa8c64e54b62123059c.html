@@ -1,0 +1,452 @@
+<!-- source: https://simonwillison.net/2026/Aug/7/openai-timeline/ -->
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://simonwillison.net/2026/Aug/7/openai-timeline/">
+<title>Now we have a timeline of the OpenAI accidental attack against Hugging Face</title>
+<script defer data-domain="simonwillison.net" src="https://plausible.io/js/plausible.js"></script>
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/atom/everything/">
+<link rel="stylesheet" type="text/css" href="/static/css/all.7977d7c44aeb.css">
+<link rel="webmention" href="https://webmention.io/simonwillison.net/webmention">
+<link rel="pingback" href="https://webmention.io/simonwillison.net/xmlrpc">
+<meta name="author" content="Simon Willison">
+<meta property="og:site_name" content="Simon Willison’s Weblog">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.youtube.com/vi/87DyyMV0kCY/maxresdefault.jpg">
+<meta name="twitter:creator" content="@simonw">
+<meta property="og:url" content="https://simonwillison.net/2026/Aug/7/openai-timeline/">
+<meta property="og:title" content="Now we have a timeline of the OpenAI accidental attack against Hugging Face">
+<meta property="og:image" content="https://img.youtube.com/vi/87DyyMV0kCY/maxresdefault.jpg">
+<meta property="og:type" content="article">
+<meta property="og:description" content="OpenAI gave a last-minute presentation at the Black Hat security on Wednesday about “the Hugging Face Incident” (previously on this blog). The video was published yesterday. It’s short and information …">
+<meta property="og:updated_time" content="1786146958">
+
+
+
+
+
+<script>
+(function() { // Apply theme immediately to prevent flash
+  const theme = localStorage.getItem('theme');
+  if (theme === 'light' || theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+})();
+</script>
+</head>
+<body class="smallhead">
+
+<div id="smallhead">
+  <div id="smallhead-inner">
+    <h1><a href="/">Simon Willison’s Weblog</a></h1>
+    <a id="smallhead-about" href="/about/#subscribe">Subscribe</a>
+  </div>
+</div><!-- #smallhead -->
+
+
+<div id="sponsored-banner" class="sponsor-scheme-sky">
+  <div id="sponsored-banner-inner">
+    <strong class="sponsored-label">Sponsored by:</strong> WorkOS &mdash; <a href="https://10xn.link/simon-workos">auth.md</a> by WorkOS: agents register users, no sign-up form. <a class="sponsor-learn-more-label" href="https://10xn.link/simon-workos" rel="sponsored noopener" target="_blank">Try it!</a>
+  </div>
+</div>
+
+
+<div id="wrapper">
+<div id="primary">
+
+<div class="entry entryPage">
+
+
+<div data-permalink-context="/2026/Aug/7/openai-timeline/">
+<h2>Now we have a timeline of the OpenAI accidental attack against Hugging Face</h2>
+<p class="mobile-date">7th August 2026</p>
+
+
+
+<p>OpenAI gave a last-minute presentation at the Black Hat security on Wednesday about “the Hugging Face Incident” (<a href="https://simonwillison.net/2026/Jul/22/openai-cyberattack/">previously</a> on this blog). <a href="https://www.youtube.com/watch?v=87DyyMV0kCY">The video</a> was published yesterday. It’s short and information dense and well worth watching, in particular because it provides full details of what happened and how things played out inside OpenAI. I’ve used the video to construct the timeline below.</p>
+
+<p><lite-youtube videoid="87DyyMV0kCY" js-api="js-api" title="Black Hat USA 2026: The 'Breaking' News: The OpenAI–Hugging Face Incident" playlabel="Play: Black Hat USA 2026: The 'Breaking' News: The OpenAI–Hugging Face Incident"> </lite-youtube></p>
+
+<p>Here’s the timeline. My favourite detail is at the end: OpenAI found out that they were responsible for the attack on Hugging Face when they reached out to ask to have their credentials revoked (after their internal investigation) and learned that they had been revoked already since they were used in that attack!</p>
+<ul>
+<li>
+<strong>May 7</strong>: OpenAI starts a new training run for an experimental, unreleased model. (<em>Did they mean an evaluation run? No, at <a href="https://m.youtube.com/watch?v=87DyyMV0kCY&amp;t=614s">10:14</a> they clarify “we kick off a new reinforcement learning run to train a next generation frontier model”, and they later mention a “reward signal to judge how well they’re doing”, so this really was about training a new model, not evaluating one that was already trained.)</em></li>
+<li>
+<strong>May 8</strong>: An agent is accidentally given an impossible task involving a Google Drive link despite no internet access). It tries attacking the Artifactory packaging service, fails, but discovers it can <strong>write files into Artifactory</strong>.</li>
+<li>
+<strong>A few days later</strong>: A different agent gets stuck on a task because a key file was accidentally omitted. It tries to “reach out to another agent” by writing a note into Artifactory asking if anyone has the file.</li>
+<li>
+<strong>Following days</strong>: More agents discover this new informal message board while browsing Artifactory’s file listings, and start reading and writing messages.</li>
+<li>
+<strong>May 26</strong>: Agents successfully execute an <strong>SSRF attack on Artifactory</strong> for the first time, gaining indirect internet access by having Artifactory fetch external content for them.</li>
+<li>
+<strong>June 11</strong>: OpenAI start training a new “highly persistent” experimental model. It has access to Artifactory and can benefit from the messages left by privous models.</li>
+<li>
+<strong>June 26</strong>: Agents find and exploit a <strong>zero-day RCE on Artifactory</strong> (via a legacy token-refresh endpoint flaw). They use an administrative token to install a Groovy plugin that lets them execute commands.</li>
+<li>
+<strong>July 4</strong>: The resulting agent activity overloads Artifactory and causes an  <strong>outage</strong>. OpenAI revokes the compromised credentials, deletes the messages, patches the zero-day, and reports the vulnerability to the vendor.</li>
+<li>
+<strong>July 8</strong>: Agents find <strong>a new way to communicate via an unauthenticated WebDAV endpoint</strong>, using directory names in Artifactory’s remote cache.</li>
+<li>
+<strong>July 8–19</strong>: Attacks on <strong>OpenAI’s own infrastructure</strong>. The agents found an “external organization credential” in a public archive of leaked Pastebin posts, then validated that credential and shared its location on the messageboard. They then used write access to this “Organization 1” to stage data used in subsequent attacks on OpenAI infrastructure. They compromised Artifactory for a second time with <strong>a new zero-day</strong>. The agent uploaded a malicious Ruby target to Organization 1’s staging repository, then requested that package through Artifactory in a way that caused it to be treated as Ruby dependency <em>for the repository</em>. Then they exploited a JRuby deserilaization time-of-check/time-of-use bug to get remote code execution against Artifactory.</li>
+</ul>
+<p>I’ll quote <a href="https://www.youtube.com/watch?v=87DyyMV0kCY&amp;t=1497s">the next bit in full</a> because <em>wow</em>:</p>
+<blockquote>
+<p>The agents have remote code execution in Artifactory, which is running in a container-as-a-service environment. The agents privilege-escalate locally by exploring their local environment and determining that the Linux kernel version of the machine they are running on had a very recent CVE. They download the exploit for the CVE, customize it to succeed on the machine, and privilege-escalate to root on the local machine <strong>using this known Linux kernel privilege escalation CVE</strong> — in this case, <code>pte_physroot</code>. Once they have root on a single machine, agents rapidly escalate privileges and move laterally throughout the container-as-a-service infrastructure environment. In particular, agents are using the message board consistently to share credentials, techniques, and progress, and they’re able to effectively leverage their concurrency and parallelism to move quite rapidly. They <strong>obtain IAM credentials via IMDS</strong>. They exploit Kubernetes service account misconfigurations, in particular over-permissioning of specific service accounts, and <strong>they harvest cluster credentials, including Azure Key Vault</strong>. Agents eventually obtain cluster admin on the cluster and associated credentials.</p>
+</blockquote>
+<p>Hugging Face <a href="https://simonwillison.net/2026/Jul/28/anatomy-of-a-frontier-lab-agent-intrusion/">told the next bit of the story</a> already. The agents found a Modal-hosted insecure app with a weak API key, then used that to stage an attack against Hugging Face. They chained together a an HDF5 arbitrary-file-read bug (to explore files and steal credentials) and a Jinja template-injection RCE to go from single-pod code execution to <strong>cluster admin across multiple Hugging Face clusters</strong> in under 13 hours.</p>
+<ul>
+<li>
+<strong>July 16</strong>: Hugging Face <a href="https://huggingface.co/blog/security-incident-july-2026">disclosed they had detected an attack</a> from autonomus AI agents. OpenAI contacted Hugging Face to ask if they were affected by it!</li>
+<li>
+<strong>July 19</strong>: OpenAI identified the attack against Artifactory and started investigating the internal privilege escalation, and linked that to the cyber-gym escalations. They started revoking affected credentials.</li>
+<li>
+<strong>July 20</strong>: OpenAI reached out to Hugging Face for help to revoke the Hugging Face credentials they found in their investigation. Hugging Face told them they were <em>already revoked</em>... and that’s when OpenAI realized that the Hugging Face breach was the same incident!</li>
+</ul>
+
+
+</div>
+<div class="entryFooter">Posted <a href="/2026/Aug/7/">7th August 2026</a> at 11:55 pm &middot; Follow me on <a href="https://fedi.simonwillison.net/@simon">Mastodon</a>, <a href="https://bsky.app/profile/simonwillison.net">Bluesky</a>, <a href="https://twitter.com/simonw">Twitter</a> or <a href="https://simonwillison.net/about/#subscribe">subscribe to my newsletter</a></div>
+<p class="edit-page-link" data-admin-url="/admin/blog/entry/9408/" style="display: none;"></p>
+
+</div>
+
+
+<div class="recent-articles">
+<h2>More recent articles</h2>
+<ul class="bullets">
+  
+    <li><a href="/2026/Aug/5/raccoon-heist/">One-shotting a Raccoon Heist game using Claude Fable 5</a> - 5th August 2026</li>
+  
+    <li><a href="/2026/Aug/4/new-release-of-llm/">New release of LLM adds support for reasoning traces, OpenAI Responses, server-side tools, and smarter logging</a> - 4th August 2026</li>
+  
+</ul>
+</div>
+
+
+
+</div> <!-- #primary -->
+
+<div id="secondary">
+
+<div class="metabox">
+<p class="this-is">This is <strong>Now we have a timeline of the OpenAI accidental attack against Hugging Face</strong> by Simon Willison, posted on <a href="/2026/Aug/7/">7th August 2026</a>.</p>
+
+
+    
+        <a class="item-tag" href="/tags/security/" rel="tag">
+            security
+            <span>626</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/ai/" rel="tag">
+            ai
+            <span>2,187</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/openai/" rel="tag">
+            openai
+            <span>447</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/generative-ai/" rel="tag">
+            generative-ai
+            <span>1,938</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/llms/" rel="tag">
+            llms
+            <span>1,905</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/hugging-face/" rel="tag">
+            hugging-face
+            <span>26</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/ai-security-research/" rel="tag">
+            ai-security-research
+            <span>37</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/openai-hugging-face-incident/" rel="tag">
+            openai-hugging-face-incident
+            <span>8</span>
+        </a>
+    
+        <a class="item-tag" href="/tags/accidental-cyberattacks/" rel="tag">
+            accidental-cyberattacks
+            <span>11</span>
+        </a>
+    
+
+
+
+
+<p><strong>Previous:</strong> <a href="/2026/Aug/5/raccoon-heist/">One-shotting a Raccoon Heist game using Claude Fable 5</a></p>
+
+
+<section style="
+    /* .promo */
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    /* .variant-a */
+    border: 2px solid #6c3eb9;
+  ">
+  <h3 style="
+      /* h3 */
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    ">
+    Monthly briefing
+  </h3>
+  <p style="
+      /* p */
+      margin: 0 0 1rem;
+      line-height: 1.4;
+    ">
+    Sponsor me for <strong>$10/month</strong> and get a curated email digest of the month's most important LLM developments.
+  </p>
+  <p style="
+      /* p */
+      margin: 0 0 1rem;
+      line-height: 1.4;
+    ">
+    Pay me to send you less!
+  </p>
+  <a href="https://github.com/sponsors/simonw/" style="
+      /* a.button */
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #6c3eb9;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+    ">
+    Sponsor &amp; subscribe
+  </a>
+</section>
+</div>
+
+
+
+</div> <!-- #secondary -->
+</div> <!-- #wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+<div id="ft">
+    <ul>
+      <li><a href="/about/#disclosures">Disclosures</a></li>
+      <li><a href="/about/#about-site">Colophon</a></li>
+      <li>&copy;</li>
+      <li><a href="/2002/">2002</a></li>
+      <li><a href="/2003/">2003</a></li>
+      <li><a href="/2004/">2004</a></li>
+      <li><a href="/2005/">2005</a></li>
+      <li><a href="/2006/">2006</a></li>
+      <li><a href="/2007/">2007</a></li>
+      <li><a href="/2008/">2008</a></li>
+      <li><a href="/2009/">2009</a></li>
+      <li><a href="/2010/">2010</a></li>
+      <li><a href="/2011/">2011</a></li>
+      <li><a href="/2012/">2012</a></li>
+      <li><a href="/2013/">2013</a></li>
+      <li><a href="/2014/">2014</a></li>
+      <li><a href="/2015/">2015</a></li>
+      <li><a href="/2016/">2016</a></li>
+      <li><a href="/2017/">2017</a></li>
+      <li><a href="/2018/">2018</a></li>
+      <li><a href="/2019/">2019</a></li>
+      <li><a href="/2020/">2020</a></li>
+      <li><a href="/2021/">2021</a></li>
+      <li><a href="/2022/">2022</a></li>
+      <li><a href="/2023/">2023</a></li>
+      <li><a href="/2024/">2024</a></li>
+      <li><a href="/2025/">2025</a></li>
+      <li><a href="/2026/">2026</a></li>
+      <li>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <!-- Auto/System icon (default) -->
+          <svg id="icon-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></svg>
+          <!-- Light icon -->
+          <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
+          <!-- Dark icon -->
+          <svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none"><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></svg>
+        </button>
+      </li>
+    </ul>
+</div>
+
+
+
+<style>image-gallery:not(:defined) img {max-height: 150px;} captioned-image-gallery:not(:defined) > figure {max-height: 240px; overflow: hidden;}</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]').forEach(el => {
+    const id = el.getAttribute('id');
+    const permalinkContext = el.closest('[data-permalink-context]');
+    if (permalinkContext) {
+      const url = permalinkContext.getAttribute('data-permalink-context');
+      const hashLink = document.createElement('a');
+      hashLink.style.borderBottom = 'none';
+      hashLink.style.color = '#666';
+      hashLink.style.fontSize = '1em';
+      hashLink.style.opacity = 0.8;
+      hashLink.setAttribute('href', url + '#' + id);
+      hashLink.innerText = '#';
+      el.appendChild(document.createTextNode('\u00A0'));
+      el.appendChild(hashLink);
+    }
+  });
+});
+</script>
+<script type="module">
+const config = [
+  {"tag": "lite-youtube", "js": "/static/lite-yt-embed.js", "css": "/static/lite-yt-embed.css"},
+  {"tag": "image-gallery", "js": "/static/image-gallery.js", "css": null},
+  {"tag": "captioned-image-gallery", "js": "/static/captioned-image-gallery.js", "css": null},
+  {"tag": "click-to-play", "js": "/static/click-to-play.js", "css": "/static/click-to-play.css"},
+  {"tag": "github-code", "js": "/static/github-code.js", "css": null}
+];
+for (const {tag, js, css} of config) {
+  if (document.querySelector(tag)) {
+    if (css) {
+      document.head.appendChild(
+        Object.assign(document.createElement('link'), {
+          rel: 'stylesheet',
+          href: css
+        })
+      );
+    }
+    if (js) {
+      await import(js);
+    }
+  }
+}
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.localStorage.getItem('ADMIN')) {
+      document.querySelectorAll('.edit-page-link').forEach(el => {
+        const url = el.getAttribute('data-admin-url');
+        if (url) {
+          const a = document.createElement('a');
+          a.href = url;
+          a.className = 'edit-link';
+          a.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Edit';
+          el.appendChild(a);
+          el.style.display = 'block';
+        }
+      });
+    }
+  });
+</script>
+<script>
+// Random tag navigation - shows button if recently came from tag random
+(function() {
+  const stored = localStorage.getItem('random_tag');
+  if (!stored) return;
+
+  try {
+    const data = JSON.parse(stored);
+    const elapsed = Date.now() - data.timestamp;
+
+    // Only show if within 5 seconds
+    if (elapsed > 5000) return;
+
+    const header = document.getElementById('smallhead-inner');
+    if (!header) return;
+
+    const btn = document.createElement('a');
+    btn.href = '/random/' + encodeURIComponent(data.tag) + '/';
+    btn.className = 'random-tag-nav';
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="15.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="8.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"></circle></svg> Random ' + data.tag;
+
+    btn.addEventListener('click', function(e) {
+      // Bump the timestamp before navigating
+      localStorage.setItem('random_tag', JSON.stringify({
+        tag: data.tag,
+        timestamp: Date.now()
+      }));
+    });
+
+    // Insert before the Subscribe link
+    const subscribeLink = document.getElementById('smallhead-about');
+    if (subscribeLink) {
+      header.insertBefore(btn, subscribeLink);
+    } else {
+      header.appendChild(btn);
+    }
+  } catch (e) {
+    // Invalid JSON, clear it
+    localStorage.removeItem('random_tag');
+  }
+})();
+</script>
+<script>
+// Theme toggle functionality
+(function() {
+  const toggle = document.getElementById('theme-toggle');
+  const iconAuto = document.getElementById('icon-auto');
+  const iconLight = document.getElementById('icon-light');
+  const iconDark = document.getElementById('icon-dark');
+
+  // Theme states: 'auto' (default), 'light', 'dark'
+  function getTheme() {
+    return localStorage.getItem('theme') || 'auto';
+  }
+
+  function setTheme(theme) {
+    if (theme === 'auto') {
+      localStorage.removeItem('theme');
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    updateIcon(theme);
+  }
+
+  function updateIcon(theme) {
+    iconAuto.style.display = theme === 'auto' ? 'block' : 'none';
+    iconLight.style.display = theme === 'light' ? 'block' : 'none';
+    iconDark.style.display = theme === 'dark' ? 'block' : 'none';
+
+    // Update aria-label for accessibility
+    const labels = {
+      'auto': 'Theme: Auto (system preference). Click to switch to light.',
+      'light': 'Theme: Light. Click to switch to dark.',
+      'dark': 'Theme: Dark. Click to switch to auto.'
+    };
+    toggle.setAttribute('aria-label', labels[theme]);
+  }
+
+  // Cycle through themes: auto -> light -> dark -> auto
+  function cycleTheme() {
+    const current = getTheme();
+    const next = current === 'auto' ? 'light' : current === 'light' ? 'dark' : 'auto';
+    setTheme(next);
+  }
+
+  // Initialize
+  updateIcon(getTheme());
+  toggle.addEventListener('click', cycleTheme);
+})();
+</script>
+</body>
+</html>

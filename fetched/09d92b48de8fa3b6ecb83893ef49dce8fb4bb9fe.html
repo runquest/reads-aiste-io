@@ -1,0 +1,324 @@
+<!-- source: https://revisionprompting.info/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revision Prompting</title>
+<link rel="canonical" href="https://revisionprompting.info/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  body {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: "Source Serif Pro", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    line-height: 1.6;
+  }
+
+  h1 .logo {
+    width: 0.84em;
+    height: 0.72em;
+    margin-right: 0.1em;
+  }
+
+  h1 .subtitle {
+    font-size: 0.62em;
+    font-weight: normal;
+    color: #263548;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-bottom: 0.75rem;
+  }
+
+  details {
+    background: #f6f8fb;
+    border-radius: 4px;
+    padding: 0.3rem 0.75rem;
+  }
+
+  details[open] {
+    background: #eef2f7;
+  }
+
+  details > summary {
+    cursor: pointer;
+    color: #43586c;
+    font-size: 0.9em;
+  }
+
+  details[open] > summary {
+    color: #5c6f82;
+  }
+
+  code,
+  var {
+    font-family: monospace;
+    font-size: 1em;
+    background: #f2f2f2;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+
+  var {
+    font-style: italic;
+  }
+
+  code var,
+  .prompt code var {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .prompt {
+    background: #f7f7f7;
+    border-left: 3px solid #999;
+    padding: 0.75rem 1rem;
+  }
+
+  .prompt p {
+    margin: 0;
+  }
+
+  .prompt var,
+  .prompt code {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0 0.25em;
+  }
+
+  code.lines {
+    display: block;
+  }
+
+  .fields {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    padding: 0.5rem 0;
+  }
+
+  .fields .flabel {
+    display: flex;
+    align-items: center;
+    padding: 0.35em 1em 0.35em 1rem;
+    font: italic 0.8em/1.6 monospace;
+    color: #43586c;
+  }
+
+  .fields .fvalue {
+    padding: 0.35em 1rem 0.35em 0;
+  }
+
+  .fields code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .diff {
+    display: inline-block;
+    max-width: 100%;
+    font-family: monospace;
+  }
+
+  .diff .del,
+  .diff .add {
+    display: block;
+    padding: 0 0.5em;
+    white-space: pre-wrap;
+  }
+
+  .diff .del { background: #ffebe9; }
+  .diff .add { background: #e6ffec; }
+
+  .diff mark {
+    padding: 0 0.1em;
+    border-radius: 2px;
+    color: inherit;
+  }
+
+  .diff .del mark { background: #ffc0c0; }
+  .diff .add mark { background: #abf2bc; }
+
+  .tldr {
+    background: #eef2f7;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+  }
+
+  .tldr h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1em;
+  }
+
+  .tldr p {
+    margin: 0 0 0.5rem;
+  }
+
+  .tldr p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tldr code {
+    background: #fff;
+  }
+
+  h2 .kicker {
+    display: inline-block;
+    text-transform: uppercase;
+    /* font-size: 0.8em; */
+    letter-spacing: 0.03em;
+    margin-right: 0.15em;
+  }
+
+  h2 .kicker::first-letter {
+    font-size: 1.25em;
+  }
+
+  footer {
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><svg class="logo" viewBox="2 4 28 24" aria-hidden="true"><rect fill="#fff" stroke="#1f1f1f" stroke-width="2" x="3" y="5" width="10" height="22" rx="2"/><rect fill="#6fdd8b" x="18" y="4" width="4" height="24" rx="2"/><rect fill="#2da44e" x="26" y="4" width="4" height="24" rx="2"/></svg> Revision Prompting <span class="subtitle">improves industrial LLM processes</span></h1>
+  <p><em>Disclaimer: A human wrote this page.</em></p>
+  <section class="tldr">
+    <h2>TL;DR</h2>
+    <p><em>Industrial prompting</em> refers to automated processes that prompt LLMs repeatedly with the same instruction on different inputs.</p>
+    <p>Often, an industrial prompt needs to re-process an input after it has been updated.</p>
+    <p><em>Revision Prompting</em> is a technique that makes industrial prompting of updated inputs <strong>faster, cheaper, and more consistent</strong>. To this end, Revision Prompting supplies the LLM with the original input, the original output, and the changes to the input, and instructs it to produce a patch that updates the original output accordingly.</p>
+  </section>
+</header>
+
+<main>
+
+<h2><span class="kicker">The Problem</span> that Revision Prompting solves</h2>
+
+<p>We prompt LLMs in two ways:</p>
+
+<dl>
+  <dt>Ad-hoc prompting</dt>
+  <dd>
+    Prompts LLMs manually, with a custom instruction per call.
+    <details>
+      <summary>Examples</summary>
+      <ul>
+        <li>Asking a coding agent to implement a new feature.</li>
+        <li>Asking a chatbot to draft an email.</li>
+      </ul>
+    </details>
+  </dd>
+  <dt>Industrial prompting</dt>
+  <dd>
+    Prompts LLMs as part of an automated process, with the same instruction across calls.
+    <details>
+      <summary>Examples</summary>
+      <ul>
+        <li>Extracting structured information from invoices as part of an accounting pipeline.</li>
+        <li>Translating documentation pages into other languages as part of a release process.</li>
+      </ul>
+    </details>
+  </dd>
+</dl>
+
+<p>Industrial prompting typically processes some <var>Input</var> data with an <var>Instruction</var> to produce some <var>Output</var>.
+Whenever the <var>Input</var> gets updated, industrial prompting naively re-runs the <var>Instruction</var> on the <var>UpdatedInput</var> to produce the <var>UpdatedOutput</var>.
+This approach has two downsides:</p>
+
+<dl>
+  <dt>Lack of consistency</dt>
+  <dd>LLMs are non-deterministic, so the <var>UpdatedOutput</var> differs from the original <var>Output</var> beyond what the <var>UpdatedInput</var> necessitates.</dd>
+  <dt>Full processing time and token costs</dt>
+  <dd>Although only parts of the input have changed, we produce the <var>UpdatedOutput</var> in full. This is as expensive as the production of the original <var>Output</var>.</dd>
+</dl>
+
+<p><em>Revision prompting</em> resolves both downsides of naive re-runs by operating on the input and output <strong>revisions</strong> instead of the full input and output.</p>
+
+<h2><span class="kicker">How</span> Revision Prompting works</h2>
+
+<p>Assume you have processed some <var>Input</var> with an <var>Instruction</var> to produce some <var>Output</var> by prompting an LLM with</p>
+
+<div class="prompt">
+  <p><var>Instruction</var>: <var>Input</var></p>
+</div>
+
+<p>Now, <var>Input</var> has been updated, and you also want to process the <var>UpdatedInput</var>.
+Revision Prompting processes the <var>UpdatedInput</var> by constructing the <var>RevisionPrompt</var> as</p>
+
+<div class="prompt">
+  <p><var>Instruction</var>: <var>Input</var> produced <var>Output</var>.</p>
+  <p>The input got updated as follows: <code>diff(<var>Input</var>, <var>UpdatedInput</var>)</code>.</p>
+  <p>Please produce a patch to update the output.</p>
+</div>
+
+<p>The LLM responds to the <var>RevisionPrompt</var> with the <var>OutputPatch</var> that we apply to the <var>Output</var> to obtain the <var>UpdatedOutput</var>.</p>
+
+<details>
+  <summary>Example</summary>
+  <p>You translate the product page of an e-bike to German with the prompt</p>
+  <div class="prompt fields">
+    <span class="flabel">Instruction</span><span class="fvalue">Translate to German:</span>
+    <span class="flabel">Input</span><span class="fvalue"><code class="lines">The Vela 3 e-bike has a range of 80 km.<br>Its battery recharges in three hours.<br>The frame is made from recycled aluminium.<br>Every Vela 3 includes a two-year warranty.</code></span>
+  </div>
+  <p>and the LLM produces</p>
+  <div class="prompt fields">
+    <span class="flabel">Output</span><span class="fvalue"><code class="lines">Das E-Bike Vela 3 hat eine Reichweite von 80 km.<br>Sein Akku lädt in drei Stunden auf.<br>Der Rahmen besteht aus recyceltem Aluminium.<br>Jedes Vela 3 hat zwei Jahre Garantie.</code></span>
+  </div>
+  <p>Later, a battery upgrade increases the range from 80 km to 100 km. Instead of re-translating the whole page, you prompt</p>
+  <div class="prompt fields">
+    <span class="flabel">Instruction</span><span class="fvalue">Translate to German:</span>
+    <span class="flabel">Input</span><span class="fvalue"><code class="lines">The Vela 3 e-bike has a range of 80 km.<br>Its battery recharges in three hours.<br>The frame is made from recycled aluminium.<br>Every Vela 3 includes a two-year warranty.</code></span>
+    <span class="flabel"></span><span class="fvalue">produced</span>
+    <span class="flabel">Output</span><span class="fvalue"><code class="lines">Das E-Bike Vela 3 hat eine Reichweite von 80 km.<br>Sein Akku lädt in drei Stunden auf.<br>Der Rahmen besteht aus recyceltem Aluminium.<br>Jedes Vela 3 hat zwei Jahre Garantie.</code></span>
+    <span class="flabel"></span><span class="fvalue">The input got updated as follows:</span>
+    <span class="flabel">diff(Input, UpdatedInput)</span><span class="fvalue"><span class="diff"><span class="del">- The Vela 3 e-bike has a range of <mark>80</mark> km.</span><span class="add">+ The Vela 3 e-bike has a range of <mark>100</mark> km.</span></span></span>
+    <span class="flabel"></span><span class="fvalue">Please produce a patch to update the output.</span>
+  </div>
+  <p>The LLM responds with</p>
+  <div class="prompt fields">
+    <span class="flabel">OutputPatch</span><span class="fvalue"><span class="diff"><span class="del">- Das E-Bike Vela 3 hat eine Reichweite von <mark>80</mark> km.</span><span class="add">+ Das E-Bike Vela 3 hat eine Reichweite von <mark>100</mark> km.</span></span></span>
+  </div>
+  <p>Applying the <var>OutputPatch</var> to the original <var>Output</var> produces the updated translation.</p>
+  <p>The <var>OutputPatch</var> contains only two lines of text instead of a full re-translation. Unchanged content stays consistent with the original translation.</p>
+</details>
+
+<h2><span class="kicker">Why</span> Revision Prompting works</h2>
+
+<dl>
+  <dt>Consistency</dt>
+  <dd>By supplying the LLM with the input revision <code>diff(<var>Input</var>, <var>UpdatedInput</var>)</code>, we ensure that the <var>OutputPatch</var> is limited to what the input changes necessitate. Everything not touched by the <var>OutputPatch</var> remains identical to the original <var>Output</var>. Therefore, the <var>UpdatedOutput</var> is <strong>consistent</strong> with the original <var>Output</var>.</dd>
+  <dt>Time &amp; cost savings
+  </dt>
+  <dd>Revision Prompting feeds the original <var>Output</var> back in as part of the prompt, so the LLM only generates the short <var>OutputPatch</var>. Most tokens thereby move from the output to the input. Since processing time scales roughly with the length of the output, this eliminates most of the processing time. It also converts most of the output token cost into much cheaper input token cost. If the re-run happens within a couple of minutes of the original run, prompt caching reduces part of the input token cost as well.
+</dd>
+</dl>
+
+<h2>Revision Prompting in practice</h2>
+
+<dl>
+  <dt>Revision Formats</dt>
+  <dd>The ideal formats for encoding <code>diff(<var>Input</var>, <var>UpdatedInput</var>)</code> and the <var>OutputPatch</var> depend on the <var>Instruction</var>. The <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/diff.html">POSIX <code>diff</code> utility</a> is a useful generic format. For JSON outputs, the <a href="https://jsonpatch.com/">JSON Patch</a> format works well.</dd>
+  <dt>Expected Savings</dt>
+  <dd>The time &amp; cost reduction scales with the size of the input changes and the sensitivity of the output to changes in the input. In our own industrial prompts, Revision Prompting reduces time by ~80%, and costs by ~65%.</dd>
+</dl>
+
+</main>
+
+<footer>
+  <p>We invented Revision Prompting because our industrial prompts were too slow, inconsistent, and expensive. We use Revision Prompting in production. If you would like to know more, <a href="mailto:robert.hoenig@pqt.ch">reach out to us</a>!</p>
+</footer>
+
+</body>
+</html>

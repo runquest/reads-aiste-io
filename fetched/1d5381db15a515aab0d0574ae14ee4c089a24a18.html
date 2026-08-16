@@ -1,0 +1,292 @@
+<!-- source: https://reactdigest.net/links/22956/15ba1f04-697f-45f3-a1e0-b46f193a8e06/email -->
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>Async hydration in Preact</title>
+    
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;500&display=optional" rel="preload" as='style'>
+
+    <style type="text/css">@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/symbols2/wght/normal.woff2);unicode-range:U+2000-2001,U+2004-2008,U+200A,U+23B8-23BD,U+2500-259F;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:optional;}@font-face {font-family:'Fira Code';font-style:normal;font-weight:400;src:url(/cf-fonts/v/fira-code/5.2.7/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:optional;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:optional;}</style>
+
+    <meta charset="utf-8" >
+    <meta httpEquiv="x-ua-compatible" content="ie=edge" >    <meta       name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Jovi De Croock's Blog RSS Feed" href="/rss.xml" >
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" >
+
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      .post-callout {
+        color: #E4E4E7;
+        border: 1px solid #2D2C2C;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(235, 41, 169, 0.05) 0%, rgba(11, 11, 12, 0.1) 100%);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        margin: 1.5rem 0;
+      }
+
+      .post-callout::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #EB29A9, #6366f1);
+      }
+
+      blockquote {
+        display: flex;
+        text-align: center;
+        border-left: 1px solid grey;
+        margin-left: 24px;
+        padding-left: 12px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      th {
+        padding: 12px 15px;
+        color: white;
+        font-weight: 600;
+        text-align: left;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      td {
+        padding: 12px 15px;
+        color: #A6A7A7;
+        text-align: left;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      html, body {
+        font-kerning: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: #0b0b0c;
+        font-family: 'Inter', sans-serif, system-ui;
+        line-height: 1.5;
+      }
+
+      pre, code {
+        font-family: 'Fira Code', monospace;
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+
+      p, li {
+        color: #A6A7A7;
+      }
+
+      b {
+        color: #FCFCFD;
+      }
+
+      h1 {
+        color: #FCFCFD;
+        font-weight: 500;
+        font-size: 3rem;
+        margin-bottom: 0.5em;
+        line-height: 1.25;
+      }
+
+      h2 {
+        color: #FCFCFD;
+        font-weight: 500;
+        font-size: 2.5rem;
+        margin-bottom: 0.5em;
+      }
+
+      h3 {
+        color: #FCFCFD;
+      }
+
+      *:focus {
+        outline: 2px solid #EB29A9;
+      }
+
+      p, a, li {
+        font-size: 1rem;
+      }
+
+      a {
+        color: #FCFCFD;
+        text-decoration: none;
+        &:hover {
+          color: #EB29A9;
+        }
+        &:focus {
+          color: #EB29A9;
+        }
+      }
+    </style>
+    <script type="2e2f9e1104322af56c1ec3b4-module" crossorigin src="/assets/main-phs85aAB.js"></script>
+  <style id="_goober">.go2474335032{margin-left:auto;margin-right:auto;max-width:42rem;padding:2rem 1.3125rem;display:flex;min-height:100vh;flex-direction:column;}.go1460135696{display:flex;}@media(max-width: 768px){.go1460135696{flex-direction:column;align-items:center;justify-content:center;}}.go3855202955{position:absolute;left:16px;top:32px;display:flex;align-items:center;gap:12px;}@media(max-width: 768px){.go3855202955{position:relative;left:0;top:0;}}.go659564924{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #2D2C2C;flex-shrink:0;}.go163577950{margin:0;}.go3734036493{margin:0;color:#A1A1AA;font-size:0.875rem;}.go2414768818{margin-left:auto;margin-right:auto;display:flex;justify-content:center;gap:3rem;padding:0.5rem;text-transform:uppercase;font-weight:500;margin-bottom:1rem;}@media(max-width: 768px){.go2414768818{margin-right:unset;margin-left:unset;margin-top:1rem;}}.go3685768253{position:relative;text-decoration:none;color:#A1A1AA;transition:color 0.2s ease;}.go3685768253::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:linear-gradient(90deg, #EB29A9, #6366f1);transform:scaleX(0);transform-origin:left;transition:transform 0.2s ease;}.go3685768253:hover{color:#FCFCFD;}.go3685768253:hover::after{transform:scaleX(1);}.go3994514707{color:#FCFCFD;}.go3994514707::after{transform:scaleX(1);}.go2895638826{flex:1;}.go1542861049{align-items:center;display:flex;justify-content:center;}.go981001068{margin:0 6px;}.go4218048843{display:flex;flex-direction:column;}.go819755289{color:#A6A7A7;font-size:0.8rem;}</style>
+<meta property="og:site_name" content="Jovi De Croock">
+<meta property="og:url" content="https://jovidecroock.com/blog/resumed-hydration-preact">
+<meta property="og:description" content="How Preact resumes hydration across Suspense boundaries, why useId made that hard, and how streaming changes the tradeoffs.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.jovidecroock.com/resumed-hydration.jpg">
+<meta property="og:title" content="Async hydration in Preact">
+<meta name="twitter:description" content="How Preact resumes hydration across Suspense boundaries, why useId made that hard, and how streaming changes the tradeoffs.">
+<meta name="twitter:image" content="https://www.jovidecroock.com/resumed-hydration.jpg">
+<meta name="twitter:title" content="Async hydration in Preact">
+<meta name="twitter:site" content="@jovidec">
+<meta name="twitter:creator" content="@jovidec">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="front-end, suspense, server-side-rendering, performance">
+<meta name="description" content="How Preact resumes hydration across Suspense boundaries, why useId made that hard, and how streaming changes the tradeoffs.">
+<meta name="author" content="Jovi De Croock">
+<link rel="canonical" href="https://jovidecroock.com/blog/resumed-hydration-preact" data-hoofd="1"></head>
+  <body>
+    <div id="main"><div class="go2474335032"><header class="go1460135696"><div class="go3855202955"><img src="/me.jpg" alt="Jovi De Croock" class="go659564924"><div><h3 class="go163577950">Jovi De Croock</h3><p class="go3734036493">Software Engineer</p></div></div><nav class="go2414768818"><a href="/" class="go3685768253">Home</a><a href="/blog" class="go3685768253 go3994514707">Blog</a><a href="/blueprint" class="go3685768253">Blueprint</a></nav></header><main class="go2895638826"><div><!--$s--><div class="go4218048843"><span class="go819755289">Written on <time datetime="2026-07-13">July 13, 2026</time></span></div>
+
+<h1>Async hydration in Preact</h1>
+<p>I've written before about hydration in <a href="https://www.jovidecroock.com/blog/hydration-and-preact">a previous post</a>,
+but I feel like we are overdue to revisit the topic. It might be worth catching up on
+that post, but the TL;DR is that hydration is one synchronous process where Preact
+compares the HTML it received from the server and makes it interactive through the
+executed JavaScript representation of the Virtual DOM. Each DOM node is visited and
+we apply the event-handlers, refs, and other details described by the Virtual DOM. When
+we see a discrepancy, we abort hydration and treat it as a mismatch.</p>
+<p>Why does the synchronous part matter? Because it's all-or-nothing: nothing on the page is
+interactive until every piece of JavaScript and data the tree needs has arrived and
+executed, and on a large tree the hydration pass itself can occupy the main thread long
+enough for a click to go unanswered. The bigger your app, the longer your users stare at
+a page that looks ready but isn't.</p>
+<p>This synchronous behavior is often treated as an inherent limitation of Preact. Other
+technologies like React have selective hydration, and people discount Preact for not
+having it because… well, we aren't great at talking about these topics. If at this point
+you are blaming me for not mentioning it before, then you have all the reason to.</p>
+<p>The point of this post is that Preact isn't limited to this all-or-nothing model. Resumed
+hydration already lets <code>Suspense</code> boundaries hydrate independently. Hydration 2.0 in
+Preact 11 changes how we identify the DOM owned by those boundaries, while streaming
+changes when that DOM reaches the browser. These are related steps, but they aren't the
+same feature.</p>
+<h2>Enter resumed hydration</h2>
+<p>I never really settled on naming the practice we have in Preact, but I often refer to it
+as resumed hydration. Its async nature is achieved through <code>Suspense</code>. In Preact, we
+support that through the <code>compat</code> package, the <code>preact-suspense</code> package, and the
+<code>preact-iso</code> router. All of those can opt in to resumed hydration.</p>
+<p>There are two topics to consider here: the server and the client. On the server we
+historically used <code>renderToString</code> to render our Virtual DOM to an HTML string that the
+client can visualize for the user. When we enter this resumed hydration world, we
+leverage <code>renderToStringAsync</code> instead. It isn't that different, apart from the fact that
+it will <code>await</code> any suspending Virtual DOM node and continue creating the HTML string
+from each resolved piece.</p>
+<p>On the client we start hydrating the HTML string we received. When a child suspends,
+Preact pauses hydration for that subtree, remembers where it stopped in the
+server-rendered DOM, and continues hydrating the rest of the application. Once the
+missing data or JavaScript resolves, Preact returns to that subtree and makes it
+interactive.</p>
+<p>This pause-and-continue behavior is resumed hydration, and it already exists today.
+Hydration 2.0 doesn't introduce it; it changes how Preact records the DOM belonging to
+each paused subtree. While a subtree is paused, its server-rendered view remains visible
+and we don't replace it with the <code>Suspense</code> fallback.</p>
+<p>There is also less work blocking the main thread at once. While a boundary is waiting for
+code or data, the browser can render, respond to input, and run other work instead of
+spending that time hydrating a subtree that isn't ready. Hydration still uses the main
+thread when each boundary resumes, but it happens in smaller pieces rather than one long
+all-or-nothing pass. Meanwhile, the parts that have already hydrated are interactive.</p>
+<figure style="margin:1.75rem 50%;width:min(calc(100vw - 2rem), 56rem);transform:translateX(-50%);border:1px solid #2D2C2C;border-radius:16px;background:radial-gradient(circle at top left, rgba(235, 41, 169, 0.16), transparent 32%), #0B0B0C;overflow:hidden;"><div style="padding:1rem;"><svg viewBox="0 0 820 420" role="img" aria-labelledby="resumed-hydration-title resumed-hydration-desc" style="display:block;width:100%;height:auto;"><title id="resumed-hydration-title">Resumed hydration flow</title><desc id="resumed-hydration-desc">Server rendering awaits async boundaries before sending HTML. The client hydrates the shell, pauses boundaries that aren't ready, and resumes them as their data or JavaScript arrives.</desc><defs><marker id="resume-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#A1A1AA"></path></marker></defs><text x="410" y="32" fill="#E4E4E7" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">One HTML tree, several resumable boundaries</text><text x="70" y="104" fill="#EB29A9" font-size="15" font-weight="700" text-anchor="start" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">server</text><g><rect x="135" y="72" width="150" height="64" rx="14" fill="#111114" stroke="#EB29A9" stroke-width="2"></rect><text x="210" y="98" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">render shell</text><text x="210" y="120" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">renderToStringAsync</text></g><g><rect x="335" y="72" width="150" height="64" rx="14" fill="#111114" stroke="#F59E0B" stroke-width="2"></rect><text x="410" y="98" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">await data</text><text x="410" y="120" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">Suspense A</text></g><g><rect x="535" y="72" width="150" height="64" rx="14" fill="#111114" stroke="#6366F1" stroke-width="2"></rect><text x="610" y="98" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">await code</text><text x="610" y="120" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">Suspense B</text></g><line x1="288" y1="104" x2="328" y2="104" stroke="#A1A1AA" stroke-width="2" marker-end="url(#resume-arrow)"></line><line x1="488" y1="104" x2="528" y2="104" stroke="#A1A1AA" stroke-width="2" marker-end="url(#resume-arrow)"></line><path d="M 610 142 C 596 186 492 206 410 206 C 310 206 230 196 210 214" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#resume-arrow)"></path><rect x="256" y="156" width="308" height="28" rx="14" fill="#0B0B0C" stroke="rgba(34, 197, 94, 0.35)"></rect><text x="410" y="170" fill="#22C55E" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">finished HTML is already visible</text><text x="70" y="246" fill="#38BDF8" font-size="15" font-weight="700" text-anchor="start" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">client</text><g><rect x="135" y="214" width="150" height="64" rx="14" fill="#111114" stroke="#38BDF8" stroke-width="2"></rect><text x="210" y="240" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">hydrate shell</text><text x="210" y="262" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">attach handlers</text></g><g><rect x="335" y="214" width="150" height="64" rx="14" fill="#111114" stroke="#F59E0B" stroke-width="2"></rect><text x="410" y="240" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">pause boundary</text><text x="410" y="262" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">wait for A</text></g><g><rect x="535" y="214" width="150" height="64" rx="14" fill="#111114" stroke="#6366F1" stroke-width="2"></rect><text x="610" y="240" fill="#E4E4E7" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">resume boundary</text><text x="610" y="262" fill="#A1A1AA" font-size="12" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">continue B</text></g><line x1="288" y1="246" x2="328" y2="246" stroke="#A1A1AA" stroke-width="2" marker-end="url(#resume-arrow)"></line><line x1="488" y1="246" x2="528" y2="246" stroke="#A1A1AA" stroke-width="2" marker-end="url(#resume-arrow)"></line><rect x="135" y="328" width="550" height="44" rx="22" fill="rgba(34, 197, 94, 0.12)" stroke="rgba(34, 197, 94, 0.7)"></rect><text x="410" y="350" fill="#22C55E" font-size="14" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">fallback is skipped during hydration because the real DOM is already there</text></svg></div><figcaption style="border-top:1px solid #2D2C2C;color:#A1A1AA;font-size:0.9rem;padding:0.85rem 1rem;">Resumed hydration keeps the server HTML visible, then fills in interactivity as each Suspense boundary can continue.</figcaption></figure>
+<p>So how does this stack up against React's selective hydration? In practice it covers most
+of what people mean when they bring it up: boundaries hydrate independently, and the
+server-rendered content stays visible while they do. The difference is
+prioritization: React uses interaction as a signal and will hydrate the boundary you
+just clicked first, while Preact currently resumes boundaries in the order their code or
+data resolves.</p>
+<h2>Hydration 2.0</h2>
+<p>This practice brings footguns with it, as all of them do… The original resumed-hydration
+algorithm remembered <em>1 and only 1 DOM node</em> at which to continue. That effectively
+assumed that a suspending VNode would eventually produce exactly one DOM node.</p>
+<p>That assumption breaks when the VNode produces no DOM, such as a component returning
+<code>null</code>, or multiple nodes, such as a <code>Fragment</code> with two root elements. Preact could then
+resume from the wrong node, causing hydration mismatches, recreated DOM, duplicated
+siblings, or lost state.</p>
+<p><a href="https://github.com/preactjs/preact/issues/4442">Hydration 2.0</a> replaces that single-node
+assumption with explicit boundaries in the server-rendered HTML. <code>renderToStringAsync</code>
+emits opening and closing markers around the DOM produced by a suspending VNode.
+Adjacent markers represent no DOM; one or more nodes can sit between the same markers.
+On the client, Preact can therefore identify the complete range belonging to the
+suspended subtree before resuming it.</p>
+<p>Hydration 2.0 is best understood as making our existing resumed hydration reliable,
+rather than introducing async hydration for the first time. It will ship as part of
+Preact 11.</p>
+<h2>What we didn't solve (yet)</h2>
+<p>Hydration 2.0 tells us which DOM belongs to a resumed subtree. It doesn't, by itself,
+ensure that the subtree generates the same ids on the server and client. This is where
+our <code>useId()</code> hook presents another problem. The ids it hands out are derived from
+the position in the tree, and they have to match between server and client — attributes
+like <code>aria-describedby</code> in the server HTML point at them. When suspending siblings
+resolve in a different order on the client than they did on the server, the client
+derives different ids than the ones already sitting in the HTML: references point at ids
+that no longer exist, or two elements end up sharing one. One thing we tried was
+<a href="https://github.com/preactjs/preact/commit/67f02906e857bdaf5872374019a700efc417e318">Fix useId stability across async Suspense (#5108)</a>,
+which made async Suspense siblings keep the same ids even when they resolved in different
+orders. We had to revert that in
+<a href="https://github.com/preactjs/preact/pull/5135">#5135</a>: when a client-only branch, or one
+that had already finished hydrating, rendered in the middle of hydration, it shifted the
+tree positions that later Suspense boundaries derived their ids from, which reintroduced the
+problem.</p>
+<figure style="margin:1.75rem 50%;width:min(calc(100vw - 2rem), 56rem);transform:translateX(-50%);border:1px solid #2D2C2C;border-radius:16px;background:radial-gradient(circle at top left, rgba(235, 41, 169, 0.16), transparent 32%), #0B0B0C;overflow:hidden;"><div style="padding:1rem;"><svg viewBox="0 0 820 430" role="img" aria-labelledby="useid-title useid-desc" style="display:block;width:100%;height:auto;"><title id="useid-title">useId stability across Suspense</title><desc id="useid-desc">A server render resolves Suspense boundary A before B. A client render may resolve B before A. If identifiers follow completion order, the same fields receive different ids.</desc><defs><marker id="useid-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#A1A1AA"></path></marker></defs><text x="410" y="34" fill="#E4E4E7" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">Stable ids need tree position, not resolution order</text><g><rect x="66" y="78" width="300" height="204" rx="14" fill="#111114" stroke="#EB29A9" stroke-width="2"></rect><text x="216" y="108" fill="#EB29A9" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">server order</text><text x="216" y="136" fill="#A1A1AA" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">A resolves, then B resolves</text><rect x="104" y="170" width="100" height="52" rx="12" fill="#19191D"></rect><rect x="228" y="170" width="100" height="52" rx="12" fill="#19191D"></rect><text x="154" y="190" fill="#F59E0B" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">A</text><text x="154" y="210" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">P1-0</text><text x="278" y="190" fill="#6366F1" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">B</text><text x="278" y="210" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">P2-0</text><line x1="204" y1="196" x2="226" y2="196" stroke="#A1A1AA" stroke-width="2" marker-end="url(#useid-arrow)"></line></g><g><rect x="454" y="78" width="300" height="204" rx="14" fill="#111114" stroke="#F87171" stroke-width="2"></rect><text x="604" y="108" fill="#F87171" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">client order</text><text x="604" y="136" fill="#A1A1AA" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">B resolves, then A resolves</text><rect x="492" y="170" width="100" height="52" rx="12" fill="#19191D"></rect><rect x="616" y="170" width="100" height="52" rx="12" fill="#19191D"></rect><text x="542" y="190" fill="#6366F1" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">B</text><text x="542" y="210" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">P1-0</text><text x="666" y="190" fill="#F59E0B" font-size="15" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">A</text><text x="666" y="210" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">P2-0</text><line x1="592" y1="196" x2="614" y2="196" stroke="#A1A1AA" stroke-width="2" marker-end="url(#useid-arrow)"></line></g><path d="M 368 180 C 400 166 420 166 452 180" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-dasharray="5 6"></path><text x="410" y="218" fill="#F87171" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">same VNode, different id</text><rect x="98" y="326" width="624" height="54" rx="18" fill="rgba(99, 102, 241, 0.14)" stroke="rgba(99, 102, 241, 0.75)"></rect><text x="410" y="344" fill="#E4E4E7" font-size="14" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">The fix has to anchor the id space to the Suspense boundary's place</text><text x="410" y="364" fill="#A1A1AA" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">in the tree, even when client-only branches appear during hydration.</text></svg></div><figcaption style="border-top:1px solid #2D2C2C;color:#A1A1AA;font-size:0.9rem;padding:0.85rem 1rem;">The useId problem is not producing unique ids; it is producing the same ids when async boundaries finish in different orders.</figcaption></figure>
+<p>That revert is why I'm not fully satisfied with the solution yet. I have tried a few
+versions of this, but at this point I am contemplating that we either need to let users
+specify a name for the <code>Suspense</code> boundary, or derive one from the tree position, and
+then use that as a modifier for the suspending subtree's <code>useId</code> invocations.</p>
+<h2>Streaming</h2>
+<p>React solved this a bit differently. Rather than waiting for all async resolution on the
+server before sending the finished HTML, React streams the shell, fallbacks, and resolved
+HTML chunks as they become available, then hydrates them on the client. Honestly, this
+approach results in fewer of these weird edge cases and is a great feature. You will
+never hear me say otherwise. In Preact, I've also started working towards hydrating these
+streamed chunks correctly on the client, and it should be a feature in Preact 11 as well. The progress can be found in
+<a href="https://github.com/preactjs/preact/issues/5034">this issue</a>.</p>
+<figure style="margin:1.75rem 50%;width:min(calc(100vw - 2rem), 56rem);transform:translateX(-50%);border:1px solid #2D2C2C;border-radius:16px;background:radial-gradient(circle at top left, rgba(235, 41, 169, 0.16), transparent 32%), #0B0B0C;overflow:hidden;"><div style="padding:1rem;"><svg viewBox="0 0 820 420" role="img" aria-labelledby="streaming-title streaming-desc" style="display:block;width:100%;height:auto;"><title id="streaming-title">Streaming compared to resumed hydration</title><desc id="streaming-desc">Resumed hydration sends completed HTML and resumes paused client boundaries later. Streaming sends the shell earlier, includes fallbacks, and streams completed boundary HTML later.</desc><defs><marker id="stream-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#A1A1AA"></path></marker></defs><text x="410" y="34" fill="#E4E4E7" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">Waiting for HTML vs streaming HTML</text><g><rect x="64" y="76" width="312" height="250" rx="14" fill="#111114" stroke="#38BDF8" stroke-width="2"></rect><text x="220" y="108" fill="#38BDF8" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">resumed hydration</text><rect x="104" y="144" width="232" height="34" rx="10" fill="#19191D"></rect><text x="220" y="161" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">render full HTML</text><line x1="220" y1="182" x2="220" y2="212" stroke="#A1A1AA" stroke-width="2" marker-end="url(#stream-arrow)"></line><rect x="104" y="216" width="232" height="34" rx="10" fill="#19191D"></rect><text x="220" y="233" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">send visible DOM</text><line x1="220" y1="254" x2="220" y2="284" stroke="#A1A1AA" stroke-width="2" marker-end="url(#stream-arrow)"></line><rect x="104" y="288" width="232" height="34" rx="10" fill="#19191D"></rect><text x="220" y="305" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">resume interactivity</text></g><g><rect x="444" y="76" width="312" height="250" rx="14" fill="#111114" stroke="#22C55E" stroke-width="2"></rect><text x="600" y="108" fill="#22C55E" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">streaming</text><rect x="484" y="144" width="232" height="34" rx="10" fill="#19191D"></rect><text x="600" y="161" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">flush shell + fallback</text><line x1="600" y1="182" x2="600" y2="212" stroke="#A1A1AA" stroke-width="2" marker-end="url(#stream-arrow)"></line><rect x="484" y="216" width="232" height="34" rx="10" fill="#19191D"></rect><text x="600" y="233" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">stream resolved HTML</text><line x1="600" y1="254" x2="600" y2="284" stroke="#A1A1AA" stroke-width="2" marker-end="url(#stream-arrow)"></line><rect x="484" y="288" width="232" height="34" rx="10" fill="#19191D"></rect><text x="600" y="305" fill="#E4E4E7" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">hydrate arrived chunks</text></g><rect x="108" y="358" width="604" height="40" rx="20" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.8)"></rect><text x="410" y="378" fill="#F59E0B" font-size="14" font-weight="500" text-anchor="middle" dominant-baseline="middle" font-family="Inter, system-ui, sans-serif">both keep the user looking at useful HTML while JavaScript catches up</text></svg></div><figcaption style="border-top:1px solid #2D2C2C;color:#A1A1AA;font-size:0.9rem;padding:0.85rem 1rem;">Streaming changes the pause button: the server can flush a shell and fallbacks first, then send completed boundary HTML as it resolves.</figcaption></figure>
+<p>A very positive note about streaming is that it won't <em>just</em> stream the HTML when it's
+done. The user will see something on screen much faster because when the shell is done
+rendering and we arrive at a suspending child, the server can flush the shell and the
+fallback for the <code>Suspense</code> boundary.</p>
+<p>You can of course approximate this yourself by quickly server-rendering a skeleton,
+flushing it, starting your <code>renderToStringAsync</code>, and then flushing that. Built-in
+streaming is just the more elegant version: the user sees each piece pop in one at a
+time and become interactive ~instantly, rather than everything arriving in one late
+chunk.</p>
+<hr>
+<p>To recap: resumed hydration already lets Preact make <code>Suspense</code> boundaries interactive
+independently and gives the main thread opportunities to handle other work while a
+boundary is waiting. Hydration 2.0 makes those boundaries reliable when they contain
+zero, one, or many DOM nodes. Streaming will let their HTML arrive independently as
+well. Stable <code>useId</code> generation across async boundaries remains an open problem.</p>
+<p>I hope all of this was a bit enlightening about what we've been pursuing at Preact for
+hydration. I'm hoping to make all of this more accessible with
+<a href="https://pracht.resynapse.dev">pracht</a>, a full-stack framework we're building where you
+pick a rendering mode (SSG, SSR, ISG, SPA) per route and get all of the above without
+wiring it up yourself. If you have anything you think is worth adding
+for us, let us know. We are really open to feedback!</p><!--/$s--></div></main><footer class="go1542861049"><a rel="nofollow" target="_blank" href="https://bsky.app/profile/jovidecroock.com" class="go981001068">BlueSky</a>-<a rel="nofollow" target="_blank" href="https://x.com/jovidec" class="go981001068">Twitter</a>-<a rel="nofollow" target="_blank" href="https://www.github.com/jovidecroock" class="go981001068">Github</a>-<a href="mailto:decroockjovi@gmail.com" class="go981001068">Contact</a>-<a href="/blog" class="go981001068">Blog</a></footer></div><script type="isodata"></script></div>
+  <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e331947dea4746e5b665c52afdeb740f"}' type="2e2f9e1104322af56c1ec3b4-text/javascript"></script><!-- Cloudflare Pages Analytics --><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="2e2f9e1104322af56c1ec3b4-|49" defer></script></body>
+</html>
