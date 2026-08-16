@@ -5,6 +5,9 @@
 //                       is shared across every device instead of living in one
 //                       browser's localStorage.
 //  - GET/POST /state/<slug>/note   Per-story free-text notes, backed by KV.
+//  - GET/POST /state/<slug>/highlights            List/create passage- or
+//                                    unanchored quick-capture annotations.
+//  - POST/DELETE /state/<slug>/highlights/<id>    Edit/remove one annotation.
 // Deploy with `wrangler deploy` from the worker/ directory.
 
 // localhost is allowed alongside production so `bundle exec jekyll serve`
@@ -15,7 +18,7 @@ function corsHeaders(request) {
   const origin = request.headers.get("Origin");
   return {
     "Access-Control-Allow-Origin": ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   };
 }
@@ -143,6 +146,18 @@ async function handleGetNote(request, env, slug) {
   return jsonResponse(request, { note: note || "" });
 }
 
+// hasNote now covers two independent things — the general note and the
+// highlights list — so it can't be set from just one of them in isolation
+// (deleting the last highlight shouldn't clear it if a general note still
+// exists, and vice versa). Both handlePostNote and the highlight mutators
+// recompute it fresh from both sources rather than passing a boolean through.
+async function computeHasNote(env, slug) {
+  const note = await env.READS_STATE.get(`note:${slug}`);
+  if (note && note.trim() !== "") return true;
+  const highlights = await getHighlights(env, slug);
+  return highlights.length > 0;
+}
+
 async function handlePostNote(request, env, slug) {
   let body;
   try {
@@ -153,15 +168,106 @@ async function handlePostNote(request, env, slug) {
 
   const note = typeof body.note === "string" ? body.note : "";
   const key = `note:${slug}`;
-  const hasNote = note.trim() !== "";
-  if (hasNote) {
+  if (note.trim() !== "") {
     await env.READS_STATE.put(key, note);
   } else {
     await env.READS_STATE.delete(key);
   }
 
-  await mergeState(env, slug, { hasNote });
+  await mergeState(env, slug, { hasNote: await computeHasNote(env, slug) });
   return jsonResponse(request, { note });
+}
+
+// Highlights double as both passage-anchored annotations (quote/prefix/suffix
+// set) and unanchored quick-capture notes (quote null) — same shape, same
+// list, since a quick-capture note is just an annotation with nothing to
+// anchor to. Stored as one JSON array per story rather than one KV key per
+// highlight: simplest to read/write atomically, and article-scale lists are
+// nowhere near KV's per-value size limit.
+async function getHighlights(env, slug) {
+  const raw = await env.READS_STATE.get(`highlights:${slug}`);
+  if (!raw) return [];
+  try {
+    const list = JSON.parse(raw);
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+}
+
+async function putHighlights(env, slug, list) {
+  await env.READS_STATE.put(`highlights:${slug}`, JSON.stringify(list));
+}
+
+async function handleGetHighlights(request, env, slug) {
+  const highlights = await getHighlights(env, slug);
+  return jsonResponse(request, { highlights });
+}
+
+async function handleCreateHighlight(request, env, slug) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse(request, { error: "invalid JSON body" }, { status: 400 });
+  }
+
+  const note = typeof body.note === "string" ? body.note.trim() : "";
+  if (!note) {
+    return jsonResponse(request, { error: "note text is required" }, { status: 400 });
+  }
+
+  const entry = {
+    id: crypto.randomUUID(),
+    quote: typeof body.quote === "string" ? body.quote : null,
+    prefix: typeof body.prefix === "string" ? body.prefix : null,
+    suffix: typeof body.suffix === "string" ? body.suffix : null,
+    note,
+    created: new Date().toISOString(),
+  };
+
+  const list = await getHighlights(env, slug);
+  list.push(entry);
+  await putHighlights(env, slug, list);
+  await mergeState(env, slug, { hasNote: true });
+
+  return jsonResponse(request, entry, { status: 201 });
+}
+
+async function handleUpdateHighlight(request, env, slug, id) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse(request, { error: "invalid JSON body" }, { status: 400 });
+  }
+
+  const note = typeof body.note === "string" ? body.note.trim() : "";
+  if (!note) {
+    return jsonResponse(request, { error: "note text is required" }, { status: 400 });
+  }
+
+  const list = await getHighlights(env, slug);
+  const entry = list.find((h) => h.id === id);
+  if (!entry) {
+    return jsonResponse(request, { error: "not found" }, { status: 404 });
+  }
+
+  entry.note = note;
+  await putHighlights(env, slug, list);
+  return jsonResponse(request, entry);
+}
+
+async function handleDeleteHighlight(request, env, slug, id) {
+  const list = await getHighlights(env, slug);
+  const next = list.filter((h) => h.id !== id);
+  if (next.length === list.length) {
+    return jsonResponse(request, { error: "not found" }, { status: 404 });
+  }
+
+  await putHighlights(env, slug, next);
+  await mergeState(env, slug, { hasNote: await computeHasNote(env, slug) });
+  return jsonResponse(request, { deleted: true });
 }
 
 async function handleState(request, env) {
@@ -170,7 +276,9 @@ async function handleState(request, env) {
   }
 
   const url = new URL(request.url);
-  const parts = url.pathname.split("/").filter(Boolean); // ["state"], ["state", slug], or ["state", slug, "note"]
+  // ["state"], ["state", slug], ["state", slug, "note"],
+  // ["state", slug, "highlights"], or ["state", slug, "highlights", id]
+  const parts = url.pathname.split("/").filter(Boolean);
 
   if (request.method === "GET" && parts.length === 1) {
     return handleGetState(request, env);
@@ -183,6 +291,18 @@ async function handleState(request, env) {
   }
   if (request.method === "POST" && parts.length === 3 && parts[2] === "note") {
     return handlePostNote(request, env, parts[1]);
+  }
+  if (request.method === "GET" && parts.length === 3 && parts[2] === "highlights") {
+    return handleGetHighlights(request, env, parts[1]);
+  }
+  if (request.method === "POST" && parts.length === 3 && parts[2] === "highlights") {
+    return handleCreateHighlight(request, env, parts[1]);
+  }
+  if (request.method === "POST" && parts.length === 4 && parts[2] === "highlights") {
+    return handleUpdateHighlight(request, env, parts[1], parts[3]);
+  }
+  if (request.method === "DELETE" && parts.length === 4 && parts[2] === "highlights") {
+    return handleDeleteHighlight(request, env, parts[1], parts[3]);
   }
   return jsonResponse(request, { error: "not found" }, { status: 404 });
 }
