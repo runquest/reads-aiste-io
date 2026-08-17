@@ -1,0 +1,337 @@
+<!-- source: https://reactdigest.net/links/23013/15ba1f04-697f-45f3-a1e0-b46f193a8e06/email -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing Google's "modern-web-guidance" skill against a real React app</title>
+    <meta name="description" content="A test of the `modern-web-guidance` skill against a real React app, to see whether it actually catches stale frontend patterns and surfaces current best practices." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:site_name" content="Ahmad Alfy's Blog" />
+    <meta property="og:description" content="A test of the `modern-web-guidance` skill against a real React app, to see whether it actually catches stale frontend patterns and surfaces current best practices." />
+    <meta property="og:title" content="Testing Google's "modern-web-guidance" skill against a real React app" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://alfy.blog/2026/07/25/modern-web-guidance.html" />
+    <meta property="article:published_time" content="2026-07-25T03:00:00+03:00" />
+    <meta property="article:author" content="Ahmad Elalfy">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@ahmadalfy">
+    <meta name="twitter:title" content="Testing Google's "modern-web-guidance" skill against a real React app">
+    <meta name="twitter:description" content="A test of the `modern-web-guidance` skill against a real React app, to see whether it actually catches stale frontend patterns and surfaces current best practices.">
+
+    <link rel="stylesheet" href="https://alfy.blog/css/main.css?v=1.7" />
+    <link rel="canonical" href="https://alfy.blog/2026/07/25/modern-web-guidance.html">
+  </head>
+  <body>
+    <div class="header-container">
+      <header class="wrapper clearfix">
+        <h1 class="title"><a href="/">Ahmad Alfy</a></h1>
+        <p class="subtitle">Blog about front-end development and the web</p>
+        <nav>
+          <ul>
+            <li><a href="/">Blog</a> <a href="/feed.xml" class="rss"><img src="/images/feeds.png" alt="RSS feed" /></a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  <div class="main-container">
+    <main class="main wrapper clearfix">
+<h2>Testing Google's "modern-web-guidance" skill against a real React app</h2>
+<p class="meta">25 Jul 2026</p>
+
+<div class="post">
+<p>LLM-assisted frontend work has a particular failure mode. The model confidently writes code that was best-practice in 2021. It reaches for <code>100vh</code>, hand-rolls a dark-mode toggle with a class on <code>&lt;body&gt;</code>, or disables the submit button to “prevent” invalid input. None of it is <em>wrong</em> exactly. It’s just a few years stale, because the training data is a few years stale and the web platform moves faster than that.</p>
+
+<p>Google Chrome’s <a href="https://github.com/GoogleChrome/modern-web-guidance"><code>modern-web-guidance</code></a> skill is a direct attempt to fix that. It’s not a linter and it’s not a codegen tool. It’s a <strong>search index over a curated set of best-practice guides</strong>, meant to be consulted <em>before</em> you write HTML/CSS/client-side JS, so the pattern you reach for is the current one.</p>
+
+<p>I wanted to know whether it actually earns its place in the loop. So I pointed it at a real codebase, the React frontend of a project-assessment internal tool I’ve been building, and treated it as an auditor. This is what came back.</p>
+
+<h2 id="how-the-skill-actually-works">How the skill actually works</h2>
+
+<p>There’s no magic. It’s two commands over <code>npx</code>:</p>
+
+<pre><code class="language-sh"># 1. Search with an action-oriented phrase
+npx -y modern-web-guidance@latest search "support dark mode and system color scheme preference"
+
+# 2. Retrieve the full guide(s) by id
+npx -y modern-web-guidance@latest retrieve "dark-mode"
+</code></pre>
+
+<p><code>search</code> returns a ranked JSON list. Each hit has an <code>id</code>, a <code>description</code>, the web <code>featuresUsed</code>, a <code>tokenCount</code>, and a semantic <code>similarity</code> score. <code>retrieve</code> returns the guide as markdown.</p>
+
+<p>That’s the whole interface. The intelligence is in (a) the quality of the guides themselves and (b) whether the semantic search puts the right guide in front of you. Everything below is a test of both.</p>
+
+<h2 id="the-subject">The subject</h2>
+
+<p>The app is a Vite + React 18 questionnaire. You answer about 10 questions, it computes a recommended tech stack client-side, and you can save, label, and annotate assessments. It runs to 42 source files. What matters for this exercise is that it’s <strong>form-and-input heavy</strong> but has no images and no marketing-page concerns. So the relevant guidance is going to be about forms, inputs, theming, and layout, not LCP hero images.</p>
+
+<p>I did a quick inventory first. The tells were immediate:</p>
+
+<ul>
+  <li><strong>Zero <code>&lt;form&gt;</code> elements.</strong> Every data-entry surface is a bare <code>&lt;input&gt;</code> plus a <code>&lt;button type="button" onClick={...}&gt;</code>.</li>
+  <li><strong>No <code>autocomplete</code>, <code>inputmode</code>, or <code>enterkeyhint</code></strong> on any input.</li>
+  <li><strong>A hardcoded light theme.</strong> <code>theme.css</code> defines <code>:root</code> tokens as literal hex values, with no <code>color-scheme</code>, no <code>prefers-color-scheme</code>, no dark variant.</li>
+  <li><strong><code>min-height: 100vh</code></strong> in two places.</li>
+  <li>Some genuinely good instincts too, like <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> grouping, <code>role="alert"</code> on errors, and <code>:focus-visible</code>.</li>
+</ul>
+
+<p>Then I let the skill tell me what to do about each.</p>
+
+<h2 id="finding-1---dark-mode-the-flagship-miss">Finding 1 - Dark mode (the flagship miss)</h2>
+
+<p>I searched for <code>"support dark mode and system color scheme preference"</code>. The top hit came back at <strong>0.75 similarity</strong>, the highest of the whole session:</p>
+
+<pre><code class="language-json">{
+  "id": "dark-mode",
+  "featuresUsed": [
+    "color-scheme",
+    "prefers-color-scheme media query",
+    "light-dark()",
+    "accent-color"
+  ],
+  "similarity": 0.7487
+}
+</code></pre>
+
+<p>The app’s current theming is a wall of light-mode hex:</p>
+
+<pre><code class="language-css">/* theme.css */
+:root {
+  --surface-primary: #ffffff;
+  --foreground-primary: #1a1a1a;
+  --accent-primary: #4a9fd8;
+  /* ...no color-scheme, no dark variant anywhere... */
+}
+</code></pre>
+
+<p>The retrieved guide is refreshingly opinionated about what’s <em>mandatory</em> versus optional. The two non-negotiables:</p>
+
+<pre><code class="language-html">&lt;!-- MANDATORY in &lt;head&gt; to prevent a flash of un-themed content --&gt;
+&lt;meta name="color-scheme" content="light dark"&gt;
+</code></pre>
+<pre><code class="language-css">/* MANDATORY on :root/html so the browser themes scrollbars,
+   form controls, and the canvas background itself */
+:root { color-scheme: light dark; }
+</code></pre>
+
+<p>That single <code>color-scheme</code> declaration is the highest-leverage line the audit surfaced. Without it, even a perfectly hand-themed dark palette leaves the native scrollbars, <code>&lt;input&gt;</code> widgets, and the initial paint canvas stuck in light mode. That’s the exact “white flash on load” that makes a dark site feel broken.</p>
+
+<p>Beyond the mandatory two lines, the guide shows how to define color tokens with <code>light-dark()</code>, so each token carries its light and dark value in one place. Applied to this app’s theme file, the change is small. Every hardcoded hex becomes a pair, plus the two mandatory declarations:</p>
+
+<pre><code class="language-css">/* theme.css (before) */
+:root {
+  --surface-primary:    #ffffff;
+  --foreground-primary: #1a1a1a;
+  --accent-primary:     #4a9fd8;
+}
+
+/* theme.css (with the guide applied) */
+:root {
+  color-scheme: light dark;                        /* themes native UI, kills the flash */
+  --surface-primary:    light-dark(#ffffff, #1a1a1a);
+  --foreground-primary: light-dark(#1a1a1a, #f0f0f0);
+  --accent-primary:     light-dark(#4a9fd8, #6bb6e8);
+  accent-color: var(--accent-primary);             /* brand the native radios/checkboxes */
+}
+</code></pre>
+
+<p>And updating the <code>&lt;head&gt;</code> is just one line:</p>
+
+<pre><code class="language-html">&lt;!-- index.html --&gt;
+&lt;meta name="color-scheme" content="light dark"&gt;
+</code></pre>
+
+<p>(The dark values are illustrative inversions. The point is the <em>shape</em> of the change, not the exact palette.)</p>
+
+<p>What surprised me is that the guide doesn’t stop at CSS. It carries a section on the <em>design</em> of a theme toggle. This is part of the guide’s own text. You can read it with <code>retrieve "dark-mode"</code>, or straight on GitHub in the <a href="https://github.com/GoogleChrome/modern-web-guidance/blob/main/skills/modern-web-guidance/guides/user-experience/dark-mode.md">dark-mode guide</a>. Its <a href="https://github.com/GoogleChrome/modern-web-guidance/blob/main/skills/modern-web-guidance/guides/user-experience/dark-mode.md#ux-considerations">UX considerations</a> subsection makes the sharpest call, arguing that you should <em>not</em> build the toggle most of us reflexively build:</p>
+
+<blockquote>
+  <p><strong>DON’T</strong> expose all three states (system, light, dark). … Two of the three options always produce the same visual result, violating the principle of feedback.</p>
+</blockquote>
+
+<p>Instead it argues for a two-state control, “follow the system” and “the opposite of the system.” It also spells out the edge case that trips people up. If a user pins dark and then switches their OS to dark too, the site must <em>stay</em> dark rather than flip. That’s product judgment sitting inside a CSS guide, and it’s exactly the kind of thing a model won’t reliably volunteer on its own.</p>
+
+<p>Finally, because <code>light-dark()</code> is newer than <code>color-scheme</code>, the guide hands over the fallback so you don’t have to reason it out. You degrade through <code>prefers-color-scheme</code>, then upgrade with <code>@supports</code> where <code>light-dark()</code> exists.</p>
+
+<pre><code class="language-css">:root {
+  --accent-primary: #4a9fd8;                          /* light default, works everywhere */
+
+  @media (prefers-color-scheme: dark) {
+    --accent-primary: #6bb6e8;                        /* dark, for browsers without light-dark() */
+  }
+  @supports (color: light-dark(white, black)) {
+    --accent-primary: light-dark(#4a9fd8, #6bb6e8);   /* modern browsers, single source of truth */
+  }
+
+  color-scheme: light dark;
+}
+</code></pre>
+
+<p>It also ships a copy-paste script to prevent the theme flash for users who have pinned a non-default choice. That script is a plain inline one, deliberately not <code>defer</code> and not a module, so it reads the saved preference before first paint. And that brings up the skill’s best structural feature.</p>
+
+<h2 id="the-baseline-discipline">The Baseline discipline</h2>
+
+<p>When a guide leans on anything newer than the long-settled web, it keys its browser-support advice to <strong><a href="https://web.dev/baseline">Baseline</a></strong>. For <code>color-scheme</code>, the dark-mode guide returned that it’s widely available and has been Baseline since 2022-02-03. For <code>light-dark()</code>, it returned that it’s newly available and Baseline since 2024-05-13.</p>
+
+<script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
+
+<baseline-status featureId="color-scheme"></baseline-status>
+<baseline-status featureId="light-dark"></baseline-status>
+
+<p>This matters because it turns “should I use this?” from a vibe into a decision rule. The skill’s own instructions say Baseline-Widely-available features are safe to use unfenced, while newer features <em>must</em> carry the fallback the guide provides, unless you’ve declared a custom browser-support policy. In other words it defaults to safe, and it tells you exactly where the risk line is instead of leaving you to guess. <code>color-scheme</code> is safe to just ship, while <code>light-dark()</code> gets a <code>@supports</code>-guarded fallback. That’s the correct call, and it made it without me having to ask.</p>
+
+<h2 id="finding-2---the-forms-that-arent-forms">Finding 2 - The forms that aren’t forms</h2>
+
+<p>I searched for <code>"build an accessible form with submit handling"</code>. That surfaced the <code>forms</code> guide at 0.50 similarity, with <code>accessibility</code> and an <code>autofill-sign-in-form</code> guide right behind it.</p>
+
+<p>Here’s the app’s save surface, lightly trimmed:</p>
+
+<pre><code class="language-tsx">// the "Save Assessment" panel
+&lt;div className="save-area"&gt;
+  &lt;label className="label-field"&gt;
+    &lt;span&gt;Label (optional)&lt;/span&gt;
+    &lt;input value={label} onChange={(e) =&gt; setLabel(e.target.value)} /&gt;
+  &lt;/label&gt;
+  &lt;button type="button" className="save-button" onClick={handleSave}&gt;
+    Save Assessment
+  &lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>The guide’s very first rule is blunt about it. <em>“DO use the <code>&lt;form&gt;</code> element to wrap interactive controls… DON’T use <code>type="button"</code> for primary submission buttons.”</em> The rename field and the notes editor elsewhere in the app repeat the same <code>div</code>-plus-<code>onClick</code> shape.</p>
+
+<p>The practical cost of the current approach isn’t abstract. Because there’s no <code>&lt;form&gt;</code>, <strong>pressing Enter in the label field does nothing</strong>, and that’s a reflex every keyboard user has. The fix is small, and the guide hands it over directly, including the AJAX-friendly submit handler:</p>
+
+<pre><code class="language-js">form.addEventListener('submit', (e) =&gt; {
+  e.preventDefault();     // stay client-side
+  const data = new FormData(form);
+  // ...call the API...
+});
+</code></pre>
+
+<p>Wrap the input and button in a <code>&lt;form onSubmit={...}&gt;</code>, make the button <code>type="submit"</code>, and Enter-to-submit comes back for free, along with native form semantics for assistive tech.</p>
+
+<p>I’ll give the skill credit for a fair grade, too. One thing the app <em>already</em> does right showed up in the same guide. The save button disables itself while a save is in flight, and the guide explicitly blesses that. <em>“DO disable the button after a valid submission is clicked to prevent double-posts.”</em> This is the opposite of the anti-pattern from the intro. Disabling <em>after</em> a valid click to stop double-submits is good, while disabling <em>up front</em> to block an incomplete form is the dead end. A good auditor tells you what to keep, not only what to change.</p>
+
+<h2 id="finding-3---validation-timing">Finding 3 - Validation timing</h2>
+
+<p>I searched for <code>"client side form validation feedback"</code>. It surfaced a cluster of tightly-scoped guides, <code>required-field-feedback</code>, <code>validate-input-after-interaction</code>, and <code>accessible-error-announcement</code>, all built around <code>:user-valid</code> and <code>:user-invalid</code>.</p>
+
+<p>This is where the guides go deeper than a model’s default answer. Ask a chatbot “how do I validate a form field” and you’ll usually get an <code>onChange</code> handler that yells the moment you type one character. The guide instead ships a <strong>timing matrix</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trigger</th>
+      <th>Action</th>
+      <th>Logic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>input</code> (typing)</td>
+      <td><em>Clear</em> existing errors only</td>
+      <td>Don’t yell before they finish</td>
+    </tr>
+    <tr>
+      <td><code>blur</code></td>
+      <td><em>Run</em> the check, show the error</td>
+      <td>Validate when they’re “done” with the field</td>
+    </tr>
+    <tr>
+      <td><code>submit</code></td>
+      <td><em>Block</em> and route focus</td>
+      <td>Final gatekeeper</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The guide even boils it down to a single rule. <em>“Validate on <code>blur</code> to avoid premature warnings while typing, and reset error states on <code>input</code> as soon as the user attempts a correction.”</em> The modern platform gives you this essentially for free via the <code>:user-invalid</code> pseudo-class, which only matches <em>after</em> the user has interacted. The app’s ad-hoc <code>role="alert"</code> error paragraphs are accessible, which is another thing it got right, but they’re wired by hand where the platform now has a purpose-built primitive.</p>
+
+<h2 id="finding-4---a-rule-that-mostly-doesnt-apply-here">Finding 4 - A rule that (mostly) doesn’t apply here</h2>
+
+<p>The <code>forms</code> guide’s section 3 covers <code>autocomplete</code>, <code>inputmode</code>, and <code>enterkeyhint</code>, the attributes that tune autofill and the on-screen keyboard. None of the app’s inputs use them, and this is the one finding where the honest answer is a polite no.</p>
+
+<p>The questionnaire is almost entirely <code>&lt;input type="radio"&gt;</code>, where you pick one of a handful of options. Radios don’t take an <code>inputmode</code> or an <code>autocomplete</code> token, because there’s no keyboard to optimise and nothing to autofill. The only free-text fields in the whole app are a “label” and a “notes” box, and neither maps to a standard autofill value.</p>
+
+<p>So the guidance is correct in general and largely irrelevant here, and <em>noticing that</em> is the actual work. The tool returns a rule. Deciding it doesn’t apply to a radio-driven form is a judgment call it can’t make for you. This is the clearest example in the whole audit of why the skill is only half the loop. One line from the section does still land universally, though. Text inputs should be <code>font-size: 1rem</code> or larger, because anything smaller triggers an auto-zoom on iOS Safari the moment the field is focused.</p>
+
+<h2 id="finding-5---100vh-on-mobile">Finding 5 - <code>100vh</code> on mobile</h2>
+
+<p>The app has <code>min-height: 100vh</code> in two files. The well-known modern fix is <code>100dvh</code> (dynamic viewport height), which accounts for mobile browser chrome that <code>100vh</code> ignores. On iOS Safari, <code>100vh</code> is measured against the <em>expanded</em> viewport, so the bottom of a <code>100vh</code> layout sits behind the address bar.</p>
+
+<p>My query <code>"full height layout mobile viewport units"</code> returned the broad <code>css-layout</code> and <code>css</code> guides rather than a laser-focused “use dvh” atom. The right answer is almost certainly <em>inside</em> those guides, but the search didn’t hand me a <code>dvh</code>-titled hit the way it did for <code>dark-mode</code>. Which is a fair segue into the honest assessment.</p>
+
+<h2 id="where-the-skill-is-genuinely-strong">Where the skill is genuinely strong</h2>
+
+<ul>
+  <li><strong>The guides are high quality.</strong> They read less like scraped blog posts and more like a curated reference assembled by people who live in the web platform, close to the specs and the browser internals, but writing for the developer who actually has to ship. The mandatory/optional split, the timing matrices, and the “don’t build a three-way toggle” UX arguments all read as earned judgment, not a spec dump.</li>
+  <li><strong>Baseline-keyed fallbacks where a feature needs one.</strong> This is the single best thing about it. It converts “is this safe?” into a date comparison and provides the exact fallback when the answer is “not yet.” You don’t have to look for the fallback, it comes with the guidance.</li>
+  <li><strong>It grades fairly.</strong> In two places it validated code the app already had right. An auditor you can trust to say “keep this” is one you’ll actually keep running.</li>
+  <li><strong>Framework-agnostic by design.</strong> Every guide is HTML/CSS/DOM, and adapting the <code>&lt;form onSubmit&gt;</code> pattern to React was trivial. Nothing assumed a framework, so nothing fought mine.</li>
+  <li><strong>It’s local, self-contained, and keyless.</strong> The semantic search runs on your own machine through a small on-device model, so the matching itself makes no network calls and there are no API keys to manage. The npm package ships with no extra dependencies, which keeps latency low and the supply-chain surface small, and the CLI can run fully offline. By default the tool reports anonymous usage statistics to Google, including your search queries and guide retrievals, which you can turn off by setting <code>DISABLE_TELEMETRY=1</code>.</li>
+</ul>
+
+<h2 id="where-it-has-limits">Where it has limits</h2>
+
+<ul>
+  <li><strong>It doesn’t read your code. You (or your agent) do.</strong> This is the big one, and it’s worth being exact about, because it changes how you run the skill. Nothing in this audit was automatic. The app had to be read, the suspect patterns spotted, each one turned into a search phrase, and the returned guidance compared back against the actual lines. There are two ways to do that. You can drive it by hand, deciding what to search, reading the guides, and applying them yourself. Or you can hand the whole loop to a coding agent, which is what I did here. The agent inventoried the frontend, chose the queries, retrieved the guides, and did the comparison, while the skill only ever answered “here is the current best practice for <em>X</em>.” Either way, the skill supplies the standard and something else supplies the code-reading. Point it at a codebase with no idea what you’re looking for and it hands you nothing back.</li>
+  <li><strong>Semantic search has a recall ceiling.</strong> <code>dark-mode</code> hit at 0.75, but the <code>dvh</code> answer never surfaced as its own result. When a query returns only broad category guides, you have to retrieve a large omnibus guide and read it yourself, which brings up cost.</li>
+  <li><strong>The guides aren’t small, but the skill is upfront about it.</strong> Every search result carries a <code>tokenCount</code> in its JSON. The <code>forms</code> guide reports about 4,500, and <code>accessibility</code> about 7,100. I didn’t measure those myself, because the tool hands them to you before you fetch, so you can weigh the cost. Retrieving a few of them still meaningfully fills a context window. That’s fine for a deliberate audit, but something to watch if you wire it into every edit.</li>
+</ul>
+
+<h2 id="the-verdict">The verdict</h2>
+
+<p><code>modern-web-guidance</code> is not going to catch your bugs and it won’t rewrite your components. What it <em>does</em> is remove the single most common source of stale frontend code, the confident-but-outdated pattern. In one afternoon pointed at a real app, it correctly flagged a missing <code>color-scheme</code> declaration, a set of forms that skip native submission, a validation approach that predates <code>:user-invalid</code>, and a pile of missing input attributes. For each one it handed over current, Baseline-checked, copy-pasteable guidance, while also telling me which of my existing choices to leave alone.</p>
+
+<p>One reframe stuck with me. It’s less a tool you <em>run</em> and more a <strong>standard you consult</strong>. The best time to reach for it isn’t during a cleanup audit like this one. It’s the moment before you write a component, when the model in the loop (human or AI) is about to reach for the pattern it already knows. Half the time, the pattern it knows is three years old. This is the cheap check that catches it.</p>
+
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://alfy.blog/css/prism.css?v=1.30&languages=markup+css+clike+javascript+bash+css-extras+markdown+scss+sql+uri">
+<script src="https://alfy.blog/scripts/prism.js?v=1.30&languages=markup+css+clike+javascript+bash+css-extras+json+markdown+jsx+tsx+scss+sql+typescript+uri&plugins=line-highlight+line-numbers+autolinker"></script>
+
+
+
+
+<script src="https://giscus.app/client.js"
+  data-repo="ahmadalfy/blog"
+  data-repo-id="MDEwOlJlcG9zaXRvcnkyMjI0OTc3NA=="
+  data-category="Announcements"
+  data-category-id="DIC_kwDOAVOBLs4CuepX"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+
+    </main>
+  </div>
+    <div class="footer-container">
+      <footer class="wrapper">
+        <p>All licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license">Creative Commons CC0</a>.</p>
+      </footer>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9GC6PL7TDB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9GC6PL7TDB');
+    </script>
+  </body>
+</html>
+
