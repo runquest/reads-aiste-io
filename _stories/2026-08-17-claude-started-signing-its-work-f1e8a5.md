@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "Claude Started Signing Its Work"
+date: "2026-08-17"
+permalink: "/2026/08/17/stories/claude-started-signing-its-work-f1e8a5/"
+slug: "claude-started-signing-its-work-f1e8a5"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqcJZOlvjcnQoL9ev6PRHoJDA-_tJaiEk0tCmZ4UFMn5Gnn7hRJQNNFaRkqmETcfz2NufhDnExIo8XJPSxv4Vub0dBN6HN6xTec22iURxkw9L0ojPLHyzP-TJjG41DWNnADI95roRjjLvwnCslpxyggtLGYtIKhfsij_cXR9iFLUbscTppUHfhyM83NLRPkfMn8iUzQloZpuhpMFqyTBQTCfPxAHeBYXmbtA2MWED7lY7hZdM2Wg9dhG_lCWhEQmQ0GBjnd6-bmYS19uJkBl7OseorQjY7EnY880PMjiX5uo8no_qCZZHC5BztYi3C9jonsLGRD_e1z0EzNbu-oH0c6c368J5Q876SRV0tshsiVoM69KGqk05bwdUP0mgbO_Hf49GMPrAHSK8diAkxxzLYKK-YQT20M5k5i54PMKeEjW11nETuEbQ0cRffSiwNbEp3_IWCRWBnEDBZwcE8hVi090JX_BccBOZrykt0O_-yf5BAlWcDRqctkdY2nXzytmY7-3M94lzO3lzqWJDuyVb1vNIRLl4uSdxIFL4Nf0BGZpz2eR7YisouU-VxXrM3L4Dt4M-oMkncdTg51G5Cci71ozui3i8Owx1IXm5w2TQ1yTjFYk3T13xy8aJVNMmugXsOV2gOBO91GAEvGAd1PkO6e-UtJSLSeE5zedVNyDU12Wp/4t8/JXbe205zRseK_CuG3Os3WQ/h38/h001.I7_KlJ4JbhhcXEsyqrO81tL1efjrWZ5zYwxgfgV8r0Q"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.MIqI7kSxlxK_aonUQ9YYqKoReC6W8t9Ig8kuVf0Xq2UqWuROXXBqDrmQGHdHsCo9h2RXOxrw-8mLklHYXWQVnlQ_IMMoZHXFHzlQxwP3DoF1Wq1XX3cYsykxqdMSnPEBG0KxgmsmdiWSbMxo_AHjU27SIxlNPfjrC_bTvpiQR0_xhl7WnfZRqNsY0W364ykaPVI-bBUZOuWGzE_TOn5d7mx1TLr2biItfFMdVFoYmVIr_uOaG0nIEoYkpXBLMiwJFmTkU6TO6tHM725uUIiFZZ_j66xMwlPw_6N8pV13X8OrfYXh_5AJz-5ETFqOQB_Z/4t8/JXbe205zRseK_CuG3Os3WQ/h6/h001.HFJkn9SfXeyME4W1jkSixuse7JyQifANMzF7zcxQOB8"
+category: "AI"
+excerpt_separator: ""
+---
+
+{% raw %}
+The watermark isn't on the page. It's inside the words. Copy it, paste it, edit it lightly, and it rides along. Generated files get a signed tag too. Detection tools follow soon.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.MIqI7kSxlxK_aonUQ9YYqKoReC6W8t9Ig8kuVf0Xq2UqWuROXXBqDrmQGHdHsCo9h2RXOxrw-8mLklHYXWQVnlQ_IMMoZHXFHzlQxwP3DoF1Wq1XX3cYsykxqdMSnPEBG0KxgmsmdiWSbMxo_AHjU27SIxlNPfjrC_bTvpiQR0_xhl7WnfZRqNsY0W364ykaPVI-bBUZOuWGzE_TOn5d7mx1TLr2biItfFMdVFoYmVIr_uOaG0nIEoYkpXBLMiwJFmTkU6TO6tHM725uUIiFZZ_j66xMwlPw_6N8pV13X8OrfYXh_5AJz-5ETFqOQB_Z/4t8/JXbe205zRseK_CuG3Os3WQ/h6/h001.HFJkn9SfXeyME4W1jkSixuse7JyQifANMzF7zcxQOB8).*
+
+{% endraw %}

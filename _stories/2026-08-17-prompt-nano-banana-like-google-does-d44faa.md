@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "Prompt Nano Banana Like Google Does"
+date: "2026-08-17"
+permalink: "/2026/08/17/stories/prompt-nano-banana-like-google-does-d44faa/"
+slug: "prompt-nano-banana-like-google-does-d44faa"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqcJZOlvjcnQoL9ev6PRHoJDA-_tJaiEk0tCmZ4UFMn5Gnn7hRJQNNFaRkqmETcfz2NufhDnExIo8XJPSxv4Vub0dBN6HN6xTec22iURxkw9L0ojPLHyzP-TJjG41DWNnADI95roRjjLvwnCslpxyggtLGYtIKhfsij_cXR9iFLUbscTppUHfhyM83NLRPkfMn8iUzQloZpuhpMFqyTBQTCfPxAHeBYXmbtA2MWED7lY7hZdM2Wg9dhG_lCWhEQmQ0GBjnd6-bmYS19uJkBl7OseorQjY7EnY880PMjiX5uo8no_qCZZHC5BztYi3C9jonsLGRD_e1z0EzNbu-oH0c6c368J5Q876SRV0tshsiVoM69KGqk05bwdUP0mgbO_Hf49GMPrAHSK8diAkxxzLYKK-YQT20M5k5i54PMKeEjW11nETuEbQ0cRffSiwNbEp3_IWCRWBnEDBZwcE8hVi090JX_BccBOZrykt0O_-yf5BAlWcDRqctkdY2nXzytmY7-3M94lzO3lzqWJDuyVb1vNIRLl4uSdxIFL4Nf0BGZpz2eR7YisouU-VxXrM3L4Dt4M-oMkncdTg51G5Cci71ozui3i8Owx1IXm5w2TQ1yTjFYk3T13xy8aJVNMmugXsOV2gOBO91GAEvGAd1PkO6e-UtJSLSeE5zedVNyDU12Wp/4t8/JXbe205zRseK_CuG3Os3WQ/h38/h001.I7_KlJ4JbhhcXEsyqrO81tL1efjrWZ5zYwxgfgV8r0Q"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.jDrixlmsvXDSLxsxEyiv95Z5CC2UClIxV7UD6-7Jyc5m6h6JF_QFWYkH6BEQxCeztl0dbrY1zD9YfnxARrEl2F4ltdGhRpPWqwUTqhW65b9sxOcEmSGfD6J4w7k-hRjNwckHlngy6uTPXovs5ySD8UPscvXj8A5XuzBhKqNlBQBoLz4693V8UJ-QWWyqkxrYXKauu4Yo1mNH9Dz6c73qw9Tz08DVsd1aWNTgOMOhx1wU2hEz8vwizgK6-4aTBeFAW7gZfx4Cw9sfJgpHyNkOLHr8SsEdv3BPi0dONHMeCrE8WqomYMil0mGLXto9RGx6lu2mqEh67mhjWX0Xe_pbDA/4t8/JXbe205zRseK_CuG3Os3WQ/h11/h001.AVilj-cWFBVi6Y3AwG2KiUKuKNgmOGGyAYUsrr8KGU8"
+category: "AI"
+excerpt_separator: ""
+---
+
+{% raw %}
+Weeks of testing, every use case they thought of. Out came frameworks, specs, and prompts worth copying.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.jDrixlmsvXDSLxsxEyiv95Z5CC2UClIxV7UD6-7Jyc5m6h6JF_QFWYkH6BEQxCeztl0dbrY1zD9YfnxARrEl2F4ltdGhRpPWqwUTqhW65b9sxOcEmSGfD6J4w7k-hRjNwckHlngy6uTPXovs5ySD8UPscvXj8A5XuzBhKqNlBQBoLz4693V8UJ-QWWyqkxrYXKauu4Yo1mNH9Dz6c73qw9Tz08DVsd1aWNTgOMOhx1wU2hEz8vwizgK6-4aTBeFAW7gZfx4Cw9sfJgpHyNkOLHr8SsEdv3BPi0dONHMeCrE8WqomYMil0mGLXto9RGx6lu2mqEh67mhjWX0Xe_pbDA/4t8/JXbe205zRseK_CuG3Os3WQ/h11/h001.AVilj-cWFBVi6Y3AwG2KiUKuKNgmOGGyAYUsrr8KGU8).*
+
+{% endraw %}
