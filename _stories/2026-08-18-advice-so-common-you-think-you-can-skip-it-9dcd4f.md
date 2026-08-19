@@ -1,0 +1,22 @@
+---
+layout: "story"
+title: "Advice So Common You Think You Can Skip It"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/advice-so-common-you-think-you-can-skip-it-9dcd4f/"
+slug: "advice-so-common-you-think-you-can-skip-it-9dcd4f"
+source: "Pointer"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F4951mhY03iCawzSQ6poZedL3n7H-lMzRTsKnY9bvtDfJYA8pICpvyyNYWT98Xtr9WdPcSpxxaa7Q5dr87aiZahWeR40q0BPD_2O0XYb6Lfv-NexSL9rnTRpnyDM7RGb8Eh0CSodiTvP9jOh8FgE_UJp23_36sK977CKyW95Q4OaGWPWFlK3fEKjqt5M-Xvfdkd1LClEg7VFEOusIrVOQ8bSqwsBzk0xStkyo0Pjl6ljF7tgERjL2irGx11HH_HpHWkaHl8PKEBpi0RW2oLvrD6-BavRmv_XbO0DDT-4Rxkq7wZ0pJVdZi1XquCYI17HyJTnsfhaP-sPjv8ZAaBe-UGft-9Ky2J00A1AywnvAD7zpm15I-gtUS6TpRa28IXjElxHCdJtlCb2ElYmY8oFP_AXHfDK1zsaRTo5FyatsmuSEG8SaIExMH3MxCvphMMSGlL1ErhCR3TuulYL6E1Qf1-Dje1zpsfCnIbhT3XakJ14wYI_Yf8AqsAZg-79HsjeCH73pwR8UN5x1FwfcP0fyr4kDIjvM3ctQOdAvA0ajZ7Cj8QSHZ64wch4L51BpKZi80tliBWWXBKxHSoiIXmm5JW-iLcTP72L7nl_14axiRY10nhIsahL3nY2PncHwwZJLnAjuaBStnCOeu8slsfB6-rUub3PONLZ14-AwIPgmay7oX05WG8yts7kwbVTazKXKcJUlQf_fKAGFUjobAyamvEWSDVMcv1V9ZkwJgWTIhDWgrj9Iy7XzMQc0YrfTYCiOoP7GyscsdR3xzlORfQQmijmPHKvoO_b6dV7ysxQ_KhEGlTDYFkhNe3oLznWcxDNHkvKdziZBucJXeJxkyBG1TyBar2QENasUU8uBamb8A/4ta/OyopF7NsSv26P7unt-J9LA/h27/h001.GiheHj3PbfbO729eXFRx58i9m1S0_Yw0mwWklY6SNiw"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUL3lUx0iyQpJsD117pLK3rUlLrMeGbgC8jDfqimyYFMDzkaFpxOpIJxssNX7VCW_Msz0RYBdz26YuyXap_b0_QBVoUlFtGDxqESvl94Hn5pswGp7O-2dOsSSrJDYqsfwcAz4Ts4YYMyzGBjLUESNPOHnUZPa8s0oZ6qlhPkYgdMHxmOETV3AVKRxnTlGItC29g/4ta/OyopF7NsSv26P7unt-J9LA/h16/h001.5c0hXqpzLCJkb41MsKzTCJG7Jd7ODnc_TWqSXgQfcw4"
+category: "Leadership"
+excerpt_separator: ""
+---
+
+{% raw %}
+- Common advice often overlooked by leaders
+- Re-examination of familiar management principles
+- Practical application of basic leadership concepts
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUL3lUx0iyQpJsD117pLK3rUlLrMeGbgC8jDfqimyYFMDzkaFpxOpIJxssNX7VCW_Msz0RYBdz26YuyXap_b0_QBVoUlFtGDxqESvl94Hn5pswGp7O-2dOsSSrJDYqsfwcAz4Ts4YYMyzGBjLUESNPOHnUZPa8s0oZ6qlhPkYgdMHxmOETV3AVKRxnTlGItC29g/4ta/OyopF7NsSv26P7unt-J9LA/h16/h001.5c0hXqpzLCJkb41MsKzTCJG7Jd7ODnc_TWqSXgQfcw4).*
+
+{% endraw %}

@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "Raise Kids Who Talk Back to AI"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/raise-kids-who-talk-back-to-ai-1cd99c/"
+slug: "raise-kids-who-talk-back-to-ai-1cd99c"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTgsGtP75sOlK59dvZPFy-8_1Vas-bBUPPoHW0jUvsAFGRmr7RapPRNdto8kDSxBa9sZyGkMnYFUSasA1OuktIuhXZooP9gWSFfXksr9t2M9cHs7s_VVRNxQGmg4wsZzCDe-HC3osPlCM97gjJmB006smAprFWtOf28z19zsvUf3qLPkpN7WhpUL7eBquK29VWQVdD_NYIDhRQBHSupmtkZEokHIvKatySwJRhwKiSkUE9EHjES2OZNEGsA1HnduKRu9YiWTPGMb85s5uCNs-hYdnXv5hVnKk6KFKlEtCfwzcIPpHTSoGVoA7xvz38VibzEvVEzIkIb9GsvTj3wd8OC8sDlbiOjpNkMlDwJW4yCfaSdEJ8sdg5Gt3JUwBd1QOmyq_lYXrWnVdScxnXmuQBSerW-sANLduU2UYLCijYQNx4jCK6Km8QuN7fLDPk07Ix-rRHck9_rJYiAfDFC6pk16JjMtxiOdx6yeVRpEcpwNxvAYXL0GUySSaZ7i0mPnXyZepPUr5vSD4Me1ZTNrLW1eCpFZ6N8nuViCENLw2LWXJg6dPkDgzGUC53eBBGPIpyRPq-B-YmvBb2uPEYPeE7poNI5agM1ruJGN_G9B0m7SfxwXTJtyxEKi5420Uw_Qw0YhWVijlOPQ5daFih1WUyHBUVvf8pcla8jrsQv-7EO4eZGx9Iai_dpAMa3Nhce1EA/4t9/n34HYOhIQRmt-v_O7RmRBg/h36/h001.pydTbRbs33alIMHovsAlDNvUEOkI1Vo6jyxp2cTt2eQ"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7rMoviV65-al5K_jhRN5Gwtn7pZ_cdYeOPu7UscQ1aPZOs3-eQqAj3ImAhDb76Of2hretwtHSmwoJtF1Qu-4HA38grNlzDiFncAQmZyndXX6s3Qm0oaoYfbuD-f34axhyo3-ZZswTU6MSWJE52dSmlQH86bGO-MbN0l1B6wWHQF38PELHdIl0mlhGhRwhCKrc0OHNQcNz0grOC_GsNAR4L4TErm643dpfQ_0wg0P__9-gVSrQJmwnPdCFdCREsJPuvwrHmGJ1qumWQoSZSvpSYM/4t9/n34HYOhIQRmt-v_O7RmRBg/h9/h001.b34YmsWrVOoYCDqkKXxOhYfSgYIWr6_Hu0qeyZh73w0"
+category: "Education"
+excerpt_separator: ""
+---
+
+{% raw %}
+An MIT researcher watched 30 kids treat smart toys as friends, and says the fix is letting them break one open.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7rMoviV65-al5K_jhRN5Gwtn7pZ_cdYeOPu7UscQ1aPZOs3-eQqAj3ImAhDb76Of2hretwtHSmwoJtF1Qu-4HA38grNlzDiFncAQmZyndXX6s3Qm0oaoYfbuD-f34axhyo3-ZZswTU6MSWJE52dSmlQH86bGO-MbN0l1B6wWHQF38PELHdIl0mlhGhRwhCKrc0OHNQcNz0grOC_GsNAR4L4TErm643dpfQ_0wg0P__9-gVSrQJmwnPdCFdCREsJPuvwrHmGJ1qumWQoSZSvpSYM/4t9/n34HYOhIQRmt-v_O7RmRBg/h9/h001.b34YmsWrVOoYCDqkKXxOhYfSgYIWr6_Hu0qeyZh73w0).*
+
+{% endraw %}

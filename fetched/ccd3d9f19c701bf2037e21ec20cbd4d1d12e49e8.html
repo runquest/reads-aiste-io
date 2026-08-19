@@ -1,0 +1,18 @@
+<!-- source: https://oppi.li/posts/disposable_ci/?utm_source=tldrnewsletter -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="oppiliappan&#x27;s μsings" /><meta name="author" content="Akshay Oppiliappan" /><meta name="color-scheme" content="light" /><meta name="twitter:card" content="summary" /><title>Your CI should be disposable</title><link rel="stylesheet" href="/style.css?v=ba049e39" /><link rel="preload" href="/fonts/FernText-Regular-Edu.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/FernText-Bold-Edu.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/FernText-Italic-Edu.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/FernText-BoldItalic-Edu.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/FernOrnaments-Regular-Edu.woff2" as="font" type="font/woff2" crossorigin><style>html { font-size-adjust: ex-height 0.53; }</style><meta property="og:type" content="website" /><meta property="og:site_name" content="oppi.li" /><meta property="og:title" content="Your CI should be disposable" /><meta property="og:description" content="oppiliappan&#x27;s μsings" /></head><body><div class="min-h-screen flex flex-col max-w-xl mx-auto"><nav class="px-2 flex justify-between items-start"><span><a href="/">Home</a><span> / <a href="/posts">Posts</a></span><span> / <a href="#">Your CI should be disposable</a></span></span><span><span class="text-sm">18/08/2026</span></span></nav><main class="px-2"><div class="text-pretty mb-12"><h1 class="text-center">Your CI should be disposable</h1><p>Your CI should have one job: scheduling. It should decide
+<em>when</em> to do the thing. Your builds itself, should be
+controlled by you. Use Docker, Nix, a Makefile or what have
+you. The ideal workflow file looks like this:</p>
+<pre><code>steps:
+    name: Do the thing
+     run: nix build .#
+</code></pre>
+<p>This way, you can always run your CI locally, its just one
+command after all.</p>
+<p>Don't use CI as a way to install packages, compilers, shared
+libraries, toolchains. <em>Do</em> use it to schedule builds.</p>
+<p>The next time GitHub Actions goes down, you'll still be able
+to deliver your software. Consider <a href="https://tangled.org">an
+alternative</a> though.</p>
+</div></main></div></body></html>

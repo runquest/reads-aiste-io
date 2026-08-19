@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "Stripe Buys the AI Middleman"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/stripe-buys-the-ai-middleman-1ae149/"
+slug: "stripe-buys-the-ai-middleman-1ae149"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTgsGtP75sOlK59dvZPFy-8_1Vas-bBUPPoHW0jUvsAFGRmr7RapPRNdto8kDSxBa9sZyGkMnYFUSasA1OuktIuhXZooP9gWSFfXksr9t2M9cHs7s_VVRNxQGmg4wsZzCDe-HC3osPlCM97gjJmB006smAprFWtOf28z19zsvUf3qLPkpN7WhpUL7eBquK29VWQVdD_NYIDhRQBHSupmtkZEokHIvKatySwJRhwKiSkUE9EHjES2OZNEGsA1HnduKRu9YiWTPGMb85s5uCNs-hYdnXv5hVnKk6KFKlEtCfwzcIPpHTSoGVoA7xvz38VibzEvVEzIkIb9GsvTj3wd8OC8sDlbiOjpNkMlDwJW4yCfaSdEJ8sdg5Gt3JUwBd1QOmyq_lYXrWnVdScxnXmuQBSerW-sANLduU2UYLCijYQNx4jCK6Km8QuN7fLDPk07Ix-rRHck9_rJYiAfDFC6pk16JjMtxiOdx6yeVRpEcpwNxvAYXL0GUySSaZ7i0mPnXyZepPUr5vSD4Me1ZTNrLW1eCpFZ6N8nuViCENLw2LWXJg6dPkDgzGUC53eBBGPIpyRPq-B-YmvBb2uPEYPeE7poNI5agM1ruJGN_G9B0m7SfxwXTJtyxEKi5420Uw_Qw0YhWVijlOPQ5daFih1WUyHBUVvf8pcla8jrsQv-7EO4eZGx9Iai_dpAMa3Nhce1EA/4t9/n34HYOhIQRmt-v_O7RmRBg/h36/h001.pydTbRbs33alIMHovsAlDNvUEOkI1Vo6jyxp2cTt2eQ"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7mfrR1AW5mvLtxbHBZSflEHZ6bVC_gNv6-Bjkg5KuLaa74ep7B14jH8e2BZVgHOhjLKRbE7hsgw6tlMxtz7uySbzafGae81514NKsbMtfUORaLpJ3mA4xuY0BmmBGuiNtwX9h98JUAa4mnqwfDDfqwyJ8aCmB7XokThbCeXYUubj0Gi7wdPmpP_ij6awYYSn7nJ5dbuSDLP3m5mQsVchMab_kSpko9urrW1CbV0XVAMeZ8WaOBAtc5UtOrR1Yyuxt0AIcba-FIbjx4m1fnW8uqE_eWylOul8weaS-1fbVVEM/4t9/n34HYOhIQRmt-v_O7RmRBg/h7/h001.q3-sHL6LHkEuiluG3HqXWvL4ewhkNU-AKBbUMKYg2-I"
+category: "Business"
+excerpt_separator: ""
+---
+
+{% raw %}
+OpenRouter called itself the Stripe of AI, a single door to 400+ models for 8 million users. Now Stripe is reportedly paying over $7B for it, roughly 5x what it was worth back in May.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7mfrR1AW5mvLtxbHBZSflEHZ6bVC_gNv6-Bjkg5KuLaa74ep7B14jH8e2BZVgHOhjLKRbE7hsgw6tlMxtz7uySbzafGae81514NKsbMtfUORaLpJ3mA4xuY0BmmBGuiNtwX9h98JUAa4mnqwfDDfqwyJ8aCmB7XokThbCeXYUubj0Gi7wdPmpP_ij6awYYSn7nJ5dbuSDLP3m5mQsVchMab_kSpko9urrW1CbV0XVAMeZ8WaOBAtc5UtOrR1Yyuxt0AIcba-FIbjx4m1fnW8uqE_eWylOul8weaS-1fbVVEM/4t9/n34HYOhIQRmt-v_O7RmRBg/h7/h001.q3-sHL6LHkEuiluG3HqXWvL4ewhkNU-AKBbUMKYg2-I).*
+
+{% endraw %}

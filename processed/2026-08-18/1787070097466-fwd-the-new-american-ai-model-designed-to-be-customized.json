@@ -1,0 +1,59 @@
+[
+  {
+    "title": "The New American AI Model Designed to be Customized",
+    "url": "https://substack.com/app-link/post?publication_id=817132&post_id=211219768&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=2en9d&token=eyJ1c2VyX2lkIjo0MDQyNTYxLCJwb3N0X2lkIjoyMTEyMTk3NjgsImlhdCI6MTc4NzA2NzUzNCwiZXhwIjoxNzg5NjU5NTM0LCJpc3MiOiJwdWItODE3MTMyIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.kwi9-rpHgpbFPShmsjkFaAcRNR5u6xbqOg8CghORmVg",
+    "category": "AI",
+    "byline": "ByteByteGo",
+    "existing_summary": null,
+    "sponsored": false,
+    "summary_bullets": [
+      "Thinking Machines released Inkling, a 975B parameter model with only 41B active per token using Mixture of Experts architecture",
+      "Model features 66 layers with 256 experts per layer (6 activated per token), mixed local/global attention, and supports 1M token context",
+      "Includes customization tools for fine-tuning with user data, multimodal input support, and adjustable reasoning effort setting"
+    ],
+    "source": "ByteByteGo",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9ibG9nLmJ5dGVieXRlZ28uY29tL2FjdGlvbi9kaXNhYmxlX2VtYWlsP3Rva2VuPWV5SjFjMlZ5WDJsa0lqbzBNRFF5TlRZeExDSndiM04wWDJsa0lqb3lNVEV5TVRrM05qZ3NJbWxoZENJNk1UYzROekEyTnpVek5Dd2laWGh3SWpveE9ERTROakF6TlRNMExDSnBjM01pT2lKd2RXSXRPREUzTVRNeUlpd2ljM1ZpSWpvaVpHbHpZV0pzWlY5bGJXRnBiQ0o5LkNwdHVpUE1WS3lTYTFPVnZ6WDhxVkdNWk40VzlkSlgtY2V5UlM1M3JFSG8iLCJwIjoyMTEyMTk3NjgsInMiOjgxNzEzMiwiZiI6dHJ1ZSwidSI6NDA0MjU2MSwiaWF0IjoxNzg3MDY3NTM0LCJleHAiOjIxMDI2NDM1MzQsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.H0qW8lV6EQnJjgCu_C6h8owxaKTXvLNPF3ODwbkG_uw?",
+    "full_text": null,
+    "slug": "the-new-american-ai-model-designed-to-be-customized-59e994",
+    "permalink": "/2026/08/18/stories/the-new-american-ai-model-designed-to-be-customized-59e994/"
+  },
+  {
+    "title": "Cut Your Token Usage by Up to 36% (Sponsored)",
+    "url": "https://substack.com/redirect/e6c3ced2-0935-4627-a4f9-d5ee0d4246df?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo",
+    "category": "AI",
+    "byline": null,
+    "existing_summary": "AI coding agents can generate code quickly, but CI checks often happen after the agents finish their work. Sonar Vortex changes this pattern. Sonar Vortex operates inside the agent's coding loop, giving agents architectural context before they write and verifying their output in real time as they produce it. Internal testing found 36% lower token consumption and 92% fewer defects.",
+    "sponsored": true,
+    "summary_bullets": [
+      "Sonar Vortex operates inside AI coding agent loops for real-time verification",
+      "Reduces token consumption by 36% and defects by 92%",
+      "Provides architectural context before code generation"
+    ],
+    "source": "ByteByteGo",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9ibG9nLmJ5dGVieXRlZ28uY29tL2FjdGlvbi9kaXNhYmxlX2VtYWlsP3Rva2VuPWV5SjFjMlZ5WDJsa0lqbzBNRFF5TlRZeExDSndiM04wWDJsa0lqb3lNVEV5TVRrM05qZ3NJbWxoZENJNk1UYzROekEyTnpVek5Dd2laWGh3SWpveE9ERTROakF6TlRNMExDSnBjM01pT2lKd2RXSXRPREUzTVRNeUlpd2ljM1ZpSWpvaVpHbHpZV0pzWlY5bGJXRnBiQ0o5LkNwdHVpUE1WS3lTYTFPVnZ6WDhxVkdNWk40VzlkSlgtY2V5UlM1M3JFSG8iLCJwIjoyMTEyMTk3NjgsInMiOjgxNzEzMiwiZiI6dHJ1ZSwidSI6NDA0MjU2MSwiaWF0IjoxNzg3MDY3NTM0LCJleHAiOjIxMDI2NDM1MzQsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.H0qW8lV6EQnJjgCu_C6h8owxaKTXvLNPF3ODwbkG_uw?",
+    "full_text": null,
+    "slug": "cut-your-token-usage-by-up-to-36-sponsored-1259d4",
+    "permalink": "/2026/08/18/stories/cut-your-token-usage-by-up-to-36-sponsored-1259d4/"
+  },
+  {
+    "title": "What Makes an FDE Role Credible? (Sponsored)",
+    "url": "https://substack.com/redirect/da573382-bc44-4426-b7ca-619daac8a8ef?j=eyJ1IjoiMmVuOWQifQ.eQ7fdunsrr5G0SPH_YBWhXThD91mm79ainbcqOh8tbo",
+    "category": "Careers",
+    "byline": null,
+    "existing_summary": "Strong candidates are skeptical of vague forward deployed engineer postings, and the title alone won't earn their trust. The free State of FDE Jobs 2026 Report explains what candidates look for, how the market is evolving, and how employers can make these roles easier to understand.",
+    "sponsored": true,
+    "summary_bullets": [
+      "Report reveals what candidates seek in forward deployed engineer roles",
+      "Provides guidance on market evolution and hiring best practices",
+      "Job board available at forwarddeployedengineer.com"
+    ],
+    "source": "ByteByteGo",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9ibG9nLmJ5dGVieXRlZ28uY29tL2FjdGlvbi9kaXNhYmxlX2VtYWlsP3Rva2VuPWV5SjFjMlZ5WDJsa0lqbzBNRFF5TlRZeExDSndiM04wWDJsa0lqb3lNVEV5TVRrM05qZ3NJbWxoZENJNk1UYzROekEyTnpVek5Dd2laWGh3SWpveE9ERTROakF6TlRNMExDSnBjM01pT2lKd2RXSXRPREUzTVRNeUlpd2ljM1ZpSWpvaVpHbHpZV0pzWlY5bGJXRnBiQ0o5LkNwdHVpUE1WS3lTYTFPVnZ6WDhxVkdNWk40VzlkSlgtY2V5UlM1M3JFSG8iLCJwIjoyMTEyMTk3NjgsInMiOjgxNzEzMiwiZiI6dHJ1ZSwidSI6NDA0MjU2MSwiaWF0IjoxNzg3MDY3NTM0LCJleHAiOjIxMDI2NDM1MzQsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.H0qW8lV6EQnJjgCu_C6h8owxaKTXvLNPF3ODwbkG_uw?",
+    "full_text": null,
+    "slug": "what-makes-an-fde-role-credible-sponsored-c20bdd",
+    "permalink": "/2026/08/18/stories/what-makes-an-fde-role-credible-sponsored-c20bdd/"
+  }
+]

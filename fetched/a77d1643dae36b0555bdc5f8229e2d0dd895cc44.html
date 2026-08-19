@@ -1,0 +1,1157 @@
+<!-- source: https://www.davesresearch.com/good-move-constructive/?utm_source=tldrnewsletter -->
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="system">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>A Good Move is Constructive</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="theme-color" content="#be3434">
+    <meta name="ghost-theme" content="Curie 1.5.0">
+
+
+    <link rel="preload" href="https://www.davesresearch.com/assets/dist/app.min.js?v=NF-SGg3i5HmV6hUb" as="script">
+    <link rel="preload" href="https://www.davesresearch.com/assets/dist/app.min.css?v=xcOgwmw_vFoMiOPb" as="style">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<style> 
+  body { 
+    --font-headings: var(--gh-font-heading, var(--font-system));
+    --font-body: var(--gh-font-heading, var(--font-system));
+  }
+</style>
+
+  <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+  <style>body { --font-body: var(--gh-font-body, 'Figtree'), sans-serif; --font-headings: var(--gh-font-heading, 'Figtree'), sans-serif; }</style>
+
+
+
+
+
+
+
+
+    <script async defer src="https://www.davesresearch.com/assets/dist/app.min.js?v=NF-SGg3i5HmV6hUb"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://www.davesresearch.com/assets/dist/app.min.css?v=xcOgwmw_vFoMiOPb">
+
+    <style>
+  :root {
+    --global-max-width: 1080px; /* site max width */
+    --global-content-width: 640px; /* post-content-width */
+    --global-wide-width: 960px; /* site max width */
+    --global-radius: 12px; /* default radius */
+    --global-radius-rounded: 30px;
+    --global-gallery-gap: 1em; /* Image gallery distance between images */
+    --global-hyphens: none; /* none/auto */
+    --global-header-height: 72px;
+    --global-theme-notifications: visible; /* visible/hidden */
+    --global-progress-bar: visible; /* visible/hidden */
+    --global-content-preview-fading: 0%; /* 50%-100% for fading effect */
+    --global-scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  let preferredTheme = localStorage.getItem('PREFERRED_COLOR_SCHEME') || `system`;
+  document.documentElement.setAttribute('data-color-scheme', preferredTheme);
+  
+  // Global values needed
+  const themeGlobal = {
+    currentPage: parseInt(''),
+    nextPage: parseInt(''),
+    nextPageLink: '',
+    maxPages: parseInt(''), 
+    lastPage: `` === `` ? true : false,
+    postsPerPage: parseInt('8'),
+    scrollPos: 0,
+    imageLightbox: false
+  }
+
+  // Calculate contrast & HSL value;
+  function getBrandColorInfo(hexcolor) {
+    // get contrast
+    if (hexcolor.slice(0, 1) === '#') { hexcolor = hexcolor.slice(1); }
+    if (hexcolor.length === 3) { hexcolor = hexcolor.split('').map(function (hex) { return hex + hex;}).join(''); }
+    let r = parseInt(hexcolor.substr(0,2),16), g = parseInt(hexcolor.substr(2,2),16), b = parseInt(hexcolor.substr(4,2),16);
+    let yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    const colorContrast = (yiq >= 128) ? '#000' : '#fff';
+
+    //get HSL
+    r /= 255, g /= 255, b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min)  /  2;  
+    if ( max == min ) { h = s = 0; } else {
+      let d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch(max){
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+    const colorHSL = [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+
+    // return
+    return { colorContrast, colorHSL }
+  };
+
+  const brandColor = getBrandColorInfo("#be3434");
+  let style = document.createElement('style');
+  style.innerHTML = `:root { 
+    --color-brand-contrast: ${brandColor.colorContrast}; 
+    --color-brand-h: ${brandColor.colorHSL[0]};
+    --color-brand-s: ${brandColor.colorHSL[1]}%;
+    --color-brand-l: ${brandColor.colorHSL[2]}%;
+    --color-brand-hsl: ${brandColor.colorHSL[0]} ${brandColor.colorHSL[1]}% ${brandColor.colorHSL[2]}%;
+  }`
+  document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    
+    
+     
+
+    <meta name="description" content="Don&#x27;t justify a bad move with an imagined future result.">
+    <link rel="icon" href="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w256h256/2023/01/FAVICON-1.png" type="image/png">
+    <link rel="canonical" href="https://www.davesresearch.com/good-move-constructive/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Dave&#x27;s Research Co.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A Good Move is Constructive">
+    <meta property="og:description" content="Don&#x27;t justify a bad move with an imagined future result.">
+    <meta property="og:url" content="https://www.davesresearch.com/good-move-constructive/">
+    <meta property="og:image" content="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1200/2026/08/constructive-move.png">
+    <meta property="article:published_time" content="2026-08-17T13:37:39.000Z">
+    <meta property="article:modified_time" content="2026-08-18T14:58:41.000Z">
+    <meta property="article:tag" content="product game">
+    <meta property="article:tag" content="initiative">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Good Move is Constructive">
+    <meta name="twitter:description" content="Don&#x27;t justify a bad move with an imagined future result.">
+    <meta name="twitter:url" content="https://www.davesresearch.com/good-move-constructive/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1200/2026/08/constructive-move.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dave Hora">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="product game, initiative">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dave's Research Co.",
+        "url": "https://www.davesresearch.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/2023/01/LOGO-SIMPLE-1-2-2.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dave Hora",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/2022/02/Screenshot-2022-02-03-at-22.11.06.png",
+            "width": 542,
+            "height": 592
+        },
+        "url": "https://www.davesresearch.com/author/dave/",
+        "sameAs": [
+            "https://www.linkedin.com/in/davehora/"
+        ]
+    },
+    "headline": "A Good Move is Constructive",
+    "url": "https://www.davesresearch.com/good-move-constructive/",
+    "datePublished": "2026-08-17T13:37:39.000Z",
+    "dateModified": "2026-08-18T14:58:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1200/2026/08/constructive-move.png",
+        "width": 1200,
+        "height": 675
+    },
+    "keywords": "product game, initiative",
+    "description": "Don't justify a bad move with an imagined future result.",
+    "mainEntityOfPage": "https://www.davesresearch.com/good-move-constructive/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.58">
+    <link rel="alternate" type="application/rss+xml" title="Dave&#x27;s Research Co." href="https://www.davesresearch.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://www.davesresearch.com/" data-key="5617743ee55da3b3f534057af2" data-api="https://davesresearch.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5617743ee55da3b3f534057af2" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://davesresearch.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://www.davesresearch.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=ShRHxgy4po8zN-Wf"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=Jw0334E-A8vpuWdm">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://www.davesresearch.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=RYVTbqYSu0JtTYwE" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://www.davesresearch.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="d1baee41-d47e-4387-b3f4-1436f65958e0" tb_post_uuid="0a7ef74f-3b6d-4391-b4f1-4c1be03fc1d2" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #be3434;}</style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-31QH7KDQT8"></script>
+
+<link rel="stylesheet" href="https://use.typekit.net/zov6sua.css">
+
+<style>
+  
+    .hero__title, .post-hero__title, .resource-card__title, .post-hero__title, .cta__title {
+		font-family: "noka", serif !important;
+		/* font-weight: 600; 
+		font-style: normal; */
+	} 
+
+    h1, h2, h3 {
+		font-family: "noka", serif !important;
+		/* font-weight: 600; 
+		font-style: normal; */
+	}  
+
+  .post-hero__figure img { aspect-ratio: auto; }
+
+  .footer__copy span:nth-of-type(2) {display: none;}
+  
+</style>
+
+<style>
+.hero__description {
+  max-width: 26ch;
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+</style>
+
+
+<script>themeGlobal.autoloadResources = true</script>
+
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-31QH7KDQT8');
+</script>
+  </head>
+  <body class="post-template tag-product-game tag-initiative">
+    <div class="progress-bar"></div>
+
+    <header class="header js-header" data-nav-items="none">
+  <div class="container wrapper is-rel flex items-center">
+    <div class="header-brand">
+<a href="https://www.davesresearch.com">          <picture class="default-logo">
+  <source 
+    sizes="(max-width: 800px) 200px, 320px"
+    
+    
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2023/01/LOGO-SIMPLE-1-2-2.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2023/01/LOGO-SIMPLE-1-2-2.png 600w"
+    type="image/webp"
+  >
+  <img class="header__logo"
+    sizes="(max-width: 800px) 200px, 320px"
+    
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2023/01/LOGO-SIMPLE-1-2-2.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2023/01/LOGO-SIMPLE-1-2-2.png 600w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2023/01/LOGO-SIMPLE-1-2-2.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2023/01/LOGO-SIMPLE-1-2-2.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2023/01/LOGO-SIMPLE-1-2-2.png"
+    alt="Dave&#x27;s Research Co."
+    loading="eager"
+  >
+</picture></a>    </div>
+
+    <span class="flex-1"></span>
+
+    <ul class="nav" data-items="4">
+    <li class="nav-articles" 
+      data-label="Articles" data-length="8" data-post="">
+      <a href="https://www.davesresearch.com/articles/">
+        <span>Articles</span>
+      </a>
+    </li>
+    <li class="nav-work" 
+      data-label="Work" data-length="4" data-post="">
+      <a href="https://www.davesresearch.com/work/">
+        <span>Work</span>
+      </a>
+    </li>
+    <li class="nav-about" 
+      data-label="About" data-length="5" data-post="">
+      <a href="https://www.davesresearch.com/about/">
+        <span>About</span>
+      </a>
+    </li>
+    <li class="nav-newsletter" 
+      data-label="Newsletter" data-length="10" data-post="last">
+      <a href="https://www.davesresearch.com/newsletter/">
+        <span>Newsletter</span>
+      </a>
+    </li>
+</ul>
+
+
+    <button class="btn header-menu-toggle js-menu-toggle" title="Menu" aria-label="Menu">
+      <i class="icon icon-menu">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M4 8l16 0"></path>
+  <path d="M4 16l16 0"></path>
+</svg>
+</i>      <i class="icon icon-x">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg>
+</i>    </button>
+
+
+    <div class="member-menu js-member-menu">
+      <a href="/signup/" data-portal="signup" class="signup-link">
+        <i class="icon icon-arrow-up-right icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <line x1="17" y1="7" x2="7" y2="17" />
+  <polyline points="8 7 17 7 17 16" />
+</svg>
+
+
+
+</i>Sign up
+      </a>
+
+      <a href="/signin/" data-portal="signin" class="signin-link">
+        <i class="icon icon-login icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in">
+  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+  <polyline points="10 17 15 12 10 7"></polyline>
+  <line x1="15" y1="12" x2="3" y2="12"></line>
+</svg>
+</i>Sign in
+      </a>
+</div>
+    <span class="border-bottom"></span>
+
+  </div>
+</header>
+
+
+    <div class="menu js-menu">
+  <nav class="menu-navigation">
+    <ul class="nav" data-items="4">
+    <li class="nav-articles" 
+      data-label="Articles" data-length="8" data-post="">
+      <a href="https://www.davesresearch.com/articles/">
+        <span>Articles</span>
+      </a>
+    </li>
+    <li class="nav-work" 
+      data-label="Work" data-length="4" data-post="">
+      <a href="https://www.davesresearch.com/work/">
+        <span>Work</span>
+      </a>
+    </li>
+    <li class="nav-about" 
+      data-label="About" data-length="5" data-post="">
+      <a href="https://www.davesresearch.com/about/">
+        <span>About</span>
+      </a>
+    </li>
+    <li class="nav-newsletter" 
+      data-label="Newsletter" data-length="10" data-post="last">
+      <a href="https://www.davesresearch.com/newsletter/">
+        <span>Newsletter</span>
+      </a>
+    </li>
+</ul>
+
+  </nav>
+</div>
+
+<template data-toggle-template>
+  <button class="submenu-toggle" onclick="this.parentNode.classList.toggle('is-active')" title="Menu toggle" aria-label="Menu toggle">
+    <i class="icon icon-chevron-down">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+</i>  </button>
+</template>
+
+
+      
+    <main class="main">
+      
+  <div class="container wrapper">
+      <div class="post-hero is-post side" 
+    data-feature-image="true">
+    
+    <div class="post-hero__content flex flex-col">
+        <time class="post-hero__date" datetime="2026-08-17">Aug 17, 2026</time> 
+
+      <h1 class="post-hero__title">A Good Move is Constructive</h1>
+    
+        <p class="post-hero__excerpt text-acc">Don&#x27;t justify a bad move with an imagined future result.</p>
+
+        <div class="post-authors">
+  <ul class="post-authors__avatars">
+        <li class="author-avatar has-image">
+          <a href="/author/dave/" title="Dave Hora" aria-label="Dave Hora">
+              <picture class="">
+  <source 
+    sizes="60px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="60px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    alt="Dave Hora"
+    
+  >
+</picture>          </a>
+        </li>
+  </ul>
+  
+    <span class="post-authors-names"><a href="/author/dave/">Dave Hora</a></span>
+</div>    </div>
+
+      <div class="post-hero__media">
+        <figure class="post-hero__figure">
+          <picture class="">
+  <source 
+    sizes="(max-width: 400px) 280px, 580px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/constructive-move.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2026/08/constructive-move.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2026/08/constructive-move.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/format/webp/2026/08/constructive-move.png 1000w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w2000/format/webp/2026/08/constructive-move.png 2000w"
+    type="image/webp"
+  >
+  <img class="lazyload post-hero__img"
+    sizes="(max-width: 400px) 280px, 580px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2026/08/constructive-move.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2026/08/constructive-move.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/2026/08/constructive-move.png 1000w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w2000/2026/08/constructive-move.png 2000w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/constructive-move.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2026/08/constructive-move.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/constructive-move.png"
+    alt="A Good Move is Constructive"
+    
+  >
+</picture>          
+        </figure>
+      </div>
+
+  </div>
+
+    <article class="post tag-product-game tag-initiative content post-access-public">
+      <p>A considerable lot of bad product work is perpetrated in the name of grand strategy and executive strategic priority. Top-down strategic planning gets the order wrong: good strategy emerges from the practice of good play. </p><p>Every good move made in the product game creates strategic possibility, but a great plan does not guarantee good moves. So we focus on <a href="https://www.davesresearch.com/gameplay-before-strategy/">gameplay before strategy</a>: when you reliably play one good move and then another, you have a real foothold for strategy. </p><p>I use four first-pass criteria to look at work in flight. A good move is:</p><ol><li><a href="https://www.davesresearch.com/good-move-bounded/"><strong>Bounded</strong></a>: composed of a set of steps; has a clear endpoint.</li><li><a href="https://www.davesresearch.com/good-move-grounded/"><strong>Grounded</strong></a><strong> </strong><em>(last week):</em> targets concrete relationships; carries a hypothesis. </li><li><strong>Constructive </strong><em>(this week)</em>: repairs weakness or creates strength; worthwhile in isolation from other games and moves.</li><li><strong>Enabling</strong>: improves the wider field of play; anticipates adjacent games and opens possibility.</li></ol><h2 id="add-strength-to-existing-structure">Add Strength to Existing Structure</h2><p>A move is constructive when it strengthens existing structure — especially the coupling between internal activities and external activities.</p><p>I argued <a href="https://www.davesresearch.com/good-move-grounded/">last week</a> that a good move, when it is grounded, targets relationships on the field of play. When the move is constructive, it <em>improves</em> that relationship. The improvement may focus on the internal side, the external side, or the connection between them by (1) repairing existing weakness, (2) amplifying existing strength, or, if the relationship is latent, (3) introducing new structure.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/2026/08/constructive-move-1.png" class="kg-image" alt="" loading="lazy" width="1920" height="1080" srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2026/08/constructive-move-1.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/2026/08/constructive-move-1.png 1000w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1600/2026/08/constructive-move-1.png 1600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/2026/08/constructive-move-1.png 1920w" sizes="(min-width: 1200px) 1200px"><figcaption><span style="white-space: pre-wrap;">Constructive: something specifically gets </span><i><em class="italic" style="white-space: pre-wrap;">better</em></i><span style="white-space: pre-wrap;">. Repair, amplify, or introduce strength.</span></figcaption></figure><p>A constructive move is worthwhile on its own. That is, in isolation from any other consideration — other games, follow-up moves, long term approach —&nbsp;it makes sense in the current field of play. It adds strength or improves something.</p><p>Almost paradoxically, specific and constructive play is where strategic traction emerges. A constructive move makes good sense in isolation. In sequence, one after another, it is constructive moves that change the conditions of the field and allow for new strategic possibility to emerge. </p><p>Moves that are not constructive do the opposite. If you make moves that depend upon hypothetical future play to become valuable, you accumulate strategic debt and close down future possibility.&nbsp;You either end up with wasted work, or commit to an unproven follow-up before the setup is even out the door. </p><h2 id="v2-and-beta-obscure-bad-moves">'V2' and 'Beta' Obscure Bad Moves</h2><p>Other organizational games and high-powered players' pressure overlap and conspire to preserve momentum for a bad move. The larger the organization, the easier it feels for a team to continue on planned course than to reflect and redirect.</p><p>When the team senses that their move is not constructive, but can't acknowledge it to themselves or leadership, they soften their stance with a beta tag or a required follow-up phase: "We just need to get out the MVP," or, "we obviously need to launch this so we can build V2, which is what customers want." Self-sealing mental gymnastics obscure the disconnect between the inadequate current move and desired future state<em>. </em></p><p>The problem is that V2 or the end of the beta period, however the team imagines it, is hypothetical. It takes a few years launching product work to realize a next version that promises to correct current problem is more fantasy or bargaining tool than reality. Unless the move was planned as a beta from the beginning — with clear conditions for participation, learning, and closure — you're going to have a mess on your hands.</p><h2 id="diagnose-and-repair">Diagnose and repair</h2><p>Don't justify a bad move with an imagined future result. You know how product organizations work... how staffing, priorities, and direction change. To bet on future stability and lock yourself into dependent action without existing value is not good gameplay. </p><p>Evaluate existing work. Ask: </p><blockquote><strong>"If you couldn't ship a follow-up, would this still be a good idea?" </strong></blockquote><p>The move is constructive when you have a clear 'yes,' or a compelling hypothesis. A grounded move is much more likely to be constructive. Without a positive response, you've found an important place of repair. Re-shaping the move before it is played will lead to some strife and wasted work... but easier to fix it now, rather than fixing it once that work is out the door.</p><h2 id="other-things-of-note">Other things of note</h2><p>I'm thinking about <a href="https://www.davesresearch.com/spectrum-of-perspectives/">perspective</a>, distance, and <a href="https://www.davesresearch.com/levels-of-scale/">levels of scale</a> after revisiting Jonathan Weiner on volcanoes in <a href="https://www.goodreads.com/book/show/125286.The_Beak_of_the_Finch?from_search=true&amp;from_srp=true&amp;qid=CpNUqvCUsT&amp;rank=1"><em>The Beak of the Finch</em></a>. </p><blockquote>If we look at the billowing smoke of a volcano from close up, we see intense and rapid motion, enormous and dangerous turbulence. If we look at the eruption from far, far away (a safe distance that puts it almost to the horizon), the smoke seems to hang in the air almost motionless: we have to watch a long while to see any change at all. The evolution of life turns out to be rather like the eruption of a volcano. The closer you look, the more turbulent and dangerous the action; the farther your remove, the more the living world seems fixed and stable, hardly moving at all.</blockquote><p>We need to know the texture of the turbulence, and at the same time, the shape of the motionless cloud.</p><hr><p><em>Until next time,</em></p><p><em>This is Dave's Monday newsletter for leaders in the product org: make good moves, play well with others, change how the game is played.</em></p><p>→<em>&nbsp;</em><a href="https://www.davesresearch.com/#/portal/signup" rel="noreferrer"><em>sign up</em></a><em>&nbsp;•&nbsp;</em><a href="https://www.davesresearch.com/tag/product-game/"><em>see prior updates</em></a><em>&nbsp;•&nbsp;</em><a href="https://www.davesresearch.com/#/portal/account/newsletters" rel="noreferrer"><em>unsubscribe</em></a></p>
+    </article>
+
+            <div class="post-tags content-width mb-lg">
+        <a class="post-tag tag-product-game" href="/tag/product-game/" aria-label="product game"
+          
+        >product game</a>
+        <a class="post-tag tag-initiative" href="/tag/initiative/" aria-label="initiative"
+          
+        >initiative</a>
+    </div>
+
+        <hr class="content-width mb-lg"/>
+
+        <div class="social-share content-width ">
+  <span class="social-share-title">Share</span>
+  <a class="social-share__item twitter js-share" target="_blank"
+      href="https://twitter.com/share?text=A%20Good%20Move%20is%20Constructive&amp;url=https://www.davesresearch.com/good-move-constructive/"
+      title="Share on X" aria-label="Share on X">
+    <i class="icon icon-twitter-x icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+</svg>
+</i>    <span>Share</span>
+  </a>
+  <a class="social-share__item bluesky js-share" target="_blank"
+      href="https://bsky.app/intent/compose?text=A%20Good%20Move%20is%20Constructive%20https://www.davesresearch.com/good-move-constructive/"
+      title="Share on Bluesky" aria-label="Share on Bluesky">
+    <i class="icon icon-bluesky icon--sm">
+  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bluesky"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.335 5.144c-1.654 -1.199 -4.335 -2.127 -4.335 .826c0 .59 .35 4.953 .556 5.661c.713 2.463 3.13 2.75 5.444 2.369c-4.045 .665 -4.889 3.208 -2.667 5.41c1.03 1.018 1.913 1.59 2.667 1.59c2 0 3.134 -2.769 3.5 -3.5c.333 -.667 .5 -1.167 .5 -1.5c0 .333 .167 .833 .5 1.5c.366 .731 1.5 3.5 3.5 3.5c.754 0 1.637 -.571 2.667 -1.59c2.222 -2.203 1.378 -4.746 -2.667 -5.41c2.314 .38 4.73 .094 5.444 -2.369c.206 -.708 .556 -5.072 .556 -5.661c0 -2.953 -2.68 -2.025 -4.335 -.826c-2.293 1.662 -4.76 5.048 -5.665 6.856c-.905 -1.808 -3.372 -5.194 -5.665 -6.856z" /></svg>
+</i>    <span>Share</span>
+  </a>
+  <a class="social-share__item facebook js-share" target="_blank"
+      href="https://www.facebook.com/sharer.php?u=https://www.davesresearch.com/good-move-constructive/"
+      title="Share on Facebook" aria-label="Share on Facebook">
+    <i class="icon icon-facebook icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+</svg>
+
+
+
+</i>    <span>Share</span>
+  </a>
+  <a class="social-share__item linkedin js-share" target="_blank"
+      href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.davesresearch.com/good-move-constructive/&title=A%20Good%20Move%20is%20Constructive&summary=A%20Good%20Move%20is%20Constructive"
+      title="Share on Linkedin" aria-label="Share on Linkedin">
+    <i class="icon icon-linkedin icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+  <rect x="2" y="9" width="4" height="12"></rect>
+  <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</i>    <span>Share</span>
+  </a>
+  <a class="social-share__item mail"
+      href="mailto:?subject=A%20Good%20Move%20is%20Constructive&body=https://www.davesresearch.com/good-move-constructive/&nbsp;A%20Good%20Move%20is%20Constructive"
+      title="Share by email" aria-label="Share by email">
+    <i class="icon icon-mail icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+</i>    <span>Email</span>
+  </a>
+  <button class="copy-link copy js-copy-link" data-url="https://www.davesresearch.com/good-move-constructive/"
+      title="Copy to clipboard" data-label="Copied!" aria-label="Copy to clipboard">
+    <i class="icon icon-link icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M9 15l6 -6"></path>
+   <path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"></path>
+   <path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"></path>
+</svg>
+</i>    <span>Copy</span>
+  </button>
+</div>
+
+  </div>
+
+        <div class="bg-acc mb-xl comment-section">
+      <div class="container wrapper">
+        <div class="post-comments radius-double p-lg pb-0 flex-1 self-align-start" id="comments">
+          <div class="content-width">
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.6/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://www.davesresearch.com/" data-api="https://davesresearch.ghost.io/ghost/api/content/" data-admin="https://davesresearch.ghost.io/ghost/" data-key="5617743ee55da3b3f534057af2" data-title="Comments" data-count="true" data-post-id="6a7078d25b6d9f0001c25bd6" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#be3434" data-comments-enabled="all" data-publication="Dave's Research Co." crossorigin="anonymous"></script>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <section class="read-next pt-xl pb-lg">
+      <div class="container wrapper">
+        <h2 class="section-title">Read next</h2>
+
+        <div class="related-posts mb-lg">
+            <article class="post-card has-img js-post-card" 
+  data-date="Aug 10, 2026" data-aspect-ratio="auto">
+  
+<a class="post-card__media" href="https://www.davesresearch.com/good-move-grounded/">      <figure>
+        <picture class="">
+  <source 
+    sizes="280px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/grounded-relationship-good.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2026/08/grounded-relationship-good.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2026/08/grounded-relationship-good.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/format/webp/2026/08/grounded-relationship-good.png 1000w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="280px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2026/08/grounded-relationship-good.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2026/08/grounded-relationship-good.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/2026/08/grounded-relationship-good.png 1000w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/grounded-relationship-good.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2026/08/grounded-relationship-good.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/grounded-relationship-good.png"
+    alt="A Good Move is Grounded"
+    
+  >
+</picture>      </figure>
+</a>
+  <div class="post-card__content flex flex-col ">
+    <div class="post-card__info">
+        <a class="post-tag tag-product-game" href="/tag/product-game/" aria-label="product game"
+          
+        >product game</a>
+
+      <time class="post-card__date" datetime="2026-08-10">Aug 10, 2026</time> 
+      
+      <span class="flex-1"></span>
+
+
+    </div>
+
+      <h3 class="post-card__title"><a href="https://www.davesresearch.com/good-move-grounded/">A Good Move is Grounded</a></h3>
+
+    <p class="post-card__excerpt">Teams waste work when they decide to build without deciding on the relationship they want to change.</p>
+
+    <div class="post-authors">
+  <ul class="post-authors__avatars">
+        <li class="author-avatar has-image">
+          <a href="/author/dave/" title="Dave Hora" aria-label="Dave Hora">
+              <picture class="">
+  <source 
+    sizes="60px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="60px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    alt="Dave Hora"
+    
+  >
+</picture>          </a>
+        </li>
+  </ul>
+  
+    <span class="post-authors-names"><a href="/author/dave/">Dave Hora</a></span>
+</div>  </div>
+
+</article>            <article class="post-card has-img js-post-card" 
+  data-date="Aug 3, 2026" data-aspect-ratio="auto">
+  
+<a class="post-card__media" href="https://www.davesresearch.com/good-move-bounded/">      <figure>
+        <picture class="">
+  <source 
+    sizes="280px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/move-made-of-steps.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2026/08/move-made-of-steps.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2026/08/move-made-of-steps.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/format/webp/2026/08/move-made-of-steps.png 1000w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="280px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2026/08/move-made-of-steps.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2026/08/move-made-of-steps.png 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/2026/08/move-made-of-steps.png 1000w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/move-made-of-steps.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2026/08/move-made-of-steps.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/08/move-made-of-steps.png"
+    alt="A Good Move is Bounded"
+    
+  >
+</picture>      </figure>
+</a>
+  <div class="post-card__content flex flex-col ">
+    <div class="post-card__info">
+        <a class="post-tag tag-product-game" href="/tag/product-game/" aria-label="product game"
+          
+        >product game</a>
+
+      <time class="post-card__date" datetime="2026-08-03">Aug 3, 2026</time> 
+      
+      <span class="flex-1"></span>
+
+
+    </div>
+
+      <h3 class="post-card__title"><a href="https://www.davesresearch.com/good-move-bounded/">A Good Move is Bounded</a></h3>
+
+    <p class="post-card__excerpt">Close down open-ended moves; ensure a clear set of steps.</p>
+
+    <div class="post-authors">
+  <ul class="post-authors__avatars">
+        <li class="author-avatar has-image">
+          <a href="/author/dave/" title="Dave Hora" aria-label="Dave Hora">
+              <picture class="">
+  <source 
+    sizes="60px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="60px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    alt="Dave Hora"
+    
+  >
+</picture>          </a>
+        </li>
+  </ul>
+  
+    <span class="post-authors-names"><a href="/author/dave/">Dave Hora</a></span>
+</div>  </div>
+
+</article>            <article class="post-card has-img js-post-card" 
+  data-date="Jul 27, 2026" data-aspect-ratio="auto">
+  
+<a class="post-card__media" href="https://www.davesresearch.com/gameplay-before-strategy/">      <figure>
+        <picture class="">
+  <source 
+    sizes="280px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/07/go-game.jpg 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2026/07/go-game.jpg 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2026/07/go-game.jpg 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/format/webp/2026/07/go-game.jpg 1000w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="280px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2026/07/go-game.jpg 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2026/07/go-game.jpg 600w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w1000/2026/07/go-game.jpg 1000w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/07/go-game.jpg 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2026/07/go-game.jpg"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2026/07/go-game.jpg"
+    alt="Gameplay Before Strategy"
+    
+  >
+</picture>      </figure>
+</a>
+  <div class="post-card__content flex flex-col ">
+    <div class="post-card__info">
+        <a class="post-tag tag-product-game" href="/tag/product-game/" aria-label="product game"
+          
+        >product game</a>
+
+      <time class="post-card__date" datetime="2026-07-27">Jul 27, 2026</time> 
+      
+      <span class="flex-1"></span>
+
+
+    </div>
+
+      <h3 class="post-card__title"><a href="https://www.davesresearch.com/gameplay-before-strategy/">Gameplay Before Strategy</a></h3>
+
+    <p class="post-card__excerpt">You must improve play, first.</p>
+
+    <div class="post-authors">
+  <ul class="post-authors__avatars">
+        <li class="author-avatar has-image">
+          <a href="/author/dave/" title="Dave Hora" aria-label="Dave Hora">
+              <picture class="">
+  <source 
+    sizes="60px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/format/webp/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    type="image/webp"
+  >
+  <img class="lazyload"
+    sizes="60px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png 100w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2022/02/Screenshot-2022-02-03-at-22.11.06.png"
+    alt="Dave Hora"
+    
+  >
+</picture>          </a>
+        </li>
+  </ul>
+  
+    <span class="post-authors-names"><a href="/author/dave/">Dave Hora</a></span>
+</div>  </div>
+
+</article>        </div>
+      </div>
+    </section>
+
+    </main>
+
+      
+    <footer class="footer">
+  <div class="container wrapper">
+    <span class="footer-top"></span>
+    <div class="row">
+      <div class="col-xs-12 col-md-5">
+        <div class="footer__brand flex items-center">
+            <picture class="default-logo">
+  <source 
+    sizes="200px"
+    data-sizes="auto"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2023/01/LOGO-SIMPLE-1-2-2.png 30w"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/format/webp/2023/01/LOGO-SIMPLE-1-2-2.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/format/webp/2023/01/LOGO-SIMPLE-1-2-2.png 600w"
+    type="image/webp"
+  >
+  <img class="footer__logo mr lazyload"
+    sizes="200px"
+    data-sizes="auto"
+    data-srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w300/2023/01/LOGO-SIMPLE-1-2-2.png 300w, https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w600/2023/01/LOGO-SIMPLE-1-2-2.png 600w"
+    srcset="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2023/01/LOGO-SIMPLE-1-2-2.png 30w"
+    data-src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w100/2023/01/LOGO-SIMPLE-1-2-2.png"
+    src="https://storage.ghost.io/c/d1/ba/d1baee41-d47e-4387-b3f4-1436f65958e0/content/images/size/w30/2023/01/LOGO-SIMPLE-1-2-2.png"
+    alt="Dave&#x27;s Research Co."
+    
+  >
+</picture>        </div>
+
+        <div class="footer__description" id="footer-input-label">
+          Smart gameplay is good product strategy.
+        </div>
+
+        <div class="social-links">
+          
+
+<a href="https://www.davesresearch.com/rss" class="rss" aria-label="RSS"><i class="icon icon-rss icon--sm">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+</i><span>RSS</span></a>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-7">
+        <span class="fw-700 mb-sm display-block text-12">Navigation</span>
+        <ul class="nav" data-items="4">
+    <li class="nav-articles" 
+      data-label="Articles" data-length="8" data-post="">
+      <a href="https://www.davesresearch.com/articles/">
+        <span>Articles</span>
+      </a>
+    </li>
+    <li class="nav-work" 
+      data-label="Work" data-length="4" data-post="">
+      <a href="https://www.davesresearch.com/work/">
+        <span>Work</span>
+      </a>
+    </li>
+    <li class="nav-about" 
+      data-label="About" data-length="5" data-post="">
+      <a href="https://www.davesresearch.com/about/">
+        <span>About</span>
+      </a>
+    </li>
+    <li class="nav-newsletter" 
+      data-label="Newsletter" data-length="10" data-post="last">
+      <a href="https://www.davesresearch.com/newsletter/">
+        <span>Newsletter</span>
+      </a>
+    </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__copy">
+        <span>&copy;2026&nbsp;<a href="https://www.davesresearch.com">Dave&#x27;s Research Co.</a>.</span>
+        <span>Published with&nbsp;<a href="https://ghost.org">Ghost</a>&nbsp;&&nbsp;<a href="https://brightthemes.com/themes/curie/">Curie</a>.</span>
+      </div>
+
+      <div class="color-scheme flex flex-cc">
+  <span class="color-scheme-symbol"></span>
+  <select class="color-scheme-select radius js-color-scheme-select" aria-label="Change color scheme">
+    <option value="system" selected>System</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+  <i class="icon icon-select">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-select" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17 8.517L12 3 7 8.517M7 15.48l5 5.517 5-5.517"></path>
+</svg>
+
+
+
+</i></div>    </div>
+
+  </div>
+</footer>
+
+    <dialog class="notification">
+  <i class="icon icon-success notification-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M9 12l2 2l4 -4" />
+</svg>
+
+
+
+</i>  <i class="icon icon-error notification-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-octagon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M8.7 3h6.6c.3 0 .5 .1 .7 .3l4.7 4.7c.2 .2 .3 .4 .3 .7v6.6c0 .3 -.1 .5 -.3 .7l-4.7 4.7c-.2 .2 -.4 .3 -.7 .3h-6.6c-.3 0 -.5 -.1 -.7 -.3l-4.7 -4.7c-.2 -.2 -.3 -.4 -.3 -.7v-6.6c0 -.3 .1 -.5 .3 -.7l4.7 -4.7c.2 -.2 .4 -.3 .7 -.3z" />
+  <line x1="12" y1="8" x2="12" y2="12" />
+  <line x1="12" y1="16" x2="12.01" y2="16" />
+</svg>
+
+
+
+</i>  <i class="icon icon-warning notification-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 9v2m0 4v.01" />
+  <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+</svg>
+
+
+
+</i>  <p class="notification-msg signup-success">Great! You’ve successfully signed up.</p> 
+  <p class="notification-msg signin-success">Welcome back! You&#x27;ve successfully signed in.</p> 
+  <p class="notification-msg subscribe-success">You&#x27;ve successfully subscribed to Dave&#x27;s Research Co..</p> 
+  <p class="notification-msg link-expired">Your link has expired.</p> 
+  <p class="notification-msg checkout-success">Success! Check your email for magic link to sign-in.</p> 
+  <p class="notification-msg billing-success">Success! Your billing info has been updated.</p> 
+  <p class="notification-msg billing-cancel">Your billing was not updated.</p> 
+  <button class="notification-close js-notification-close" aria-label="Close" onclick="closeNotification(event.currentTarget.parentNode);">
+    <i class="icon icon-x">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg>
+</i>  </button>
+</dialog>
+
+      
+    
+
+      <script>
+    // Copy button
+    const copyBtn = document.querySelector('.js-copy-link');
+    if (copyBtn) {
+      copyBtn.onclick = function(event) {
+        copyToClipboard(event.currentTarget, event.currentTarget.getAttribute('data-url'));
+      }
+    }
+    
+    /** 
+    * Copy to clipboard
+    * @src - source element
+    * @str - string to copy
+    */ 
+    const copyToClipboard = function(src, str) {
+      const el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      src.classList.add('has-tooltip');
+      src.setAttribute('data-label', 'Copied!');
+
+      src.onmouseleave = function() { 
+        src.classList.remove('has-tooltip');
+        setTimeout(function(){
+          src.setAttribute('data-label', '');
+        }, 500); 
+      }
+    };
+  </script>
+
+<script>
+  const navItems = document.querySelectorAll('.header .nav:not(.submenu) li, .menu .nav:not(.submenu) li')
+  const allNavItems = document.querySelectorAll('.is-subitem')
+
+  // Remove '-' signs
+  allNavItems.forEach(item => {
+    const itemName = item.querySelector('a span')
+    itemName.innerText = itemName.innerText.slice(1)
+  });
+
+  // Add subitems in place
+  let subMenu, hasItems
+  navItems.forEach((item, index) => {
+    if (item.classList.contains('is-subitem') && !navItems[index - 1].classList.contains('is-subitem')) navItems[index - 1].classList.add('is-mainitem'); 
+    subMenu = item.classList.contains('is-subitem') ? subMenu : document.createElement('ul');
+    if (item.classList.contains('is-subitem')) { 
+      subMenu.appendChild(item)
+      subMenu.classList.add('nav','submenu')
+    } else { 
+      item.appendChild(subMenu)
+    }
+  });
+</script>
+
+<script>
+  const submenus = document.querySelectorAll('.menu .is-mainitem')
+  const toggle = document.querySelector('[data-toggle-template]');
+
+  submenus.forEach(menu => { 
+    const toggleBtn = toggle.content.cloneNode(true);
+    menu.appendChild(toggleBtn);
+  });
+</script>
+
+  <script>
+    // Give the parameter a variable name
+    const qsParams = new URLSearchParams(window.location.search);
+    const isAction = qsParams.has('action');
+    const isStripe = qsParams.has('stripe');
+    const success = qsParams.get('success');
+    const action = qsParams.get('action');
+    const stripe = qsParams.get('stripe');
+
+    if (qsParams && isAction) {
+      if (success === "true") {
+        switch (action) {
+          case 'subscribe':
+            openNotification('subscribe-success');
+            break;
+          case 'signup': 
+            openNotification('signup-success');
+            break;
+          case 'signin':
+            openNotification('signin-success');
+            break;
+          default:
+            break;
+        }
+      } else {
+        openNotification('link-expired');
+      }
+    }
+
+    if (qsParams && isStripe) {
+      switch (stripe) {
+        case 'success':
+          openNotification('checkout-success');
+          break;
+        case 'billing-update-success':
+          openNotification('billing-success');
+          break;
+        case 'billing-update-cancel':
+          openNotification('billing-cancel');
+          break;
+        default:
+          break;
+      }
+    }
+
+    /**
+    * Handle Notifications
+    */
+    function openNotification(type) {
+      const notification = document.querySelector('dialog.notification');
+      if (notification) { 
+        notification.setAttribute('data-msg-type', type);
+        notification.show();
+        setTimeout(function(){ closeNotification(notification); }, 3000);
+      }
+    }
+    
+    /**
+    * Clean URI
+    */
+    function clearURI() {
+      window.history.replaceState({}, '', `${window.location.pathname}`);
+    }
+
+    function closeNotification(notification) {
+      notification.close();
+      clearURI();
+      setTimeout(function(){ notification.removeAttribute('data-msg-type') }, 500);
+    }
+  </script>
+
+
+    
+  </body>
+</html>

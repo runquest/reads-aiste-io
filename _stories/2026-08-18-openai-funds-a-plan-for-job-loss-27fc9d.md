@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "OpenAI Funds a Plan for Job Loss"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/openai-funds-a-plan-for-job-loss-27fc9d/"
+slug: "openai-funds-a-plan-for-job-loss-27fc9d"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTgsGtP75sOlK59dvZPFy-8_1Vas-bBUPPoHW0jUvsAFGRmr7RapPRNdto8kDSxBa9sZyGkMnYFUSasA1OuktIuhXZooP9gWSFfXksr9t2M9cHs7s_VVRNxQGmg4wsZzCDe-HC3osPlCM97gjJmB006smAprFWtOf28z19zsvUf3qLPkpN7WhpUL7eBquK29VWQVdD_NYIDhRQBHSupmtkZEokHIvKatySwJRhwKiSkUE9EHjES2OZNEGsA1HnduKRu9YiWTPGMb85s5uCNs-hYdnXv5hVnKk6KFKlEtCfwzcIPpHTSoGVoA7xvz38VibzEvVEzIkIb9GsvTj3wd8OC8sDlbiOjpNkMlDwJW4yCfaSdEJ8sdg5Gt3JUwBd1QOmyq_lYXrWnVdScxnXmuQBSerW-sANLduU2UYLCijYQNx4jCK6Km8QuN7fLDPk07Ix-rRHck9_rJYiAfDFC6pk16JjMtxiOdx6yeVRpEcpwNxvAYXL0GUySSaZ7i0mPnXyZepPUr5vSD4Me1ZTNrLW1eCpFZ6N8nuViCENLw2LWXJg6dPkDgzGUC53eBBGPIpyRPq-B-YmvBb2uPEYPeE7poNI5agM1ruJGN_G9B0m7SfxwXTJtyxEKi5420Uw_Qw0YhWVijlOPQ5daFih1WUyHBUVvf8pcla8jrsQv-7EO4eZGx9Iai_dpAMa3Nhce1EA/4t9/n34HYOhIQRmt-v_O7RmRBg/h36/h001.pydTbRbs33alIMHovsAlDNvUEOkI1Vo6jyxp2cTt2eQ"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.SeZcZ2kldk7Osi4slNtvSbg4fHE3D6_GwDJKfp_OmSEh-Dap4q94TSvlP6zxsKa164Rd71qGd8GwXOuoErj9N5g3cw4p8k6W7HP3j4OVRBQdWZ1uQzb8wqdaTL5-9fR3rg3JH1EmD2lAlTUuH8n0P20UN4FU8xuHbc6_sGKd7fucwgUlBm_esmtUaxtUzvL0Q2bFtegq9gpbQ_iCgvmHQ1KV4WZ056xTM6STYGHNioX_6pu20ChCHhiV1j31cXiDbJOkW84gkNHoRZZ3RgzvXX1Rj42nVnVpdedpzvkmimMX7OHO3VqVIvD_vEwqOA6s/4t9/n34HYOhIQRmt-v_O7RmRBg/h8/h001.KMfuEsttOVeSL49McEVBmM5ND8PKzemIGHCB7edlHzI"
+category: "Policy"
+excerpt_separator: ""
+---
+
+{% raw %}
+Grants went to 14 groups across five countries, and the ideas are bigger than the check. One hands citizens a Right to AI, another pays livelihood insurance when a whole occupation disappears.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.SeZcZ2kldk7Osi4slNtvSbg4fHE3D6_GwDJKfp_OmSEh-Dap4q94TSvlP6zxsKa164Rd71qGd8GwXOuoErj9N5g3cw4p8k6W7HP3j4OVRBQdWZ1uQzb8wqdaTL5-9fR3rg3JH1EmD2lAlTUuH8n0P20UN4FU8xuHbc6_sGKd7fucwgUlBm_esmtUaxtUzvL0Q2bFtegq9gpbQ_iCgvmHQ1KV4WZ056xTM6STYGHNioX_6pu20ChCHhiV1j31cXiDbJOkW84gkNHoRZZ3RgzvXX1Rj42nVnVpdedpzvkmimMX7OHO3VqVIvD_vEwqOA6s/4t9/n34HYOhIQRmt-v_O7RmRBg/h8/h001.KMfuEsttOVeSL49McEVBmM5ND8PKzemIGHCB7edlHzI).*
+
+{% endraw %}

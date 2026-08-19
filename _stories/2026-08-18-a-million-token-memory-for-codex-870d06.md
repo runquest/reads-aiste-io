@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "A Million-Token Memory for Codex"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/a-million-token-memory-for-codex-870d06/"
+slug: "a-million-token-memory-for-codex-870d06"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTgsGtP75sOlK59dvZPFy-8_1Vas-bBUPPoHW0jUvsAFGRmr7RapPRNdto8kDSxBa9sZyGkMnYFUSasA1OuktIuhXZooP9gWSFfXksr9t2M9cHs7s_VVRNxQGmg4wsZzCDe-HC3osPlCM97gjJmB006smAprFWtOf28z19zsvUf3qLPkpN7WhpUL7eBquK29VWQVdD_NYIDhRQBHSupmtkZEokHIvKatySwJRhwKiSkUE9EHjES2OZNEGsA1HnduKRu9YiWTPGMb85s5uCNs-hYdnXv5hVnKk6KFKlEtCfwzcIPpHTSoGVoA7xvz38VibzEvVEzIkIb9GsvTj3wd8OC8sDlbiOjpNkMlDwJW4yCfaSdEJ8sdg5Gt3JUwBd1QOmyq_lYXrWnVdScxnXmuQBSerW-sANLduU2UYLCijYQNx4jCK6Km8QuN7fLDPk07Ix-rRHck9_rJYiAfDFC6pk16JjMtxiOdx6yeVRpEcpwNxvAYXL0GUySSaZ7i0mPnXyZepPUr5vSD4Me1ZTNrLW1eCpFZ6N8nuViCENLw2LWXJg6dPkDgzGUC53eBBGPIpyRPq-B-YmvBb2uPEYPeE7poNI5agM1ruJGN_G9B0m7SfxwXTJtyxEKi5420Uw_Qw0YhWVijlOPQ5daFih1WUyHBUVvf8pcla8jrsQv-7EO4eZGx9Iai_dpAMa3Nhce1EA/4t9/n34HYOhIQRmt-v_O7RmRBg/h36/h001.pydTbRbs33alIMHovsAlDNvUEOkI1Vo6jyxp2cTt2eQ"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.H5jDR56sdlam3JCMbBSbw3N0uWKLblzzQgtrk5145dLIDhoFiiWZVtl1KJDoKg-LJ5hOr6xuNuFeXScrwTJ8ehYhitlROF95WKlXlqUbEaxMdz-GtS2SLGng2_f9eCgOu5OIWGsgYtxc3DLw-9_AG4Q1_Zdv0HpJ5Xow7aAhR6wCZuekSTUV5BCZ4GUk6JMz0mus11UjHggGjJPZzd5y_YW0GjTg6YXulCPKB6XexoaslQrAPTCaKOkA1QrMk2js9s6LDIPRjG7PdlGAjidIxWFSeL6ByBCDUj3bIZMSMMo/4t9/n34HYOhIQRmt-v_O7RmRBg/h10/h001.FlSE5QksnjfRJAjrFM74EfRyobuxI5bhvHCmMBMVSxw"
+category: "Tech"
+excerpt_separator: ""
+---
+
+{% raw %}
+Tibo from OpenAI posted the three settings that let Codex hold far more of your project before it starts forgetting.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.H5jDR56sdlam3JCMbBSbw3N0uWKLblzzQgtrk5145dLIDhoFiiWZVtl1KJDoKg-LJ5hOr6xuNuFeXScrwTJ8ehYhitlROF95WKlXlqUbEaxMdz-GtS2SLGng2_f9eCgOu5OIWGsgYtxc3DLw-9_AG4Q1_Zdv0HpJ5Xow7aAhR6wCZuekSTUV5BCZ4GUk6JMz0mus11UjHggGjJPZzd5y_YW0GjTg6YXulCPKB6XexoaslQrAPTCaKOkA1QrMk2js9s6LDIPRjG7PdlGAjidIxWFSeL6ByBCDUj3bIZMSMMo/4t9/n34HYOhIQRmt-v_O7RmRBg/h10/h001.FlSE5QksnjfRJAjrFM74EfRyobuxI5bhvHCmMBMVSxw).*
+
+{% endraw %}

@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "GeoCopy"
+date: "2026-08-18"
+permalink: "/2026/08/18/stories/geocopy-7a0aae/"
+slug: "geocopy-7a0aae"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTgsGtP75sOlK59dvZPFy-8_1Vas-bBUPPoHW0jUvsAFGRmr7RapPRNdto8kDSxBa9sZyGkMnYFUSasA1OuktIuhXZooP9gWSFfXksr9t2M9cHs7s_VVRNxQGmg4wsZzCDe-HC3osPlCM97gjJmB006smAprFWtOf28z19zsvUf3qLPkpN7WhpUL7eBquK29VWQVdD_NYIDhRQBHSupmtkZEokHIvKatySwJRhwKiSkUE9EHjES2OZNEGsA1HnduKRu9YiWTPGMb85s5uCNs-hYdnXv5hVnKk6KFKlEtCfwzcIPpHTSoGVoA7xvz38VibzEvVEzIkIb9GsvTj3wd8OC8sDlbiOjpNkMlDwJW4yCfaSdEJ8sdg5Gt3JUwBd1QOmyq_lYXrWnVdScxnXmuQBSerW-sANLduU2UYLCijYQNx4jCK6Km8QuN7fLDPk07Ix-rRHck9_rJYiAfDFC6pk16JjMtxiOdx6yeVRpEcpwNxvAYXL0GUySSaZ7i0mPnXyZepPUr5vSD4Me1ZTNrLW1eCpFZ6N8nuViCENLw2LWXJg6dPkDgzGUC53eBBGPIpyRPq-B-YmvBb2uPEYPeE7poNI5agM1ruJGN_G9B0m7SfxwXTJtyxEKi5420Uw_Qw0YhWVijlOPQ5daFih1WUyHBUVvf8pcla8jrsQv-7EO4eZGx9Iai_dpAMa3Nhce1EA/4t9/n34HYOhIQRmt-v_O7RmRBg/h36/h001.pydTbRbs33alIMHovsAlDNvUEOkI1Vo6jyxp2cTt2eQ"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-mZcXs6WPl57EFB-DjPq96ntC15AWdpmQhP19M-3U6X7B_SukKZNZvjGqIfdwqIdHZMC0xrQvNwCHzsgVvUUAUMdWJSBiYYyz4zZHkkGgn5xYsyhG15oEXcPKGLYxHyAMG8IcCJxUYKj8rbt7jz5saFDRPGT8wk0_oblDt0YLVY33PcjhaLd9VMOky1S9AxbNSWMjBdJRni5XGti4xTfORZ7m8zZVcLdIvtYU3KEKzulJkAQE4p5AzXSV9J9-xe2hw/4t9/n34HYOhIQRmt-v_O7RmRBg/h13/h001.og6FDmhJ_MLKJfY4VtfzQka_szu35ULMstkfrsdSgVE"
+category: "Product"
+excerpt_separator: ""
+---
+
+{% raw %}
+studies which pages ChatGPT and Perplexity quote, shapes your articles to match, then publishes them for you.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-mZcXs6WPl57EFB-DjPq96ntC15AWdpmQhP19M-3U6X7B_SukKZNZvjGqIfdwqIdHZMC0xrQvNwCHzsgVvUUAUMdWJSBiYYyz4zZHkkGgn5xYsyhG15oEXcPKGLYxHyAMG8IcCJxUYKj8rbt7jz5saFDRPGT8wk0_oblDt0YLVY33PcjhaLd9VMOky1S9AxbNSWMjBdJRni5XGti4xTfORZ7m8zZVcLdIvtYU3KEKzulJkAQE4p5AzXSV9J9-xe2hw/4t9/n34HYOhIQRmt-v_O7RmRBg/h13/h001.og6FDmhJ_MLKJfY4VtfzQka_szu35ULMstkfrsdSgVE).*
+
+{% endraw %}
