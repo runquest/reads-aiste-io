@@ -1,0 +1,116 @@
+[
+  {
+    "title": "After the work becomes easy",
+    "url": "https://leadershipintech.com/links/23027/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "Leadership",
+    "byline": "Arjun Shah",
+    "existing_summary": "AI now does hard work in seconds, but something feels missing. Work used to shape the worker as much as it shaped the result. When a machine skips the struggle, we get the output but not the growth that came from making it. The real challenge now is choosing what deserves our effort and staying responsible for that choice.",
+    "sponsored": false,
+    "summary_bullets": [
+      "AI automates difficult tasks but removes the growth that comes from struggle",
+      "Success requires choosing which efforts still deserve human engagement",
+      "Teams must maintain responsibility for decisions delegated to machines"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": null,
+    "slug": "after-the-work-becomes-easy-468c10",
+    "permalink": "/2026/08/21/stories/after-the-work-becomes-easy-468c10/"
+  },
+  {
+    "title": "Learn how leading teams are building and scaling AI agents in production",
+    "url": "https://leadershipintech.com/links/23028/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "AI",
+    "byline": null,
+    "existing_summary": "Agents can write and run code seconds before execution, often without human review. Local environments and standard containers weren't designed for that level of autonomy. LangChain's latest guide explains what safe agent execution requires, including isolation, permissions, observability, fast provisioning, and persistent state. Read the guide to learn when a managed sandbox makes sense, what capabilities to look for, and how to give agents the tools they need without handing them your infrastructure.",
+    "sponsored": true,
+    "summary_bullets": [
+      "AI agents require sandbox environments designed for autonomous code execution",
+      "Safe agent deployment needs isolation, permissions, observability, and fast provisioning",
+      "Managed sandboxes balance giving agents necessary tools while protecting infrastructure"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": null,
+    "slug": "learn-how-leading-teams-are-building-and-scaling-ai-agents-i-7c4af0",
+    "permalink": "/2026/08/21/stories/learn-how-leading-teams-are-building-and-scaling-ai-agents-i-7c4af0/"
+  },
+  {
+    "title": "The work they can't see",
+    "url": "https://leadershipintech.com/links/23029/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "Engineering",
+    "byline": "Christos Chatzis",
+    "existing_summary": "Good engineering tends to become invisible because success quietly turns into expectation. A platform meeting revealed this clearly: an external expert recognized years of thoughtful decisions within an hour, yet internal leadership still had doubts. The gap was not technical understanding but missing context. Building great systems is only half the job. Making the reasoning behind them visible to decision makers is the other half.",
+    "sponsored": false,
+    "summary_bullets": [
+      "Successful engineering becomes invisible and taken for granted",
+      "Decision makers often lack the context needed to appreciate complex technical work",
+      "Communicating reasoning and decisions is as important as building systems"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": null,
+    "slug": "the-work-they-can-t-see-3ff1b7",
+    "permalink": "/2026/08/21/stories/the-work-they-can-t-see-3ff1b7/"
+  },
+  {
+    "title": "AI adoption is a myth",
+    "url": "https://leadershipintech.com/links/23030/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "AI",
+    "byline": "Vas M.",
+    "existing_summary": "Most employees who get access to AI tools barely use them, and those who do often use them poorly. Across large rollouts, about 10% of people drive nearly all real usage and value, while the rest see little to no impact. Tracking adoption as a yes or no metric hides this completely. The fix is to surface your power users, share what they build, and for everyone else, embed AI quietly into the systems they already use daily.",
+    "sponsored": false,
+    "summary_bullets": [
+      "90% of employees drive minimal real value from AI tools despite access",
+      "Standard adoption metrics fail to reveal unequal usage patterns",
+      "Effective adoption requires learning from power users and embedding tools into existing workflows"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": "[\n\n![user avatar](https://pbs.twimg.com/profile_images/2084041695088590848/jHUy-1Bq_normal.jpg)\n\n](/vasuman)\n\n[vas](https://x.com/vasuman)\n\n[\n\n![Varick Agents](https://pbs.twimg.com/profile_images/2058751402156204032/7e7Mzp2j_normal.jpg)\n\n](https://twitter.com/varickagents)\n\n[@vasuman](https://x.com/vasuman)\n\n![Article cover image](https://pbs.twimg.com/media/HPIwakab0AADFjx.jpg)\n\n# AI Adoption is a Myth\n\nYou’re already in the top 1% of AI users. Yes, there’s a gap between you and the folks on the frontier. The crazy kids running 20 terminals simultaneously with a knowledge base that rewrites itself after every run.\n\nThe bad news is you’re never catching up to those people. The good news is that you don’t need to. That gap, the gap in front of you, is far smaller than the gap behind you.\n\nIt might not feel like you're in the top 1% because you see nerds on X spinning up agent fleets on a whim, but trust me, you’re in the top 1%. You’re likely using a model every day, you have opinions about how best to use it, and you maybe even tinker with agents or have set up Hermes on your own machine.\n\nOn the other hand, between you and the median employee at a big enterprise company is a chasm. They have maybe opened ChatGPT 4 times in 2 years. They used 3.5-turbo and decided AI was stupid, not realizing that GPT-5.6 Sol Ultra just produced a proof of a graph theory conjecture that had been open for 50 years. Every AI strategy article or post assumes that this person, this median employee, is going to eventually catch up.\n\nI’m telling you, they won’t.\n\nFor context, I’m the CEO of @varickagents. We work with the largest companies on the planet to implement AI agents and strategy across their organizations, so we know a thing or two about the reality of AI at enterprise.\n\nThe best AI tool in the world did not make them faster\n\nI recently spoke to a leader of a non-technical enterprise’s operations org (thousands of people). Without AI, he said, his team was moving at a decent rate. No major complaints there.\n\nThen they rolled out Claude Cowork, and what do you know? The team kept moving at the same rate. He asked me why.\n\nI’ve seen the same split across every organization. Doesn’t even matter if it’s 50 people or 5000, it’s the same split every time: a barbell. 5-10% of the people were power users. They were using Cowork every day, leveraging skill files, connectors to Outlook, and more. These were the evangelists, the ones who pushed for Claude Cowork in the first place because they tinker with AI outside the job and see first-hand how impactful it can be.\n\nOf the other 90%, 20% would use it a couple of times a day, pretty poorly. They get some value out of it, but a fraction of what the frontier folk get. And the remaining 70%, they didn’t use it at all.\n\nThe dashboards in his org would indicate that the rollout counts as adoption. But to him, nothing got faster. Both of these were true simultaneously.\n\nUsing it and using it well are different skills\n\nEven among those who do use AI, the skill gap is enormous. Users of AI who have no idea what they’re doing are far worse off after AI than they were before.\n\nIt is trivial to install Claude, point it at a repository, send a four-word prompt, and watch something happen (could be right, could be wrong).\n\nUsing it well is a different skill. Knowing when to clear context. Knowing that the thing you just did twice should become a skill file the model reads every time, instead of a prompt you retype. Knowing which 15% of the automation project requires a model for judgment vs which 85% just requires deterministic code. And most importantly: reading a diff properly before you accept it.\n\nIf you give the same ticket to two engineers, this divergence becomes apparent in the first 5 minutes. The first one will simply paste the text from Jira into Claude and hit submit. The fix will touch six files, and this engineer will skim through it, see the tests still pass, and then merge the PR. Three weeks later, when production starts acting up, someone will realize this PR changed a config value for no reason.\n\nThe second engineer starts the same. They paste the text from Jira, but then they’ll flag where in the repository the code lives, what folders and files to touch vs to leave alone, and they already have skill files that ensure every PR submitted by Claude is minimalist instead of verbose, and is adequately tested before submission. They then read the diff, catch a stray change, fix it with a quick prompt, and then merge a PR half the size of the first engineer's.\n\nAt least half of any organization is never going to get to that second version. Using AI well is a craft. It takes enormous iteration to get really good at using AI, and the inertia of someone who isn't on AI is insurmountable for many. Turning a slop-cannon into a refined power user is just as hard.\n\nA perfect rollout still produces a barbell\n\nThe obvious objection is that “well these are just companies that are doing it poorly. I would do it much better.” No. Even if you roll it out perfectly, you'll get a barbell no matter what.\n\nAnother executive we spoke with had just finished putting enterprise licenses in front of their organization. An eight-figure commitment for the year. Roughly 10% of people burn 90% of the tokens.\n\nTo put that into perspective: if the other 90% used AI the way the top decile does, spend goes up roughly 10x. $10M of commitment becomes $100M, and your best-case scenario is now your worst.\n\nAdoption is binary, skill is a spectrum\n\nMcKinsey's 2025 survey says 88% of organizations use AI in at least one business function. Only 6% see more than 5% of their EBIT come from it. Another stat from MIT NANDA's GenAI Divide report: 5% of integrated pilots extract millions in value and the other 95% show no measurable P&L impact.\n\nIf you track adoption as a metric, you’re very likely asking (at most) an abstraction of a yes-or-no question. “Did this person log in this month?” “Did this person log in this year?” “Did this person send at least 5 prompts per day?” If you want to differentiate between \"has never opened it\" and \"pastes emails in for reformatting\" and \"has three agents in production touching the general ledger,\" you need a better system of measurement. This is not the case for 99.9% of enterprise AI adoption trackers. This is stupid, for obvious reasons (see: barbell, above).\n\nBut the number is technically real, and people are not lying about adoption. This is far easier to measure than the real thing you care about: how skillful is each person at using AI, and what is their ROI per token used?\n\nThat's why AI adoption is a myth. If you actually tracked this metric, you would realize there is no hope for the vast majority of people to become AI-native in the enterprise. Does that mean they have no value? Of course not. It just means that your implementation and rollout plan needs to be adjusted accordingly.\n\nEvery incentive keeps the chasm open\n\nEvery AI vendor’s roadmap pitches increased capability for agents but says nothing about the teams’ ability to use it effectively. So the only people who use it effectively are frontier users, who are the loudest, so they get their say. They’re also the most flattering to build for, so it’s a clear win-win. Every feature release raises the skill floor to use the product well, and this only widens the chasm between the frontier and the majority in an organization.\n\nI keep seeing enterprises seduced by the idea of ‘train your employees how to prompt!’ This is 10% of the game. The other 90% is “train your employees to understand which workflows should never touch a model vs which workflows should be entirely automated.” The reason you can’t sell this as easily as the prompt-training is because the answer is different at every single company, and it takes a few weeks on-site to work out.\n\nAnd the AI ninjas inside your company have no incentive to fix it either. Their leverage IS the chasm. They’re doing their work 70% faster, then get to coast. Or they do the work of 3 people. But the moment everyone’s on that wave, they lose their edge. Why would they fix it without additional incentive?\n\nSo what’s the solution?\n\nWell, you have to train anyway. You won’t know who’s in the top slice vs who’s not until you do. In this sense, training is diagnostic, not remedial. There are definitely some people at your company who are interested in AI but lack the time and leverage to go deep. You should train to expose everyone’s ability and comfort level.\n\nFor your top slice, your power users, give them somewhere to publish, like a shared database, so that every skill they make gets posted, ranked, and installed by others. This is the only mechanism I’ve seen that turns one person’s breakthrough into something sharable. Here, ranking is the incentive: power users will trade their edge for status in an org. The gap remains though: you can blast this to everyone and still 50% of people will never use a skill.\n\nFor everybody else, the work has to get done without them changing how they work, which means the AI goes into the background. Why do you need AI to be prompted by a human anyway? Just figure out what the most repetitive processes are, build agents in your existing systems of record that employees are used to (Salesforce, NetSuite, Dynamics, etc.), and only pull in humans where you need a second glance.\n\nFor example: you have dozens of AP analysts who move invoices all day. 90% of this is automatable. You can’t expect them to spin up agents or prompt their way through it reliably without breaking in production. So build the agents that run every single day, and now these analysts are just approving, rejecting, or editing the work the agents do.\n\nOne thing you need to remember: people are not in the market for a tool that helps them get the work done. They just want the work done.\n\nSo stop reporting ‘adoption’ to your board. Report what share of the work today is manual vs hybrid vs fully automated. This is the only reporting and conversation that matters.\n\nHow do you build those background agents and stand them up? That's a separate article entirely. But for more color, this is exactly what we do at Varick, and it's the only thing that's worked for the clients we've rolled out AI for. These are incredibly large companies with thousands of people, and the playbook is the same:\n\nWe audit where the work actually happens inside an organization, then build agents into your existing systems of record, so the work gets done without asking five thousand people to become good at a craft they did not sign up for.\n\nWe work with companies doing over $500M in revenue, across finance, sales, procurement, operations, HR, and more. Check us out at varickagents.com. And if you want more content like this, subscribe to our newsletter at varickagents.com/newsletter.\n\nTLDR\n\nYou’re likely in the top 1%, and while there’s still a gap in front of you, there’s a chasm behind you. The median employee at your company is miles behind you, and the gap actually increases with every release.\n\nThe average Claude Cowork or similar rollout goes like this: 5-10% become power users, 20% use it poorly, 70% hardly use it, and nothing gets faster, but you definitely burn millions of dollars.\n\nUsing a tool and using it well are separate skills, and at least half of any organization never uses it well.\n\nA great rollout does not fix this. You can put AI in front of thousands, but 10% of your org will still burn 90% of your tokens.\n\nAdoption metrics collapse an entire spectrum into a binary yes and no, which is how you get 88% adoption while only 6% see real EBIT impact.\n\nYou need to train the top slice and publish what they build. For everyone else, put the AI in the background of the systems they already work in.\n\n[7:12 PM · Aug 7, 2026](/vasuman/status/2085806422072418632)[1.6MViews](/vasuman/status/2085806422072418632)\n\n191\n\n414\n\n4K\n\n8.3K",
+    "slug": "ai-adoption-is-a-myth-554bcd",
+    "permalink": "/2026/08/21/stories/ai-adoption-is-a-myth-554bcd/"
+  },
+  {
+    "title": "Beyond basic delegation: A group of leaders",
+    "url": "https://leadershipintech.com/links/23031/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "Leadership",
+    "byline": "Roman Nikolaev",
+    "existing_summary": "Managers who try to handle everything themselves become bottlenecks, leaving their teams stuck and themselves burned out. Delegation works best in levels, from simple task handoff to full ownership of an outcome or area, and the goal is to push everyone toward that top level regardless of seniority. The short-term cost of mistakes and slipping timelines pays off as people grow. A team where everyone owns something is a team of leaders, not followers.",
+    "sponsored": false,
+    "summary_bullets": [
+      "Managers who don't delegate become organizational bottlenecks and burn out",
+      "Effective delegation progresses from task handoff to full outcome ownership",
+      "Teams with distributed ownership develop leaders rather than followers"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": null,
+    "slug": "beyond-basic-delegation-a-group-of-leaders-5489b7",
+    "permalink": "/2026/08/21/stories/beyond-basic-delegation-a-group-of-leaders-5489b7/"
+  },
+  {
+    "title": "When you're tapped out but still have to lead",
+    "url": "https://leadershipintech.com/links/23032/027d9985-d4c5-48a7-af59-5152efd9c8a4/email",
+    "category": "Leadership",
+    "byline": "Alex Ponomarev",
+    "existing_summary": "Tiredness is normal in leadership, but there is a deeper level where pushing through causes real damage instead of growth. When you hit that point, cut your workload, respect your natural pace, and rest before a small problem becomes a long burnout. Your team watches how you handle your own limits, so modeling sustainable habits matters as much as any decision you make.",
+    "sponsored": false,
+    "summary_bullets": [
+      "Burnout goes beyond normal tiredness and causes real damage to leaders and teams",
+      "Cutting workload and respecting natural pace prevents long-term burnout",
+      "Leaders model sustainability through how they manage their own limits"
+    ],
+    "source": "Leadership in Tech",
+    "subscriptionEmail": "aiste.ulozaite@gmail.com",
+    "unsubscribeUrl": "https://leadershipintech.com/subscribers/027d9985-d4c5-48a7-af59-5152efd9c8a4/unsubscribe",
+    "full_text": null,
+    "slug": "when-you-re-tapped-out-but-still-have-to-lead-311437",
+    "permalink": "/2026/08/21/stories/when-you-re-tapped-out-but-still-have-to-lead-311437/"
+  }
+]

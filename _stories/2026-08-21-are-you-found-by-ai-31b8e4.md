@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "Are You Found By AI"
+date: "2026-08-21"
+permalink: "/2026/08/21/stories/are-you-found-by-ai-31b8e4/"
+slug: "are-you-found-by-ai-31b8e4"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTbyUquEEpF1Hn8rgrmPGlmb-UQ9TFIKRG_bOUY11W-QHM1nnkV5IzNI6cAFtFU3y4yHIv6_QOOJCfrvGXqkUqh8NxxLgCTmsdcmUQkTVrZ-IHkuVNMyR4pEHzI3AbTcQYlMdaMRoeP91RbocZ4XsRXg8lpMn-wYdmmBwvyp5Wx4sEHr5HeK12FhyHIUSU8OcDwYUg7JLI8LDdwShYzRncXmc56gI29TnsHSD_33RrSkMLtKfK3kRBegzLea7IR0fdd6gDaDQzOmCNVJmNWYGDUqfgk4rPZZtBfKKQvdkBdWtp1li9v6Cdn_GZO-UPjrBR8TT_Z7Hxgg9xEPldU4bxDKpg1qK8HY1rBPwqlQUplPnmMQeBHOcWsVkozSO5xy9wJBFjZeu_ZD1dTa2J8X6fix6fsJF-pPChrgS2SPMlhdPabV8Qa0QvZW42yIki06l2AtAz8f34XwzG4cRGj5-xK8tD4_CXEiXo0AURC-T_HoAby24wboWJg65jBytD1DLWaACpyWyDVhJMvfZ2Ee9HOcS-FTlJ80AZFvQT8CHbHgnyuDXuT23k_cewwafwi3TxwV9okV7titgHryASSEexi1WAwbyRkvlGRWhV1vHLr8u3YjVJcAfAHOh4IKvVHDYkQ2C6YtlFHw7HxnHldgK-EYUEoqfUM51dbNmRPPu8VSRATxRB1ZZS_hJ-ue8oGb-g/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h35/h001.7T5pLXPBOHxSIpTlCcvKIp9Ebds9QJDh_Q8gmzEnS-c"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-jr9ExDGoNM_jaJ8YeziTl9eZQN5isf2WQVu-l1oz5Lx_OqZpTMl4yopG9abuf6qkP9aB0d6wxaujIaV1tvw8mPFGcCbgvFtg2ixZDXPZm7X8GCNkCHM8Zn4eSZvTpepcHGUMu6gE8ZqrdGXlO-Obzd7G0tKoqZG8hE3QY6xvUyIBGL91R_iuvtnIVo2p8h-XHRs0oZkr0DjFfmTUJvL3rLWYLp_hxSFq30cmDDRjTAvvu8JbKCmMk9LUQ8IT5GzYQ/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h12/h001.fl3PDhmi7RJIm2B4VFr-RqkTIAr3jlk_gBQDjTNDCKE"
+category: "AI Tools"
+excerpt_separator: ""
+---
+
+{% raw %}
+hands every monitored site a private link that lets Claude, ChatGPT, or Cursor read your live visibility score directly.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-jr9ExDGoNM_jaJ8YeziTl9eZQN5isf2WQVu-l1oz5Lx_OqZpTMl4yopG9abuf6qkP9aB0d6wxaujIaV1tvw8mPFGcCbgvFtg2ixZDXPZm7X8GCNkCHM8Zn4eSZvTpepcHGUMu6gE8ZqrdGXlO-Obzd7G0tKoqZG8hE3QY6xvUyIBGL91R_iuvtnIVo2p8h-XHRs0oZkr0DjFfmTUJvL3rLWYLp_hxSFq30cmDDRjTAvvu8JbKCmMk9LUQ8IT5GzYQ/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h12/h001.fl3PDhmi7RJIm2B4VFr-RqkTIAr3jlk_gBQDjTNDCKE).*
+
+{% endraw %}

@@ -1,0 +1,24 @@
+---
+layout: "story"
+title: "Marketing goes first"
+date: "2026-08-21"
+permalink: "/2026/08/21/stories/marketing-goes-first-910858/"
+slug: "marketing-goes-first-910858"
+source: "The Bottleneck"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.-ohhflhiV_FDBBdH-v2BKJXzXuyWlzjpMujJC5eiXRw2zXy68eg3yZa1J47Z_T8ydvV5iWL9GNvD1rRMDwcr7co66vviHN19bv6O2as_E8IY0_1SqtXMojErPQIFIGqxIwMcKhtx0qVxEX5SnjYlIQ9Ev1ym6JS1E5LFgHKJzSbHLcvIzBDpbEOG4UYaS37TGJoLen_35euzpyMrsnXktDMVWKNwAJoOFOJf1NGT-VU0WDYKpvBFOtJB5EKDH8a_epC0RkB4uaeYcTLFN_d9by8JxxESYU0O5GvVePtCyHOWw8tpIqnOi3wTQhzIQCLHh7vZVHDkKCRVulQ6F789jOiCSZ7Y6tG_kGSBa7onyjn1MVTWz2A8lMqZeCyBWa2bHaDivZbf-R3nMoap6_Y8cVeL_oCjc-aFUIsD8VtzsWYjAEKFlrmhCZL7EIGF4URLLHPs2BkConusVQI8dc7km0jtZZxNkNJqAu8Zc1tBqZKIzf-vxcYumTwn_ReMkq3rYxAw1KWei0YiS82Ukg3moYYwdR3Esadv4d9bSIEHPaIYYyf7Slp60aFKIfu5B_Z5ED1uA8n7IQzRc9cORapNvHpDxA5YEE_-14wW15BcFiTJyiXBMACWUz1HcD4GjE6I7H7oWg0lv7-CQQTv65PBKLXO9pmiqEYJRXZm_-YWYnnSnfw12vbUJsWH4nUKycwQrS8wPFxlVDpVHYaajUp6Sv30k02u9FHTZ695b2mgDZIlOisTYkplmzdCTmlOBF6AGcfJ-mREpZuT6QtcjO2OuAJf9V8AfFPkOpeQllac7lMy2EFGxzxi2OYfAJKZDkPeF03RRkdUJwZEYjO5BZRG4jIFhBJ2RmJZ-czsBU3F6Ia2F8tbYgZUodfzKItc-_52yw-Wh4e-qA6Gw2zzphUTFxPf0gWVO1RTgRfkDY4O7PUcIDzQm0cFR3cPA9gOQHfqxGhOqklyfh7dkx3_DM4BBxqvCQ5ovCrlISCcWM1f085VGHO5c2Pp89Q2APg-lo71/4tc/4iCR4VJFSZCF-fh1DOxzDg/h22/h001.zRLC-EmH4zrRdZuV_UH0ZpVwcUr3uZRqA9MFl7Ob1kM"
+category: "Business Strategy"
+excerpt_separator: ""
+---
+
+{% raw %}
+- Ramp Router is an LLM router infrastructure software that routes AI requests to the lowest-cost approved model meeting quality standards, reducing model costs by ~30%
+- Ramp successfully embedded the Router within its existing company narrative (saving money) established since 2019 with its original corporate card product
+- Argues that the optimal business order is marketing first (story/strategy), building second (products), and sales third, rather than the traditional reverse sequence
+- The story becomes the strategy document that guides product decisions across all stakeholders (customers, investors, candidates, engineers) and now also informs AI agent behavior
+- Amazon's 'Working Backwards' process exemplifies this: write the press release and FAQ as if the product already shipped, before any engineering work begins
+- With AI lowering the cost of building v1 products, features converge quickly; what differentiates is the enduring company story that compounds with each new product
+- Proposes two tests: ask five people to complete 'This company exists to ___ for ___' and count distinct answers (one answer = clear story); run press-release test on roadmap items before building
+
+
+{% endraw %}

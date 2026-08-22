@@ -1,0 +1,850 @@
+<!-- source: https://www.implicator.ai/openai-safety-framework-frontier-training-paused/?utm_source=tldrnewsletter -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI Rewrites Safety Rules as Frontier Run Stays Paused</title>
+  <meta name="description" content="OpenAI has restarted many smaller training workloads, but its largest planned frontier reinforcement-learning run remains frozen while the company rewrites the rulebook meant to govern dangerous models. The new monitoring system is expected to consume about 20% of the compute used by the process it watches, and significant Astra and cyber workloads are still paused. The open question is whether these controls can work under live frontier conditions before the next major run begins.">
+    <link rel="icon" href="https://www.implicator.ai/content/images/size/w256h256/2025/04/Logo_impli_full.png" type="image/png">
+    <link rel="canonical" href="https://www.implicator.ai/openai-safety-framework-frontier-training-paused/">
+    <link rel="alternate" type="text/markdown" href="https://www.implicator.ai/openai-safety-framework-frontier-training-paused.md">
+    <meta name="referrer" content="origin-when-cross-origin">
+    
+    <meta property="og:site_name" content="Implicator.ai">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="OpenAI Rewrites Safety Rules as Frontier Run Stays Paused">
+    <meta property="og:description" content="OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.">
+    <meta property="og:url" content="https://www.implicator.ai/openai-safety-framework-frontier-training-paused/">
+    <meta property="og:image" content="https://www.implicator.ai/content/images/size/w1200/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp">
+    <meta property="article:published_time" content="2026-08-19T03:52:54.000Z">
+    <meta property="article:modified_time" content="2026-08-20T06:03:44.000Z">
+    <meta property="article:tag" content="AI News">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/implicatorai">
+    <meta property="article:author" content="https://www.facebook.com/implicatorai">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenAI Rewrites Safety Rules as Frontier Run Stays Paused">
+    <meta name="twitter:description" content="OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.">
+    <meta name="twitter:url" content="https://www.implicator.ai/openai-safety-framework-frontier-training-paused/">
+    <meta name="twitter:image" content="https://www.implicator.ai/content/images/size/w1200/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Marcus Schuler">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="AI News">
+    <meta name="twitter:site" content="@implicatorai">
+    <meta name="twitter:creator" content="@implicatorai">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="670">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Implicator.ai",
+        "url": "https://www.implicator.ai/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.implicator.ai/content/images/2025/11/implicator_logo_new.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Marcus Schuler",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.implicator.ai/content/images/size/w1200/2025/12/marcus_schuler_impli.jpg",
+            "width": 1200,
+            "height": 1429
+        },
+        "url": "https://www.implicator.ai/author/marcus-schuler/",
+        "sameAs": [
+            "https://marcus-schuler.com",
+            "https://www.facebook.com/implicatorai",
+            "https://x.com/implicatorai",
+            "https://www.threads.net/@marcus_sanfrancisco",
+            "https://bsky.app/profile/marcus-schuler.com",
+            "https://mastodon.social/@schuler",
+            "https://www.linkedin.com/in/marcusschuler"
+        ]
+    },
+    "headline": "OpenAI Rewrites Safety Rules as Frontier Run Stays Paused",
+    "url": "https://www.implicator.ai/openai-safety-framework-frontier-training-paused/",
+    "datePublished": "2026-08-19T03:52:54.000Z",
+    "dateModified": "2026-08-20T06:03:44.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.implicator.ai/content/images/size/w1200/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp",
+        "width": 1200,
+        "height": 670
+    },
+    "keywords": "AI News",
+    "description": "OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.",
+    "mainEntityOfPage": "https://www.implicator.ai/openai-safety-framework-frontier-training-paused/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.59">
+    <link rel="alternate" type="application/rss+xml" title="Implicator.ai" href="https://www.implicator.ai/latest/rss/">
+    <script defer src="https://www.implicator.ai/content/files/ghost-apps/portal/portal.min.js" data-i18n="true" data-ghost="https://www.implicator.ai/" data-key="8252045c107d83c25c466a3a2b" data-api="https://www.implicator.ai/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://www.implicator.ai/content/files/search/search.min.js" data-key="8252045c107d83c25c466a3a2b" data-styles="https://www.implicator.ai/content/files/ghost-apps/sodo-search/main.css" data-sodo-search="https://www.implicator.ai/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://www.implicator.ai/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=ShRHxgy4po8zN-Wf"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=Jw0334E-A8vpuWdm">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://www.implicator.ai/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=RYVTbqYSu0JtTYwE" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://www.implicator.ai/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="c746e8a9-f8dd-402a-9362-7eb210338c5b" tb_post_uuid="8b2c9a8f-38e4-40de-9d3c-219566c9a424" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #caafba;}</style>
+    <!-- === Analytics === -->
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0WKPX335Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0WKPX335Q');
+</script>
+
+
+<!-- Umami (privacy-friendly analytics) -->
+<script defer src="https://umami.relusch.com/script.js" data-website-id="f0e24e04-5b91-4391-9353-69853d403017"></script>
+<script>(()=>{let r=window,C="__ghostUmamiEventsV1";if(r.__ghostUmamiEventsV1)return;r.__ghostUmamiEventsV1=!0;let u=document,_="ghost-umami-member-v1",L=!1,m,p,E=(t)=>/@|%40/i.test(t),w=(t)=>String(t).split("/").map((e)=>E(e)?"[redacted]":e).join("/"),q=(t)=>String(t).replace(/\s+/g," ").trim().split(" ").map((e)=>E(e)?"[redacted]":e).join(" "),S=(t)=>typeof t==="string"&&/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(t),g=()=>{try{let t=r.umami;return t&&typeof t==="object"&&typeof t.track==="function"&&typeof t.identify==="function"?t:null}catch(t){return null}},v=(t)=>{try{if(t&&typeof t.catch==="function")t.catch(()=>{})}catch(e){}},b=(t,e)=>{try{let n=g();if(n)v(n.track(t,e))}catch(n){}},O=(t,e)=>{try{let n=g();if(n)v(n.identify(t,{plan:e}))}catch(n){}},y=(t)=>{try{r.sessionStorage.setItem(_,JSON.stringify(t))}catch(e){}},P=()=>{try{let t=r.sessionStorage.getItem(_);if(t){let e=JSON.parse(t);if(e&&e.attempted===!0)return;if(e&&e.none===!0)return;if(e&&S(e.uuid)&&(e.plan==="paid"||e.plan==="free")){O(e.uuid,e.plan);return}}}catch(t){}y({attempted:!0});try{let t=r.fetch("/members/api/member",{credentials:"same-origin"});v(t.then((e)=>{if(!e)return;if(e.status===204){y({none:!0});return}if(!e.ok)return;return e.json().then((n)=>{if(n===null||n&&Object.prototype.hasOwnProperty.call(n,"member")&&n.member===null){y({none:!0});return}let s=n&&Object.prototype.hasOwnProperty.call(n,"member")?n.member:n;if(!s||typeof s!=="object"||!S(s.uuid))return;let l=s.uuid,d=s.paid?"paid":"free";y({uuid:l,plan:d}),O(l,d)})}))}catch(t){}},T=()=>{u.addEventListener("click",(t)=>{try{let e=t.target;if(!e||e.nodeType!==1)e=e&&e.parentElement;let n=e&&typeof e.closest==="function"?e.closest("a[href]"):null;if(!n)return;let s=new r.URL(n.getAttribute("href"),r.location.href);if(s.protocol!=="http:"&&s.protocol!=="https:"||s.hostname===r.location.hostname)return;b("outbound-click",{url:(s.hostname+w(s.pathname)).slice(0,500),domain:s.hostname,text:q(n.textContent||"").slice(0,100)})}catch(e){}},!0)},x=()=>{let t=!1,e,n=()=>{try{if(e)e.disconnect()}catch(o){}r.removeEventListener("hashchange",d)},s=(o)=>{if(t)return;t=!0,n(),b("newsletter-signup",{source:o,path:w(r.location.pathname||"")})},l=()=>{try{let o=u.querySelectorAll("form[data-members-form].success");for(let a of o){let c=a.getAttribute("data-members-form");if(c===""||c==="signup"||c==="subscribe"){s("form");return}}}catch(o){}},d=()=>{try{let o=String(r.location.hash||"");if(!o.startsWith("#/portal/"))return;let a=o.slice(1),c=a.indexOf("?"),h=c<0?a:a.slice(0,c);if(!/^\/portal\/(?:signup|subscribe)(?:\/|$)/.test(h))return;let i=new r.URLSearchParams(c<0?"":a.slice(c+1)),k=i.getAll("success");if(k.includes("false"))return;if(k.includes("true")||i.getAll("status").includes("success")||/(?:^|\/)success(?:\/|$)/.test(h))s("portal")}catch(o){}};if(l(),t)return;try{e=new r.MutationObserver(l),e.observe(u.documentElement,{subtree:!0,childList:!0,attributes:!0,attributeFilter:["class"]})}catch(o){}r.addEventListener("hashchange",d),d()},I=()=>{try{if(!u.body||!u.body.classList.contains("post-template"))return;let t,e=()=>{let c=200;try{for(let h of u.querySelectorAll(".article-body, article"))try{let i=h.getBoundingClientRect().height;if(i>c)t=h,c=i}catch(i){}}catch(h){}};e();let n=[25,50,75,100],s=new Set,l=!1,d=!1,o=()=>{if(l=!1,d)return;try{if(!t)e();if(!t)return;let c=t.getBoundingClientRect();if(!(c.height>0))return;let h=Math.max(0,Math.min(100,(r.innerHeight-c.top)/c.height*100));for(let i of n)if(h>=i&&!s.has(i))s.add(i),b("read-depth",{depth:i});if(s.has(100))d=!0,r.removeEventListener("scroll",a),r.removeEventListener("resize",a)}catch(c){}},a=()=>{if(l||d)return;try{l=!0,r.requestAnimationFrame(o)}catch(c){l=!1}};r.addEventListener("scroll",a,{passive:!0}),r.addEventListener("resize",a,{passive:!0}),a()}catch(t){}},j=()=>{if(m!==void 0)r.clearInterval(m),m=void 0;if(p!==void 0)r.clearTimeout(p),p=void 0;r.removeEventListener("load",f),r.removeEventListener("umami:ready",f),u.removeEventListener("readystatechange",f)},R=()=>{P(),T(),x(),I()};function f(){if(L||!g())return;L=!0,j(),u.removeEventListener("load",A,!0);try{R()}catch(t){}}function A(t){try{if(t.target&&t.target.nodeType===1&&t.target.tagName==="SCRIPT")f()}catch(e){}}r.addEventListener("load",f),r.addEventListener("umami:ready",f),u.addEventListener("readystatechange",f),u.addEventListener("load",A,!0),m=r.setInterval(f,200),p=r.setTimeout(j,1e4),f()})();</script>
+
+
+<!-- === Search/News helpers === -->
+<!-- Allow large image previews for Google News/Discover -->
+<meta name="robots" content="max-image-preview:large">
+
+<!-- Ghost Portal CTA text override -->
+  <style>
+  .gh-post-upgrade-cta-content h2 { font-size: 0 !important; line-height: 0 !important; }
+  .gh-post-upgrade-cta-content h2::after { content: "Sign up to keep reading"; font-size: 2rem; line-height: 1.3;
+  display: block; }
+  .gh-post-upgrade-cta-content .gh-btn { font-size: 0 !important; }
+  .gh-post-upgrade-cta-content .gh-btn::after { content: "Sign up"; font-size: 1rem; }
+  </style>
+
+  <link rel="dns-prefetch" href="https://umami.relusch.com">
+  <link rel="dns-prefetch" href="https://ttn.relusch.com">
+
+  <link rel="preload" href="/assets/fonts/inter-normal-latin.woff2?v=yUB2RZPQ_l1Za-Mn" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/source-serif-4-normal-latin.woff2?v=KiS61Gbwm4i46cvE" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--font-display:'Inter Variable',Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-body:'Source Serif 4',Georgia,serif;--font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;--color-paper:oklch(99% 0.004 70);--color-paper-warm:oklch(96% 0.018 72);--color-coral:oklch(79% 0.104 25);--color-coral-ink:oklch(52% 0.135 25);--color-steel:oklch(61% 0.071 244);--color-steel-light:oklch(90% 0.025 241);--color-navy:oklch(42% 0.072 245);--color-navy-deep:oklch(29% 0.052 244);--color-ink:oklch(23% 0.012 245);--color-muted:oklch(52% 0.025 245);--color-rule:oklch(86% 0.025 240);--color-focus:oklch(54% 0.13 245);--color-on-dark:var(--color-paper);--bg:var(--color-paper);--bg-warm:var(--color-paper-warm);--bg-dark:var(--color-navy);--bg-darker:var(--color-navy-deep);--ink:var(--color-ink);--ink-soft:var(--color-muted);--red:var(--color-coral);--red-text:var(--color-coral-ink);--red-btn:var(--color-navy-deep);--stone:var(--color-muted);--stone-on-dark:var(--color-on-dark);--stone-light:var(--color-steel);--stone-lighter:var(--color-rule);--gold:var(--color-coral);--gold-ink:var(--color-navy);--focus-ring:var(--color-focus);--focus-ring-on-dark:var(--color-focus);--cream:var(--color-on-dark);--text-min:0.72rem;--text-label:0.75rem;--text-masthead:clamp(2.15rem,1rem + 5.2vw,6.75rem);--rule-structural:3px;--max-width:1400px;--gutter:clamp(1rem,3vw,2.5rem)}
+    html,body{overflow-x:clip}
+    html{width:100%}
+    body{font-family:var(--font-body);font-size:1.05rem;line-height:1.65;color:var(--ink);background:var(--bg)}
+    body.dark{--color-paper:oklch(25% 0.035 245);--color-paper-warm:oklch(30% 0.038 245);--color-coral:oklch(79% 0.104 25);--color-coral-ink:oklch(85% 0.072 24);--color-steel:oklch(74% 0.055 241);--color-steel-light:oklch(40% 0.045 242);--color-navy:oklch(86% 0.035 241);--color-navy-deep:oklch(20% 0.028 245);--color-ink:oklch(97% 0.008 70);--color-muted:oklch(80% 0.025 241);--color-rule:oklch(48% 0.045 242);--color-focus:oklch(82% 0.10 80);--color-on-dark:var(--color-ink);color-scheme:dark}
+    @media(prefers-color-scheme:dark){body.system{--color-paper:oklch(25% 0.035 245);--color-paper-warm:oklch(30% 0.038 245);--color-coral:oklch(79% 0.104 25);--color-coral-ink:oklch(85% 0.072 24);--color-steel:oklch(74% 0.055 241);--color-steel-light:oklch(40% 0.045 242);--color-navy:oklch(86% 0.035 241);--color-navy-deep:oklch(20% 0.028 245);--color-ink:oklch(97% 0.008 70);--color-muted:oklch(80% 0.025 241);--color-rule:oklch(48% 0.045 242);--color-focus:oklch(82% 0.10 80);--color-on-dark:var(--color-ink);color-scheme:dark}}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
+    .masthead{position:relative;padding:clamp(1.5rem,3vw,2.25rem) 0 clamp(1rem,2vw,1.5rem);border-bottom:var(--rule-structural) solid var(--color-ink);background:var(--color-coral);text-align:center}
+    .masthead-logo{display:inline-flex;min-width:0;align-items:baseline;justify-content:center;gap:0;overflow-wrap:anywhere;color:var(--color-navy-deep);font-family:var(--font-display);font-size:var(--text-masthead);font-style:normal;font-weight:900;letter-spacing:-0.085em;line-height:.84;text-transform:uppercase}
+    .masthead-logo .dot{color:var(--color-paper);font-size:1em;font-weight:300;text-transform:none}
+    .masthead-tagline{margin-top:1rem;color:var(--color-navy-deep);font-family:var(--font-display);font-size:clamp(.65rem,1.4vw,.85rem);font-style:normal;font-weight:800;letter-spacing:.08em;line-height:1.2;text-transform:uppercase}
+    a{color:inherit;text-decoration:none}
+  </style>
+
+  <link rel="preload" href="/assets/dist/app.min.css?v=5c7MtZxpYbWC7PKh" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/dist/app.min.css?v=5c7MtZxpYbWC7PKh"></noscript>
+
+    <meta name="google-adsense-account" content="ca-pub-2414090272567803">
+
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2414090272567803" crossorigin="anonymous"></script>
+  
+</head>
+<body class="post-template tag-ai-news light">
+
+        <div class="progress-bar" id="progressBar"></div>
+
+  <div class="edition-bar">
+  <div class="container">
+    <div class="edition-left">
+      <button class="burger-toggle" id="burgerToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <span class="edition-date">Saturday, August 22, 2026 &middot; San Francisco</span>
+    </div>
+    <div class="edition-links">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="search-toggle" id="searchToggle" aria-label="Search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="/subscribe/">Subscribe</a>
+      <a href="/signin/">Sign In</a>
+    </div>
+  </div>
+</div>
+
+<nav class="burger-menu" id="burgerMenu">
+  <div class="burger-menu-header">
+    <span class="burger-menu-title">Menu</span>
+    <button class="burger-close" id="burgerClose" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="burger-menu-links">
+      <button class="burger-menu-link" onclick="window.location.assign('/')">Home</button>
+      <button class="burger-menu-link" onclick="window.location.assign('/pro/')">PRO</button>
+      <button class="burger-menu-link" onclick="window.location.assign('/tag/ai-news/')">News</button>
+      <button class="burger-menu-link" onclick="window.location.assign('/tag/analysis/')">Analysis</button>
+      <button class="burger-menu-link" onclick="window.location.assign('/tag/politics/')">Policy</button>
+      <button class="burger-menu-link" onclick="window.location.assign('/tag/nl/')">Briefing</button>
+  </div>
+  <div class="burger-menu-links-sub">
+      <button class="burger-menu-link burger-menu-link-sub" onclick="window.location.assign('/tag/research/')">Research</button>
+      <button class="burger-menu-link burger-menu-link-sub" onclick="window.location.assign('/tag/funding/')">Funding</button>
+      <button class="burger-menu-link burger-menu-link-sub" onclick="window.location.assign('/tag/vibecoding/')">Tools</button>
+  </div>
+  <div class="burger-menu-secondary">
+    <a href="https://www.implicator.ai/about/">About</a>
+    <a href="https://www.implicator.ai/get-in-touch/">Contact</a>
+    <a href="https://www.implicator.ai/latest/rss/">RSS</a>
+  </div>
+</nav>
+<div class="burger-overlay" id="burgerOverlay"></div>
+
+  <header class="masthead">
+  <div class="container">
+    <a href="https://www.implicator.ai" class="masthead-logo">
+        <img class="logo-icon" src="https://www.implicator.ai/content/images/2025/04/Logo_impli_full.png" alt="Implicator.ai">
+      IMPLICATOR<span class="dot">.ai</span>
+    </a>
+    <div class="masthead-tagline">Strategic AI Intelligence from San Francisco</div>
+  </div>
+</header>
+
+  <nav class="main-nav" id="mainNav">
+  <div class="container">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/pro/" class="nav-link">PRO</a>
+      <a href="/tag/ai-news/" class="nav-link">News</a>
+      <a href="/tag/analysis/" class="nav-link">Analysis</a>
+      <a href="/tag/politics/" class="nav-link">Policy</a>
+      <a href="/tag/nl/" class="nav-link">Briefing</a>
+        <a href="/tag/research/" class="nav-link">Research</a>
+        <a href="/tag/funding/" class="nav-link">Funding</a>
+        <a href="/tag/vibecoding/" class="nav-link">Tools</a>
+  </div>
+</nav>
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.implicator.ai"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI News",
+      "item": "https://www.implicator.ai/tag/ai-news/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "OpenAI Rewrites Safety Framework as Largest Training Run Stays Paused"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.implicator.ai/openai-safety-framework-frontier-training-paused/"
+  },
+  "headline": "OpenAI Rewrites Safety Framework as Largest Training Run Stays Paused",
+  "description": "OpenAI has restarted many smaller training workloads, but its largest planned frontier reinforcement-learning run remains frozen while the company rewrites the rulebook meant to govern dangerous models. The new monitoring system is expected to consume about 20% of the compute used by the process it watches, and significant Astra and cyber workloads are still paused. The open question is whether these controls can work under live frontier conditions before the next major run begins.",
+  "alternativeHeadline": "OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.",
+  "image": [{
+    "@type": "ImageObject",
+    "url": "https://www.implicator.ai/content/images/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp",
+    "width": 1200,
+    "height": 800
+  }],
+  "thumbnailUrl": "https://www.implicator.ai/content/images/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp",
+  "datePublished": "2026-08-19T03:52:54Z",
+  "dateModified": "2026-08-20T06:03:44Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Marcus Schuler",
+      "url": "https://www.implicator.ai/author/marcus-schuler/",
+      "description": "Editor-in-Chief and founder of Implicator.ai. Former ARD correspondent and senior broadcast journalist with 10+ years covering tech. Writes daily briefings on policy and market developments. Based in San Francisco.
+E-mail: editor@implicator.ai",
+      "image": "https://www.implicator.ai/content/images/2025/12/marcus_schuler_impli.jpg",
+      "sameAs": [
+        "https://www.implicator.ai",
+        "https://x.com/implicatorai",
+        "https://bsky.app/profile/marcus-schuler.com",
+        "https://www.linkedin.com/in/marcusschuler"
+      ]
+    }
+  ],
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "@id": "https://www.implicator.ai/#publisher",
+    "name": "Implicator.ai",
+    "url": "https://www.implicator.ai/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.implicator.ai/content/images/2025/11/implicator_logo_new.png",
+      "width": 256,
+      "height": 256
+    }
+  },
+  "articleSection": "AI News",
+  "keywords": ["AI News"],
+  "articleBody": "OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true
+}
+</script>
+
+<div class="article-header">
+    <a href="https://www.implicator.ai/tag/ai-news/" class="article-tag">AI News</a>
+  <h1 class="article-title">OpenAI Rewrites Safety Framework as Largest Training Run Stays Paused</h1>
+        <p class="article-excerpt">OpenAI restarted many smaller training workloads, but its largest planned frontier run is still frozen. Monitoring is expected to add about 20% compute overhead, while key Astra and breach evidence remains unpublished. The test is what happens before frontier training resumes.</p>
+  <div class="article-meta">
+      <a href="https://www.implicator.ai/author/marcus-schuler/" class="author-avatar">
+        <img src="https://www.implicator.ai/content/images/2025/12/marcus_schuler_impli.jpg" alt="Marcus Schuler">
+      </a>
+    <div class="meta-text">
+      <strong><a href="https://www.implicator.ai/author/marcus-schuler/">Marcus Schuler</a></strong>
+      <span>August 18, 2026, 8:52 PM PST &middot; <span class="reading-time" data-id="6a851ad5f465dd00013ea65c">9 min read</span></span>
+    </div>
+  </div>
+</div>
+
+  <figure class="article-feature-image">
+    <img src="/content/images/size/w1000/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp"
+         srcset="/content/images/size/w600/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp 600w,
+                 /content/images/size/w1000/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp 1000w,
+                 /content/images/size/w2000/2026/08/2026-08-19-22.58.20-openai_paused@2x.webp 2000w"
+         sizes="(max-width: 960px) 100vw, 960px"
+         width="1000" height="563"
+         alt="OpenAI Rewrites Safety Framework as Largest Training Run Stays Paused">
+  </figure>
+
+<div class="article-body has-dropcap">
+  <p>OpenAI is keeping its largest planned frontier reinforcement-learning run on hold while rewriting its <a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf?ref=implicator.ai">Preparedness Framework</a>, even as many smaller or lower-risk workloads resume under tighter controls. The company said in its <a href="https://openai.com/index/pacing-model-development-cyber-capabilities/?ref=implicator.ai">August 18, 2026 announcement</a> that expanded monitoring will consume roughly 20% of the compute used by the process being watched, adding a resource cost as it examines tool actions, available reasoning traces and activity logs across more of development. The monitoring relies partly on other AI models to investigate behavior and escalate potential problems from across the development process to human safety, security and research teams. OpenAI paused deployment-focused reinforcement-learning training for a little more than two weeks before restarting many narrower workloads, but the continuing hold delays a major frontier experiment while the company raises isolation requirements for research environments and moves alignment work into earlier stages of training instead of concentrating it near deployment.</p>
+<!--kg-card-begin: html-->
+<div class="imp-summary">
+  <p class="imp-summary__title">What Changed</p>
+  <ul class="imp-summary__list">
+    <li>OpenAI’s largest planned frontier reinforcement-learning run remains paused while it rewrites the Preparedness Framework.</li>
+    <li>Many narrower workloads resumed, while significant Astra and cyber workloads remain on hold.</li>
+    <li>Expanded monitoring adds roughly 20% compute overhead and targets human alerts within 30 minutes.</li>
+    <li>The Hugging Face postmortem and evidence behind Astra’s possible Critical rating remain unpublished.</li>
+  </ul>
+  <p class="imp-summary__note">AI-generated summary, reviewed by an editor. <a href="https://www.implicator.ai/about/">More on our AI guidelines</a>.</p>
+</div>
+
+
+<style>
+.imp-summary{--_accent:#C4956A;--_bg:rgba(196,149,106,0.06);--_text:#1f1a1c;--_text-sec:#4a4548;background:var(--_bg);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;box-shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;color:var(--_text)}@media(prefers-color-scheme:dark){html[data-color-scheme="system"] .imp-summary{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.07);--_text:#f0e8eb;--_text-sec:#c0b8bb;box-shadow:0 2px 12px rgba(0,0,0,0.25),0 1px 4px rgba(0,0,0,0.15)}}html[data-color-scheme="dark"] .imp-summary{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.07);--_text:#f0e8eb;--_text-sec:#c0b8bb;box-shadow:0 2px 12px rgba(0,0,0,0.25),0 1px 4px rgba(0,0,0,0.15)}.imp-summary__title{margin:0 0 1.4rem;font-size:0.88rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--_accent);font-family:inherit}.imp-summary__list{list-style:none;padding:0;margin:0}.imp-summary__list li{position:relative;padding-left:1rem;margin-bottom:0.5rem;font-size:0.95rem;line-height:1.55;color:var(--_text-sec);font-family:inherit}.imp-summary__list li:last-child{margin-bottom:0}.imp-summary__list li::before{content:'';position:absolute;left:0;top:0.55em;width:4px;height:4px;border-radius:50%;background:var(--_accent)}.imp-summary__note{margin:1rem 0 0;font-size:0.65rem !important;line-height:1.4;color:var(--_text-sec);opacity:0.55;font-family:inherit}.imp-summary__note a{color:var(--_text-sec);text-decoration:underline}
+</style>
+<!--kg-card-end: html-->
+<h2 id="training-resumes-unevenly">Training resumes unevenly</h2><p>A significant number of Astra and cyber workloads also remain paused. Smaller-scale training and evaluations will continue while researchers assess model behavior, test safeguards and seek more evidence of alignment.</p><p>Astra is an unreleased OpenAI model that may reach the company’s <a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/?ref=implicator.ai">Critical cyber threshold</a>. The <a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/?ref=implicator.ai">July Hugging Face breach</a> was a separate evaluation incident involving another unreleased OpenAI system, not Astra. Astra was not involved in that breach. The paused Astra workloads therefore involve a different model from the one involved in the July evaluation.</p><p>Reinforcement learning is the stage that tunes behavior after base-model training by rewarding certain responses. The pause did not stop all research or work on customer-facing products.</p><h2 id="monitoring-gets-more-compute">Monitoring gets more compute</h2><p>The expanded system examines tool actions, available reasoning traces and activity logs across more of the development process. It is designed to alert human safety, security and research teams within 30 minutes after concerning activity surfaces. That is OpenAI’s response target, not an independently validated result.</p><p>Other AI research has found that reasoning traces do not always accurately reflect a model’s goals. OpenAI says its training procedures seek to reduce the chance that systems learn to conceal intentions in those traces. It has promised further details, but none had been published by August 18.</p>
+<!--kg-card-begin: html-->
+<div class="imp-signup">
+  <p class="imp-signup__heading">Get Implicator.ai in your inbox</p>
+  <p class="imp-signup__copy">Strategic AI news from San Francisco. No hype, no "AI will change everything" throat clearing. Just what moved, who won, and why it matters. Daily at 6am PST.</p>
+  <form class="imp-signup__form" data-members-form="subscribe">
+    <label class="imp-signup__sr" for="impEmail">Email address</label>
+    <div class="imp-signup__row">
+      <input id="impEmail" class="imp-signup__input" data-members-email="" type="email" inputmode="email" autocomplete="email" placeholder="Your email" required="">
+      <button class="imp-signup__btn" type="submit">Subscribe</button>
+    </div>
+    <p class="imp-signup__msg imp-signup__msg--ok">Check your inbox. Click the link to confirm.</p>
+    <p class="imp-signup__msg imp-signup__msg--err" data-members-error=""></p>
+  </form>
+  <p class="imp-signup__fine">No spam. Unsubscribe anytime.</p>
+</div>
+
+
+<style>
+.imp-signup{--_accent:#C4956A;--_bg:rgba(196,149,106,0.06);--_text:#1f1a1c;--_text-sec:#4a4548;--_text-faint:#8a8287;--_input-bg:#ffffff;--_input-border:#d8d3d5;--_input-focus:#C4956A;--_input-shadow:rgba(196,149,106,0.18);--_btn-bg:#1f1a1c;--_btn-text:#ffffff;--_btn-hover:#3a3336;background:var(--_bg) !important;border-radius:8px;padding:1.5rem;margin:2rem 0;box-shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;color:var(--_text) !important}body.dark .imp-signup{background:rgba(220,186,152,0.07) !important;color:#f0e8eb !important}body.dark .imp-signup__heading{color:#D4B56A !important}body.dark .imp-signup__copy{color:#C4BDB3 !important}body.dark .imp-signup__fine{color:#8A837A !important}body.dark .imp-signup__input{background:#0E0D0B !important;border-color:#3A352F !important;color:#F0EBE3 !important}body.dark .imp-signup__btn{background:#D4B56A !important;color:#141210 !important}@media(prefers-color-scheme:dark){body.system .imp-signup{background:rgba(220,186,152,0.07) !important;color:#f0e8eb !important}body.system .imp-signup__heading{color:#D4B56A !important}body.system .imp-signup__copy{color:#C4BDB3 !important}body.system .imp-signup__fine{color:#8A837A !important}body.system .imp-signup__input{background:#0E0D0B !important;border-color:#3A352F !important;color:#F0EBE3 !important}body.system .imp-signup__btn{background:#D4B56A !important;color:#141210 !important}}.imp-signup__heading{margin:0 0 0.5rem;font-size:1.15rem;font-weight:600;color:var(--_text) !important;line-height:1.3;font-family:inherit}.imp-signup__copy{margin:0 0 1rem;font-size:0.88rem;line-height:1.55;color:var(--_text-sec) !important;font-family:inherit}.imp-signup__sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.imp-signup__form{margin:0}.imp-signup__row{display:flex;flex-direction:column;gap:0.5rem}@media(min-width:480px){.imp-signup__row{flex-direction:row}}.imp-signup__input{flex:1;min-width:0;max-width:280px;padding:0.6rem 0.9rem;font-size:0.9rem;font-family:inherit;color:var(--_text);background:var(--_input-bg);border:1px solid var(--_input-border);border-radius:5px;outline:none;transition:border-color 0.2s,box-shadow 0.2s}.imp-signup__input::placeholder{color:var(--_text-faint)}.imp-signup__input:focus{border-color:var(--_input-focus);box-shadow:0 0 0 3px var(--_input-shadow)}.imp-signup__btn{padding:0.6rem 1.3rem;font-size:0.9rem;font-weight:600;font-family:inherit;color:var(--_btn-text);background:var(--_btn-bg);border:none;border-radius:5px;cursor:pointer;transition:background 0.15s;white-space:nowrap}.imp-signup__btn:hover{background:var(--_btn-hover)}.imp-signup__msg{display:none;margin:0.5rem 0 0;font-size:0.78rem}.imp-signup__msg--ok{color:#2e7d32}.imp-signup__msg--err{color:#c62828}@media(prefers-color-scheme:dark){html[data-color-scheme="system"] .imp-signup__msg--ok{color:#4ade80}html[data-color-scheme="system"] .imp-signup__msg--err{color:#f87171}}html[data-color-scheme="dark"] .imp-signup__msg--ok{color:#4ade80}html[data-color-scheme="dark"] .imp-signup__msg--err{color:#f87171}.imp-signup__form.success .imp-signup__msg--ok{display:block}.imp-signup__form.error .imp-signup__msg--err{display:block}.imp-signup__fine{margin:0.75rem 0 0;font-size:0.72rem;color:var(--_text-faint) !important;font-family:inherit}
+</style>
+<!--kg-card-end: html-->
+<p>OpenAI had monitors capable of inspecting model plans, but did not apply them to the July Hugging Face evaluation because it underestimated the systems’ abilities. <a href="https://fortune.com/2026/08/18/openai-says-it-paused-ai-training-for-two-weeks-and-announces-new-security-protocols-following-hugging-face-hack?ref=implicator.ai">Hugging Face CEO Clem Delangue</a> called close monitoring of agent logs and traces “101 of agent monitoring, especially at the frontier.”</p><h2 id="containment-moves-earlier">Containment moves earlier</h2><p>OpenAI is also raising isolation requirements for research environments. The new design is intended to prevent one compromised workload or supporting service from gaining access to the internet or other internal networks on its own.</p>
+<!--kg-card-begin: html-->
+<div class="imp-forward">
+  <p class="imp-forward__text">Know someone who'd find this useful? <a class="imp-forward__link" href="mailto:?subject=A%20newsletter%20I%20think%20you%27d%20like&body=This%20is%20one%20of%20maybe%20three%20newsletters%20I%20actually%20read.%20The%20rest%20just%20pile%20up%2C%20unread%2C%20judging%20me.%0A%0AAnd%20yes%2C%20this%20email%20mostly%20wrote%20itself%2C%20which%20is%20a%20little%20on%20the%20nose%20for%20an%20AI%20newsletter.%20Doesn%27t%20make%20it%20wrong.%20implicator.ai%20is%20good.%0A%0ASubscribe%20free%3A%20https%3A%2F%2Fwww.implicator.ai%2Fsubscribe%2F%3Futm_source%3Dnewsletter%26utm_medium%3Dforward%26utm_campaign%3Demail_forward">✉️ Email it to a friend in one click</a>, or they can <a class="imp-forward__link" href="https://www.implicator.ai/subscribe/?utm_source=newsletter&utm_medium=forward&utm_campaign=forward_to_colleague">subscribe free here</a>.</p>
+</div>
+
+
+<style>
+.imp-forward{--_accent:#C4956A;--_bg:rgba(196,149,106,0.05);--_text:#4a4548;--_link:#C4956A;--_link-hover:#A37A52;background:var(--_bg);border-radius:6px;padding:0.9rem 1.25rem;margin:2rem 0;box-shadow:0 1px 6px rgba(0,0,0,0.05),0 1px 3px rgba(0,0,0,0.03);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif}@media(prefers-color-scheme:dark){html[data-color-scheme="system"] .imp-forward{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.05);--_text:#b0a8ab;--_link:#DCBA98;--_link-hover:#EEDCC8;box-shadow:0 1px 6px rgba(0,0,0,0.2),0 1px 3px rgba(0,0,0,0.12)}}html[data-color-scheme="dark"] .imp-forward{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.05);--_text:#b0a8ab;--_link:#DCBA98;--_link-hover:#EEDCC8;box-shadow:0 1px 6px rgba(0,0,0,0.2),0 1px 3px rgba(0,0,0,0.12)}.imp-forward__text{margin:0;font-size:0.88rem;line-height:1.5;color:var(--_text);font-family:inherit}.imp-forward__link{color:var(--_link);text-decoration:underline;text-underline-offset:2px;transition:color 0.15s}.imp-forward__link:hover{color:var(--_link-hover)}
+</style>
+<!--kg-card-end: html-->
+<p>Alignment work will start earlier in training, rather than being concentrated near deployment. Requirements will rise as models become more capable, with the largest runs facing the highest standard before they resume.</p><h2 id="the-evidence-is-still-incomplete">The evidence is still incomplete</h2><p>OpenAI has not released the promised technical postmortem of the Hugging Face breach. It has also not published the evidence behind Astra’s possible Critical classification. The available record does not show how the new controls perform under live frontier workloads.</p><p>The company plans to involve outside organizations in revising the Preparedness Framework, but has not given a publication date. Mia Glaese, who leads safety and alignment work at OpenAI, described the operating state more plainly: “We are very far from everything running back to normal.”</p>
+<!--kg-card-begin: html-->
+<div class="imp-faq">
+  <p class="imp-faq__title">Frequently Asked Questions</p>
+  <div class="imp-faq__item">
+    <p class="imp-faq__q">What is OpenAI changing?</p>
+    <div class="imp-faq__a"><p>OpenAI is rewriting its Preparedness Framework while expanding monitoring, strengthening research-environment isolation and moving alignment work earlier in model training.</p></div>
+  </div>
+  <div class="imp-faq__item">
+    <p class="imp-faq__q">Is all OpenAI training paused?</p>
+    <div class="imp-faq__a"><p>No. Many smaller or lower-risk workloads resumed after a pause of a little more than two weeks. The largest planned frontier reinforcement-learning run and significant Astra and cyber workloads remain paused.</p></div>
+  </div>
+  <div class="imp-faq__item">
+    <p class="imp-faq__q">What does the 20% figure mean?</p>
+    <div class="imp-faq__a"><p>OpenAI estimates that expanded monitoring consumes roughly 20% of the compute used by the process being watched. The figure is the company’s estimate, not an independent measurement.</p></div>
+  </div>
+  <div class="imp-faq__item">
+    <p class="imp-faq__q">Was Astra involved in the Hugging Face breach?</p>
+    <div class="imp-faq__a"><p>No. Astra is an unreleased model that may reach OpenAI’s Critical cyber threshold. The July breach involved a different unreleased OpenAI system.</p></div>
+  </div>
+  <div class="imp-faq__item">
+    <p class="imp-faq__q">What evidence has OpenAI not published?</p>
+    <div class="imp-faq__a"><p>OpenAI has not released the promised technical postmortem of the Hugging Face breach or the evidence behind Astra’s possible Critical classification.</p></div>
+  </div>
+  <p class="imp-faq__note">AI-generated summary, reviewed by an editor. <a href="https://www.implicator.ai/about/">More on our AI guidelines</a>.</p>
+</div>
+
+
+<style>
+.imp-faq{--_accent:#C4956A;--_bg:rgba(196,149,106,0.06);--_text:#1f1a1c;--_text-sec:#4a4548;--_border:rgba(196,149,106,0.2);background:var(--_bg);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;box-shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;color:var(--_text)}@media(prefers-color-scheme:dark){html[data-color-scheme="system"] .imp-faq{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.07);--_text:#f0e8eb;--_text-sec:#c0b8bb;--_border:rgba(220,186,152,0.15);box-shadow:0 2px 12px rgba(0,0,0,0.25),0 1px 4px rgba(0,0,0,0.15)}}html[data-color-scheme="dark"] .imp-faq{--_accent:#DCBA98;--_bg:rgba(220,186,152,0.07);--_text:#f0e8eb;--_text-sec:#c0b8bb;--_border:rgba(220,186,152,0.15);box-shadow:0 2px 12px rgba(0,0,0,0.25),0 1px 4px rgba(0,0,0,0.15)}.imp-faq__title{margin:0 0 1rem;font-size:0.88rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--_accent);font-family:inherit}.imp-faq__item{border-bottom:1px solid var(--_border);padding:0.75rem 0}.imp-faq__item:last-of-type{border-bottom:none;padding-bottom:0}.imp-faq__q{margin:0;font-size:0.95rem !important;font-weight:600;line-height:1.4 !important;color:var(--_text);font-family:inherit}.imp-faq__a{padding:0.5rem 0 0;font-size:0.95rem !important;line-height:1.55 !important;color:var(--_text-sec);font-family:inherit}.imp-faq__a p{margin:0;font-size:0.95rem !important;line-height:1.55 !important}.imp-faq__note{margin:1rem 0 0;font-size:0.65rem !important;line-height:1.4;color:var(--_text-sec);opacity:0.55;font-family:inherit}.imp-faq__note a{color:var(--_text-sec);text-decoration:underline}
+</style>
+<!--kg-card-end: html-->
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.implicator.ai/china-reviews-palo-alto-networks-micron-precedent/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">China Reviews Palo Alto Networks Under the Process That Barred Micron in 2023</div><div class="kg-bookmark-description">China's Cyberspace Administration said Thursday that it had opened a cybersecurity review of Palo Alto Networks products sold in China to protect critical information infrastructure. The Cybersecurity</div><div class="kg-bookmark-metadata"><span class="kg-bookmark-publisher">The Implicator</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.implicator.ai/content/images/2026/08/2026-08-06-05.08.18-china-reviews-palo-alto-networks-micron-process@2x.webp" alt="" onerror="this.style.display = 'none'"></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.implicator.ai/india-github-bitchat-takedown-modi-reels/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">India Orders GitHub to Remove Bitchat as Modi Turns to Instagram Reels</div><div class="kg-bookmark-description">India’s cybercrime agency ordered GitHub to remove three repositories containing Bitchat’s source code within three hours, according to a notice published by app co-founder Jack Dorsey. The app routes</div><div class="kg-bookmark-metadata"><span class="kg-bookmark-publisher">The Implicator</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.implicator.ai/content/images/2026/07/2026-07-25-09.48.49-india-bitchat-github-takedown@2x.webp" alt="" onerror="this.style.display = 'none'"></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.implicator.ai/iran-finds-the-ai-workaround-washington-cannot-sanction/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Iran Finds the AI Workaround Washington Cannot Sanction</div><div class="kg-bookmark-description">San Francisco | Monday, June 1, 2026
+
+Western AI services now sit inside Iran's cyber and military workflow. The FT says Iranian military and intelligence-linked operators use ChatGPT and Gemini to su</div><div class="kg-bookmark-metadata"><span class="kg-bookmark-publisher">The Implicator</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.implicator.ai/content/images/2026/06/2026-05-31-21.57.38-nl_2026_06_01_header@2x.webp" alt="" onerror="this.style.display = 'none'"></div></a></figure>
+
+    <div class="article-tags">
+        <a href="/tag/ai-news/">AI News</a>
+    </div>
+
+  <div class="share-bar">
+  <span class="share-label">Share</span>
+  <button class="share-btn" id="copyLinkBtn"><span class="share-btn-text">Copy link</span></button>
+  <a href="https://twitter.com/intent/tweet?url=https://www.implicator.ai/openai-safety-framework-frontier-training-paused/&text=OpenAI%20Rewrites%20Safety%20Framework%20as%20Largest%20Training%20Run%20Stays%20Paused" class="share-btn" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.implicator.ai/openai-safety-framework-frontier-training-paused/" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="mailto:?subject=OpenAI%20Rewrites%20Safety%20Framework%20as%20Largest%20Training%20Run%20Stays%20Paused&body=https://www.implicator.ai/openai-safety-framework-frontier-training-paused/" class="share-btn">Email</a>
+</div>
+
+      <div class="author-bio" itemscope itemtype="https://schema.org/Person">
+          <a href="/author/marcus-schuler/" class="bio-avatar" rel="author"><img itemprop="image" src="https://www.implicator.ai/content/images/2025/12/marcus_schuler_impli.jpg" alt="Marcus Schuler"></a>
+        <div class="bio-text">
+          <h3><a href="/author/marcus-schuler/" itemprop="name" rel="author">Marcus Schuler</a></h3>
+            <div class="bio-role" itemprop="jobTitle">San Francisco</div>
+            <p itemprop="description">Editor-in-Chief and founder of Implicator.ai. Former ARD correspondent and senior broadcast journalist with 10+ years covering tech. Writes daily briefings on policy and market developments. Based in San Francisco.
+E-mail: editor@implicator.ai</p>
+        </div>
+      </div>
+</div>
+
+<div class="imp-ad imp-ad--flow">
+  <span class="imp-ad__label">Advertisement</span>
+  <div class="imp-ad__unit">
+    <ins class="adsbygoogle"
+         data-ad-client="ca-pub-2414090272567803"
+         data-ad-slot="9150306671"
+         data-ad-format="auto"
+         data-full-width-responsive="false"></ins>
+  </div>
+</div>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<aside class="article-newsletter" aria-labelledby="article-newsletter-heading">
+  <p class="article-newsletter__kicker">The Morning Briefing</p>
+
+  <h3 class="article-newsletter__heading" id="article-newsletter-heading">
+    The AI news that changes decisions, one email each weekday morning.
+  </h3>
+
+  <p class="article-newsletter__standfirst">
+    Written for executives and strategists who have to act on the news, not just follow it.
+  </p>
+
+  <form class="article-newsletter__form" data-members-form="subscribe">
+    <div class="article-newsletter__field">
+      <label class="article-newsletter__label" for="article-newsletter-email">Email address</label>
+      <input
+        class="article-newsletter__input"
+        id="article-newsletter-email"
+        type="email"
+        name="email"
+        placeholder="you@company.com"
+        autocomplete="email"
+        spellcheck="false"
+        required
+        data-members-email
+        aria-describedby="article-newsletter-note"
+      >
+    </div>
+
+    <button class="article-newsletter__button" type="submit">
+      <span class="article-newsletter__button-label">Get the Briefing</span>
+      <span class="article-newsletter__spinner" aria-hidden="true"></span>
+    </button>
+
+    <p class="article-newsletter__note" id="article-newsletter-note">
+      <span class="article-newsletter__note-line article-newsletter__note-line--default">
+        Free. Unsubscribe in one click.
+      </span>
+      <span class="article-newsletter__note-line article-newsletter__note-line--error" role="alert">
+        That address was not accepted. Check the spelling, then try again.
+      </span>
+      <span class="article-newsletter__note-line article-newsletter__note-line--success" role="status">
+        Check your inbox for the confirmation link.
+      </span>
+    </p>
+  </form>
+</aside>
+
+        <div class="related-section">
+          <h3 class="related-title">Related Stories</h3>
+          <div class="related-grid">
+              <article class="related-card">
+  <a href="/new-york-overtakes-san-francisco-tech-workers/">
+      <div class="card-image">
+        <img src="/content/images/size/w600/2026/08/2026-08-21-08.15.56-talent-market-shift@2x.webp"
+             srcset="/content/images/size/w300/2026/08/2026-08-21-08.15.56-talent-market-shift@2x.webp 300w,
+                     /content/images/size/w600/2026/08/2026-08-21-08.15.56-talent-market-shift@2x.webp 600w,
+                     /content/images/size/w1000/2026/08/2026-08-21-08.15.56-talent-market-shift@2x.webp 1000w"
+             sizes="(max-width: 768px) 100vw, 33vw"
+             width="1000" height="563"
+             alt="New York Overtakes San Francisco Bay Area With 394,300 Tech Workers in CBRE Count" loading="lazy">
+      </div>
+      <div class="card-tag">AI News</div>
+    <h3>New York Overtakes San Francisco Bay Area With 394,300 Tech Workers in CBRE Count</h3>
+    <div class="card-meta">Marcus Schuler &middot; <time class="relative-time" datetime="2026-08-21T09:03:04-07:00">Aug 21, 2026</time></div>
+  </a>
+</article>
+              <article class="related-card">
+  <a href="/chatgpt-apple-messages-imessage-sms-rcs-mac/">
+      <div class="card-image">
+        <img src="/content/images/size/w600/2026/08/2026-08-21-07.58.53-chatgpt-messages@2x.webp"
+             srcset="/content/images/size/w300/2026/08/2026-08-21-07.58.53-chatgpt-messages@2x.webp 300w,
+                     /content/images/size/w600/2026/08/2026-08-21-07.58.53-chatgpt-messages@2x.webp 600w,
+                     /content/images/size/w1000/2026/08/2026-08-21-07.58.53-chatgpt-messages@2x.webp 1000w"
+             sizes="(max-width: 768px) 100vw, 33vw"
+             width="1000" height="563"
+             alt="OpenAI Lets ChatGPT Read and Send iMessage, SMS and RCS on Apple Silicon Macs" loading="lazy">
+      </div>
+      <div class="card-tag">AI News</div>
+    <h3>OpenAI Lets ChatGPT Read and Send iMessage, SMS and RCS on Apple Silicon Macs</h3>
+    <div class="card-meta">Marcus Schuler &middot; <time class="relative-time" datetime="2026-08-21T08:18:22-07:00">Aug 21, 2026</time></div>
+  </a>
+</article>
+              <article class="related-card">
+  <a href="/alibabas-ai-labs-unit-lost-2-billion-2-5-times-clouds-ebita/">
+      <div class="card-image">
+        <img src="/content/images/size/w600/2026/08/2026-08-21-03.28.47-alibaba_ai_labs@2x.webp"
+             srcset="/content/images/size/w300/2026/08/2026-08-21-03.28.47-alibaba_ai_labs@2x.webp 300w,
+                     /content/images/size/w600/2026/08/2026-08-21-03.28.47-alibaba_ai_labs@2x.webp 600w,
+                     /content/images/size/w1000/2026/08/2026-08-21-03.28.47-alibaba_ai_labs@2x.webp 1000w"
+             sizes="(max-width: 768px) 100vw, 33vw"
+             width="1000" height="563"
+             alt="Alibaba&#x27;s AI Labs Unit Lost $2 Billion, 2.5 Times Cloud&#x27;s EBITA" loading="lazy">
+      </div>
+      <div class="card-tag">AI News</div>
+    <h3>Alibaba&#x27;s AI Labs Unit Lost $2 Billion, 2.5 Times Cloud&#x27;s EBITA</h3>
+    <div class="card-meta">Marcus Schuler &middot; <time class="relative-time" datetime="2026-08-21T06:35:01-07:00">Aug 21, 2026</time></div>
+  </a>
+</article>
+          </div>
+        </div>
+
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-masthead">
+      <a href="https://www.implicator.ai" class="footer-logo" aria-label="Implicator.ai home">IMPLICATOR<span class="dot">.ai</span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-brand-copy">
+        <p>Independent journalism from San Francisco about the AI industry. The smartest FREE briefing in your inbox.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sections</h4>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pro/">PRO</a></li>
+            <li><a href="/tag/ai-news/">News</a></li>
+            <li><a href="/tag/analysis/">Analysis</a></li>
+            <li><a href="/tag/politics/">Policy</a></li>
+            <li><a href="/tag/nl/">Briefing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="https://www.implicator.ai/tag/nl/">Morning Briefing</a></li>
+          <li><a href="/subscribe/">PRO Intelligence</a></li>
+          <li><a href="https://www.implicator.ai/latest/rss/">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.implicator.ai/about/">About</a></li>
+          <li><a href="https://www.implicator.ai/ethics/">Ethics</a></li>
+          <li><a href="https://www.implicator.ai/get-in-touch/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Implicator.ai &middot; Published from San Francisco</p>
+      <div class="footer-bottom-links">
+        <a href="https://www.implicator.ai/about/#masthead">Masthead</a>
+        <a href="https://battlepolicy.com/">BattlePolicy</a>
+        <a href="https://www.implicator.ai/about/#editorial-standards">Editorial Policy</a>
+        <a href="https://www.implicator.ai/ethics/">Ethics</a>
+        <a href="https://www.implicator.ai/get-in-touch/">Contact</a>
+        <a href="https://www.implicator.ai/privacy-policy/">Privacy</a>
+        <a href="https://www.implicator.ai/terms-of-service/">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- =========================
+     implicator.ai — Site Footer Injection (lean)
+     ========================= -->
+
+<!-- Optional, tiny style nudge for relative-time labels -->
+<style>
+  .post-card time.relative-time,
+  .post-info time.relative-time { font-weight: 500; opacity: .9; }
+  .home-template .post-card time,
+  .tag-template .post-card time,
+  .author-template .post-card time {
+    display: inline-block; font-size: .8rem; text-transform: uppercase; letter-spacing: .5px;
+  }
+</style>
+
+<script>
+(() => {
+  'use strict';
+
+  // ---- Utilities ----------------------------------------------------
+  const rafIdle = window.requestIdleCallback || function (fn) { setTimeout(fn, 0); };
+  const onReady  = (fn) => {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn, { once:true });
+    else fn();
+  };
+
+  // ---- 1) Copy-link handler (for buttons with .js-copy-link) -------
+  function bindCopyLinks() {
+    const btns = document.querySelectorAll('.js-copy-link');
+    btns.forEach((btn) => {
+      if (btn.dataset.copyBound) return;
+      btn.dataset.copyBound = '1';
+      btn.addEventListener('click', async (e) => {
+        const url = e.currentTarget.getAttribute('data-url');
+        if (!url) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(url);
+          } else {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = url; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px';
+            document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          e.currentTarget.classList.add('has-tooltip');
+          e.currentTarget.setAttribute('data-label', 'Copied!');
+          const leave = () => {
+            e.currentTarget.classList.remove('has-tooltip');
+            setTimeout(() => e.currentTarget.setAttribute('data-label',''), 400);
+            e.currentTarget.removeEventListener('mouseleave', leave);
+          };
+          e.currentTarget.addEventListener('mouseleave', leave);
+        } catch(_) {}
+      }, { passive:true });
+    });
+  }
+
+  // ---- 2) Relative-time labels on overview pages --------------------
+  function isOverview() {
+    const b = document.body.classList;
+    return b.contains('home-template') || b.contains('tag-template') || b.contains('author-template');
+  }
+
+  function updateRelativeTimes(now = new Date()) {
+    if (!isOverview()) return;
+    document.querySelectorAll('.post-card time, .post-info time').forEach((node) => {
+      const raw = node.getAttribute('data-published-at') || node.getAttribute('datetime');
+      if (!raw) return;
+      const published = new Date(raw);
+      if (Number.isNaN(+published)) return;
+
+      // Keep original as tooltip/aria
+      if (!node.dataset.absLabel) {
+        const abs = node.textContent.trim();
+        node.dataset.absLabel = abs;
+        node.setAttribute('aria-label', abs);
+        node.setAttribute('title', abs);
+      }
+
+      const diffMs = now - published;
+      const diffMin = Math.floor(diffMs / 60000);
+      const diffHr  = Math.floor(diffMin / 60);
+
+      let label;
+      if (diffMin < 1) label = 'Just now';
+      else if (diffMin === 1) label = '1 minute ago';
+      else if (diffMin < 60) label = `${diffMin} minutes ago`;
+      else if (diffHr === 1) label = '1 hour ago';
+      else if (diffHr < 12) label = `${diffHr} hours ago`;
+      else label = published.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }).toUpperCase();
+
+      node.textContent = label;
+      node.classList.add('relative-time');
+    });
+  }
+
+  let intervalId = null;
+  function startRelativeTimer() {
+    if (!isOverview()) return;
+    // Initial paint during idle time
+    rafIdle(() => updateRelativeTimes(new Date()));
+    // Refresh every minute while visible
+    const tick = () => updateRelativeTimes(new Date());
+    const ensureTimer = () => {
+      if (!intervalId && !document.hidden) intervalId = setInterval(tick, 60000);
+    };
+    const stopTimer = () => { if (intervalId) { clearInterval(intervalId); intervalId = null; } };
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopTimer(); else { tick(); ensureTimer(); }
+    });
+    ensureTimer();
+  }
+
+  // ---- Boot ---------------------------------------------------------
+  onReady(() => {
+    rafIdle(bindCopyLinks);
+    startRelativeTimer();
+  });
+})();
+</script>
+
+
+
+ <script src="/assets/js/sidebar-data.js"></script>
+
+  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="search-modal" id="searchModal">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search articles…" autocomplete="off">
+      <kbd class="search-kbd">ESC</kbd>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <div class="floating-cta" id="floatingCta">
+  <a class="floating-cta__link" href="/subscribe/" aria-label="Join the Implicator.ai Morning Briefing for free">
+    <span class="floating-cta__rule" aria-hidden="true"></span>
+    <span class="floating-cta__content">
+      <span class="floating-cta__eyebrow">The Morning Briefing</span>
+      <span class="floating-cta__main">
+        <span class="floating-cta__label">Join Free</span>
+        <svg class="floating-cta__arrow" width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1 7h19M14 1l6 6-6 6"/>
+        </svg>
+      </span>
+    </span>
+  </a>
+  <button class="floating-cta__dismiss" id="floatingCtaDismiss" type="button" aria-label="Dismiss the subscribe prompt">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <path d="M1 1l10 10M11 1L1 11"/>
+    </svg>
+  </button>
+</div>
+
+  <script defer src="/assets/dist/app.min.js?v=Y_UQMUIeo99qOpau"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+---
+layout: "story"
+title: "BetterWright (GitHub Repo)"
+date: "2026-08-21"
+permalink: "/2026/08/21/stories/betterwright-github-repo-e80393/"
+slug: "betterwright-github-repo-e80393"
+source: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fa.tldrnewsletter.com%2Funsubscribe%3Fep=1%26l=cfa2d55a-b7be-11e8-a3c9-06b79b628af2%26lc=e09eb435-7667-11ec-96e5-06b4694bee2a%26p=456ad0e2-9c7b-11f1-8eb2-8b5ee3e77ae7%26pt=campaign%26pv=4%26spa=1787220053%26t=1787223924%26s=4ed044ee379c0c4f258523850a4aec115155fc192e13aeaffd5248ae417efe5a/1/010001a01ed8dddd-e948c237-af7b-4e47-983f-242c4540b385-000000/sagu3sCseTD0kmWOggyz2pO5TtoqiwjnkGNkcDOVjZs=452"
+original_url: "https://github.com/BetterWright/betterwright?utm_source=tldrnewsletter"
+category: "Product"
+excerpt_separator: ""
+---
+
+{% raw %}
+BetterWright is a persistent, policy-guarded Playwright browser for AI agents.
+
+---
+
+[![BetterWright](https://raw.githubusercontent.com/BetterWright/betterwright/main/docs/assets/logo.png)](https://raw.githubusercontent.com/BetterWright/betterwright/main/docs/assets/logo.png)
+
+# BetterWright
+
+
+
+**The token-efficient browser for AI agents.**
+
+[![npm](https://camo.githubusercontent.com/4869f22a275b2c58cdc06e2f9706cc10e46841c6843d98114e1949ff79994d60/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6265747465727772696768743f636f6c6f723d636233383337266c6f676f3d6e706d)](https://www.npmjs.com/package/betterwright) [![CI](https://github.com/BetterWright/betterwright/actions/workflows/ci.yml/badge.svg)](https://github.com/BetterWright/betterwright/actions/workflows/ci.yml) [![node](https://camo.githubusercontent.com/09a190b38b4335acd7adf6938806b895213914c83c1df08054a787fd9fbec5ea/68747470733a2f2f696d672e736869656c64732e696f2f6e6f64652f762f6265747465727772696768743f636f6c6f723d333339393333266c6f676f3d6e6f64652e6a73266c6f676f436f6c6f723d7768697465)](#install) [![license](https://camo.githubusercontent.com/4ed6c093a49ca01f20eb8d4f7b37326da3a0b089401f3d903a517a5c190e77eb/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f626574746572777269676874)](/BetterWright/betterwright/blob/main/LICENSE)
+
+One persistent, policy-guarded browser your agent returns to turn after turn. Drive it from your own agent (skill, MCP, or JS API) — or hand whole tasks to its built-in browser agent and just read the answer.
+
+npm install -g betterwright && betterwright init
+
+betterwright run -c "await page.goto('https://example.com'); return page.title()"
+# {"ok": true, "result": "Example Domain", ...}
+
+`init` downloads the browser, wires up whichever agents it finds on your machine, and proves it works by loading a real page. One command, no choices to make up front.
+
+**Compressed snapshots** instead of raw HTML or a full accessibility dump · read-only tasks finish in **one model turn** · persistent sessions so you don't re-pay login and navigation cost every step.
+
+* * *
+
+## Two ways to use it
+
+
+
+You want…
+
+You get…
+
+**[Integrated](#1-integrated--your-agent-drives-the-browser)**
+
+your agent (Claude Code, Codex, Pi, any MCP client, your own code) to browse as one part of a bigger job
+
+a skill, MCP server, or JS API through which _your_ agent mans the browser step by step
+
+**[Standalone agent](#2-standalone--betterwright-is-the-browser-agent)**
+
+to hand over a whole browser task and read back one answer
+
+`betterwright exec "<task>"` — BetterWright's own browser-tuned agent loop does the driving; you (or your agent) get one JSON result
+
+They share everything — the same persistent sessions, vault, network policy, and snapshots — so you can start with one and mix in the other later.
+
+### 1\. Integrated — your agent drives the browser
+
+
+
+Any agent that can run a shell command can drive the browser. `betterwright skill` prints the instructions that teach it how — CLI usage plus operator guidance. No server, no SDK, no glue code.
+
+# The short version: init detects your agent hosts and wires them all.
+betterwright init
+
+# Or do it by hand, one host at a time:
+betterwright skill --install       # ~/.claude/skills + ~/.agents/skills (browser + e2e-review)
+betterwright skill --install --all # also ~/.cursor/skills
+betterwright skill --status        # where it landed, and whether it is current
+betterwright skill \>> ~/.codex/AGENTS.md   # Codex reads an instructions file
+
+# Any custom agent — the same instructions ship as SKILL.md in this repo
+# and the npm package (node\_modules/betterwright/SKILL.md); copy it wherever
+# your agent reads skills, or print it with \`betterwright skill\`.
+
+# MCP (stdio server: browser, browser\_login, browser\_download, browser\_handoff, browser\_doctor)
+npm install -g betterwright @modelcontextprotocol/sdk
+claude mcp add betterwright -- npx betterwright mcp
+betterwright mcp --check           # why does my client show no tools?
+
+# Pi Coding Agent (native persistent tools, trusted login, approval-gated downloads)
+pi install npm:betterwright
+
+After an npm upgrade, `setup` / `update` refresh already-installed skill files, and `doctor` says so if one is still stale.
+
+Or drive it from your own code:
+
+import { BetterWright } from "betterwright";
+
+const bw \= new BetterWright();
+await bw.run("await page.goto('http://localhost:5173')", { session: "dev" });
+const title \= await bw.run("return page.title()", { session: "dev" });
+console.log(title.result);
+await bw.close();
+
+`run()` takes a string of async Playwright JavaScript with sandboxed globals — `page`, `snapshot`, `screenshot`, `human`, `credentials`, and friends — and returns one result envelope. Full API: [docs/javascript.md](/BetterWright/betterwright/blob/main/docs/javascript.md) · [docs/browser-api.md](/BetterWright/betterwright/blob/main/docs/browser-api.md).
+
+**[SETUP.md](/BetterWright/betterwright/blob/main/SETUP.md)** is the full integration guide, written to be followed by an AI agent — point your coding agent at it and it wires any host end to end.
+
+### 2\. Standalone — BetterWright _is_ the browser agent
+
+
+
+BetterWright ships its own browser-tuned agent loop. Plug in a model, hand it a task in plain language:
+
+betterwright auth --login codex     # OAuth sign-in, no API key to paste
+betterwright exec "find the top Hacker News story and give me its title and points" --model gpt-5.6-sol
+
+The loop observes with compressed snapshots, acts, verifies, captures a proof screenshot, and prints **one JSON object** — answer, steps, token usage, proof path.
+
+**Models are selected by real id**, not by adapter nickname. Pass the model id you want (`gpt-5.6-sol`, `claude-opus-4-8`, `qwen3:8b`, …). BetterWright probes running local servers (Ollama, vLLM), OpenRouter when keyed, and native Claude / Codex / Grok routes; if exactly one source exposes that id, it uses it. Prefix the source only to pin a collision (`ollama/qwen3:8b`). The words `claude`, `codex`, and `grok` alone are **not** model shortcuts.
+
+You have…
+
+Typical start
+
+ChatGPT / Codex subscription
+
+`betterwright auth --login codex` → `--model gpt-5.6-sol`
+
+Anthropic API key
+
+`ANTHROPIC_API_KEY=…` → `--model claude-opus-4-8`
+
+xAI (OAuth or API key)
+
+`betterwright auth --login grok` or `XAI_API_KEY` → `--model grok-4.3`
+
+Local [Ollama](https://ollama.com)
+
+pull a tool-calling model → `--model qwen3:8b` or `ollama/…`
+
+Local vLLM
+
+serve with tool-calling enabled → `--model <id>` or `vllm/<id>`
+
+[OpenRouter](https://openrouter.ai)
+
+`OPENROUTER_API_KEY=…` → `--model <author/model>`
+
+Any OpenAI-compatible `/v1`
+
+`--base-url https://host/v1 --model <id>`
+
+# Discover what is available (native defaults + reachable endpoints)
+betterwright models
+betterwright models ollama
+
+# Local Ollama — no API key; default base http://127.0.0.1:11434/v1
+betterwright exec "check example.com" --model ollama/qwen3:8b
+
+# OpenRouter — bare author/model id when unambiguous
+OPENROUTER\_API\_KEY=… betterwright exec "check example.com" \\
+  --model anthropic/claude-sonnet-5
+
+# Custom OpenAI-compatible endpoint
+BETTERWRIGHT\_MODEL\_API\_KEY=… betterwright exec "check example.com" \\
+  --base-url https://models.example/v1 --model <model-id\>
+
+The model must support **function / tool calling** well enough to drive the browser tools — text-only chat models are not enough. Full flags, env vars, and troubleshooting: [docs/agent.md](/BetterWright/betterwright/blob/main/docs/agent.md).
+
+Run bare **`betterwright`** for the interactive console: one browser session across tasks, steps streaming as they happen, `/model`, `/endpoint`, and `/models`, plus an `ask` tool so the agent can check with you before consequential choices.
+
+**Use it as a sub-agent.** Because `exec` is one shell command in and one JSON object out, a _coding_ agent can delegate entire browser tasks to it:
+
+betterwright exec "log in to staging and download this month's invoice" --model gpt-5.6-sol
+
+The whole browsing transcript — every snapshot, every retry — stays inside the sub-agent. A 30-turn checkout costs your main agent **one tool call**, not 30 pages of context. Programmatic equivalent: `runAgentTask()` from `betterwright/agent`.
+
+## Tokens are the bottleneck
+
+
+
+An agent's browser loop is _observe → decide → act_, and the observe step is where context windows go to die. Raw HTML dumps, full accessibility trees, and screenshot-only loops burn thousands of tokens per turn — so tasks hit context limits, costs climb, and the model drowns in markup it never needed.
+
+BetterWright's whole observation stack is built around that problem:
+
+Mechanism
+
+Token effect
+
+**Compressed agent snapshots**
+
+Playwright's `mode: "ai"` accessibility tree with everything an agent cannot act on pruned out — `/url` property lines, refs on non-actionable roles, bare `generic` wrappers, duplicated text, names past 100 characters — leaving `[ref=eN]` markers the model acts on directly instead of re-deriving selectors
+
+**Diff mode**
+
+After an action, return **only what changed** — not the page again
+
+**Interactive-only filter**
+
+Drop static text nodes; keep what the agent can click, fill, or read
+
+**Scoped truncation**
+
+Hints about _where_ to look next instead of a silently clipped wall
+
+**Single-call finish**
+
+Read-only tasks complete in **one model turn** — the code returns `{finalAnswer}` and the loop ends, no confirmation round-trip
+
+**Persistent session**
+
+One long-lived browser: no re-login, no re-navigation, no re-paying the token cost of getting back to where you were
+
+**Sub-agent delegation**
+
+`betterwright exec` keeps the entire browsing transcript out of your main agent's context — a whole task costs it one tool call
+
+## Watch it, coach it, take the wheel
+
+
+
+Every run can carry a self-hosted [live view](/BetterWright/betterwright/blob/main/docs/live-view.md): a web page showing the browser in real time, with chat to guide the agent between turns and a **handoff** flow for the moments automation shouldn't finish alone — MFA, a resistant CAPTCHA, a consequential click. The agent pauses, you take the controls, hit **Done**, and it resumes with your note.
+
+betterwright exec "…" --live-view          # watch the whole run
+betterwright view --expose tailscale       # drive a headless VPS browser from your laptop
+betterwright view --set-password           # lock every viewer behind a password
+
+Hosting is one word (`lan`, `local`, `tailscale`), auth is a capability token plus an optional config-stored password, and nothing live-view-related is reachable from model code.
+
+## Why not just Playwright?
+
+
+
+Playwright is built for tests: trusted scripts, known selectors, teardown at the end. An agent is the opposite — untrusted model output deciding its next step from what it sees, in a browser that must still be there next turn:
+
+Playwright
+
+BetterWright
+
+**Observations**
+
+Raw accessibility tree or DIY HTML
+
+Compressed, diffable, redacted snapshots priced for a context window
+
+**Session**
+
+Browser per script
+
+One persistent managed browser — logins survive turns, days, restarts
+
+**Trust**
+
+Full API access
+
+Model code runs sandboxed: no file, process, or network-routing APIs
+
+**Network**
+
+Any URL
+
+Every request policy-checked (DNS-rebinding-proof); cloud metadata endpoints always blocked
+
+**Secrets**
+
+Passwords in the script
+
+AES-256-GCM vault; forms are detected and filled without the secret ever entering the conversation
+
+**Evidence**
+
+Assertions
+
+`screenshot({kind: 'proof'})` — tagged artifacts the agent cites as proof of work
+
+**CAPTCHAs**
+
+Out of scope
+
+Local `captcha.solve()` — checkbox, Turnstile, slider; vision handoff for image grids
+
+**First-party tools**
+
+No discovery API
+
+`webmcp.tools()` / `webmcp.invoke()` — typed page capabilities, frame-safe discovery, autosubmit gate, timeout cancellation
+
+**Human in the loop**
+
+Out of scope
+
+Token-gated [live view](/BetterWright/betterwright/blob/main/docs/live-view.md): watch, chat, answer `ask`, or take over on `handoff`
+
+## What's in the box
+
+
+
+Piece
+
+What it gives you
+
+[**Agent snapshots**](/BetterWright/betterwright/blob/main/docs/browser-api.md#reading-the-page)
+
+The token-efficiency core: compressed tree, `[ref=eN]` actions, diff and interactive-only modes, password redaction
+
+[**Built-in agent loop**](/BetterWright/betterwright/blob/main/docs/agent.md)
+
+`betterwright exec` / the interactive console / `runAgentTask()` — model-first selection across Claude, Codex, Grok, OpenRouter, Ollama, vLLM, and any OpenAI-compatible endpoint
+
+[**Credential vault**](/BetterWright/betterwright/blob/main/docs/credentials.md)
+
+AES-256-GCM outside the profile; PSL site matching, selector-free login detection, metadata-only account choice
+
+[**Live view & handoff**](/BetterWright/betterwright/blob/main/docs/live-view.md)
+
+Watch and coach the agent live; token + optional password gated; `handoff` pauses for human hands and resumes on Done
+
+[**Network policy**](/BetterWright/betterwright/blob/main/docs/network-policy.md)
+
+Every navigation, subresource, WebSocket, and raw TCP connection checked; metadata endpoints always blocked
+
+[**CAPTCHA helpers**](/BetterWright/betterwright/blob/main/docs/captcha.md)
+
+Local solving for checkbox/Turnstile/slider; image grids hand off to the agent's own vision with tile crops
+
+[**Human-shaped input**](/BetterWright/betterwright/blob/main/docs/browser-api.md#human-shaped-interactions)
+
+Curved pointer movement, paced typing, eased wheel — no extra dependency
+
+[**WebMCP page tools**](/BetterWright/betterwright/blob/main/docs/browser-api.md#page-published-webmcp-tools)
+
+Discover and invoke typed first-party page capabilities; fresh frame-aware lookup, bounded input/output, explicit autosubmit opt-in, and automatic timeout cancellation
+
+[**Launch identity**](/BetterWright/betterwright/blob/main/docs/launch-identity.md)
+
+Coherent native identity: build-specific viewport, locale, timezone, optional geo-matched egress. No page-world shims; the two public reCAPTCHA v3 score-detector demos in the stealth report return a server-verified 0.9 headed and headless
+
+[**BetterChromium**](/BetterWright/betterwright/blob/main/docs/chromium-fork.md)
+
+Default browser on supported macOS arm64, Linux x64, and Windows x64 hosts: per-profile-stable canvas/audio farbling, no OS masquerade (Linux runs as Linux). Bring your own executable, CDP endpoint, or cloud browser via the [provider option](/BetterWright/betterwright/blob/main/docs/browser-providers.md)
+
+[**Browser providers**](/BetterWright/betterwright/blob/main/docs/browser-providers.md)
+
+Managed fork by default; attach a local executable, a raw CDP endpoint, or a named cloud browser (Kernel, Browserbase, Steel, Anchor, Bright Data, Hyperbrowser, Browserless, Oxylabs, Browser Use)
+
+[**Skill packs**](/BetterWright/betterwright/blob/main/docs/skills.md)
+
+Per-site and per-password-manager guidance the driving agent reads on demand — your own or the built-in loop — surfaced automatically when an open page matches
+
+[**Download approval**](/BetterWright/betterwright/blob/main/docs/browser-api.md)
+
+Denied by default; a trusted host approves one download run at a time
+
+[**Operator guidance**](/BetterWright/betterwright/blob/main/docs/agent-prompt.md)
+
+`betterwright skill` / `agentSystemPrompt()` — decisive action on authorized tasks, with optional confirmation/spending guardrails
+
+## Install
+
+
+
+Requires **Node.js 22+**. Setup downloads the pinned native BetterChromium browser for this host; GPU-less Linux runs it with the SwiftShader software renderer. Nothing is downloaded as an npm lifecycle side effect, so installs stay predictable with `--ignore-scripts`.
+
+npm install -g betterwright
+betterwright init      # guided: browser + agent wiring + a real page load
+
+`init` is safe to re-run and reports what is already done. The steps it runs are all available on their own:
+
+betterwright setup     # install the managed browser for this host
+betterwright update    # refresh the managed browser for this host
+betterwright doctor    # what is installed, what is missing, how to fix it
+
+## Getting a password back out
+
+
+
+The vault fills logins without ever handing a secret to model code — which would leave _you_ locked out of a password your agent generated during a signup. So there is a separate, human-only door:
+
+betterwright vault list                # metadata: site, username, when
+betterwright vault copy <id\>           # password → clipboard, never the screen
+betterwright vault show <id\> --reveal  # print it (refuses to a pipe or a file)
+betterwright vault audit               # every read and write, metadata only
+
+`--reveal` writes plaintext only to a terminal; redirect it and it fails closed. These commands live on an owner-only API that the browser worker — and so model-authored snippet code — cannot reach. See [SECURITY.md](/BetterWright/betterwright/blob/main/SECURITY.md#the-shell-is-a-trusted-channel) for what that does and does not protect.
+
+## How it works
+
+
+
+The CLI (or your JS host) owns one long-lived Node worker. The worker holds the persistent browser context and exposes sandboxed globals to model code; it calls back to the host to authorize requests and resolve credentials without putting secrets in results. CDP and raw browser handles stay worker-internal. The security model — what the sandbox removes, why the metadata floor cannot be lifted, and where it does _not_ claim to be a boundary — is in [docs/architecture.md](/BetterWright/betterwright/blob/main/docs/architecture.md).
+
+## Sessions and profiles
+
+
+
+All state lives under `$BETTERWRIGHT_HOME` (default `~/.betterwright`): the persistent browser profile, the credential vault, and artifacts. Two knobs divide work up, and they are different axes:
+
+*   `--session <name>` — parallel lanes in **one** browser, sharing one cookie jar. Same identity, no launch cost, no queueing behind each other.
+*   `--profile <name>` — a **separate identity**: its own cookie jar at `browser/profiles/<name>`, its own session daemon, its own `exec` history. Two profiles run at once and both stay signed in.
+
+new BetterWright({ profile: "social" }); // the posting account
+new BetterWright({ profile: "review" }); // the reading account, concurrently
+
+Omitting `profile` keeps the single default profile, unchanged. The vault and artifacts are shared across profiles, so a credential saved once fills anywhere. CLI: `--profile <name>` or `BETTERWRIGHT_PROFILE`, which the MCP server reads too. See [docs/sessions.md](/BetterWright/betterwright/blob/main/docs/sessions.md#sessions-vs-profiles).
+
+## Docs
+
+
+
+Start here
+
+Capabilities
+
+Under the hood
+
+[Getting started](/BetterWright/betterwright/blob/main/docs/getting-started.md)
+
+[Credential vault](/BetterWright/betterwright/blob/main/docs/credentials.md)
+
+[Architecture & security model](/BetterWright/betterwright/blob/main/docs/architecture.md)
+
+[Integration guide (SETUP.md)](/BetterWright/betterwright/blob/main/SETUP.md)
+
+[Live view & handoff](/BetterWright/betterwright/blob/main/docs/live-view.md)
+
+[Launch identity](/BetterWright/betterwright/blob/main/docs/launch-identity.md)
+
+[The built-in agent](/BetterWright/betterwright/blob/main/docs/agent.md)
+
+[CAPTCHA helpers](/BetterWright/betterwright/blob/main/docs/captcha.md)
+
+[Chromium fork](/BetterWright/betterwright/blob/main/docs/chromium-fork.md)
+
+[JavaScript API](/BetterWright/betterwright/blob/main/docs/javascript.md)
+
+[Network policy](/BetterWright/betterwright/blob/main/docs/network-policy.md)
+
+[Headed / headless](/BetterWright/betterwright/blob/main/docs/attach-mode.md)
+
+[Browser API (snippet globals)](/BetterWright/betterwright/blob/main/docs/browser-api.md)
+
+[BetterChromium](/BetterWright/betterwright/blob/main/docs/chromium-fork.md)
+
+[Browser providers](/BetterWright/betterwright/blob/main/docs/browser-providers.md)
+
+[CAPTCHA recipes](/BetterWright/betterwright/blob/main/docs/browser-recipes.md)
+
+Benchmarks: [Online-Mind2Web, 92.7% self-judged](/BetterWright/betterwright/blob/main/benchmarks/online-mind2web/REPORT.md) · [agent head-to-head](/BetterWright/betterwright/blob/main/benchmarks/exec-headtohead/REPORT.md)
+
+The Online-Mind2Web figure is 278/300 on the pinned 2025-11-23 snapshot, scored by BetterWright's own strict multimodal judge — **not** an official Online-Mind2Web human evaluation or leaderboard result. It is also an iterative best-validated campaign, combining retained validated outcomes across targeted reruns, rather than a one-shot 300-task run. The [report](/BetterWright/betterwright/blob/main/benchmarks/online-mind2web/REPORT.md) states the method, the dataset and manifest hashes, and the failed task ids.
+
+## Scope and responsible use
+
+
+
+BetterWright automates a browser under your direction, including signing in and interacting with simple CAPTCHAs on sites you are authorized to use. It is not built for bulk account creation, credential stuffing, or scraping behind anti-bot walls at scale; its helpers exist to unblock a task you legitimately own, not to repeatedly defeat a site that is telling automation to stop. No browser configuration can guarantee undetectability or challenge acceptance. See [the security model](/BetterWright/betterwright/blob/main/docs/architecture.md#security-model) for the boundaries the code does and does not enforce.
+
+## Project identity and attribution
+
+
+
+The official BetterWright project lives at [github.com/BetterWright/betterwright](https://github.com/BetterWright/betterwright). Forking, modification, integration, and commercial use are welcome under the MIT License. Distributed copies or substantial portions must retain the copyright and permission notice in [LICENSE](/BetterWright/betterwright/blob/main/LICENSE).
+
+Public source forks are asked to identify themselves as based on BetterWright and use a distinct name and visual identity so users do not mistake them for the official project. This does not restrict using BetterWright as a component inside a larger product. See [NOTICE.md](/BetterWright/betterwright/blob/main/NOTICE.md) and [TRADEMARKS.md](/BetterWright/betterwright/blob/main/TRADEMARKS.md).
+
+## License
+
+
+
+MIT. See [LICENSE](/BetterWright/betterwright/blob/main/LICENSE).
+
+{% endraw %}

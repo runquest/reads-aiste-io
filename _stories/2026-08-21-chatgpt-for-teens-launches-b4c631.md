@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "ChatGPT for Teens Launches"
+date: "2026-08-21"
+permalink: "/2026/08/21/stories/chatgpt-for-teens-launches-b4c631/"
+slug: "chatgpt-for-teens-launches-b4c631"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTbyUquEEpF1Hn8rgrmPGlmb-UQ9TFIKRG_bOUY11W-QHM1nnkV5IzNI6cAFtFU3y4yHIv6_QOOJCfrvGXqkUqh8NxxLgCTmsdcmUQkTVrZ-IHkuVNMyR4pEHzI3AbTcQYlMdaMRoeP91RbocZ4XsRXg8lpMn-wYdmmBwvyp5Wx4sEHr5HeK12FhyHIUSU8OcDwYUg7JLI8LDdwShYzRncXmc56gI29TnsHSD_33RrSkMLtKfK3kRBegzLea7IR0fdd6gDaDQzOmCNVJmNWYGDUqfgk4rPZZtBfKKQvdkBdWtp1li9v6Cdn_GZO-UPjrBR8TT_Z7Hxgg9xEPldU4bxDKpg1qK8HY1rBPwqlQUplPnmMQeBHOcWsVkozSO5xy9wJBFjZeu_ZD1dTa2J8X6fix6fsJF-pPChrgS2SPMlhdPabV8Qa0QvZW42yIki06l2AtAz8f34XwzG4cRGj5-xK8tD4_CXEiXo0AURC-T_HoAby24wboWJg65jBytD1DLWaACpyWyDVhJMvfZ2Ee9HOcS-FTlJ80AZFvQT8CHbHgnyuDXuT23k_cewwafwi3TxwV9okV7titgHryASSEexi1WAwbyRkvlGRWhV1vHLr8u3YjVJcAfAHOh4IKvVHDYkQ2C6YtlFHw7HxnHldgK-EYUEoqfUM51dbNmRPPu8VSRATxRB1ZZS_hJ-ue8oGb-g/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h35/h001.7T5pLXPBOHxSIpTlCcvKIp9Ebds9QJDh_Q8gmzEnS-c"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.SeZcZ2kldk7Osi4slNtvSbg4fHE3D6_GwDJKfp_OmSFebxzzOAhHjTFdEdHvSUYuAsBTkUlmYwET6_Yak4bAzCzfNX2l27wvY38SAxAM_QrWlTWe9OkM1g4d4vb37IlmUSXxXEfZEJN6_eUK06ObW953J3gOITg7HFnyLd3etcg9Le8Aj2w2uGTpIxn2W4uiyJJOhmnA73qMJji9tPivyNtundOn_qY4QkR6lCCA3Eh-6FSbjV5eUmDQyVG-8OkMRTfr86Xm9ymoUJWzWXTL1lbDfgLAp62CAmmRvs2hPGA/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h6/h001.dSsg-7lex-FoekEpTdaxAgtzI_FYZjZh3stUX66Df2Y"
+category: "AI Product"
+excerpt_separator: ""
+---
+
+{% raw %}
+Say you're 15, or let the system guess it, and you land in a teen version automatically. Study Mode runs by default during set hours. Try to shortcut your homework and it steers you back.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.SeZcZ2kldk7Osi4slNtvSbg4fHE3D6_GwDJKfp_OmSFebxzzOAhHjTFdEdHvSUYuAsBTkUlmYwET6_Yak4bAzCzfNX2l27wvY38SAxAM_QrWlTWe9OkM1g4d4vb37IlmUSXxXEfZEJN6_eUK06ObW953J3gOITg7HFnyLd3etcg9Le8Aj2w2uGTpIxn2W4uiyJJOhmnA73qMJji9tPivyNtundOn_qY4QkR6lCCA3Eh-6FSbjV5eUmDQyVG-8OkMRTfr86Xm9ymoUJWzWXTL1lbDfgLAp62CAmmRvs2hPGA/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h6/h001.dSsg-7lex-FoekEpTdaxAgtzI_FYZjZh3stUX66Df2Y).*
+
+{% endraw %}

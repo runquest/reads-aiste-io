@@ -1,0 +1,822 @@
+<!-- source: https://hospitalogy.com/ -->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+<script>
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+</script>
+
+	<script src="https://cdn.optimizely.com/js/23371330766.js"></script><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v28.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<meta name="description" content="A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation" />
+	<link rel="canonical" href="https://hospitalogy.com/" />
+	<link rel="next" href="https://hospitalogy.com/page/2/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Hospitalogy" />
+	<meta property="og:description" content="A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation" />
+	<meta property="og:url" content="https://hospitalogy.com/" />
+	<meta property="og:site_name" content="Hospitalogy" />
+	<meta property="og:image" content="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/og-hospitalogy.jpg" />
+	<meta property="og:image:width" content="2400" />
+	<meta property="og:image:height" content="1260" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"CollectionPage","@id":"https:\/\/hospitalogy.com\/","url":"https:\/\/hospitalogy.com\/","name":"Hospitalogy - A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation","isPartOf":{"@id":"https:\/\/hospitalogy.com\/#website"},"about":{"@id":"https:\/\/hospitalogy.com\/#organization"},"description":"A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation","breadcrumb":{"@id":"https:\/\/hospitalogy.com\/#breadcrumb"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https:\/\/hospitalogy.com\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https:\/\/hospitalogy.com\/#website","url":"https:\/\/hospitalogy.com\/","name":"Hospitalogy","description":"A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation ","publisher":{"@id":"https:\/\/hospitalogy.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/hospitalogy.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/hospitalogy.com\/#organization","name":"Hospitalogy","url":"https:\/\/hospitalogy.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/hospitalogy.com\/#\/schema\/logo\/image\/","url":"https:\/\/hospitalogy.com\/wp-content\/uploads\/sites\/5\/2024\/02\/hospitalogy-logo.png","contentUrl":"https:\/\/hospitalogy.com\/wp-content\/uploads\/sites\/5\/2024\/02\/hospitalogy-logo.png","width":801,"height":200,"caption":"Hospitalogy"},"image":{"@id":"https:\/\/hospitalogy.com\/#\/schema\/logo\/image\/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<title>Hospitalogy - A healthcare industry newsletter covering the latest across strategy, finance, M&amp;A, and innovation</title>
+<link rel='dns-prefetch' href='//js.stripe.com' />
+<link rel='dns-prefetch' href='//ak.sail-horizon.com' />
+<link rel='dns-prefetch' href='//cdn.amplitude.com' />
+<link rel="alternate" type="application/rss+xml" title="Hospitalogy &raquo; Feed" href="https://hospitalogy.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Hospitalogy &raquo; Comments Feed" href="https://hospitalogy.com/comments/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="acf-workweek-navigation-style-inline-css">
+.c-ww-nav{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:1rem;padding-right:1rem;border-right:1px solid #b3b3b3}.c-ww-nav__btn{margin:0;padding:0;border:none;outline:none;cursor:pointer;background:none;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--wp--custom--header-ww-color)}.c-ww-nav__btn:hover{color:var(--wp--custom--header-ww-color)}.c-ww-nav__btn .is-desktop-logo{display:none}@media(min-width: 36em){.c-ww-nav__btn .is-desktop-logo{display:block}}.c-ww-nav__btn .is-mobile-logo{display:block}@media(min-width: 36em){.c-ww-nav__btn .is-mobile-logo{display:none}}.c-ww-nav__btn svg:last-child{margin-left:.7rem}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/workweek-navigation/index.css */
+</style>
+<style id="wp-block-site-logo-inline-css">
+.wp-block-site-logo{box-sizing:border-box;line-height:0}.wp-block-site-logo a{display:inline-block;line-height:0}.wp-block-site-logo.is-default-size img{height:auto;width:120px}.wp-block-site-logo img{height:auto;max-width:100%}.wp-block-site-logo a,.wp-block-site-logo img{border-radius:inherit}.wp-block-site-logo.aligncenter{margin-left:auto;margin-right:auto;text-align:center}:root :where(.wp-block-site-logo.is-style-rounded){border-radius:9999px}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/site-logo/style.min.css */
+</style>
+<style id="wp-block-navigation-link-inline-css">
+.wp-block-navigation .wp-block-navigation-item__label{overflow-wrap:break-word}.wp-block-navigation .wp-block-navigation-item__description{display:none}.link-ui-tools{outline:1px solid #f0f0f0;padding:8px}.link-ui-block-inserter{padding-top:8px}.link-ui-block-inserter__back{margin-left:8px;text-transform:uppercase}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/navigation-link/style.min.css */
+</style>
+<link rel='stylesheet' id='wp-block-navigation-css' href='https://hospitalogy.com/wp-includes/blocks/navigation/style.min.css?ver=7.0.4' media='all' />
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-group-theme-inline-css">
+:where(.wp-block-group.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/group/theme.min.css */
+</style>
+<style id="wp-block-template-part-theme-inline-css">
+:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/template-part/theme.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="acf-monday-badge-style-inline-css">
+.c-lp-meta__desc.is-style-disable{display:none}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/every-monday/index.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-image-theme-inline-css">
+:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:#ffffffa6}.wp-block-image{margin:0 0 1em}
+/*# sourceURL=https://hospitalogy.com/wp-includes/blocks/image/theme.min.css */
+</style>
+<style id="acf-read-by-leaders-style-inline-css">
+.c-read-leaders.o-section{padding:1.5rem 1rem 3rem}@media(min-width: 62em){.c-read-leaders.o-section{padding:4rem 1rem}}.c-read-leaders.o-section.has-separator-line{padding-top:0}.c-read-leaders.o-section.has-separator-line .o-section__wrapper{border-top:.125rem solid var(--wp--preset--color--neutrals-white-30);padding-top:1.5rem}@media(min-width: 62em){.c-read-leaders.o-section.has-separator-line{padding-top:0}.c-read-leaders.o-section.has-separator-line .o-section__wrapper{padding-top:4rem}}.c-read-leaders.o-section.is-style-centered .c-read-leaders__wrap{grid-template-columns:1fr;gap:.5rem;max-width:1000px;margin:0 auto}@media(min-width: 62em){.c-read-leaders.o-section.is-style-centered .c-read-leaders__wrap{gap:1rem}}.c-read-leaders.o-section.is-style-centered .c-read-leaders__title{font-size:var(--wp--preset--font-size--heading-4);max-width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.c-read-leaders.o-section.is-style-left .c-read-leaders__wrap{grid-template-columns:1fr;gap:1rem}@media(min-width: 48em){.c-read-leaders.o-section.is-style-left .c-read-leaders__wrap{grid-template-columns:1fr 5fr;gap:1.5rem}}.c-read-leaders.o-section.is-style-left .c-read-leaders__title{font-size:var(--wp--preset--font-size--heading-6)}@media(min-width: 48em){.c-read-leaders.o-section.is-style-left .c-read-leaders__title{max-width:140px}}@media(min-width: 48em){.c-read-leaders.o-section.is-style-left .c-read-leaders__item{padding-right:2rem}}.c-read-leaders__wrap{display:grid;grid-template-columns:1fr;gap:1rem}@media(min-width: 48em){.c-read-leaders__wrap{grid-template-columns:1fr 2fr}}.c-read-leaders__list{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap}.c-read-leaders__list::after{content:"flickity";display:none}.c-read-leaders__list .flickity-viewport{width:100%}.c-read-leaders__title{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:var(--wp--preset--font-size--heading-3);font-family:var(--wp--custom--logo-slider-font);line-height:1.1 !important;text-transform:uppercase;margin:0 !important}@media(min-width: 48em){.c-read-leaders__title{max-width:346px;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}}@media(min-width: 62em){.c-read-leaders__title{font-size:var(--wp--preset--font-size--heading-4)}}.c-read-leaders__item{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:0 1rem 0 0;height:150px;width:auto !important;-ms-flex-negative:0;flex-shrink:0}@media(min-width: 48em){.c-read-leaders__item{padding:0 2rem 0 0}}.c-read-leaders__item img{max-width:100%;height:auto;-o-object-fit:cover;object-fit:cover}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/read-leaders/index.css */
+</style>
+<style id="acf-icon-style-inline-css">
+.c-icon svg{display:block}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/icon/index.css */
+</style>
+<style id="tiptip-hyperlink-group-block-style-inline-css">
+.wp-block-tiptip-hyperlink-group-block,.wp-block-tiptip-hyperlink-group-block a p{background-color:var(--color-bkg,none);color:var(--color-text,none);cursor:pointer;display:block}.wp-block-tiptip-hyperlink-group-block a p:hover,.wp-block-tiptip-hyperlink-group-block:hover{background-color:var(--color-bkg-hover,none)}
+
+/*# sourceURL=https://hospitalogy.com/wp-content/plugins/hyperlink-group-block/build/style-index.css */
+</style>
+<style id="acf-testimonials-style-inline-css">
+.c-testimonials__carousel{margin:0 -1rem}@media(min-width: 81.25em){.c-testimonials__carousel{margin:0 -1.625rem}}.c-testimonials__carousel .flickity-page-dots{position:relative;margin-top:1.5rem;bottom:initial;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.c-testimonials__carousel .flickity-page-dots li{width:.75rem;height:.75rem;margin:0 .375rem;background:var(--wp--preset--color--neutrals-grey-02);-webkit-transition:all .25s ease;transition:all .25s ease}.c-testimonials__carousel .flickity-page-dots li:hover{opacity:1;background:var(--wp--custom--testimonials--page-dots-hover-color)}.c-testimonials__carousel .flickity-page-dots li.is-selected{background:var(--wp--custom--testimonials--page-dots-active-color)}@media(min-width: 36em){.c-testimonials__carousel .flickity-page-dots{margin-top:2rem}}@media(min-width: 48em){.c-testimonials__carousel .flickity-page-dots{margin-top:2.5rem}}@media(min-width: 62em){.c-testimonials__carousel .flickity-page-dots{margin-top:4rem}}.c-testimonials__list{display:-webkit-box;display:-ms-flexbox;display:flex}.c-testimonials__list.flickity-enabled{display:block}.c-testimonials__item{width:100%;-ms-flex-negative:0;flex-shrink:0;padding:0 1rem}.flickity-resize .c-testimonials__item{min-height:100%}@media(min-width: 48em){.c-testimonials__item{width:50%;padding:0 1.625rem}}@media(min-width: 62em){.c-testimonials__item{width:33.3333333333%}}@media(min-width: 81.25em){.c-testimonials__item{padding:0 2.96875rem}}.c-testimonials__head{margin-bottom:1.5rem;padding-bottom:1.125rem}@media(min-width: 62em){.c-testimonials__head{padding-bottom:1.5rem}}.c-testimonials__head .c-testimonials__name{text-transform:uppercase;margin:0 0 .5rem;font-size:var(--wp--preset--font-size--heading-3) !important;line-height:1.1 !important}@media(min-width: 62em){.c-testimonials__head .c-testimonials__name{font-size:var(--wp--preset--font-size--heading-4) !important}}.c-testimonials__head .c-testimonials__name:last-child{margin-bottom:0}.c-testimonials__job{margin:0;line-height:1.2 !important}.c-testimonials__text{margin:0;line-height:1.33 !important}@media(min-width: 48em){.c-testimonials__text{line-height:1.4 !important}}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/testimonials/index.css */
+</style>
+<style id="acf-articles-style-inline-css">
+.c-articles{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;row-gap:2rem}@media(min-width: 48em){.c-articles{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-column-gap:1.5rem;-moz-column-gap:1.5rem;column-gap:1.5rem}}@media(min-width: 62em){.c-articles{-webkit-column-gap:2.5rem;-moz-column-gap:2.5rem;column-gap:2.5rem}}.c-articles.is-style-row .c-articles__featured{display:none}.c-articles.is-style-row .c-articles__list{width:100%;row-gap:1.5rem}.c-articles.is-style-row .c-articles__list .c-articles__item{width:33.3333333333%}.c-articles__featured{width:100%}.c-articles__featured .c-articles__item{height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;padding:0}.c-articles__featured .c-articles-card{min-height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.c-articles__featured .c-articles-card__image{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.c-articles__featured .c-lp-media{min-height:100%}@media(min-width: 48em){.c-articles__featured{max-width:33.3333333333%}}.c-articles__list{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;row-gap:2rem;margin:0 -0.75rem}@media(min-width: 30em){.c-articles__list .c-articles__item{width:50%}}@media(min-width: 48em){.c-articles__list{width:66.6666666667%}.c-articles__list .c-articles__item{width:50%}}@media(min-width: 62em){.c-articles__list{row-gap:3.5rem}}.c-articles__item{width:100%;padding:0 .75rem}.c-articles-card a.c-articles-card__link{text-decoration:none;-webkit-transition:all .25s ease-in-out;transition:all .25s ease-in-out}.c-articles-card .c-articles-card__title{margin:0 0 .25rem;font-family:inherit;font-size:var(--wp--preset--font-size--body-01)}.c-articles-card .c-articles-card__title:last-child{margin-bottom:0}.c-articles-card__image{margin-bottom:.75rem}.c-articles-card__date{font-size:.8em}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/articles/index.css */
+</style>
+<style id="acf-copyright-style-inline-css">
+.c-lp-footer__copyright{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px}.c-lp-footer__copyright p{margin:0}
+/*# sourceURL=https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/copyright/index.css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<link rel='stylesheet' id='metaslider-blocks-editor-css-css' href='https://hospitalogy.com/wp-content/plugins/ml-slider/admin/assets/dist/css/editor-block.css?ver=3.110.0' media='all' property='stylesheet' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--primary-01: #611D00;--wp--preset--color--primary-02: #E54501;--wp--preset--color--primary-03: #FC4C01;--wp--preset--color--primary-04: #FE804A;--wp--preset--color--primary-05: #FEB392;--wp--preset--color--primary-06: #FFD9C9;--wp--preset--color--primary-07: #FFF2ED;--wp--preset--color--secondary-01: #00224E;--wp--preset--color--secondary-02: #00439B;--wp--preset--color--secondary-03: #0065E9;--wp--preset--color--secondary-04: #398FFF;--wp--preset--color--secondary-05: #88BCFF;--wp--preset--color--secondary-06: #B0D2FF;--wp--preset--color--secondary-07: #D7E9FF;--wp--preset--color--content-type-01: #EBEBF0;--wp--preset--color--neutrals-black: #060C22;--wp--preset--color--neutrals-grey-01: #374151;--wp--preset--color--neutrals-grey-02: #9CA3AF;--wp--preset--color--neutrals-grey-03: #E5E7EB;--wp--preset--color--neutrals-grey-04: #F3F4F6;--wp--preset--color--neutrals-cultured: #F9FAFB;--wp--preset--color--neutrals-white: #FFF;--wp--preset--color--neutrals-white-70: rgba(6, 12, 34, 0.70);--wp--preset--color--neutrals-white-30: rgba(6, 12, 34, 0.30);--wp--preset--color--neutrals-white-15: rgba(6, 12, 34, 0.15);--wp--preset--color--neutrals-white-5: rgba(6, 12, 34, 0.05);--wp--preset--color--semantic-success-900: #0B5C1C;--wp--preset--color--semantic-success-500: #4DC13E;--wp--preset--color--semantic-success-100: #E8FBD9;--wp--preset--color--semantic-info-900: #013778;--wp--preset--color--semantic-info-500: #07BBFC;--wp--preset--color--semantic-info-100: #CDFEFE;--wp--preset--color--semantic-warning-900: #7A6F0B;--wp--preset--color--semantic-warning-500: #FFF13A;--wp--preset--color--semantic-warning-100: #FFFDD7;--wp--preset--color--semantic-danger-900: #7A0A25;--wp--preset--color--semantic-danger-500: #FF4635;--wp--preset--color--semantic-danger-100: #FFE7D6;--wp--preset--color--transparent: transparent;--wp--preset--color--custom-blue: #231be4;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--primary-to-secondary: linear-gradient(180deg, #2D2DC7 0%, #7A663E 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.606), 20px);--wp--preset--font-size--large: clamp(22.041px, 1.378rem + ((1vw - 3.2px) * 1.41), 36px);--wp--preset--font-size--x-large: clamp(25.014px, 1.563rem + ((1vw - 3.2px) * 1.716), 42px);--wp--preset--font-size--heading-1: clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 2.424), 4rem);--wp--preset--font-size--heading-2: clamp(2.25rem, 2.25rem + ((1vw - 0.2rem) * 1.212), 3rem);--wp--preset--font-size--heading-3: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.01), 2.375rem);--wp--preset--font-size--heading-4: clamp(1.4375rem, 1.438rem + ((1vw - 0.2rem) * 0.504), 1.75rem);--wp--preset--font-size--heading-5: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.606), 1.5rem);--wp--preset--font-size--heading-6: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.506), 1.3125rem);--wp--preset--font-size--subheading-1: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.404), 1.5rem);--wp--preset--font-size--subheading-2: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.202), 1.25rem);--wp--preset--font-size--body-01: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.404), 1.25rem);--wp--preset--font-size--body-02: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.404), 1.125rem);--wp--preset--font-size--small-text: clamp(0.75rem, 0.75rem + ((1vw - 0.2rem) * 0.404), 1rem);--wp--preset--font-size--x-small-text: clamp(0.625rem, 0.625rem + ((1vw - 0.2rem) * 0.404), 0.875rem);--wp--preset--font-size--xx-small-text: clamp(0.75rem, 0.75rem + ((1vw - 0.2rem) * 1), 0.75rem);--wp--preset--font-family--poppins: "Poppins", sans-serif;--wp--preset--font-family--helvetica: 'Helvetica',Verdana,Arial,sans-serif;--wp--preset--spacing--20: 0.25rem;--wp--preset--spacing--30: 0.5rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 2rem;--wp--preset--spacing--60: 4rem;--wp--preset--spacing--70: 8rem;--wp--preset--spacing--80: 16rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);--wp--custom--header-border-color: var(--wp--preset--color--primary-03);--wp--custom--footer-border-color: var(--wp--preset--color--neutrals-white-30);--wp--custom--header-ww-color: var(--wp--preset--color--neutrals-black);--wp--custom--author-name-font: var(--wp--preset--font-family--poppins);--wp--custom--author-name-lettercase: capitalize;--wp--custom--resource-price-font: var(--wp--preset--font-family--poppins);--wp--custom--logo-slider-font: var(--wp--preset--font-family--poppins);--wp--custom--resource-hero-title: var(--wp--preset--font-family--poppins);--wp--custom--custom-general-font: var(--wp--preset--font-family--helvetica);--wp--custom--custom-card-bg: var(--wp--preset--color--neutrals-white);--wp--custom--gform--input-text-color: var(--wp--preset--color--neutrals-black);--wp--custom--gform--input-border-color: var(--wp--preset--color--neutrals-grey-02);--wp--custom--gform--input-background-color: var(--wp--preset--color--transparent);--wp--custom--testimonials--page-dots-color: var(--wp--preset--color--neutrals-white);--wp--custom--testimonials--page-dots-hover-color: var(--wp--preset--color--neutrals-grey-03);--wp--custom--testimonials--page-dots-active-color: var(--wp--preset--color--primary-03);--wp--custom--membership--box-shadow-color: #00D26A;--wp--custom--membership--hero-overlay: linear-gradient(181deg, rgba(0, 0, 0, 0.00) 4.75%, #000 121.38%), linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%);--wp--custom--general-font: var(--wp--preset--font-family--poppins);--wp--custom--text-color-reverse: var(--wp--preset--color--neutrals-black);--wp--custom--podcast-color-reverse: var(--wp--preset--color--neutrals-black);--wp--custom--podcast-icon-playcircle: url(/wp-content/themes/ww-creator-theme/assets/images/playcircle-reverse.svg) no-repeat center center;--wp--custom--podcast-icon-pausecircle: url(/wp-content/themes/ww-creator-theme/assets/images/pausecircle-reverse.svg) no-repeat center center;--wp--custom--podcast-icon-speaker-high: url(/wp-content/themes/ww-creator-theme/assets/images/speaker-high-reverse.svg) no-repeat center center;--wp--custom--podcast-icon-speaker-mute: url(/wp-content/themes/ww-creator-theme/assets/images/speaker-mute-reverse.svg) no-repeat center center;--wp--custom--podcast-icon-skipback: url(/wp-content/themes/ww-creator-theme/assets/images/skipback-reverse.svg) no-repeat 0 0;--wp--custom--podcast-icon-jumpforward: url(/wp-content/themes/ww-creator-theme/assets/images/jumpforward-reverse.svg) no-repeat 0 0;--wp--custom--paging-icon-next: url(/wp-content/themes/ww-creator-theme/assets/images/next-reverse.svg);--wp--custom--paging-icon-last: url(/wp-content/themes/ww-creator-theme/assets/images/last-reverse.svg);--wp--custom--paging-icon-prev: url(/wp-content/themes/ww-creator-theme/assets/images/prev-reverse.svg);--wp--custom--paging-icon-first: url(/wp-content/themes/ww-creator-theme/assets/images/first-reverse.svg);--wp--custom--checkmark-icon: url(/wp-content/themes/ww-creator-theme/assets/images/brands/checkmark-hospitalogy.svg) no-repeat center center;--wp--custom--btn-text-color: var(--wp--preset--color--neutrals-white);}:root { --wp--style--global--content-size: 1310px;--wp--style--global--wide-size: 1310px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{background-color: var(--wp--preset--color--neutrals-white);color: var(--wp--preset--color--neutrals-black);font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--body-01);font-weight: 400;line-height: 1.4;padding-top: 0px;padding-right: 1rem;padding-bottom: 0px;padding-left: 1rem;}a:where(:not(.wp-element-button)){color: var(--wp--preset--color--primary-03);}:root :where(a:where(:not(.wp-element-button)):hover){color: var(--wp--preset--color--primary-06);}h1{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-1);font-weight: 700;line-height: 1.2;}h2{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-2);font-weight: 700;line-height: 1.2;}h3{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-3);font-weight: 700;line-height: 1.1;}h4{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-4);font-weight: 700;line-height: 1.1;}h5{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-5);font-weight: 700;line-height: 1.2;}h6{font-family: var(--wp--preset--font-family--poppins);font-size: var(--wp--preset--font-size--heading-6);font-weight: 700;line-height: 1.2;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-01-color{color: var(--wp--preset--color--primary-01) !important;}.has-primary-02-color{color: var(--wp--preset--color--primary-02) !important;}.has-primary-03-color{color: var(--wp--preset--color--primary-03) !important;}.has-primary-04-color{color: var(--wp--preset--color--primary-04) !important;}.has-primary-05-color{color: var(--wp--preset--color--primary-05) !important;}.has-primary-06-color{color: var(--wp--preset--color--primary-06) !important;}.has-primary-07-color{color: var(--wp--preset--color--primary-07) !important;}.has-secondary-01-color{color: var(--wp--preset--color--secondary-01) !important;}.has-secondary-02-color{color: var(--wp--preset--color--secondary-02) !important;}.has-secondary-03-color{color: var(--wp--preset--color--secondary-03) !important;}.has-secondary-04-color{color: var(--wp--preset--color--secondary-04) !important;}.has-secondary-05-color{color: var(--wp--preset--color--secondary-05) !important;}.has-secondary-06-color{color: var(--wp--preset--color--secondary-06) !important;}.has-secondary-07-color{color: var(--wp--preset--color--secondary-07) !important;}.has-content-type-01-color{color: var(--wp--preset--color--content-type-01) !important;}.has-neutrals-black-color{color: var(--wp--preset--color--neutrals-black) !important;}.has-neutrals-grey-01-color{color: var(--wp--preset--color--neutrals-grey-01) !important;}.has-neutrals-grey-02-color{color: var(--wp--preset--color--neutrals-grey-02) !important;}.has-neutrals-grey-03-color{color: var(--wp--preset--color--neutrals-grey-03) !important;}.has-neutrals-grey-04-color{color: var(--wp--preset--color--neutrals-grey-04) !important;}.has-neutrals-cultured-color{color: var(--wp--preset--color--neutrals-cultured) !important;}.has-neutrals-white-color{color: var(--wp--preset--color--neutrals-white) !important;}.has-neutrals-white-70-color{color: var(--wp--preset--color--neutrals-white-70) !important;}.has-neutrals-white-30-color{color: var(--wp--preset--color--neutrals-white-30) !important;}.has-neutrals-white-15-color{color: var(--wp--preset--color--neutrals-white-15) !important;}.has-neutrals-white-5-color{color: var(--wp--preset--color--neutrals-white-5) !important;}.has-semantic-success-900-color{color: var(--wp--preset--color--semantic-success-900) !important;}.has-semantic-success-500-color{color: var(--wp--preset--color--semantic-success-500) !important;}.has-semantic-success-100-color{color: var(--wp--preset--color--semantic-success-100) !important;}.has-semantic-info-900-color{color: var(--wp--preset--color--semantic-info-900) !important;}.has-semantic-info-500-color{color: var(--wp--preset--color--semantic-info-500) !important;}.has-semantic-info-100-color{color: var(--wp--preset--color--semantic-info-100) !important;}.has-semantic-warning-900-color{color: var(--wp--preset--color--semantic-warning-900) !important;}.has-semantic-warning-500-color{color: var(--wp--preset--color--semantic-warning-500) !important;}.has-semantic-warning-100-color{color: var(--wp--preset--color--semantic-warning-100) !important;}.has-semantic-danger-900-color{color: var(--wp--preset--color--semantic-danger-900) !important;}.has-semantic-danger-500-color{color: var(--wp--preset--color--semantic-danger-500) !important;}.has-semantic-danger-100-color{color: var(--wp--preset--color--semantic-danger-100) !important;}.has-transparent-color{color: var(--wp--preset--color--transparent) !important;}.has-custom-blue-color{color: var(--wp--preset--color--custom-blue) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-01-background-color{background-color: var(--wp--preset--color--primary-01) !important;}.has-primary-02-background-color{background-color: var(--wp--preset--color--primary-02) !important;}.has-primary-03-background-color{background-color: var(--wp--preset--color--primary-03) !important;}.has-primary-04-background-color{background-color: var(--wp--preset--color--primary-04) !important;}.has-primary-05-background-color{background-color: var(--wp--preset--color--primary-05) !important;}.has-primary-06-background-color{background-color: var(--wp--preset--color--primary-06) !important;}.has-primary-07-background-color{background-color: var(--wp--preset--color--primary-07) !important;}.has-secondary-01-background-color{background-color: var(--wp--preset--color--secondary-01) !important;}.has-secondary-02-background-color{background-color: var(--wp--preset--color--secondary-02) !important;}.has-secondary-03-background-color{background-color: var(--wp--preset--color--secondary-03) !important;}.has-secondary-04-background-color{background-color: var(--wp--preset--color--secondary-04) !important;}.has-secondary-05-background-color{background-color: var(--wp--preset--color--secondary-05) !important;}.has-secondary-06-background-color{background-color: var(--wp--preset--color--secondary-06) !important;}.has-secondary-07-background-color{background-color: var(--wp--preset--color--secondary-07) !important;}.has-content-type-01-background-color{background-color: var(--wp--preset--color--content-type-01) !important;}.has-neutrals-black-background-color{background-color: var(--wp--preset--color--neutrals-black) !important;}.has-neutrals-grey-01-background-color{background-color: var(--wp--preset--color--neutrals-grey-01) !important;}.has-neutrals-grey-02-background-color{background-color: var(--wp--preset--color--neutrals-grey-02) !important;}.has-neutrals-grey-03-background-color{background-color: var(--wp--preset--color--neutrals-grey-03) !important;}.has-neutrals-grey-04-background-color{background-color: var(--wp--preset--color--neutrals-grey-04) !important;}.has-neutrals-cultured-background-color{background-color: var(--wp--preset--color--neutrals-cultured) !important;}.has-neutrals-white-background-color{background-color: var(--wp--preset--color--neutrals-white) !important;}.has-neutrals-white-70-background-color{background-color: var(--wp--preset--color--neutrals-white-70) !important;}.has-neutrals-white-30-background-color{background-color: var(--wp--preset--color--neutrals-white-30) !important;}.has-neutrals-white-15-background-color{background-color: var(--wp--preset--color--neutrals-white-15) !important;}.has-neutrals-white-5-background-color{background-color: var(--wp--preset--color--neutrals-white-5) !important;}.has-semantic-success-900-background-color{background-color: var(--wp--preset--color--semantic-success-900) !important;}.has-semantic-success-500-background-color{background-color: var(--wp--preset--color--semantic-success-500) !important;}.has-semantic-success-100-background-color{background-color: var(--wp--preset--color--semantic-success-100) !important;}.has-semantic-info-900-background-color{background-color: var(--wp--preset--color--semantic-info-900) !important;}.has-semantic-info-500-background-color{background-color: var(--wp--preset--color--semantic-info-500) !important;}.has-semantic-info-100-background-color{background-color: var(--wp--preset--color--semantic-info-100) !important;}.has-semantic-warning-900-background-color{background-color: var(--wp--preset--color--semantic-warning-900) !important;}.has-semantic-warning-500-background-color{background-color: var(--wp--preset--color--semantic-warning-500) !important;}.has-semantic-warning-100-background-color{background-color: var(--wp--preset--color--semantic-warning-100) !important;}.has-semantic-danger-900-background-color{background-color: var(--wp--preset--color--semantic-danger-900) !important;}.has-semantic-danger-500-background-color{background-color: var(--wp--preset--color--semantic-danger-500) !important;}.has-semantic-danger-100-background-color{background-color: var(--wp--preset--color--semantic-danger-100) !important;}.has-transparent-background-color{background-color: var(--wp--preset--color--transparent) !important;}.has-custom-blue-background-color{background-color: var(--wp--preset--color--custom-blue) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-01-border-color{border-color: var(--wp--preset--color--primary-01) !important;}.has-primary-02-border-color{border-color: var(--wp--preset--color--primary-02) !important;}.has-primary-03-border-color{border-color: var(--wp--preset--color--primary-03) !important;}.has-primary-04-border-color{border-color: var(--wp--preset--color--primary-04) !important;}.has-primary-05-border-color{border-color: var(--wp--preset--color--primary-05) !important;}.has-primary-06-border-color{border-color: var(--wp--preset--color--primary-06) !important;}.has-primary-07-border-color{border-color: var(--wp--preset--color--primary-07) !important;}.has-secondary-01-border-color{border-color: var(--wp--preset--color--secondary-01) !important;}.has-secondary-02-border-color{border-color: var(--wp--preset--color--secondary-02) !important;}.has-secondary-03-border-color{border-color: var(--wp--preset--color--secondary-03) !important;}.has-secondary-04-border-color{border-color: var(--wp--preset--color--secondary-04) !important;}.has-secondary-05-border-color{border-color: var(--wp--preset--color--secondary-05) !important;}.has-secondary-06-border-color{border-color: var(--wp--preset--color--secondary-06) !important;}.has-secondary-07-border-color{border-color: var(--wp--preset--color--secondary-07) !important;}.has-content-type-01-border-color{border-color: var(--wp--preset--color--content-type-01) !important;}.has-neutrals-black-border-color{border-color: var(--wp--preset--color--neutrals-black) !important;}.has-neutrals-grey-01-border-color{border-color: var(--wp--preset--color--neutrals-grey-01) !important;}.has-neutrals-grey-02-border-color{border-color: var(--wp--preset--color--neutrals-grey-02) !important;}.has-neutrals-grey-03-border-color{border-color: var(--wp--preset--color--neutrals-grey-03) !important;}.has-neutrals-grey-04-border-color{border-color: var(--wp--preset--color--neutrals-grey-04) !important;}.has-neutrals-cultured-border-color{border-color: var(--wp--preset--color--neutrals-cultured) !important;}.has-neutrals-white-border-color{border-color: var(--wp--preset--color--neutrals-white) !important;}.has-neutrals-white-70-border-color{border-color: var(--wp--preset--color--neutrals-white-70) !important;}.has-neutrals-white-30-border-color{border-color: var(--wp--preset--color--neutrals-white-30) !important;}.has-neutrals-white-15-border-color{border-color: var(--wp--preset--color--neutrals-white-15) !important;}.has-neutrals-white-5-border-color{border-color: var(--wp--preset--color--neutrals-white-5) !important;}.has-semantic-success-900-border-color{border-color: var(--wp--preset--color--semantic-success-900) !important;}.has-semantic-success-500-border-color{border-color: var(--wp--preset--color--semantic-success-500) !important;}.has-semantic-success-100-border-color{border-color: var(--wp--preset--color--semantic-success-100) !important;}.has-semantic-info-900-border-color{border-color: var(--wp--preset--color--semantic-info-900) !important;}.has-semantic-info-500-border-color{border-color: var(--wp--preset--color--semantic-info-500) !important;}.has-semantic-info-100-border-color{border-color: var(--wp--preset--color--semantic-info-100) !important;}.has-semantic-warning-900-border-color{border-color: var(--wp--preset--color--semantic-warning-900) !important;}.has-semantic-warning-500-border-color{border-color: var(--wp--preset--color--semantic-warning-500) !important;}.has-semantic-warning-100-border-color{border-color: var(--wp--preset--color--semantic-warning-100) !important;}.has-semantic-danger-900-border-color{border-color: var(--wp--preset--color--semantic-danger-900) !important;}.has-semantic-danger-500-border-color{border-color: var(--wp--preset--color--semantic-danger-500) !important;}.has-semantic-danger-100-border-color{border-color: var(--wp--preset--color--semantic-danger-100) !important;}.has-transparent-border-color{border-color: var(--wp--preset--color--transparent) !important;}.has-custom-blue-border-color{border-color: var(--wp--preset--color--custom-blue) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-primary-to-secondary-gradient-background{background: var(--wp--preset--gradient--primary-to-secondary) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-heading-1-font-size{font-size: var(--wp--preset--font-size--heading-1) !important;}.has-heading-2-font-size{font-size: var(--wp--preset--font-size--heading-2) !important;}.has-heading-3-font-size{font-size: var(--wp--preset--font-size--heading-3) !important;}.has-heading-4-font-size{font-size: var(--wp--preset--font-size--heading-4) !important;}.has-heading-5-font-size{font-size: var(--wp--preset--font-size--heading-5) !important;}.has-heading-6-font-size{font-size: var(--wp--preset--font-size--heading-6) !important;}.has-subheading-1-font-size{font-size: var(--wp--preset--font-size--subheading-1) !important;}.has-subheading-2-font-size{font-size: var(--wp--preset--font-size--subheading-2) !important;}.has-body-01-font-size{font-size: var(--wp--preset--font-size--body-01) !important;}.has-body-02-font-size{font-size: var(--wp--preset--font-size--body-02) !important;}.has-small-text-font-size{font-size: var(--wp--preset--font-size--small-text) !important;}.has-x-small-text-font-size{font-size: var(--wp--preset--font-size--x-small-text) !important;}.has-xx-small-text-font-size{font-size: var(--wp--preset--font-size--xx-small-text) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-helvetica-font-family{font-family: var(--wp--preset--font-family--helvetica) !important;}
+:root :where(.wp-block-heading){margin-top: 0;margin-bottom: 0;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<style id="core-block-supports-inline-css">
+.wp-container-core-navigation-is-layout-7a45f77c{flex-wrap:nowrap;justify-content:flex-start;}.wp-elements-e54400d0662442550fbfb59dd1b68932 a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-aa48d5e2e1e55ee444fa6d6fa319d8cc a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-a0f03ada802b714119d192741a699fa6 a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-d8af2ca4dceb03a89993f14b7516b63d a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-bb95ef85b14135b75619c8cc172d1031 a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-b77be72590a1bb1fecf84f9a34cc7353 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-a3e79e30302757f46449f09272317a13 a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-d398a6a773414907676e8f73a1c7739c a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-d398a6a773414907676e8f73a1c7739c a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--primary-03);}.wp-elements-bc6ad8eaec4993a1131daaef3b22f56b a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-310f34e8e933b5afddb979a5f1941ef5 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-ced6673c76e705c0065c9c512258b482 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--primary-03);}.wp-elements-ced6673c76e705c0065c9c512258b482 a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--neutrals-white);}.wp-elements-a695bcd2b5da183d1ea887b2b181d7e7 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-0bf1e20bf690ea0409c67bf8458b3ad8 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-b510620214fce13fe11957a5a65d9578 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-5174e9126379884457528cdb4bb3be70 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-df83015789407fd687e442dc45036806 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-12ca93c6d11877a77328a75bb5733e00 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-4873df0aa5ea02d5101167eafa98d37d a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-a1707669809da8b30c37f67a112b005a a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-27e67f2ca94761cfcd2ad82ec198ec44 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--white);}.wp-elements-6d4a44e835d07f9489ca3a6649535599 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-6393279130fa4bc4428106c2b0577141 a:where(:not(.wp-element-button)){color:#231be4;}.wp-container-core-buttons-is-layout-8f761849{flex-wrap:nowrap;}.wp-elements-d1f174dcd68341f69204d028f891a706 a:where(:not(.wp-element-button)){color:#231be4;}.wp-elements-a8de53c1ff5cd13b9ef3984f4455bee7 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-a8de53c1ff5cd13b9ef3984f4455bee7 a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--primary-03);}.wp-container-core-navigation-is-layout-7d812b4c{justify-content:center;}.wp-elements-fc5fde4ed0013131808aee41c8b26506 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-fc5fde4ed0013131808aee41c8b26506 a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--primary-03);}.wp-container-core-group-is-layout-8f761849{flex-wrap:nowrap;}.wp-elements-ece5855fc500f41264071774d873a8fd a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-ece5855fc500f41264071774d873a8fd a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--primary-03);}.wp-elements-a3b1cbcee1c5281259559122929247be a:where(:not(.wp-element-button)){color:var(--wp--preset--color--neutrals-black);}.wp-elements-a3b1cbcee1c5281259559122929247be a:where(:not(.wp-element-button)):hover{color:var(--wp--preset--color--primary-03);}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<style id="wp-block-template-skip-link-inline-css">
+/*! This file is auto-generated */
+.skip-link.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important;word-break:normal!important}.skip-link.screen-reader-text:focus{background-color:#eee;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+/*# sourceURL=/wp-includes/css/wp-block-template-skip-link.min.css */
+</style>
+<link rel='stylesheet' id='ww-creator-css' href='https://hospitalogy.com/wp-content/mu-plugins/ww-creator/public/css/ww-creator-public.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='sailthru-css' href='https://hospitalogy.com/wp-content/plugins/ww-sailthru/public/css/sailthru-public.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='css-theme-vendor-css' href='https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/styles/vendor.min.css?ver=1.4.58' media='all' />
+<link rel='stylesheet' id='creator-theme-js-css' href='https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/styles/main.css?ver=1.4.58' media='all' />
+<link rel='stylesheet' id='sailthru-subscribe-widget-styles-css' href='https://hospitalogy.com/wp-content/plugins/sailthru-widget/css/widget.subscribe.css?ver=7.0.4' media='all' />
+<script data-wp-strategy="defer" defer id="acf-monday-badge-view-script-js" src="https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/every-monday/index.js?ver=1.1.4"></script>
+<script id="jquery-core-js" src="https://hospitalogy.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://hospitalogy.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="gform_json-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.10.5"></script>
+<script id="gform_gravityforms-js-extra">
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https://hospitalogy.com/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"https://hospitalogy.com/wp-content/plugins/gravityforms/images/spinner.svg","version_hash":"198384c5ba8096cd034ed9c43c67947e","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
+var gf_legacy_multi = {"9":""};
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","file_uploaded":"File uploaded","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled","error":"Error","message":"Message"},"vars":{"images_url":"https://hospitalogy.com/wp-content/plugins/gravityforms/images"}};
+//# sourceURL=gform_gravityforms-js-extra
+</script>
+<script id="gform_gravityforms-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.10.5"></script>
+<script id="gform_gravityforms_utils-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d"></script>
+<script id="gform_conditional_logic-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/js/conditional_logic.min.js?ver=2.10.5"></script>
+<script id="gfacl_logic-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravity-forms-advanced-conditional-logic/includes/assets/js/gfacl_logic.js?ver=2.5.0"></script>
+<script id="gfacl_is_in_list_operator-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravity-forms-advanced-conditional-logic/includes/assets/js/operators/isInListOperator.js?ver=2.5.0"></script>
+<script id="gfacl_not_contains_operator-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravity-forms-advanced-conditional-logic/includes/assets/js/operators/notContainsOperator.js?ver=2.5.0"></script>
+<script data-wp-strategy="defer" defer id="acf-read-by-leaders-view-script-js" src="https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/read-leaders/index.js?ver=1.0.16"></script>
+<script data-wp-strategy="defer" defer id="acf-copyright-view-script-js" src="https://hospitalogy.com/wp-content/themes/ww-creator-theme/blocks/copyright/index.js?ver=1.0.2"></script>
+<script id="ww-creator-js" src="https://hospitalogy.com/wp-content/mu-plugins/ww-creator/public/js/ww-creator-public.js?ver=1.0.0"></script>
+<script id="ww-creator-stripe-js" src="https://js.stripe.com/v3/?ver=1.0.0"></script>
+<script id="ww-creator-stripe-checkout-js-extra">
+var ww_creator_stripe_checkout = {"stripePublishableKey":"pk_live_51JjSuzGL4ffxKeYCjXUWIJQXHv0uASGdJHmBEkFQj9IOctskAuveER3gi8X3TFesImc8bO3nz1riXxxU0sXkMFxV00xK5lRMim","checkoutUrl":"https://hospitalogy.com/wp-json/ww-creator/v1/stripe/checkout/create"};
+//# sourceURL=ww-creator-stripe-checkout-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="ww-creator-stripe-checkout-js" src="https://hospitalogy.com/wp-content/mu-plugins/ww-creator/public/js/ww-creator-stripe-checkout.js?ver=1.0.0"></script>
+<script src='//ak.sail-horizon.com/spm/spm.v1.min.js?ver=7.0.4' type='text/javascript' async></script><script id="tag-js-extra">
+var tag = {"options":{"customerId":"b10e5c91d12eb1859361a868d61f9cf5"}};
+//# sourceURL=tag-js-extra
+</script>
+<script id="tag-js" src="https://hospitalogy.com/wp-content/plugins/sailthru-widget/js/tag.js?ver=7.0.4"></script>
+<script id="sailthru-js" src="https://hospitalogy.com/wp-content/plugins/ww-sailthru/public/js/sailthru-public.js?ver=1.0.0"></script>
+<script id="aampli_plg_scr_web_experiment-js" src="https://cdn.amplitude.com/script/147ea27310d0e3ee2b2d98c56b6d5c52.experiment.js?ver=7.0.4"></script>
+<script id="aampli_plg_scr_setup-js" src="https://cdn.amplitude.com/libs/analytics-browser-2.32.2-min.js.gz?ver=7.0.4"></script>
+<script id="aampli_plg_scr_configure-js-extra">
+var aampliPlgScrPayload = {"apiKey":"147ea27310d0e3ee2b2d98c56b6d5c52","sessionReplay":"0","sampleRate":"5","shouldChangeLibrary":"1","isEuServerZone":"0"};
+//# sourceURL=aampli_plg_scr_configure-js-extra
+</script>
+<script id="aampli_plg_scr_configure-js" src="https://hospitalogy.com/wp-content/plugins/amplitude/scripts/amplitude-configure.js?ver=7.0.4"></script>
+<script id="sailthru-subscribe-script-js" src="https://hospitalogy.com/wp-content/plugins/sailthru-widget/js/widget.subscribe.min.js?ver=7.0.4"></script>
+<link rel="https://api.w.org/" href="https://hospitalogy.com/wp-json/" />
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to automatic -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var dataLayer_content = {"pageTitle":"Hospitalogy - A healthcare industry newsletter covering the latest across strategy, finance, M\u0026amp;A, and innovation","pagePostType":"frontpage"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script data-cfasync="false" data-pagespeed-no-defer>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TVJG4SD8');
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><script id="wp-importmap" type="importmap">
+{"imports":{"@wordpress/interactivity":"https://hospitalogy.com/wp-includes/js/dist/script-modules/interactivity/index.min.js?ver=efaa5193bbad9c60ffd1"}}
+</script>
+<link rel="modulepreload" href="https://hospitalogy.com/wp-includes/js/dist/script-modules/interactivity/index.min.js?ver=efaa5193bbad9c60ffd1" id="@wordpress/interactivity-js-modulepreload" fetchpriority="low">
+<script type="text/javascript">var sailthru_vars = {"ajaxurl":"https:\/\/hospitalogy.com\/wp-admin\/admin-ajax.php"}</script><style class="wp-fonts-local">
+@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url('https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/fonts/poppins-regular.woff2') format('woff2');}
+@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url('https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/fonts/poppins-bold.woff2') format('woff2');}
+</style>
+<link rel="icon" href="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospital_fav.png" sizes="32x32" />
+<link rel="icon" href="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospital_fav.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospital_fav.png" />
+<meta name="msapplication-TileImage" content="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospital_fav.png" />
+</head>
+
+<body class="home blog wp-custom-logo wp-embed-responsive wp-theme-ww-creator-theme metaslider-plugin">
+
+<!-- GTM Container placement set to automatic -->
+<!-- Google Tag Manager (noscript) -->
+				<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVJG4SD8" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link screen-reader-text" id="wp-skip-link" href="#wp--skip-link--target">Skip to content</a><div class="wp-site-blocks"><header class="c-lp-header wp-block-template-part">
+<div class="wp-block-group c-lp-header__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<div class="c-ww-nav has-neutrals-white-color">
+  <a href="https://workweek.com/" target="_blank" rel="noopener noreferrer" class="c-ww-nav__btn js-ww-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" class="is-desktop-logo" width="121" viewBox="0 0 121 24" fill="none"><path fill="currentColor" d="M7.303 11.017h-.302L6.397 0H.75v.29L2.562 24h6.644l.906-9.456h.302L11.32 24h6.04L19.172.29V0h-5.074l-.604 11.017h-.302L12.196 0H8.3l-.997 11.017ZM18.973 12.723c0 8.183 3.17 11.277 7.882 11.277 4.71 0 7.882-3.094 7.882-11.277v-1.446C34.737 3.094 31.566 0 26.855 0s-7.882 3.094-7.882 11.277v1.446Zm7.187-8.414c0-.492.212-.839.695-.839s.694.347.694.839v15.383c0 .491-.211.838-.694.838s-.695-.347-.695-.838V4.309ZM35.467 24h6.16v-9.282c1.028 0 1.24.752 1.27 1.822l.06 3.18c.03 1.88.241 3.297.664 4.28h5.798v-.29c-.483-.809-.634-1.705-.694-4.192l-.03-1.359c-.06-2.863-.604-4.366-2.84-5.494v-.29c2.266-1.214 3.504-2.949 3.504-5.638v-.52c0-3.615-3.02-6.217-7.761-6.217h-6.13v24ZM42.02 3.759c.605 0 .997.376.997 1.243v4.685c0 .867-.392 1.272-.997 1.272h-.392v-7.2h.392ZM56.131 24l-.242-8.27h.302L58.034 24h6.01v-.29l-2.81-11.594v-.29L64.045.29V0h-5.86l-1.993 8.79h-.302L56.131 0h-6.13v24h6.13ZM70.822 11.017h-.302L69.916 0H64.27v.29L66.081 24h6.644l.906-9.456h.302L74.839 24h6.04L82.69.29V0h-5.074l-.604 11.017h-.302L75.715 0h-3.896l-.997 11.017ZM83.285 24h10.872v-4.627h-4.53v-5.147h3.866V9.6h-3.866V4.626h4.53V0H83.285v24ZM94.996 24h10.872v-4.627h-4.53v-5.147h3.866V9.6h-3.866V4.626h4.53V0H94.996v24ZM112.837 24l-.241-8.27h.302l1.843 8.27h6.009v-.29l-2.808-11.594v-.29L120.75.29V0h-5.858l-1.994 8.79h-.302l.241-8.79h-6.13v24h6.13Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="is-mobile-logo" width="30" fill="none" viewBox="0 0 30 25"><path fill="currentColor" d="M10.101 24.425c-1.96.075-3.467.075-5.427.075C2.488 23.296.981 21.49.001 19.158V1.704C0 .424-.074.575 1.13.575H6.71c.076.301.076.602.076.903v15.273c0 .451-.076 1.053.452 1.053.754.075.528-.677.528-1.128V8.85C7.765 5.09 8.97 2.306 12.287.5h5.277c3.392 1.73 4.673 4.439 4.673 8.351v8.201c0 .376.076.827.528.752.377 0 .452-.376.377-.752V.5c2.26 0 4.522.075 6.784-.075-.076 6.094 0 12.188 0 18.282-.754 2.407-2.262 4.213-4.372 5.492-1.81.075-3.77.075-5.578.15-3.618-2.106-4.598-5.19-4.598-9.253v-6.47c0-.527.15-1.656-.452-1.656-.604 0-.453 1.129-.453 1.655v6.32c.076 4.138-.754 7.373-4.372 9.48Z"/></svg>
+  </a>
+</div>
+
+<div class="wp-block-site-logo"><a href="https://hospitalogy.com/" class="custom-logo-link" rel="home" aria-current="page"><img width="150" height="37" src="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo.png" class="custom-logo" alt="Hospitalogy" decoding="async" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo.png 801w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo-300x75.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo-768x192.png 768w" sizes="(max-width: 150px) 100vw, 150px" /></a></div>
+
+<nav class="items-justified-left no-wrap js-nav wp-block-navigation is-horizontal is-content-justification-left is-nowrap is-layout-flex wp-container-core-navigation-is-layout-7a45f77c wp-block-navigation-is-layout-flex" aria-label="Navigation 3"><ul class="wp-block-navigation__container items-justified-left no-wrap js-nav wp-block-navigation"><li class="wp-block-navigation-item current-menu-item wp-block-home-link"><a class="wp-block-home-link__content wp-block-navigation-item__content" href="https://hospitalogy.com" rel="home" aria-current="page">Home</a></li><li data-wp-context="{ &quot;submenuOpenedBy&quot;: { &quot;click&quot;: false, &quot;hover&quot;: false, &quot;focus&quot;: false }, &quot;type&quot;: &quot;submenu&quot;, &quot;modal&quot;: null, &quot;previousFocus&quot;: null }" data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-watch="callbacks.initMenu" tabindex="-1" class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu"><button data-wp-bind--aria-expanded="state.isMenuOpen" data-wp-on--click="actions.toggleMenuOnClick" aria-label="Content submenu" class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle" ><span class="wp-block-navigation-item__label">Content</span></button><span class="wp-block-navigation__submenu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></span><ul data-wp-on--focus="actions.openMenuOnFocus" class="wp-block-navigation__submenu-container wp-block-navigation-submenu"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://hospitalogy.com/articles/"><span class="wp-block-navigation-item__label">Articles</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://hospitalogy.com/podcast/"><span class="wp-block-navigation-item__label">Podcast</span></a></li></ul></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://hihpoint.com/community" target="_blank"  ><span class="wp-block-navigation-item__label">Community</span></a></li><li data-wp-context="{ &quot;submenuOpenedBy&quot;: { &quot;click&quot;: false, &quot;hover&quot;: false, &quot;focus&quot;: false }, &quot;type&quot;: &quot;submenu&quot;, &quot;modal&quot;: null, &quot;previousFocus&quot;: null }" data-wp-interactive="core/navigation" data-wp-on--focusout="actions.handleMenuFocusout" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-watch="callbacks.initMenu" tabindex="-1" class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu"><button data-wp-bind--aria-expanded="state.isMenuOpen" data-wp-on--click="actions.toggleMenuOnClick" aria-label="Events submenu" class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle" ><span class="wp-block-navigation-item__label">Events</span></button><span class="wp-block-navigation__submenu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></span><ul data-wp-on--focus="actions.openMenuOnFocus" class="wp-block-navigation__submenu-container wp-block-navigation-submenu"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://www.hospitalogyretreat.com/"><span class="wp-block-navigation-item__label">Hospitalogy AI Retreat</span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://boardroom.hospitalogy.com/events"><span class="wp-block-navigation-item__label">All events</span></a></li></ul></li></ul></nav></div>
+</header>
+
+
+<main id="wp--skip-link--target" class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+<div id="Hero" class="wp-block-group c-lp-hero is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-hero__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-hero__wrap is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-meta is-layout-flex wp-block-group-is-layout-flex">
+<div class="wp-block-group c-lp-meta__label has-primary-03-color has-primary-03-background-color has-text-color has-background is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-neutrals-white-color has-text-color has-small-text-font-size wp-block-paragraph"><strong>Healthcare</strong></p>
+</div>
+
+
+
+<div class="wp-block-group c-lp-meta__desc has-primary-03-color has-text-color is-layout-flow wp-block-group-is-layout-flow is-style-disable">
+  <span class="c-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 16 15" fill="none"><g clip-path="url(#im-icon-2)"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M5 7.813H3.667v.625H5v-.626ZM9 7.813H7.667v.625H9v-.626ZM5 10.938H3.667v.624H5v-.624ZM9 10.938H7.667v.624H9v-.624ZM13 7.813h-1.334v.625H13v-.626Z"></path><path fill="currentColor" d="M5 7.813H3.667v.625H5v-.626ZM9 7.813H7.667v.625H9v-.626ZM5 10.938H3.667v.624H5v-.624ZM9 10.938H7.667v.624H9v-.624ZM13 7.813h-1.334v.625H13v-.626Z"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M15.667 2.813H1v11.25h14.667V2.813ZM11.666 2.813V.937M5 2.813V.937M1 5.313h14.667"></path></g><defs><clipPath id="im-icon-2"><path fill="#fff" d="M0 0h16v15H0z"></path></clipPath></defs></svg>
+  </span>
+  <p class="has-small-text-font-size">Sun/Tues/Thurs</p>
+</div></div>
+
+
+
+<h1 class="wp-block-heading c-lp-hero__title has-text-color has-link-color wp-elements-e54400d0662442550fbfb59dd1b68932" style="color:#231be4;text-transform:none">Hospitalogy</h1>
+
+
+
+<div class="wp-block-group c-lp-hero__desc is-layout-flow wp-block-group-is-layout-flow">
+<p class="wp-block-paragraph" style="padding-top:0;padding-bottom:0">Subscribe to get expert analysis on healthcare M&amp;A, strategy, finance, and markets. Join the thousands of healthcare professionals who read Hospitalogy, created by Blake Madden.</p>
+</div>
+
+
+
+<div class="wp-block-group c-lp-hero__form is-layout-flow wp-block-group-is-layout-flow">
+                <div class='gf_browser_unknown gform_wrapper gravity-theme gform-theme--no-framework creator-page-subscribe_wrapper c-gform-inline_wrapper' data-form-theme='gravity-theme' data-form-index='0' id='gform_wrapper_9' ><form method='post' enctype='multipart/form-data' target='gform_ajax_frame_9' id='gform_9' class='creator-page-subscribe c-gform-inline' action='/' data-formid='9' novalidate><input type="hidden" value="0" name="gpps_page_progression_9" />
+                        <div class='gform-body gform_body'><div id='gform_fields_9' class='gform_fields top_label form_sublabel_below description_below validation_below'><div id="field_9_10" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_9_10'>LinkedIn</label><div class='ginput_container'><input name='input_10' id='input_9_10' type='text' value='' autocomplete='new-password'/></div><div class='gfield_description' id='gfield_description_9_10'>This field is for validation purposes and should be left unchanged.</div></div><div id="field_9_1" class="gfield gfield--type-email gfield--input-type-email gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible gpev-field"  data-field-class="gpev-field" ><label class='gfield_label gform-field-label' for='input_9_1'>Email<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_1' id='input_9_1' type='email' value='' class='large'   placeholder='Your work email...' aria-required="true" aria-invalid="false"  />
+                        </div></div><div id="field_9_3" class="gfield gfield--type-hidden gfield--input-type-hidden gform_hidden field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><div class='ginput_container ginput_container_text'><input name='input_3' id='input_9_3' type='hidden' class='gform_hidden'  aria-invalid="false" value='Hospitalogy Newsletter' /></div></div><div id="field_9_6" class="gfield gfield--type-hidden gfield--input-type-hidden gfield--width-full gform_hidden field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><div class='ginput_container ginput_container_text'><input name='input_6' id='input_9_6' type='hidden' class='gform_hidden'  aria-invalid="false" value='https://hospitalogy.com/' /></div></div><div id="field_9_4" class="gfield gfield--type-hidden gfield--input-type-hidden gfield--width-full gform_hidden field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><div class='ginput_container ginput_container_text'><input name='input_4' id='input_9_4' type='hidden' class='gform_hidden'  aria-invalid="false" value='' /></div></div><div id="field_9_5" class="gfield gfield--type-hidden gfield--input-type-hidden gfield--width-full gform_hidden field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><div class='ginput_container ginput_container_text'><input name='input_5' id='input_9_5' type='hidden' class='gform_hidden'  aria-invalid="false" value='' /></div></div><div id="field_9_8" class="gfield gfield--type-text gfield--input-type-text gfield--width-third event-id field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_hidden"  ><div class="admin-hidden-markup"><i class="gform-icon gform-icon--hidden" aria-hidden="true" title="This field is hidden when viewing the form"></i><span>This field is hidden when viewing the form</span></div><label class='gfield_label gform-field-label' for='input_9_8'>event-id</label><div class='ginput_container ginput_container_text'><input name='input_8' id='input_9_8' type='text' value='' class='large'      aria-invalid="false"   /></div></div><div id="field_9_9" class="gfield gfield--type-text gfield--input-type-text gfield--width-third fbp-field field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_hidden"  ><div class="admin-hidden-markup"><i class="gform-icon gform-icon--hidden" aria-hidden="true" title="This field is hidden when viewing the form"></i><span>This field is hidden when viewing the form</span></div><label class='gfield_label gform-field-label' for='input_9_9'>_fbp</label><div class='ginput_container ginput_container_text'><input name='input_9' id='input_9_9' type='text' value='' class='large'      aria-invalid="false"   /></div></div><div id="field_9_7" class="gfield gfield--type-text gfield--input-type-text gfield--width-third fbc-field field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_hidden"  ><div class="admin-hidden-markup"><i class="gform-icon gform-icon--hidden" aria-hidden="true" title="This field is hidden when viewing the form"></i><span>This field is hidden when viewing the form</span></div><label class='gfield_label gform-field-label' for='input_9_7'>_fbc</label><div class='ginput_container ginput_container_text'><input name='input_7' id='input_9_7' type='text' value='' class='large'      aria-invalid="false"   /></div></div></div></div>
+        <div class='gform-footer gform_footer top_label'> <input type='submit' id='gform_submit_button_9' class='gform_button button' onclick='gform.submission.handleButtonClick(this);' data-submission-type='submit' value='Join'  /> <input type='hidden' name='gform_ajax' value='form_id=9&amp;title=&amp;description=&amp;tabindex=0&amp;theme=gravity-theme&amp;styles={&quot;inputPrimaryColor&quot;:&quot;#204ce5&quot;}&amp;hash=537ad6423e7898befc467f3a6e8a6fef' />
+            <input type='hidden' class='gform_hidden' name='gform_submission_method' data-js='gform_submission_method_9' value='iframe' />
+            <input type='hidden' class='gform_hidden' name='gform_theme' data-js='gform_theme_9' id='gform_theme_9' value='gravity-theme' />
+            <input type='hidden' class='gform_hidden' name='gform_style_settings' data-js='gform_style_settings_9' id='gform_style_settings_9' value='{&quot;inputPrimaryColor&quot;:&quot;#204ce5&quot;}' />
+            <input type='hidden' class='gform_hidden' name='is_submit_9' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='9' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_currency' data-currency='USD' value='b1iY3F859BLNPCdfX9qUhLahVKTvh3WdmfHEIqv4GceG8aF9gON+4BkLfNE2RAHfAFkEk8rzdlVl4hLuP8Di9sXrVZMbCMPL7CNUuuXLXKC9a8Q=' />
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_9' value='WyJbXSIsIjBiODg4MTYzNzIzMDRkNjVkMjg4Njk2ODM3NDA2ZDY1Il0=' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_target_page_number_9' id='gform_target_page_number_9' value='0' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_source_page_number_9' id='gform_source_page_number_9' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div>
+		                <iframe style='display:none;width:0px;height:0px;' src='about:blank' name='gform_ajax_frame_9' id='gform_ajax_frame_9' title='This iframe contains the logic required to handle Ajax powered Gravity Forms.'></iframe>
+		                <script>
+gform.initializeOnLoaded( function() {gformInitSpinner( 9, '/wp-content/themes/ww-creator-theme/assets/images/spinner.svg', true );jQuery('#gform_ajax_frame_9').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_9');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_9').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_9').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_9').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_9').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */  }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_9').val();gformInitSpinner( 9, '/wp-content/themes/ww-creator-theme/assets/images/spinner.svg', true );jQuery(document).trigger('gform_page_loaded', [9, current_page]);window['gf_submitting_9'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_9').replaceWith(confirmation_content);jQuery(document).trigger('gform_confirmation_loaded', [9]);window['gf_submitting_9'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_9').text());}else{jQuery('#gform_9').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "9", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_9" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_9";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_9" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 9, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} );
+</script>
+</div>
+
+
+
+<div class="wp-block-group c-lp-hero__statistic has-small-text-font-size is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-mp-subscribers__info is-layout-flow wp-block-group-is-layout-flow">
+<h5 class="wp-block-heading has-text-color has-link-color wp-elements-aa48d5e2e1e55ee444fa6d6fa319d8cc" style="color:#231be4">35k+</h5>
+
+
+
+<p class="has-text-color has-link-color wp-elements-a0f03ada802b714119d192741a699fa6 wp-block-paragraph" style="color:#231be4">Social Followers</p>
+</div>
+
+
+
+<div class="wp-block-group c-mp-subscribers__info is-layout-flow wp-block-group-is-layout-flow">
+<h5 class="wp-block-heading has-text-color has-link-color wp-elements-d8af2ca4dceb03a89993f14b7516b63d" style="color:#231be4">67k+</h5>
+
+
+
+<p class="has-text-color has-link-color wp-elements-bb95ef85b14135b75619c8cc172d1031 wp-block-paragraph" style="color:#231be4">Newsletter subscribers</p>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group c-lp-hero__intro is-layout-flow wp-block-group-is-layout-flow">
+<figure class="wp-block-image size-large"><img width="1017" height="1024" src="https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero-1017x1024.png" alt="" class="wp-image-2456" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero-1017x1024.png 1017w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero-298x300.png 298w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero-150x150.png 150w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero-768x773.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/hospitalogy-hero.png 1136w" sizes="(max-width: 1017px) 100vw, 1017px" /></figure>
+</div>
+</div>
+</div>
+
+
+
+<div class="o-section c-read-leaders has-separator-line is-style-left">
+  <div class="o-section__wrapper ">
+    <div class="c-read-leaders__wrap">
+      
+
+<h4 class="wp-block-heading c-read-leaders__title" style="text-transform:none">Trusted by Leaders at</h4>
+
+
+              <div class="c-read-leaders__list js-reader-brands">
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/hc-healthcare.png" 
+              width="150" 
+              height="225" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/kaiser-permanente.png" 
+              width="150" 
+              height="1000" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/elevance-health.png" 
+              width="150" 
+              height="258" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/intermountain-health.jpg" 
+              width="150" 
+              height="588" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/tenet-health.png" 
+              width="150" 
+              height="614" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/northwell-health.jpeg" 
+              width="150" 
+              height="200" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/advocate-health.webp" 
+              width="150" 
+              height="566" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/common-spirit-health.png" 
+              width="150" 
+              height="229" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/BSW-health.png" 
+              width="150" 
+              height="248" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/cvs-health.jpg" 
+              width="150" 
+              height="708" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/humana-health.png" 
+              width="150" 
+              height="126" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/cigna-healthcare.png" 
+              width="150" 
+              height="331" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/elevance-health-1.png" 
+              width="150" 
+              height="258" loading="lazy"  alt="">
+            </div>
+                      <div class="c-read-leaders__item">
+              <img src="https://hospitalogy.com/wp-content/uploads/sites/5/2025/04/bluecross-blueshield.png" 
+              width="150" 
+              height="750" loading="lazy"  alt="">
+            </div>
+                  </div>
+          </div>
+  </div>
+</div>
+
+
+<div id="Creator" class="wp-block-group c-lp-creator is-layout-flow wp-block-group-is-layout-flow" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70)">
+<div class="wp-block-group c-lp-creator__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-creator__wrap is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-meta is-layout-flex wp-block-group-is-layout-flex">
+<div class="wp-block-group c-lp-meta__label has-primary-03-color has-primary-03-background-color has-text-color has-background is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-neutrals-white-color has-text-color has-small-text-font-size wp-block-paragraph"><strong>Behind the
+								Brand</strong></p>
+</div>
+
+
+
+<div class="wp-block-group c-lp-meta__desc has-neutrals-white-color has-text-color is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-neutrals-black-color has-text-color has-link-color has-small-text-font-size wp-elements-b77be72590a1bb1fecf84f9a34cc7353 wp-block-paragraph"><strong>The Creator</strong></p>
+</div>
+</div>
+
+
+
+<h2 class="wp-block-heading c-lp-creator__title has-text-color has-link-color has-heading-2-font-size wp-elements-a3e79e30302757f46449f09272317a13" style="color:#231be4;line-height:1.2">Meet Blake Madden</h2>
+
+
+
+<div class="wp-block-group c-lp-hero__social has-link-color wp-elements-d398a6a773414907676e8f73a1c7739c is-layout-flow wp-block-group-is-layout-flow" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)"><a href="https://www.linkedin.com/in/blakecmadden/" rel="noreferrer noopener"   class="wp-block-tiptip-hyperlink-group-block" target="_blank">
+<span class="c-icon">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M22.186-.063c.979 0 1.776.775 1.776 1.73V22.21c0 .956-.797 1.733-1.776 1.733H1.727c-.977 0-1.77-.777-1.77-1.733V1.668c0-.955.793-1.73 1.77-1.73h20.46Zm-1.773 20.455V14.11c0-3.086-.666-5.458-4.271-5.458-1.733 0-2.894.95-3.37 1.85h-.048V8.936H9.311v11.456h3.556v-5.666c0-1.494.283-2.942 2.136-2.942 1.827 0 1.85 1.709 1.85 3.037v5.571h3.56ZM7.078 8.936H3.513v11.456h3.565V8.936ZM5.296 3.241a2.064 2.064 0 1 0 0 4.13 2.065 2.065 0 0 0 0-4.13Z"/></svg>
+</span></a>
+
+<a href="https://twitter.com/B_Madden4" rel="noreferrer noopener"   class="wp-block-tiptip-hyperlink-group-block" target="_blank">
+<span class="c-icon">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 20 6.768-6.768m2.46-2.46L20 4M4 4l11.733 16H20L8.267 4H4Z"/></svg>
+</span></a></div>
+
+
+
+<div class="wp-block-group c-lp-creator__desc has-body-01-font-size is-layout-flow wp-block-group-is-layout-flow">
+<p class="wp-block-paragraph">Blake Madden is a former healthcare consultant and founder of Hospitalogy, a healthcare newsletter compiling the latest trends across M&amp;A, strategy, finance, and markets into a simple-to-digest format.<br><br>Blake&#8217;s expertise and insight come from his healthcare consulting, M&amp;A, and transaction advisory background. <br><br>Blake graduated from the University of Texas with a Bachelor&#8217;s in Business Administration and a focus on General Finance.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group c-lp-creator__avatar is-layout-flow wp-block-group-is-layout-flow">
+<figure class="wp-block-image aligncenter size-large is-resized is-style-default"><img width="712" height="1024" src="https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/blake-madden-712x1024.png" alt="" class="wp-image-2471" style="object-fit:cover;width:387px;height:auto" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/blake-madden-712x1024.png 712w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/blake-madden-209x300.png 209w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/blake-madden-768x1105.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/03/blake-madden.png 830w" sizes="(max-width: 712px) 100vw, 712px" /></figure>
+</div>
+</div>
+</div>
+
+
+
+<div id="Testimonials" class="wp-block-group c-lp-testimonials has-neutrals-black-color has-text-color has-background has-link-color wp-elements-bc6ad8eaec4993a1131daaef3b22f56b is-layout-flow wp-block-group-is-layout-flow" style="background-color:#231be4">
+<div class="wp-block-group c-lp-testimonials__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading has-text-align-center c-lp-testimonials__title has-white-color has-text-color has-link-color has-heading-2-font-size wp-elements-310f34e8e933b5afddb979a5f1941ef5" style="line-height:1.1;text-transform:none">What healthcare experts are saying&#8230;</h2>
+
+
+
+<div class="c-testimonials wp-elements-ced6673c76e705c0065c9c512258b482">
+    <div class="c-testimonials__carousel">
+      <div class="c-testimonials__list js-testimonials">
+
+        
+
+<div class="wp-block-group c-testimonials__item is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-testimonials__head is-layout-flow wp-block-group-is-layout-flow" style="border-bottom-color:var(--wp--preset--color--primary-03);border-bottom-width:2px">
+<h2 class="wp-block-heading has-text-align-center c-testimonials__name has-white-color has-text-color has-link-color has-heading-4-font-size wp-elements-a695bcd2b5da183d1ea887b2b181d7e7" style="font-weight:400;line-height:1;text-transform:none">Rob Burns </h2>
+
+
+
+<p class="has-text-align-center c-testimonials__job has-white-color has-text-color has-link-color has-small-text-font-size wp-elements-0bf1e20bf690ea0409c67bf8458b3ad8 wp-block-paragraph" style="line-height:1;text-transform:none">Senior Manager, Payor Partnerships</p>
+</div>
+
+
+
+<div class="wp-block-group c-testimonials__wrap is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-text-align-center c-testimonials__text has-white-color has-text-color has-link-color has-body-01-font-size wp-elements-b510620214fce13fe11957a5a65d9578 wp-block-paragraph" style="line-height:1.5">&#8220;This is the type of healthcare newsletter I’ve been dying to track down. I read every inch of this. Thanks for the work and effort to put this together. Tremendous value. I’ll be forwarding this over to some coworkers to encourage them to subscribe.&#8221;</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group c-testimonials__item is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-testimonials__head is-layout-flow wp-block-group-is-layout-flow" style="border-bottom-color:var(--wp--preset--color--primary-03);border-bottom-width:2px">
+<h2 class="wp-block-heading has-text-align-center c-testimonials__name has-white-color has-text-color has-link-color has-heading-4-font-size wp-elements-5174e9126379884457528cdb4bb3be70" style="font-weight:400;line-height:1;text-transform:none">John Doyle</h2>
+
+
+
+<p class="has-text-align-center c-testimonials__job has-white-color has-text-color has-link-color has-small-text-font-size wp-elements-df83015789407fd687e442dc45036806 wp-block-paragraph" style="line-height:1;text-transform:none">CFO, Adelade</p>
+</div>
+
+
+
+<div class="wp-block-group c-testimonials__wrap is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-text-align-center c-testimonials__text has-white-color has-text-color has-link-color has-body-01-font-size wp-elements-12ca93c6d11877a77328a75bb5733e00 wp-block-paragraph" style="line-height:1.5">&#8220;Kudos, Blake. Clear, thorough and succinct can be a tough balance to strike w/new-ish healthcare topics. You did all three well here.&#8221;</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group c-testimonials__item is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-testimonials__head is-layout-flow wp-block-group-is-layout-flow" style="border-bottom-color:var(--wp--preset--color--primary-03);border-bottom-width:2px">
+<h2 class="wp-block-heading has-text-align-center c-testimonials__name has-white-color has-text-color has-link-color has-heading-4-font-size wp-elements-4873df0aa5ea02d5101167eafa98d37d" style="font-weight:400;line-height:1;text-transform:none">Mitch Evans </h2>
+
+
+
+<p class="has-text-align-center c-testimonials__job has-white-color has-text-color has-link-color has-small-text-font-size wp-elements-a1707669809da8b30c37f67a112b005a wp-block-paragraph" style="line-height:1;text-transform:none">Founder &amp; CEO, Affirm Health</p>
+</div>
+
+
+
+<div class="wp-block-group c-testimonials__wrap is-layout-flow wp-block-group-is-layout-flow">
+<p class="has-text-align-center c-testimonials__text has-white-color has-text-color has-link-color has-body-01-font-size wp-elements-27e67f2ca94761cfcd2ad82ec198ec44 wp-block-paragraph" style="line-height:1.5">&#8220;Blake&#8217;s content is great!&#8221; He has a knack for jumping headfirst into the most timely, relevant topics in our industry and putting together a well thought and articulated point of view.&#8221;</p>
+</div>
+</div>
+
+
+
+      </div>
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var testimonials = document.querySelector('.js-testimonials');
+    var testimonialsCarousel = [];
+    var testimonialsCarouselStatus = false;
+
+    if ( testimonials ) {
+      testimonialsFlickity();
+      window.addEventListener('resize', function() {
+        if (testimonialsCarouselStatus) {
+          testimonialsCarousel.destroy();
+        }
+        testimonialsFlickity();
+      });
+    }
+
+    function testimonialsFlickity() {
+      var realWidth = testimonials.offsetWidth;
+      var scrollWidth = testimonials.scrollWidth;
+
+      if (realWidth < scrollWidth) {
+        testimonialsCarousel = new window.Flickity(testimonials, {
+          draggable: true,
+          accessibility: false,
+          contain: true,
+          wrapAround: false,
+          groupCells: true,
+          prevNextButtons: false,
+          pageDots: true,
+          percentPosition: true,
+          autoPlay: false
+        });
+        testimonialsCarousel.resize();
+        testimonialsCarouselStatus = true;
+      } else if (testimonialsCarouselStatus) {
+        testimonialsCarousel.destroy();
+      }
+    }
+  });
+</script></div>
+</div>
+
+
+
+<div id="Education" class="wp-block-group c-lp-column is-layout-flow wp-block-group-is-layout-flow" style="padding-top:0;padding-bottom:0"></div>
+
+
+
+<div id="Conference" class="wp-block-group c-lp-column is-layout-flow wp-block-group-is-layout-flow"></div>
+
+
+
+<div id="Articles" class="wp-block-group c-lp-latest is-layout-flow wp-block-group-is-layout-flow" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--70)">
+<div class="wp-block-group c-lp-latest__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading has-text-align-center c-lp-latest__title has-text-color has-link-color has-heading-2-font-size wp-elements-d1f174dcd68341f69204d028f891a706" style="color:#231be4;line-height:1.1">Latest Articles</h2>
+
+
+
+<div class="c-articles is-style-default wp-elements-a8de53c1ff5cd13b9ef3984f4455bee7 has-neutrals-black-color has-helvetica-font-family">
+
+      <div class="c-articles__featured">
+<div class="c-articles__item">
+  <div class="c-articles-card">
+
+    <div class="c-articles-card__image">
+      <div class="c-lp-media">
+        <a href="https://hospitalogy.com/articles/2026-08-19/everyones-building-agents-almost-nobodys-doing-this/" aria-label="Everyone&#8217;s building &#8220;agents.&#8221; Almost nobody&#8217;s doing this.">
+          <img width="1654" height="1098" src="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1.png 1654w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1-300x199.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1-1024x680.png 1024w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1-768x510.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1-1536x1020.png 1536w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Predoc_Hosp_V5-1-50x33.png 50w" sizes="auto, (max-width: 1654px) 100vw, 1654px" />        </a>
+      </div>
+    </div>
+
+    <h3 class="c-articles-card__title">
+      <a href="https://hospitalogy.com/articles/2026-08-19/everyones-building-agents-almost-nobodys-doing-this/" class="c-articles-card__link">Everyone&#8217;s building &#8220;agents.&#8221; Almost nobody&#8217;s doing this.</a>
+    </h3>
+
+          <div class="c-articles-card__date">
+        August 19, 2026      </div>
+    
+  </div>
+</div></div><div class="c-articles__list">
+<div class="c-articles__item">
+  <div class="c-articles-card">
+
+    <div class="c-articles-card__image">
+      <div class="c-lp-media">
+        <a href="https://hospitalogy.com/articles/2026-08-14/addiction-capitalism/" aria-label="Addiction Capitalism">
+          <img width="2400" height="1260" src="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection.png 2400w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-300x158.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-1024x538.png 1024w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-768x403.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-1536x806.png 1536w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-2048x1075.png 2048w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/Addiction-Capitalism-Thumbnail-selection-50x26.png 50w" sizes="auto, (max-width: 2400px) 100vw, 2400px" />        </a>
+      </div>
+    </div>
+
+    <h3 class="c-articles-card__title">
+      <a href="https://hospitalogy.com/articles/2026-08-14/addiction-capitalism/" class="c-articles-card__link">Addiction Capitalism</a>
+    </h3>
+
+          <div class="c-articles-card__date">
+        August 14, 2026      </div>
+    
+  </div>
+</div>
+<div class="c-articles__item">
+  <div class="c-articles-card">
+
+    <div class="c-articles-card__image">
+      <div class="c-lp-media">
+        <a href="https://hospitalogy.com/articles/2026-08-14/should-hipaa-cover-health-apps/" aria-label="Should HIPAA Cover Health Apps? Two Privacy Heavyweights Say No &#8211; Here&#8217;s Why.">
+          <img width="2400" height="1260" src="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection.png" class="attachment-full size-full wp-post-image" alt="Should HIPAA cover health apps?" decoding="async" loading="lazy" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection.png 2400w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-300x158.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-1024x538.png 1024w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-768x403.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-1536x806.png 1536w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-2048x1075.png 2048w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/08/HIPAA-Health-Apps-Thumbnail-selection-50x26.png 50w" sizes="auto, (max-width: 2400px) 100vw, 2400px" />        </a>
+      </div>
+    </div>
+
+    <h3 class="c-articles-card__title">
+      <a href="https://hospitalogy.com/articles/2026-08-14/should-hipaa-cover-health-apps/" class="c-articles-card__link">Should HIPAA Cover Health Apps? Two Privacy Heavyweights Say No &#8211; Here&#8217;s Why.</a>
+    </h3>
+
+          <div class="c-articles-card__date">
+        August 14, 2026      </div>
+    
+  </div>
+</div>
+<div class="c-articles__item">
+  <div class="c-articles-card">
+
+    <div class="c-articles-card__image">
+      <div class="c-lp-media">
+        <a href="https://hospitalogy.com/articles/2026-07-27/the-48b-payor-nobody-contracts-with/" aria-label="The $48B Payor Nobody Contracts With">
+          <img width="1024" height="535" src="https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/cedar_deep_dive_title_image_1024.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/cedar_deep_dive_title_image_1024.png 1024w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/cedar_deep_dive_title_image_1024-300x157.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/cedar_deep_dive_title_image_1024-768x401.png 768w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/cedar_deep_dive_title_image_1024-50x26.png 50w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />        </a>
+      </div>
+    </div>
+
+    <h3 class="c-articles-card__title">
+      <a href="https://hospitalogy.com/articles/2026-07-27/the-48b-payor-nobody-contracts-with/" class="c-articles-card__link">The $48B Payor Nobody Contracts With</a>
+    </h3>
+
+          <div class="c-articles-card__date">
+        July 27, 2026      </div>
+    
+  </div>
+</div>
+<div class="c-articles__item">
+  <div class="c-articles-card">
+
+    <div class="c-articles-card__image">
+      <div class="c-lp-media">
+        <a href="https://hospitalogy.com/articles/2026-07-13/the-revenue-cycle-has-an-infrastructure-problem-r1-built-the-os-to-solve-it/" aria-label="The Revenue Cycle Has an Infrastructure Problem. R1 Built the OS to Solve It.">
+          <img width="719" height="405" src="https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/navina_branded_article_image__3__720.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/navina_branded_article_image__3__720.png 719w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/navina_branded_article_image__3__720-300x169.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2026/07/navina_branded_article_image__3__720-50x28.png 50w" sizes="auto, (max-width: 719px) 100vw, 719px" />        </a>
+      </div>
+    </div>
+
+    <h3 class="c-articles-card__title">
+      <a href="https://hospitalogy.com/articles/2026-07-13/the-revenue-cycle-has-an-infrastructure-problem-r1-built-the-os-to-solve-it/" class="c-articles-card__link">The Revenue Cycle Has an Infrastructure Problem. R1 Built the OS to Solve It.</a>
+    </h3>
+
+          <div class="c-articles-card__date">
+        July 13, 2026      </div>
+    
+  </div>
+</div></div>  
+</div></div>
+</div>
+</main>
+
+
+<footer class="c-lp-footer wp-block-template-part">
+<div class="wp-block-group c-lp-footer__wrapper is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-footer__nav is-layout-flow wp-block-group-is-layout-flow"><nav style="font-style:normal;font-weight:900;text-transform:none" class="has-text-color has-neutrals-black-color has-heading-5-font-size items-justified-center wp-block-navigation has-fk-screamer-font-family is-horizontal is-content-justification-center is-layout-flex wp-container-core-navigation-is-layout-7d812b4c wp-block-navigation-is-layout-flex" aria-label="Navigation 2"><ul style="font-style:normal;font-weight:900;text-transform:none" class="wp-block-navigation__container has-text-color has-neutrals-black-color has-heading-5-font-size items-justified-center wp-block-navigation has-fk-screamer-font-family"><li class="has-heading-5-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://hospitalogy.com/articles/"><span class="wp-block-navigation-item__label">Content</span></a></li><li class="has-heading-5-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://hihpoint.com/community" target="_blank"  ><span class="wp-block-navigation-item__label">Membership</span></a></li><li class="has-heading-5-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="https://boardroom.hospitalogy.com/events"><span class="wp-block-navigation-item__label">Events</span></a></li></ul></nav></div>
+
+
+
+<div class="wp-block-group c-lp-footer__row is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-footer__left has-neutrals-black-color has-text-color has-link-color wp-elements-fc5fde4ed0013131808aee41c8b26506 is-layout-flow wp-block-group-is-layout-flow">
+<div id="copyright-block_97a446ff87cb21d076c1b91bb91ed9eb" class="c-lp-footer__copyright">
+  <p>
+    &copy; 2026 Powered by Workweek
+  </p>
+</div>
+
+
+
+<div class="wp-block-group c-lp-footer__links is-nowrap is-layout-flex wp-container-core-group-is-layout-8f761849 wp-block-group-is-layout-flex">
+<p class="wp-block-paragraph"><a href="https://workweek.com/privacy/" target="_blank" rel="noreferrer noopener nofollow">Privacy Policy</a></p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group c-lp-footer__logo is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-site-logo"><a href="https://hospitalogy.com/" class="custom-logo-link" rel="home" aria-current="page"><img loading="lazy" width="160" height="39" src="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo.png" class="custom-logo" alt="Hospitalogy" decoding="async" srcset="https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo.png 801w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo-300x75.png 300w, https://hospitalogy.com/wp-content/uploads/sites/5/2024/02/hospitalogy-logo-768x192.png 768w" sizes="auto, (max-width: 160px) 100vw, 160px" /></a></div></div>
+
+
+
+<div class="wp-block-group c-lp-footer__right is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group c-lp-footer__links has-link-color wp-elements-ece5855fc500f41264071774d873a8fd is-nowrap is-layout-flex wp-container-core-group-is-layout-8f761849 wp-block-group-is-layout-flex">
+<p class="wp-block-paragraph"><a href="https://workweek.com/about/" target="_blank" rel="noreferrer noopener nofollow">About</a></p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://workweek.com/partnerships/" target="_blank" rel="noreferrer noopener nofollow">Contact</a></p>
+</div>
+
+
+
+<div class="wp-block-group c-lp-footer__social has-link-color wp-elements-a3b1cbcee1c5281259559122929247be is-layout-flow wp-block-group-is-layout-flow"><a href="https://www.linkedin.com/in/blakecmadden/" rel="noreferrer noopener"   class="wp-block-tiptip-hyperlink-group-block" target="_blank">
+<span class="c-icon">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M22.186-.063c.979 0 1.776.775 1.776 1.73V22.21c0 .956-.797 1.733-1.776 1.733H1.727c-.977 0-1.77-.777-1.77-1.733V1.668c0-.955.793-1.73 1.77-1.73h20.46Zm-1.773 20.455V14.11c0-3.086-.666-5.458-4.271-5.458-1.733 0-2.894.95-3.37 1.85h-.048V8.936H9.311v11.456h3.556v-5.666c0-1.494.283-2.942 2.136-2.942 1.827 0 1.85 1.709 1.85 3.037v5.571h3.56ZM7.078 8.936H3.513v11.456h3.565V8.936ZM5.296 3.241a2.064 2.064 0 1 0 0 4.13 2.065 2.065 0 0 0 0-4.13Z"/></svg>
+</span></a>
+
+<a href="https://twitter.com/B_Madden4" rel="noreferrer noopener"   class="wp-block-tiptip-hyperlink-group-block" target="_blank">
+<span class="c-icon">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 20 6.768-6.768m2.46-2.46L20 4M4 4l11.733 16H20L8.267 4H4Z"/></svg>
+</span></a></div>
+</div>
+</div>
+</div>
+</footer></div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/sites/5/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ww-creator-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script data-wp-router-options="{&quot;loadOnClientNavigation&quot;:true}" fetchpriority="low" id="@wordpress/block-library/navigation/view-js-module" src="https://hospitalogy.com/wp-includes/js/dist/script-modules/block-library/navigation/view.min.js?ver=96a846e1d7b789c39ab9" type="module"></script>
+<script id="wp-dom-ready-js" src="https://hospitalogy.com/wp-includes/js/dist/dom-ready.min.js?ver=a06281ae5cf5500e9317"></script>
+<script id="wp-hooks-js" src="https://hospitalogy.com/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://hospitalogy.com/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-a11y-js" src="https://hospitalogy.com/wp-includes/js/dist/a11y.min.js?ver=af934e5259bc51b8718e"></script>
+<script id="gform_placeholder-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.10.5"></script>
+<script id="gform_gravityforms_theme_vendors-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=7c651d0ba638ce98b9c65141edddd567"></script>
+<script id="gform_gravityforms_theme-js-extra">
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"198384c5ba8096cd034ed9c43c67947e"},"ajax":{"ajaxurl":"https://hospitalogy.com/wp-admin/admin-ajax.php","ajax_submission_nonce":"c99d07580f","i18n":{"step_announcement":"Step %1$s of %2$s, %3$s","unknown_error":"There was an unknown error processing your request. Please try again.","error_403":"The request was blocked (403 error) for unknown security reasons. Remove any code-like text (scripts or DB queries) and try again."}}}},"hmr_dev":"","public_path":"https://hospitalogy.com/wp-content/plugins/gravityforms/assets/js/dist/","config_nonce":"c092fd0e48"};
+//# sourceURL=gform_gravityforms_theme-js-extra
+</script>
+<script id="gform_gravityforms_theme-js" defer='defer' src="https://hospitalogy.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=301fdc9aa6144168f3b854c4c2c8f6d3"></script>
+<script id="wp-ajax-response-js-extra">
+var wpAjax = {"noPerm":"Sorry, you are not allowed to do that.","broken":"An error occurred while processing your request. Please try again later."};
+//# sourceURL=wp-ajax-response-js-extra
+</script>
+<script id="wp-ajax-response-js" src="https://hospitalogy.com/wp-includes/js/wp-ajax-response.min.js?ver=7.0.4"></script>
+<script id="gforms_google_analytics_frontend-js-before">
+var gforms_google_analytics_frontend_strings = {"ajaxurl":"https:\/\/hospitalogy.com\/wp-admin\/admin-ajax.php","nonce":"8d640e7597","logging_enabled":false,"logging_nonce":"44d18ac269","ua_tracker":""};
+//# sourceURL=gforms_google_analytics_frontend-js-before
+</script>
+<script id="gforms_google_analytics_frontend-js" src="https://hospitalogy.com/wp-content/plugins/gravityformsgoogleanalytics/js/google-analytics.min.js?ver=2.2.0"></script>
+<script id="js-theme-vendor-js" src="https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/scripts/vendor.min.js?ver=1.4.58"></script>
+<script id="js-theme-vendor-js-after">
+Flickity.prototype._createResizeClass = function() {
+      this.element.classList.add("flickity-resize");
+    };
+    Flickity.createMethods.push("_createResizeClass");
+    var e = Flickity.prototype.resize;
+    Flickity.prototype.resize = function() {
+      this.element.classList.remove("flickity-resize");
+      e.call(this);
+      this.element.classList.add("flickity-resize");
+    };
+  
+//# sourceURL=js-theme-vendor-js-after
+</script>
+<script id="creator-theme-js-js" src="https://hospitalogy.com/wp-content/themes/ww-creator-theme/assets/scripts/main.js?ver=1.4.58"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://hospitalogy.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://hospitalogy.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 9) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }document.querySelectorAll('select:not(.nice-select)').forEach(function(select) {
+        NiceSelect.bind(select, {searchable: false});
+        select.classList.add('nice-select');
+    });} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+<script>
+gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "9", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_9" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_9";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_9" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 9, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2f17faffdd4e895',t:'MTc4NzM5NzczNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

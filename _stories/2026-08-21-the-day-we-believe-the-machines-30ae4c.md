@@ -1,0 +1,20 @@
+---
+layout: "story"
+title: "The Day We Believe the Machines"
+date: "2026-08-21"
+permalink: "/2026/08/21/stories/the-day-we-believe-the-machines-30ae4c/"
+slug: "the-day-we-believe-the-machines-30ae4c"
+source: "TAAFT - There's An AI For That"
+subscription_email: "aiste.ulozaite@gmail.com"
+unsubscribe_url: "https://link.mail.beehiiv.com/ss/c/u001.YVtwEONifAodwtyRJ4fK9EF0aTtXoffYj_Syhgk1RmDd9jbqbJitp6Ju93tvT5k0_jCCx-prsJ88lMK9q0nfRxIFvV8--B7mRec0rhBnqRsmDjX-OjDf9Nm_63vf7Vzc3S9UPDYbM5U57PgZ7mpqcvnHclRIOL7fQvbJ71L7G1HIiCSLNi7uQZzKep8jn8sOMLYQjxiWxkM5iUDoyOsuqTbyUquEEpF1Hn8rgrmPGlmb-UQ9TFIKRG_bOUY11W-QHM1nnkV5IzNI6cAFtFU3y4yHIv6_QOOJCfrvGXqkUqh8NxxLgCTmsdcmUQkTVrZ-IHkuVNMyR4pEHzI3AbTcQYlMdaMRoeP91RbocZ4XsRXg8lpMn-wYdmmBwvyp5Wx4sEHr5HeK12FhyHIUSU8OcDwYUg7JLI8LDdwShYzRncXmc56gI29TnsHSD_33RrSkMLtKfK3kRBegzLea7IR0fdd6gDaDQzOmCNVJmNWYGDUqfgk4rPZZtBfKKQvdkBdWtp1li9v6Cdn_GZO-UPjrBR8TT_Z7Hxgg9xEPldU4bxDKpg1qK8HY1rBPwqlQUplPnmMQeBHOcWsVkozSO5xy9wJBFjZeu_ZD1dTa2J8X6fix6fsJF-pPChrgS2SPMlhdPabV8Qa0QvZW42yIki06l2AtAz8f34XwzG4cRGj5-xK8tD4_CXEiXo0AURC-T_HoAby24wboWJg65jBytD1DLWaACpyWyDVhJMvfZ2Ee9HOcS-FTlJ80AZFvQT8CHbHgnyuDXuT23k_cewwafwi3TxwV9okV7titgHryASSEexi1WAwbyRkvlGRWhV1vHLr8u3YjVJcAfAHOh4IKvVHDYkQ2C6YtlFHw7HxnHldgK-EYUEoqfUM51dbNmRPPu8VSRATxRB1ZZS_hJ-ue8oGb-g/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h35/h001.7T5pLXPBOHxSIpTlCcvKIp9Ebds9QJDh_Q8gmzEnS-c"
+original_url: "https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7rMoviV65-al5K_jhRN5Gwuqt-w2gOb-Y8mpY3h6d-qyYvBEEGJjH0AB_CpY1tU5jc2xQIkDBEB3N4szfTzn85rQDG0C5XKOSgoa1GC91gEsNJ_84tgglrWqw_XsYlsDInkFU8Ewnu2NyXCbmz4tbhvviY9-R3fPUV3R4-UIlx1JDUbM2dtF8JAG1gbsWIT0xEuE2k_0NTqmVXOO1xCSz6Fawng3W58JKWhFXkXR4gGjg1xd4zL6I42Q2KJEac8XXCsMNJVRWiE8Qcz04A8Jqjk/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h11/h001.GyRIMrclhUsftXpu4E8cJjWtAs72Kita4IDy_CGYH5I"
+category: "AI Ethics"
+excerpt_separator: ""
+---
+
+{% raw %}
+A Columbia physicist says consciousness is physical, machines will reach it, and their rights need settling now.
+
+*Couldn't fetch the full article — [read it on the original site ↗](https://link.mail.beehiiv.com/ss/c/u001.os0wY4i5pjGIM0Qbp25e7rMoviV65-al5K_jhRN5Gwuqt-w2gOb-Y8mpY3h6d-qyYvBEEGJjH0AB_CpY1tU5jc2xQIkDBEB3N4szfTzn85rQDG0C5XKOSgoa1GC91gEsNJ_84tgglrWqw_XsYlsDInkFU8Ewnu2NyXCbmz4tbhvviY9-R3fPUV3R4-UIlx1JDUbM2dtF8JAG1gbsWIT0xEuE2k_0NTqmVXOO1xCSz6Fawng3W58JKWhFXkXR4gGjg1xd4zL6I42Q2KJEac8XXCsMNJVRWiE8Qcz04A8Jqjk/4ta/Z1NiK1DIQPKNuI83j4_uXQ/h11/h001.GyRIMrclhUsftXpu4E8cJjWtAs72Kita4IDy_CGYH5I).*
+
+{% endraw %}
